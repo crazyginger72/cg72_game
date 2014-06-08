@@ -21,4 +21,5 @@ dofile(minetest.get_modpath("default").."/mapgen.lua")
 dofile(minetest.get_modpath("default").."/player.lua")
 dofile(minetest.get_modpath("default").."/trees.lua")
 dofile(minetest.get_modpath("default").."/misc.lua")
+dofile(minetest.get_modpath("default").."/time_lag.lua")
 
