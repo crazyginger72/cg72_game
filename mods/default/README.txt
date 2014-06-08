@@ -1,4 +1,4 @@
-Minetest 0.4 mod: default
+Minetest 0.4.9-cg72 mod: default
 ==========================
 
 License of source code:
