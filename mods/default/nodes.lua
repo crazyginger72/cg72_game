@@ -1,5 +1,15 @@
 -- mods/default/nodes.lua
 
+-- cylinder nodebox
+detail_level = 16
+local cylbox = {}
+local detail = detail_level
+local sehne
+for i = 1, detail-1 do
+	sehne = math.sqrt(0.25 - (((i/detail)-0.5)^2))
+	cylbox[i]={(i/detail)-0.5, -0.5, -sehne, (i/detail)+(1/detail)-0.5, 0.5, sehne}
+end
+
 minetest.register_node("default:stone", {
 	description = "Stone",
 	tiles = {"default_stone.png"},
@@ -222,7 +232,7 @@ minetest.register_node("default:clay", {
 	tiles = {"default_clay.png"},
 	is_ground_content = true,
 	groups = {crumbly=3},
-	drop = 'default:clay_lump 4',
+	drop = 'default:clay_lump 8',
 	sounds = default.node_sound_dirt_defaults(),
 })
 
@@ -241,7 +251,17 @@ minetest.register_node("default:tree", {
 	is_ground_content = false,
 	groups = {tree=1,choppy=2,oddly_breakable_by_hand=1,flammable=2},
 	sounds = default.node_sound_wood_defaults(),
-	on_place = minetest.rotate_node
+	on_place = minetest.rotate_node,
+	paramtype = "light",
+	drawtype = "nodebox",		
+	selection_box = {
+		type = "fixed",
+		fixed = cylbox,
+	},
+	node_box = {
+		type = "fixed",
+		fixed = cylbox,
+	},
 })
 
 minetest.register_node("default:jungletree", {
@@ -251,8 +271,85 @@ minetest.register_node("default:jungletree", {
 	is_ground_content = false,
 	groups = {tree=1,choppy=2,oddly_breakable_by_hand=1,flammable=2},
 	sounds = default.node_sound_wood_defaults(),
-	on_place = minetest.rotate_node
+	on_place = minetest.rotate_node,
+	paramtype = "light",
+	drawtype = "nodebox",		
+	selection_box = {
+		type = "fixed",
+		fixed = cylbox,
+	},
+	node_box = {
+		type = "fixed",
+		fixed = cylbox,
+	},
 })
+
+minetest.register_node("default:acaciatree", {
+	description = "Acacia Tree",
+	tiles = {"default_acaciatree_top.png", "default_acaciatree_top.png", "default_acaciatree.png"},
+	paramtype2 = "facedir",
+	is_ground_content = false,
+	groups = {tree=1,choppy=2,oddly_breakable_by_hand=1,flammable=2},
+	sounds = default.node_sound_wood_defaults(),
+	on_place = minetest.rotate_node,
+	paramtype = "light",
+	drawtype = "nodebox",		
+	selection_box = {
+		type = "fixed",
+		fixed = cylbox,
+	},
+	node_box = {
+		type = "fixed",
+		fixed = cylbox,
+	},
+})
+
+minetest.register_node("default:acaciatree_t", {
+	description = "Acacia Tree",
+	tiles = {"default_acaciatree.png"},
+	paramtype2 = "facedir",
+	is_ground_content = false,
+	groups = {tree=1,choppy=2,oddly_breakable_by_hand=1,flammable=2,not_in_creative_inventory=1},
+	sounds = default.node_sound_wood_defaults(),
+	on_place = minetest.rotate_node,
+	paramtype = "light",
+	drop = 'default:acaciatree',
+})
+
+minetest.register_node("default:acaciawood", {
+	description = "Acaciawood Planks",
+	tiles = {"default_acaciawood.png"},
+	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
+	sounds = default.node_sound_wood_defaults(),
+})
+
+minetest.register_node("default:acacialeaves", {
+	description = "Acacia Leaves",
+	drawtype = "allfaces_optional",
+	visual_scale = 1.3,
+	tiles = {"default_acacialeaves.png"},
+	paramtype = "light",
+	waving = 1,
+	is_ground_content = false,
+	groups = {snappy=3, leafdecay=3, flammable=2, leaves=1},
+	drop = {
+		max_items = 1,
+		items = {
+			{
+				-- player will get sapling with 1/20 chance
+				items = {'default:acaciasapling'},
+				rarity = 20,
+			},
+			{
+				-- player will get leaves only if he get no saplings,
+				-- this is because max_items is 1
+				items = {'default:acacialeaves'},
+			}
+		}
+	},
+	sounds = default.node_sound_leaves_defaults(),
+})
+
 
 minetest.register_node("default:junglewood", {
 	description = "Junglewood Planks",
@@ -1415,4 +1512,22 @@ minetest.register_node("default:snowblock", {
 		footstep = {name="default_snow_footstep", gain=0.25},
 		dug = {name="default_snow_footstep", gain=0.75},
 	}),
+})
+
+minetest.register_node("default:acaciasapling", {
+	description = "Acacia Sapling",
+	drawtype = "plantlike",
+	use_texture_alpha = true,
+	visual_scale = 1.0,
+	tiles = {"default_acaciasapling.png"},
+	inventory_image = "default_acaciasapling.png",
+	wield_image = "default_acaciasapling.png",
+	paramtype = "light",
+	walkable = false,
+	selection_box = {
+		type = "fixed",
+		fixed = {-0.3, -0.5, -0.3, 0.3, 0.35, 0.3}
+	},
+	groups = {snappy=2,dig_immediate=3,flammable=2,attached_node=1},
+	sounds = default.node_sound_leaves_defaults(),
 })

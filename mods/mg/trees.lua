@@ -17,7 +17,7 @@ mg.register_tree({
 mg.register_tree({
 	max_biome_humidity = -0.4,
 	min_biome_temperature = 0.4,
-	min_height = 2,
+	min_height = 4,
 	max_height = 30,
 	grows_on = c_desert_sand,
 	chance = 50,
@@ -34,7 +34,7 @@ mg.register_tree({
 	min_biome_humidity = -0.4,
 	max_biome_humidity = 0.4,
 	min_biome_temperature = 0.4,
-	min_height = 2,
+	min_height = 4,
 	max_height = 12,
 	grows_on = c_dry_grass,
 	chance = 1000,
@@ -57,7 +57,7 @@ mg.register_tree({
 	max_biome_humidity = 0.4,
 	min_biome_temperature = 0.4,
 	min_height = 2,
-	max_height = 40,
+	max_height = 6,
 	grows_on = c_dry_grass,
 	chance = 1500,
 	grow = add_savannabush
@@ -66,7 +66,7 @@ mg.register_tree({
 mg.register_tree({
 	min_biome_humidity = 0.4,
 	min_biome_temperature = 0.4,
-	min_height = 1,
+	min_height = 4,
 	max_height = 40,
 	grows_on = c_grass,
 	chance = 14,
@@ -76,8 +76,8 @@ mg.register_tree({
 mg.register_tree({
 	min_biome_humidity = 0.4,
 	min_biome_temperature = 0.4,
-	min_height = 1,
-	max_height = 25,
+	min_height = 8,
+	max_height = 27,
 	grows_on = c_grass,
 	chance = 16,
 	grow = add_jungletree
@@ -102,7 +102,7 @@ mg.register_tree({
 mg.register_tree({
 	min_biome_humidity = -0.4,
 	max_biome_temperature = -0.4,
-	min_height = 3,
+	min_height = 5,
 	max_height = 55,
 	grows_on = c_dirt_snow,
 	chance = 40,
@@ -112,7 +112,7 @@ mg.register_tree({
 mg.register_tree({
 	max_biome_humidity = -0.4,
 	max_biome_temperature = -0.4,
-	min_height = 3,
+	min_height = 5,
 	max_height = 55,
 	grows_on = c_dirt_snow,
 	chance = 500,
@@ -123,7 +123,7 @@ mg.register_tree({
 	max_biome_humidity = -0.4,
 	min_biome_temperature = -0.4,
 	max_biome_temperature = 0.4,
-	min_height = 1,
+	min_height = 4,
 	max_height = 40,
 	grows_on = c_grass,
 	chance = 250,
@@ -134,7 +134,7 @@ mg.register_tree({
 	max_biome_humidity = -0.4,
 	min_biome_temperature = -0.4,
 	max_biome_temperature = 0.4,
-	min_height = 1,
+	min_height = 4,
 	max_height = 40,
 	grows_on = c_grass,
 	chance = 60,
@@ -151,7 +151,7 @@ mg.register_tree({
 	min_biome_humidity = 0.4,
 	min_biome_temperature = -0.4,
 	max_biome_temperature = 0.4,
-	min_height = 1,
+	min_height = 4,
 	max_height = 40,
 	grows_on = c_grass,
 	chance = 250,
@@ -162,7 +162,7 @@ mg.register_tree({
 	min_biome_humidity = 0.4,
 	min_biome_temperature = -0.4,
 	max_biome_temperature = 0.4,
-	min_height = 3,
+	min_height = 4,
 	max_height = 40,
 	grows_on = c_grass,
 	chance = 3,
@@ -180,7 +180,7 @@ mg.register_tree({
 	max_biome_humidity = 0.4,
 	min_biome_temperature = -0.4,
 	max_biome_temperature = 0.4,
-	min_height = 3,
+	min_height = 4,
 	max_height = 40,
 	grows_on = c_grass,
 	chance = 20,
@@ -189,7 +189,7 @@ mg.register_tree({
 
 mg.register_tree({
 	min_height = 1,
-	max_height = 1,
+	max_height = 6,
 	grows_on = c_grass,
 	chance = 10,
 	grow = function(data, a, x, y, z, minp, maxp, pr)

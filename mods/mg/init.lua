@@ -9,8 +9,8 @@ dofile(minetest.get_modpath(minetest.get_current_modname()).."/nodes.lua")
 c_air  = minetest.get_content_id("air")
 c_grass  = minetest.get_content_id("default:dirt_with_grass")
 c_dry_grass  = minetest.get_content_id("mg:dirt_with_dry_grass")
-c_dirt_snow  = minetest.get_content_id("default:dirt_with_snow")
-c_snow  = minetest.get_content_id("default:snow")
+c_dirt_snow  = minetest.get_content_id("default:dirt_with_grass")  --was snow
+c_snow  = minetest.get_content_id("air")  --was snow
 c_sapling  = minetest.get_content_id("default:sapling")
 c_tree  = minetest.get_content_id("default:tree")
 c_leaves  = minetest.get_content_id("default:leaves")
@@ -26,7 +26,7 @@ c_pineleaves  = minetest.get_content_id("mg:pineleaves")
 c_dirt  = minetest.get_content_id("default:dirt")
 c_stone  = minetest.get_content_id("default:stone")
 c_water  = minetest.get_content_id("default:water_source")
-c_ice  = minetest.get_content_id("default:ice")
+c_ice  = minetest.get_content_id("default:water_source") --was ice
 c_sand  = minetest.get_content_id("default:sand")
 c_sandstone  = minetest.get_content_id("default:sandstone")
 c_desert_sand  = minetest.get_content_id("default:desert_sand")
@@ -129,7 +129,7 @@ local function add_leaves(data, vi, c_leaves, c_snow)
 end
 
 function add_tree(data, a, x, y, z, minp, maxp, pr)
-	local th = pr:next(3, 4)
+	local th = pr:next(4, 10)
 	for yy=math.max(minp.y, y), math.min(maxp.y, y+th) do
 		local vi = a:index(x, yy, z)
 		data[vi] = c_tree
@@ -157,7 +157,7 @@ function add_tree(data, a, x, y, z, minp, maxp, pr)
 end
 
 function add_jungletree(data, a, x, y, z, minp, maxp, pr)
-	local th = pr:next(7, 11)
+	local th = pr:next(9, 26)
 	for yy=math.max(minp.y, y), math.min(maxp.y, y+th) do
 		local vi = a:index(x, yy, z)
 		data[vi] = c_jungletree
@@ -249,7 +249,7 @@ end
 
 function add_pinetree(data, a, x, y, z, minp, maxp, pr, snow)
 	if snow == nil then snow = c_snow end
-	local th = pr:next(9, 13)
+	local th = pr:next(9, 20)
 	for yy=math.max(minp.y, y), math.min(maxp.y, y+th) do
 		local vi = a:index(x, yy, z)
 		data[vi] = c_pinetree

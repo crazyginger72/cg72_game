@@ -1,8 +1,33 @@
+-- cylinder nodebox
+detail_level = 16
+local cylbox = {}
+local detail = detail_level
+local sehne
+for i = 1, detail-1 do
+	sehne = math.sqrt(0.25 - (((i/detail)-0.5)^2))
+	cylbox[i]={(i/detail)-0.5, -0.5, -sehne, (i/detail)+(1/detail)-0.5, 0.5, sehne}
+end
+
+
+
 minetest.register_node("mg:savannatree", {
 	description = "Savannawood Tree",
 	tiles = {"mg_dry_tree_top.png", "mg_dry_tree_top.png", "mg_dry_tree.png"},
+	paramtype2 = "facedir",
+	is_ground_content = false,
 	groups = {tree=1,choppy=2,oddly_breakable_by_hand=1,flammable=2},
 	sounds = default.node_sound_wood_defaults(),
+	on_place = minetest.rotate_node,
+	paramtype = "light",
+	drawtype = "nodebox",	
+	selection_box = {
+		type = "fixed",
+		fixed = cylbox,
+	},
+	node_box = {
+		type = "fixed",
+		fixed = cylbox,
+	},
 })
 
 minetest.register_node("mg:savannaleaves", {
@@ -86,11 +111,25 @@ minetest.register_node("mg:dirt_with_dry_grass", {
 	}),
 })
 
+
 minetest.register_node("mg:pinetree", {
 	description = "Pine Tree",
 	tiles = {"mg_pine_tree_top.png", "mg_pine_tree_top.png", "mg_pine_tree.png"},
+	paramtype2 = "facedir",
+	is_ground_content = false,
 	groups = {tree=1,choppy=2,oddly_breakable_by_hand=1,flammable=2},
 	sounds = default.node_sound_wood_defaults(),
+	on_place = minetest.rotate_node,
+	paramtype = "light",
+	drawtype = "nodebox",		
+	selection_box = {
+		type = "fixed",
+		fixed = cylbox,
+	},
+	node_box = {
+		type = "fixed",
+		fixed = cylbox,
+	},
 })
 
 minetest.register_node("mg:pineleaves", {
