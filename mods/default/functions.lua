@@ -134,7 +134,7 @@ minetest.register_on_punchnode(on_punchnode)
 minetest.register_abm({
 	nodenames = {"default:sapling"},
 	interval = 10,
-	chance = 50,
+	chance = 35,
 	action = function(pos, node)
 		local nu =  minetest.get_node({x=pos.x, y=pos.y-1, z=pos.z}).name
 		local is_soil = minetest.get_item_group(nu, "soil")
@@ -157,7 +157,7 @@ minetest.register_abm({
 minetest.register_abm({
 	nodenames = {"default:junglesapling"},
 	interval = 10,
-	chance = 50,
+	chance = 35,
 	action = function(pos, node)
 		local nu =  minetest.get_node({x=pos.x, y=pos.y-1, z=pos.z}).name
 		local is_soil = minetest.get_item_group(nu, "soil")
@@ -179,8 +179,8 @@ minetest.register_abm({
 
 minetest.register_abm({
 	nodenames = {"default:acaciasapling"},
-	interval = 1,
-	chance = 20,
+	interval = 10,
+	chance = 35,
 	action = function(pos, node)
 		local nu =  minetest.get_node({x=pos.x, y=pos.y-1, z=pos.z}).name
 		local is_sand = minetest.get_item_group(nu, "sand")
