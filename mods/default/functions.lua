@@ -183,8 +183,8 @@ minetest.register_abm({
 	chance = 1,
 	action = function(pos, node)
 		local nu =  minetest.get_node({x=pos.x, y=pos.y-1, z=pos.z}).name
-		local is_soil = minetest.get_item_group(nu, "soil")
-		if is_soil == 0 then
+		local is_sand = minetest.get_item_group(nu, "sand")
+		if is_sand == 0 then
 			return
 		end
 		
