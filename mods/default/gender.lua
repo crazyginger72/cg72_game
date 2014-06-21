@@ -14,9 +14,9 @@ gender.changed = false
  
 gender.formname = "gender:selection"
 gender.formspec = (
-        "size[7,5]label[0,0;Are you a boy or a girl?]"..
-        "button_exit[1,1;2,1;boy;Boy]"..
-        "button_exit[3,3;2,1;girl;Girl]"
+        "size[8,2]label[0,0;            Are you a boy or a girl?]"..
+        "button_exit[0,0;4,4;boy;Boy]"..
+        "button_exit[4,0;4,4;girl;Girl]"
 )
  
 function gender.load_data()
@@ -97,7 +97,7 @@ minetest.register_on_joinplayer(function(player)
                         textures = {"characterm.png"},
                         visual_size = {x=1, y=1},
                 })
-                minetest.chat_send_player(plname, "Your gender is set to boy, to change type /girl ")
+                minetest.chat_send_player(plname, "Your gender is set to boy, to change type /gender ")
         elseif gender.players[plname] == "f" then
                 player:set_properties({
                         visual = "mesh",
@@ -105,7 +105,7 @@ minetest.register_on_joinplayer(function(player)
                         textures = {"characterf.png"},
                         visual_size = {x=1, y=1},
                 })
-                minetest.chat_send_player(plname, "Your gender is set to girl, to change type /boy ")
+                minetest.chat_send_player(plname, "Your gender is set to girl, to change type /gender ")
         else
                 minetest.chat_send_player(plname, "Please set your gender via /boy or /girl, thank you. You can also ignore this message and use the default male model. This message will be shown again when you rejoin.")
                 minetest.show_formspec(plname, gender.formname, gender.formspec)
