@@ -14,7 +14,7 @@ gender.changed = false
  
 gender.formname = "gender:selection"
 gender.formspec = (
-        "size[8,2]label[2.1,0;do you want boy or a girl skin?]"..
+        "size[8,2]label[2.1,0;Do you want boy or a girl skin?]"..
         "button_exit[0,0;4,4;boy;Boy]"..
         "button_exit[4,0;4,4;girl;Girl]"
 )
