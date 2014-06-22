@@ -142,20 +142,20 @@ minetest.register_chatcommand("area_pos", {
 	end,
 })
 
-function areas:getPos1(playerName)
+function default:getPos1(playerName)
 	return areas.pos1[playerName]
 end
 
-function areas:getPos2(playerName)
+function default:getPos2(playerName)
 	return areas.pos2[playerName]
 end
 
-function areas:setPos1(playerName, pos)
+function default:setPos1(playerName, pos)
 	areas.pos1[playerName] = pos
 	areas.markPos1(playerName)
 end
 
-function areas:setPos2(playerName, pos)
+function default:setPos2(playerName, pos)
 	areas.pos2[playerName] = pos
 	areas.markPos2(playerName)
 end
@@ -193,7 +193,7 @@ end)
 -- Modifies positions `pos1` and `pos2` so that each component of `pos1`
 -- is less than or equal to its corresponding component of `pos2`,
 -- returning two new positions
-function areas:sortPos(pos1, pos2)
+function default:sortPos(pos1, pos2)
 	if pos1.x > pos2.x then
 		pos2.x, pos1.x = pos1.x, pos2.x
 	end
@@ -232,7 +232,7 @@ areas.markPos2 = function(name)
 	end
 end
 
-minetest.register_entity("areas:pos1", {
+minetest.register_entity("default:pos1", {
 	initial_properties = {
 		visual = "cube",
 		visual_size = {x=1.1, y=1.1},
@@ -253,7 +253,7 @@ minetest.register_entity("areas:pos1", {
 	end,
 })
 
-minetest.register_entity("areas:pos2", {
+minetest.register_entity("default:pos2", {
 	initial_properties = {
 		visual = "cube",
 		visual_size = {x=1.1, y=1.1},
