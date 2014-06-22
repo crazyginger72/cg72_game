@@ -740,3 +740,70 @@ minetest.register_craft({
 	recipe = "default:grass_1",
 	burntime = 2,
 })
+
+minetest.register_craft({
+	type = "cooking",
+	output	= "default:asphalt",
+	recipe 	= "default:gravel",
+	cooktime = 2
+})
+
+minetest.register_craft({
+	output = "default:steel_support 5",
+	recipe = {
+		{"default:steel_ingot","","default:steel_ingot"},
+		{"","default:steel_ingot",""},
+		{"default:steel_ingot","","default:steel_ingot"}
+	}
+})
+
+minetest.register_craft({
+	output = "default:concrete_wall_flat 3",
+	recipe = {
+		{"","default:concrete",""},
+		{"","default:concrete",""},
+		{"","",""}
+	}
+})
+minetest.register_craft({
+	type = "shapeless",
+	output = "default:concrete",
+	recipe = {"default:stone"}
+})
+
+minetest.register_craft({
+	output = "default:charcoal_lump 4",
+	type = "cooking",
+	recipe = "group:tree",
+	cooktime = 4
+})
+
+minetest.register_craft({
+	type = "fuel",
+	recipe = "default:charcoal_lump",
+	burntime = 8,
+})
+minetest.register_craft({
+	type = "shapeless",
+	recipe = {"default:charcoal_lump","default:stick"},
+	output = "default:torch",
+})
+
+minetest.register_craft({
+	output = "default:bed_foot",
+	recipe = {
+		{"wool:white",    "", "", },
+		{"default:wood",  "", "", },
+		{"default:stick", "", "", }
+	}
+})
+
+minetest.register_craft({
+	output = "default:bed_head",
+	recipe = {
+		{"", "",              "wool:white", },
+		{"", "default:stick", "default:wood", },
+		{"", "",              "default:stick", }
+	}
+})
+

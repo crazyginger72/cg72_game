@@ -260,3 +260,18 @@ stairs.register_stair_and_slab("stonebrick", "default:stonebrick",
 		"Stone Brick Stair",
 		"Stone Brick Slab",
 		default.node_sound_stone_defaults())
+
+stairs.register_stair_and_slab("asphalt", "default:asphalt",
+		{cracky=3},
+		{"default_asphalt.png"},
+		"Asphalt Stair",
+		"Asphalt Slab",
+		default.node_sound_stone_defaults())
+
+stairs.register_stair_and_slab("concrete", "default:concrete",
+		{cracky=3},
+		{"default_asphalt.png"},
+		"Concrete Stair",
+		"Concrete Slab",
+		default.node_sound_stone_defaults())
+
