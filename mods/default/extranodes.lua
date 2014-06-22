@@ -2,6 +2,7 @@ minetest.register_node("default:asphalt",{
 	description	= "Asphalt",
 	tiles	= {"default_asphalt.png"},
 	groups	= {cracky=3}
+})
 
 minetest.register_node("default:steel_support",{
 	description = "Steel support",
