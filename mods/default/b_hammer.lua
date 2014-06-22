@@ -1,9 +1,6 @@
+
 -----------------------------------------------------------------------------------------------
-local title = "Ban Hammer"
-local version = "0.2.1"
-local mname = "ban_hammer"
------------------------------------------------------------------------------------------------
-dofile(minetest.get_modpath("ban_hammer").."/bh_settings.txt")
+dofile(minetest.get_modpath("default").."/bh_settings.txt")
 -----------------------------------------------------------------------------------------------
 
 minetest.register_alias("banhammer","default:hammer1")
