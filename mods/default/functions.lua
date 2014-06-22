@@ -331,13 +331,11 @@ minetest.register_abm({
             return
         end
 
-        if minetest.find_node_near(destnode, math.random(1, 3), "default:water_source") then
+        if minetest.find_node_near(pos, math.random(10, 70), "default:mushie_1") then
         	 return
         end
-local posa = { x = pos.x-(math.random(10, 40)), y = pos.y-3, z = 			pos.z-(math.random(10, 40)) }
-local posb = { x = pos.x+(math.random(10, 40)), y = pos.y+3, z = 			pos.z+(math.random(10, 40)) }
 
-        if minetest.find_nodes_in_area(posa, posb,"default:mushie_1") then
+        if minetest.find_node_near(destnode, math.random(1, 3), "default:water_source") then
             if name == "air" then
                 minetest.set_node(destnode, {name = "default:mushie_1"})
             end
