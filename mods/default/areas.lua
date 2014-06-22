@@ -6,7 +6,7 @@ areas = {}
 
 areas.startTime = os.clock()
 
-areas.modpath = minetest.get_modpath("areas")
+areas.modpath = minetest.get_modpath("default")
 dofile(areas.modpath.."/settings.lua")
 dofile(areas.modpath.."/api.lua")
 dofile(areas.modpath.."/internal.lua")
