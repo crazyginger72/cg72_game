@@ -68,7 +68,7 @@ minetest.register_alias("ifuel", "default:infinitefuel")
 ---------------------------------------------------------
 
 minetest.register_node("default:permanent_fire", {
-	description = S("Permanent Fire"),
+	description = "Permanent Fire",
 	drawtype = "plantlike",
 	paramtype = "light",
 	tiles = {{
@@ -89,12 +89,12 @@ minetest.register_node("default:permanent_fire", {
 ---------------------------------------------------------
 
 minetest.register_craftitem("default:infinitefuel", {
-	description = S("Infinite Fuel"),
+	description = "Infinite Fuel",
 	inventory_image = "maptools_infinitefuel.png",
 })
 
 minetest.register_node("default:superapple", {
-	description = S("Super Apple"),
+	description = "Super Apple",
 	drawtype = "plantlike",
 	visual_scale = 1.0,
 	tiles = {"maptools_superapple.png"},
@@ -112,7 +112,7 @@ minetest.register_node("default:superapple", {
 ---------------------------------------------------------
 
 minetest.register_tool("default:pick_admin", {
-	description = S("Admin Pickaxe"),
+	description = "Admin Pickaxe",
 	inventory_image = "maptools_adminpick.png",
 	groups = {not_in_creative_inventory=1},
 	tool_capabilities = {
@@ -131,7 +131,7 @@ minetest.register_tool("default:pick_admin", {
 })
 
 minetest.register_tool("default:pick_admin_with_drops", {
-	description = S("Admin Pickaxe With Drops"),
+	description = "Admin Pickaxe With Drops",
 	inventory_image = "maptools_adminpick.png",
 	groups = {not_in_creative_inventory=1},
 	tool_capabilities = {
