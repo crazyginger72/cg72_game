@@ -28,8 +28,8 @@ minetest.register_chatcommand("select_area", {
 			return
 		end
 
-		areas:setPos1(name, areas.areas[id].pos1)
-		areas:setPos2(name, areas.areas[id].pos2)
+		default:setPos1(name, areas.areas[id].pos1)
+		default:setPos2(name, areas.areas[id].pos2)
 		minetest.chat_send_player(name,
 				"Area "..id.." selected.")
 	end,
@@ -61,7 +61,7 @@ minetest.register_chatcommand("area_pos1", {
 			return
 		end
 		pos = vector.round(pos)
-		areas:setPos1(name, pos)
+		default:setPos1(name, pos)
 		minetest.chat_send_player(name,
 				"Area position 1 set to "
 				..minetest.pos_to_string(pos))
@@ -94,7 +94,7 @@ minetest.register_chatcommand("area_pos2", {
 			return
 		end
 		pos = vector.round(pos)
-		areas:setPos2(name, pos)
+		default:setPos2(name, pos)
 		minetest.chat_send_player(name,
 				"Area position 2 set to "
 				..minetest.pos_to_string(pos))
@@ -214,7 +214,7 @@ areas.markPos1 = function(name)
 		areas.marker1[name] = nil
 	end
 	if pos ~= nil then -- Add marker
-		areas.marker1[name] = minetest.add_entity(pos, "areas:pos1")
+		areas.marker1[name] = minetest.add_entity(pos, "default:pos1")
 		areas.marker1[name]:get_luaentity().active = true
 	end
 end
@@ -227,7 +227,7 @@ areas.markPos2 = function(name)
 		areas.marker2[name] = nil
 	end
 	if pos ~= nil then -- Add marker
-		areas.marker2[name] = minetest.add_entity(pos, "areas:pos2")
+		areas.marker2[name] = minetest.add_entity(pos, "default:pos2")
 		areas.marker2[name]:get_luaentity().active = true
 	end
 end
