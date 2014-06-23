@@ -86,7 +86,7 @@ for _, row in ipairs(dyelocal.dyes) do
 	local description = row[2]
 	local groups = row[3]
 	local item_name = "default:"..name
-	local item_image = "default_"..name..".png"
+	local item_image = "dye_"..name..".png"
 	minetest.register_craftitem(item_name, {
 		inventory_image = item_image,
 		description = description,
