@@ -1,10 +1,10 @@
 minetest.register_craftitem("default:plastic_sheeting", {
-        description = S("Plastic sheet"),
+        description = "Plastic sheet",
         inventory_image = "homedecor_plastic_sheeting.png",
 })
 
 minetest.register_craftitem("default:plastic_base", {
-        description = S("Unprocessed Plastic base"),
+        description = "Unprocessed Plastic base",
         wield_image = "homedecor_plastic_base.png",
         inventory_image = "homedecor_plastic_base_inv.png",
 })
