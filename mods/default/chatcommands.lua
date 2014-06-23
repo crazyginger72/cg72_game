@@ -115,15 +115,15 @@ minetest.register_chatcommand("add_owner", {
 
 		-- Check if this new area is inside an area owned by the player
 		pid = tonumber(pid)
-		if (not default:isAreaOwner(pid, name)) or
-		   (not default:isSubarea(pos1, pos2, pid)) then
+		if (not areas:isAreaOwner(pid, name)) or
+		   (not areas:isSubarea(pos1, pos2, pid)) then
 			minetest.chat_send_player(name,
 					"You can't protect that area")
 			return
 		end
 
-		local id = default:add(ownername, areaname, pos1, pos2, pid)
-		default:save()
+		local id = areas:add(ownername, areaname, pos1, pos2, pid)
+		areas:save()
 
 		minetest.chat_send_player(ownername,
 				"You have been granted control over area #"..
@@ -184,9 +184,9 @@ minetest.register_chatcommand("find_areas", {
 
 		local found = false
 		for id, area in pairs(areas.areas) do
-			if default:isAreaOwner(id, name) and
-			   default:toString(id):find(param) then
-				minetest.chat_send_player(name, default:toString(id))
+			if areas:isAreaOwner(id, name) and
+			   areas:toString(id):find(param) then
+				minetest.chat_send_player(name, areas:toString(id))
 				found = true
 			end
 		end
@@ -210,9 +210,9 @@ minetest.register_chatcommand("list_areas", {
 					"Showing your areas.")
 		end
 		for id, area in pairs(areas.areas) do
-			if admin or default:isAreaOwner(id, name) then
+			if admin or areas:isAreaOwner(id, name) then
 				minetest.chat_send_player(name,
-						default:toString(id))
+						areas:toString(id))
 			end
 		end
 end})
@@ -231,15 +231,15 @@ minetest.register_chatcommand("recursive_remove_areas", {
 			return
 		end
 
-		if not default:isAreaOwner(id, name) then
+		if not areas:isAreaOwner(id, name) then
 			minetest.chat_send_player(name, "Area "..id
 					.." does not exist or is"
 					.." not owned by you.")
 			return
 		end
 
-		default:remove(id, true)
-		default:save()
+		areas:remove(id, true)
+		areas:save()
 		minetest.chat_send_player(name, "Removed area "..id
 				.." and it's sub areas.")
 end})
@@ -257,15 +257,15 @@ minetest.register_chatcommand("remove_area", {
 			return
 		end
 
-		if not default:isAreaOwner(id, name) then
+		if not areas:isAreaOwner(id, name) then
 			minetest.chat_send_player(name, "Area "..id
 					.." does not exist or"
 					.." is not owned by you")
 			return
 		end
 
-		default:remove(id)
-		default:save()
+		areas:remove(id)
+		areas:save()
 		minetest.chat_send_player(name, 'Removed area '..id)
 end})
 
@@ -285,21 +285,21 @@ minetest.register_chatcommand("change_owner", {
 			return
 		end
 		
-		if not default:player_exists(new_owner) then
+		if not areas:player_exists(new_owner) then
 			minetest.chat_send_player(name, 'The player "'
 					..new_owner..'" does not exist')
 			return
 		end
 
 		id = tonumber(id)
-		if not default:isAreaOwner(id, name) then
+		if not areas:isAreaOwner(id, name) then
 			minetest.chat_send_player(name,
 					"Area "..id.." does not exist"
 					.." or is not owned by you.")
 			return
 		end
 		areas.areas[id].owner = new_owner
-		default:save()
+		areas:save()
 		minetest.chat_send_player(name, 'Owner changed.')
 		minetest.chat_send_player(new_owner,
 				name..'" has given you control over an area.')
@@ -318,7 +318,7 @@ minetest.register_chatcommand("area_open", {
 			return
 		end
 
-		if not default:isAreaOwner(id, name) then
+		if not areas:isAreaOwner(id, name) then
 			minetest.chat_send_player(name,
 					"Area "..id.." does not exist"
 					.." or is not owned by you.")
@@ -327,7 +327,7 @@ minetest.register_chatcommand("area_open", {
 		local open = not areas.areas[id].open
 		-- Save false as nil to avoid inflating the DB.
 		areas.areas[id].open = open or nil
-		default:save()
+		areas:save()
 		minetest.chat_send_player(name, "Area "..(open and "opened" or "closed")..".")
 end})
 
