@@ -23,7 +23,7 @@ worldedit.volume = function(pos1, pos2)
 	return (pos2.x - pos1.x + 1) * (pos2.y - pos1.y + 1) * (pos2.z - pos1.z + 1)
 end
 
-minetest.register_node("worldedit:placeholder", {
+minetest.register_node("default:placeholder", {
 	drawtype = "airlike",
 	paramtype = "light",
 	sunlight_propagates = true,
@@ -46,10 +46,10 @@ worldedit.hide = function(pos1, pos2)
 			pos.z = pos1.z
 			while pos.z <= pos2.z do
 				local node = get_node(pos)
-				if node.name ~= "worldedit:placeholder" then
+				if node.name ~= "default:placeholder" then
 					local data = get_meta(pos):to_table() --obtain metadata of original node
 					data.fields.worldedit_placeholder = node.name --add the node's name
-					node.name = "worldedit:placeholder" --set node name
+					node.name = "default:placeholder" --set node name
 					add_node(pos, node) --add placeholder node
 					get_meta(pos):from_table(data) --set placeholder metadata to the original node's metadata
 				end
@@ -65,7 +65,7 @@ end
 --suppresses all instances of `nodename` in a region defined by positions `pos1` and `pos2` by non-destructively replacing them with invisible nodes, returning the number of nodes suppressed
 worldedit.suppress = function(pos1, pos2, nodename)
 	--ignore placeholder supression
-	if nodename == "worldedit:placeholder" then
+	if nodename == "default:placeholder" then
 		return 0
 	end
 
@@ -80,7 +80,7 @@ worldedit.suppress = function(pos1, pos2, nodename)
 		local node = get_node(pos)
 		local data = get_meta(pos):to_table() --obtain metadata of original node
 		data.fields.worldedit_placeholder = node.name --add the node's name
-		node.name = "worldedit:placeholder" --set node name
+		node.name = "default:placeholder" --set node name
 		add_node(pos, node) --add placeholder node
 		get_meta(pos):from_table(data) --set placeholder metadata to the original node's metadata
 	end
@@ -105,10 +105,10 @@ worldedit.highlight = function(pos1, pos2, nodename)
 				local node = get_node(pos)
 				if node.name == nodename then --node found
 					count = count + 1
-				elseif node.name ~= "worldedit:placeholder" then --hide other nodes
+				elseif node.name ~= "default:placeholder" then --hide other nodes
 					local data = get_meta(pos):to_table() --obtain metadata of original node
 					data.fields.worldedit_placeholder = node.name --add the node's name
-					node.name = "worldedit:placeholder" --set node name
+					node.name = "default:placeholder" --set node name
 					add_node(pos, node) --add placeholder node
 					get_meta(pos):from_table(data) --set placeholder metadata to the original node's metadata
 				end
@@ -128,7 +128,7 @@ worldedit.restore = function(pos1, pos2)
 	manip:read_from_map(pos1, pos2)
 
 	local pos1, pos2 = worldedit.sort_pos(pos1, pos2)
-	local nodes = minetest.find_nodes_in_area(pos1, pos2, "worldedit:placeholder")
+	local nodes = minetest.find_nodes_in_area(pos1, pos2, "default:placeholder")
 	local get_node, get_meta, add_node = minetest.get_node, minetest.get_meta, minetest.add_node
 	for _, pos in ipairs(nodes) do
 		local node = get_node(pos)
