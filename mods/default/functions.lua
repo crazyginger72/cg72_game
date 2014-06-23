@@ -331,11 +331,11 @@ minetest.register_abm({
             return
         end
 
-        if minetest.find_node_near(destnode, math.random(1, 3), "default:water_source") then
+        if not minetest.find_node_near(destnode, math.random(1, 3), "default:water_source") then
         	 return
         end
 
-        if minetest.find_node_near(pos, math.random(10, 20), "default:mushie_1") then
+        if not minetest.find_node_near(pos, math.random(10, 20), "default:mushie_1") then
 	
             if name == "air" then
                 minetest.set_node(destnode, {name = "default:mushie_1"})
