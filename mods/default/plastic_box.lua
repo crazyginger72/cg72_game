@@ -146,32 +146,32 @@ minetest.register_craft( {
 minetest.register_craft({
      type = "shapeless",
      output = 'default:plasticbox_black',
-     recipe = {default:plasticbox', 'group:basecolor_black'},
+     recipe = {'default:plasticbox', 'group:basecolor_black'},
 })
 minetest.register_craft({
      type = "shapeless",
      output = 'default:plasticbox_blue',
-     recipe = {default:plasticbox', 'group:basecolor_blue'},
+     recipe = {'default:plasticbox', 'group:basecolor_blue'},
 })
 minetest.register_craft({
      type = "shapeless",
      output = 'default:plasticbox_brown',
-     recipe = {default:plasticbox', 'group:basecolor_brown'},
+     recipe = {'default:plasticbox', 'group:basecolor_brown'},
 })
 minetest.register_craft({
      type = "shapeless",
      output = 'default:plasticbox_cyan',
-     recipe = {default:plasticbox', 'group:basecolor_cyan'},
+     recipe = {'default:plasticbox', 'group:basecolor_cyan'},
 })
 minetest.register_craft({
      type = "shapeless",
      output = 'default:plasticbox_green',
-     recipe = {default:plasticbox', 'group:basecolor_green'},
+     recipe = {'default:plasticbox', 'group:basecolor_green'},
 })
 minetest.register_craft({
      type = "shapeless",
      output = 'default:plasticbox_grey',
-     recipe = {default:plasticbox', 'group:basecolor_grey'},
+     recipe = {'default:plasticbox', 'group:basecolor_grey'},
 })
 minetest.register_craft({
      type = "shapeless",
