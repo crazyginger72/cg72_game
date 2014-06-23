@@ -10,7 +10,7 @@ minetest.register_chatcommand("protect", {
 		end
 		local pos1, pos2 = default:getPos1(name), default:getPos2(name)
 		if pos1 and pos2 then
-			pos1, pos2 = areas:sortPos(pos1, pos2)
+			pos1, pos2 = default:sortPos(pos1, pos2)
 		else
 			minetest.chat_send_player(name, 'You need to select an area first')
 			return
