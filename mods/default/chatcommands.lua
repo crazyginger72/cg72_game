@@ -21,7 +21,7 @@ minetest.register_chatcommand("protect", {
 				" startpos="..minetest.pos_to_string(pos1)..
 				" endpos="  ..minetest.pos_to_string(pos2))
 
-		local canAdd, errMsg = default:canPlayerAddArea(pos1, pos2, name)
+		local canAdd, errMsg = areas:canPlayerAddArea(pos1, pos2, name)
 		if not canAdd then
 			minetest.chat_send_player(name,
 					"You can't protect that area: "
