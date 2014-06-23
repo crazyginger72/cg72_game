@@ -12,7 +12,7 @@ if minetest.place_schematic then
 	worldedit.prob_list = {}
 end
 
-dofile(minetest.get_modpath("worldedit_commands") .. "/mark.lua")
+dofile(minetest.get_modpath("default") .. "/mark.lua")
 
 worldedit.player_notify = function(name, message)
 	minetest.chat_send_player(name, "WorldEdit -!- " .. message, false)
