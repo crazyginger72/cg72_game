@@ -33,6 +33,27 @@ dofile(minetest.get_modpath("default").."/areas.lua")
 dofile(minetest.get_modpath("default").."/beds.lua")
 dofile(minetest.get_modpath("default").."/tpr.lua")
 dofile(minetest.get_modpath("default").."/trapdoors.lua")
+dofile(minetest.get_modpath("default").."/screwdriver.lua")
+dofile(minetest.get_modpath("default").."/give.lua")
+dofile(minetest.get_modpath("default").."/flowergen.lua")
+dofile(minetest.get_modpath("default").."/flowers.lua")
+dofile(minetest.get_modpath("default").."/dye.lua")
+dofile(minetest.get_modpath("default").."/wool.lua")
+dofile(minetest.get_modpath("default").."/fire.lua")
+dofile(minetest.get_modpath("default").."/vessels.lua")
+dofile(minetest.get_modpath("default").."/stairs.lua")
+dofile(minetest.get_modpath("default").."/legacymt.lua")
+dofile(minetest.get_modpath("default").."/bucket.lua")
+dofile(minetest.get_modpath("default").."/creative.lua")
+dofile(minetest.get_modpath("default").."/extlegacy.lua")
+dofile(minetest.get_modpath("default").."/doors.lua")
+dofile(minetest.get_modpath("default").."/worldedit.lua")
+dofile(minetest.get_modpath("default").."/farming.lua")
+dofile(minetest.get_modpath("default").."/unified_inventory.lua")
+
+
+
+
 
 
 
@@ -40,7 +61,7 @@ dofile(minetest.get_modpath("default").."/trapdoors.lua")
 ----------------------------------------------------------
 ----------------------------------------------------------
 ------------------------Admin tools-----------------------
-----------------------------------------------------------
+------alias-----------------------------------------------
 ----------------------------------------------------------
 
 minetest.register_alias("adminpick", "default:pick_admin")
@@ -148,6 +169,10 @@ minetest.register_tool("default:pick_admin_with_drops", {
 		}
 	},
 })
+
+--------------------------------------------------------
+------admin pick function-------------------------------
+--------------------------------------------------------
 
 minetest.register_on_punchnode(function(pos, node, puncher)
 	if puncher:get_wielded_item():get_name() == "default:pick_admin"

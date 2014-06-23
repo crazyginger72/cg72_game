@@ -1,0 +1,10 @@
+minetest.register_on_newplayer(function(player)
+	minetest.log("action", "Giving initial stuff to player "..player:get_player_name())
+	player:get_inventory():add_item('main', 'default:pick_steel')
+	player:get_inventory():add_item('main', 'default:torch 99')
+	player:get_inventory():add_item('main', 'default:axe_steel')
+	player:get_inventory():add_item('main', 'default:shovel_steel')
+	player:get_inventory():add_item('main', 'default:wood 99')
+	minetest.chat_send_player(name, 'You have been given tools and items to help you start playing!')
+end)
+
