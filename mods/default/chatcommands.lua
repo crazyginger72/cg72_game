@@ -58,7 +58,7 @@ minetest.register_chatcommand("set_owner", {
 			return
 		end
 
-		if not default:player_exists(ownername) then
+		if not areas:player_exists(ownername) then
 			minetest.chat_send_player(name, "The player \""
 					..ownername.."\" does not exist")
 			return
