@@ -16,7 +16,7 @@ dofile(areas.modpath.."/interact.lua")
 dofile(areas.modpath.."/legacy.lua")
 dofile(areas.modpath.."/hud.lua")
 
-default:load()
+areas:load()
 
 minetest.register_privilege("areas", {description = "Can administer areas"})
 
