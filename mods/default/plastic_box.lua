@@ -210,7 +210,7 @@ minetest.register_craft({
 })
 
 --ugly below here.
-
+--[[
 if minetest.get_modpath("moreblocks") then
                         register_stair(
                                 "plasticbox",
@@ -319,3 +319,4 @@ for i in ipairs(plasticbox.colorlist) do
 
 	end
 end
+]]--
