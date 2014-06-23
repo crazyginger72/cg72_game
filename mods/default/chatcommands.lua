@@ -29,7 +29,7 @@ minetest.register_chatcommand("protect", {
 			return
 		end
 
-		local id = default:add(name, param, pos1, pos2, nil)
+		local id = areas:add(name, param, pos1, pos2, nil)
 		default:save()
 
 		minetest.chat_send_player(name, "Area protected. ID: "..id)
