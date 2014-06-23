@@ -1,10 +1,10 @@
 
-function areas:player_exists(name)
+function default:player_exists(name)
 	return minetest.auth_table[name] ~= nil
 end
 
 -- Save the areas table to a file
-function areas:save()
+function default:save()
 	local datastr = minetest.serialize(self.areas)
 	if not datastr then
 		minetest.log("error", "[areas] Failed to serialize area data!")
@@ -19,7 +19,7 @@ function areas:save()
 end
 
 -- Load the areas table from the save file
-function areas:load()
+function default:load()
 	local file, err = io.open(self.filename, "r")
 	if err then
 		self.areas = self.areas or {}
@@ -42,7 +42,7 @@ local function findFirstUnusedIndex(t)
 end
 
 -- Add a area, returning the new area's id.
-function areas:add(owner, name, pos1, pos2, parent)
+function default:add(owner, name, pos1, pos2, parent)
 	local id = findFirstUnusedIndex(self.areas)
 	self.areas[id] = {name=name, pos1=pos1, pos2=pos2, owner=owner,
 			parent=parent}
@@ -52,7 +52,7 @@ end
 -- Remove a area, and optionally it's children recursively.
 -- If a area is deleted non-recursively the children will
 -- have the removed area's parent as their new parent.
-function areas:remove(id, recurse, secondrun)
+function default:remove(id, recurse, secondrun)
 	if recurse then
 		-- Recursively find child entries and remove them
 		local cids = self:getChildren(id)
@@ -76,7 +76,7 @@ function areas:remove(id, recurse, secondrun)
 end
 
 -- Checks if a area between two points is entirely contained by another area
-function areas:isSubarea(pos1, pos2, id)
+function default:isSubarea(pos1, pos2, id)
 	local area = self.areas[id]
 	if not area then
 		return false
@@ -93,7 +93,7 @@ function areas:isSubarea(pos1, pos2, id)
 end
 
 -- Returns a table (list) of children of an area given it's identifier
-function areas:getChildren(id)
+function default:getChildren(id)
 	local children = {}
 	for cid, area in pairs(self.areas) do
 		if area.parent and area.parent == id then
@@ -108,7 +108,7 @@ end
 -- if the area intersects other areas that they do not own.
 -- Also checks the size of the area and if the user already
 -- has more than max_areas.
-function areas:canPlayerAddArea(pos1, pos2, name)
+function default:canPlayerAddArea(pos1, pos2, name)
 	if minetest.check_player_privs(name, {areas=true}) then
 		return true
 	end
@@ -159,14 +159,14 @@ end
 
 -- Given a id returns a string in the format:
 -- "name [id]: owner (x1, y1, z1) (x2, y2, z2) -> children"
-function areas:toString(id)
+function default:toString(id)
 	local area = self.areas[id]
 	local message = ("%s [%d]: %s %s %s"):format(
 		area.name, id, area.owner,
 		minetest.pos_to_string(area.pos1),
 		minetest.pos_to_string(area.pos2))
 
-	local children = areas:getChildren(id)
+	local children = default:getChildren(id)
 	if #children > 0 then
 		message = message.." -> "..table.concat(children, ", ")
 	end
@@ -174,7 +174,7 @@ function areas:toString(id)
 end
 
 -- Re-order areas in table by their identifiers
-function areas:sort()
+function default:sort()
 	local sa = {}
 	for k, area in pairs(self.areas) do
 		if not area.parent then
@@ -192,7 +192,7 @@ function areas:sort()
 end
 
 -- Checks if a player owns an area or a parent of it
-function areas:isAreaOwner(id, name)
+function default:isAreaOwner(id, name)
 	local cur = self.areas[id]
 	if cur and minetest.check_player_privs(name, {areas=true}) then
 		return true

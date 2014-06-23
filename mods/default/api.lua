@@ -1,6 +1,6 @@
 
 -- Returns a list of areas that include the provided position
-function areas:getAreasAtPos(pos)
+function default:getAreasAtPos(pos)
 	local a = {}
 	local px, py, pz = pos.x, pos.y, pos.z
 	for id, area in pairs(self.areas) do
@@ -15,7 +15,7 @@ function areas:getAreasAtPos(pos)
 end
 
 -- Checks if the area is unprotected or owned by you
-function areas:canInteract(pos, name)
+function default:canInteract(pos, name)
 	if minetest.check_player_privs(name, {areas=true}) then
 		return true
 	end
@@ -33,7 +33,7 @@ function areas:canInteract(pos, name)
 end
 
 -- Returns a table (list) of all players that own an area
-function areas:getNodeOwners(pos)
+function default:getNodeOwners(pos)
 	local owners = {}
 	for _, area in pairs(self:getAreasAtPos(pos)) do
 		table.insert(owners, area.owner)
