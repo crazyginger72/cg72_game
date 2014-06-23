@@ -102,19 +102,19 @@ minetest.register_on_joinplayer(function(player)
 end)
 
 -- register bag tools
-minetest.register_tool("unified_inventory:bag_small", {
+minetest.register_tool("default:bag_small", {
 	description = "Small Bag",
 	inventory_image = "bags_small.png",
 	groups = {bagslots=8},
 })
 
-minetest.register_tool("unified_inventory:bag_medium", {
+minetest.register_tool("default:bag_medium", {
 	description = "Medium Bag",
 	inventory_image = "bags_medium.png",
 	groups = {bagslots=16},
 })
 
-minetest.register_tool("unified_inventory:bag_large", {
+minetest.register_tool("default:bag_large", {
 	description = "Large Bag",
 	inventory_image = "bags_large.png",
 	groups = {bagslots=24},
@@ -122,7 +122,7 @@ minetest.register_tool("unified_inventory:bag_large", {
 
 -- register bag crafts
 minetest.register_craft({
-	output = "unified_inventory:bag_small",
+	output = "default:bag_small",
 	recipe = {
 		{"",           "default:stick", ""},
 		{"group:wood", "group:wood",    "group:wood"},
@@ -131,20 +131,20 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-	output = "unified_inventory:bag_medium",
+	output = "default:bag_medium",
 	recipe = {
 		{"",              "",                            ""},
-		{"default:stick", "unified_inventory:bag_small", "default:stick"},
-		{"default:stick", "unified_inventory:bag_small", "default:stick"},
+		{"default:stick", "default:bag_small", "default:stick"},
+		{"default:stick", "default:bag_small", "default:stick"},
 	},
 })
 
 minetest.register_craft({
-	output = "unified_inventory:bag_large",
+	output = "default:bag_large",
 	recipe = {
 		{"",              "",                             ""},
-		{"default:stick", "unified_inventory:bag_medium", "default:stick"},
-		{"default:stick", "unified_inventory:bag_medium", "default:stick"},
+		{"default:stick", "default:bag_medium", "default:stick"},
+		{"default:stick", "default:bag_medium", "default:stick"},
     },
 })
 
