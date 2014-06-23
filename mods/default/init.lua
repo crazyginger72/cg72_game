@@ -50,10 +50,10 @@ dofile(minetest.get_modpath("default").."/doors.lua")
 dofile(minetest.get_modpath("default").."/worldedit.lua")
 dofile(minetest.get_modpath("default").."/farming.lua")
 dofile(minetest.get_modpath("default").."/unified_inventory.lua")
-
-
-
-
+dofile(minetest.get_modpath("default").."/item_drop.lua")
+dofile(minetest.get_modpath("default").."/plastic_box.lua")
+dofile(minetest.get_modpath("default").."/plastic.lua")
+--dofile(minetest.get_modpath("default").."/compass.lua")
 
 
 
