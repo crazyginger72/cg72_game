@@ -10,7 +10,7 @@ minetest.register_chatcommand("legacy_load_areas", {
 		minetest.chat_send_player(name, "Converting areas...")
 		local version = tonumber(param)
 		if version == 0 then
-			err = default:node_ownership_load()
+			err = areas:node_ownership_load()
 			if err then
 				minetest.chat_send_player(name, "Error loading legacy file: "..err)
 				return
@@ -31,7 +31,7 @@ minetest.register_chatcommand("legacy_load_areas", {
 				nil, nil, nil, nil, nil, nil
 
 			-- Area positions sorting
-			area.pos1, area.pos2 = default:sortPos(area.pos1, area.pos2)
+			area.pos1, area.pos2 = areas:sortPos(area.pos1, area.pos2)
 
 			-- Add name
 			area.name = "unnamed"
@@ -41,11 +41,11 @@ minetest.register_chatcommand("legacy_load_areas", {
 		end
 		minetest.chat_send_player(name, "Table format updated.")
 
-		default:save()
+		areas:save()
 		minetest.chat_send_player(name, "Converted areas saved. Done.")
 end})
 
-function default:node_ownership_load()
+function areas:node_ownership_load()
 	local filename = minetest.get_worldpath().."/owners.tbl"
 	tables, err = loadfile(filename)
 	if err then
@@ -77,7 +77,7 @@ end
 
 -- Returns the name of the first player that owns an area
 function areas.getNodeOwnerName(pos)
-	for id, area in pairs(default:getAreasAtPos(pos)) do
+	for id, area in pairs(areas:getAreasAtPos(pos)) do
 		return area.owner
 	end
 	return false
@@ -88,7 +88,7 @@ function areas.isNodeOwner(pos, name)
 	if minetest.check_player_privs(name, {areas=true}) then
 		return true
 	end
-	for id, area in pairs(default:getAreasAtPos(pos)) do
+	for id, area in pairs(areas:getAreasAtPos(pos)) do
 		if name == area.owner then
 			return true
 		end
@@ -98,7 +98,7 @@ end
 
 -- Checks if an area has an owner
 function areas.hasOwner(pos)
-	for id, area in pairs(default:getAreasAtPos(pos)) do
+	for id, area in pairs(areas:getAreasAtPos(pos)) do
 		return true
 	end
 	return false
