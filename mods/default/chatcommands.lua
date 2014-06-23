@@ -69,8 +69,8 @@ minetest.register_chatcommand("set_owner", {
 				" StartPos = "..minetest.pos_to_string(pos1)..
 				" EndPos = "  ..minetest.pos_to_string(pos2))
 
-		local id = default:add(ownername, areaname, pos1, pos2, nil)
-		default:save()
+		local id = areas:add(ownername, areaname, pos1, pos2, nil)
+		areas:save()
 	
 		minetest.chat_send_player(ownername,
 				"You have been granted control over area #"..
