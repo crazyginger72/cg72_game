@@ -291,7 +291,7 @@ minetest.register_abm({
 --
 --mushrooms growing
 --
-
+--[[
 minetest.register_abm({
     nodenames = {"default:dirt", "default:dirt_with_grass"},
     interval = 130,
@@ -424,7 +424,7 @@ minetest.register_abm({
     end
 })
 
-
+]]--
 
 --
 -- Leafdecay
