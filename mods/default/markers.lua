@@ -490,7 +490,7 @@ markers.marker_on_receive_fields = function(pos, formname, fields, sender)
    pos1.y = pos.y + add_height;
    pos2.y = pos.y - add_depth;
 
-   pos1, pos2 = areas:sortPos( pos1, pos2 );
+   pos1, pos2 = default:sortPos( pos1, pos2 );
 
    --minetest.chat_send_player('singleplayer','INPUT: '..minetest.serialize( pos1  )..' pos2: '..minetest.serialize( pos2 ));
    minetest.log("action", "[markers] /protect invoked, owner="..name..
