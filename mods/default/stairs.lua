@@ -275,6 +275,20 @@ stairs.register_stair_and_slab("junglewood", "default:junglewood",
 		"Junglewood Slab",
 		default.node_sound_wood_defaults())
 
+stairs.register_stair_and_slab("acaciawood", "default:acaciawood",
+		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
+		{"default_acaciawood.png"},
+		"Acaciawood Stair",
+		"Acaciawood Slab",
+		default.node_sound_wood_defaults())
+
+stairs.register_stair_and_slab("cactus", "default:cactus",
+		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
+		{"default_cactus.png"},
+		"Cactus Stair",
+		"Cactus Slab",
+		default.node_sound_wood_defaults())
+
 stairs.register_stair_and_slab("stonebrick", "default:stonebrick",
 		{cracky=3},
 		{"default_stone_brick.png"},
@@ -291,7 +305,7 @@ stairs.register_stair_and_slab("asphalt", "default:asphalt",
 
 stairs.register_stair_and_slab("concrete", "default:concrete",
 		{cracky=3},
-		{"default_asphalt.png"},
+		{"default_concrete.png"},
 		"Concrete Stair",
 		"Concrete Slab",
 		default.node_sound_stone_defaults())
