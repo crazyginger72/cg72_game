@@ -284,7 +284,7 @@ stairs.register_stair_and_slab("acaciawood", "default:acaciawood",
 
 stairs.register_stair_and_slab("cactus", "default:cactus",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
-		{"default_cactus_top.png","default_cactus_top.png","default_cactus_side.png","default_cactus_side.png","default_cactus_side.png","default_cactus_side.png"},
+		{"default_cactus_top.png","default_cactus_top.png","default_cactus_side.png"},
 		"Cactus Stair",
 		"Cactus Slab",
 		default.node_sound_wood_defaults())
@@ -309,4 +309,19 @@ stairs.register_stair_and_slab("concrete", "default:concrete",
 		"Concrete Stair",
 		"Concrete Slab",
 		default.node_sound_stone_defaults())
+
+stairs.register_stair_and_slab("obsidian_glass", "default:obsidian_glass",
+		{cracky=3,oddly_breakable_by_hand=3},
+		{"default_obsidian_glass.png"},
+		"Obsidian Glass Stair",
+		"Obsidian Glass Slab",
+		default.node_sound_glass_defaults())
+
+stairs.register_stair_and_slab("cloud", "default:cloud",
+		{not_in_creative_inventory=1},
+		{"default_cloud.png"},
+		"loud Stair",
+		"loud Slab",
+		default.node_sound_defaults())
+		
 
