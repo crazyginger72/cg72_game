@@ -284,7 +284,7 @@ stairs.register_stair_and_slab("acaciawood", "default:acaciawood",
 
 stairs.register_stair_and_slab("cactus", "default:cactus",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
-		{"default_cactus_side.png"},
+		{"default_cactus_top.png","default_cactus_top.png","default_cactus_side.png","default_cactus_side.png","default_cactus_side.png","default_cactus_side.png"},
 		"Cactus Stair",
 		"Cactus Slab",
 		default.node_sound_wood_defaults())
