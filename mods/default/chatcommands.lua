@@ -150,7 +150,7 @@ minetest.register_chatcommand("rename_area", {
 			return
 		end
 
-		if not default:isAreaOwner(id, name) then
+		if not areas:isAreaOwner(id, name) then
 			minetest.chat_send_player(name, "You don't own that area.")
 			return
 		end
