@@ -28,7 +28,7 @@ local function screwdriver_setmode(user,itemstack)
 		mode = 1
 	end
 	minetest.chat_send_player(player_name, "Screwdriver mode : "..mode.." - "..mode_text[mode][1] )
-	itemstack:set_name("screwdriver:screwdriver"..mode)
+	itemstack:set_name("default:screwdriver"..mode)
 	itemstack:set_metadata(mode)
 	return itemstack
 end
