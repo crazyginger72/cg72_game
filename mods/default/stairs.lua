@@ -523,9 +523,9 @@ replacements = {
 			{"", "default:bucket_lava", "default:bucket_lava"},
 			{"default:bucket_lava", "default:bucket_lava", "default:bucket_lava"},
 		},
-replacements = {
-		{ "default:bucket_lava", "default:bucket_empty" }
-	}
+	replacements = {
+			{ "default:bucket_lava", "default:bucket_empty" }
+		},
 	})
 	
 minetest.register_node("default:slab_lava", {
@@ -635,7 +635,7 @@ minetest.register_node("default:slab_lava", {
 		recipe = {
 			{"default:bucket_lava", "default:bucket_lava", "default:bucket_lava"},
 		},
-replacements = {
-		{ "default:bucket_lava", "default:bucket_empty" }
-	}
+	replacements = {
+			{ "default:bucket_lava", "default:bucket_empty" }
+		},
 	})
