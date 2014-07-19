@@ -502,9 +502,9 @@ minetest.register_node("default:stair_lava", {
 			{"default:bucket_lava", "default:bucket_lava", ""},
 			{"default:bucket_lava", "default:bucket_lava", "default:bucket_lava"},
 		},
-replacements = {
-		{ "default:bucket_lava", "default:bucket_empty" }
-	}
+	replacements = {
+			{ "default:bucket_lava", "default:bucket_empty" }
+		},
 	})
 	-- Flipped recipe for the silly minecrafters
 	minetest.register_craft({
@@ -638,4 +638,5 @@ minetest.register_node("default:slab_lava", {
 	replacements = {
 			{ "default:bucket_lava", "default:bucket_empty" }
 		},
+
 	})
