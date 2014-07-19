@@ -442,7 +442,7 @@ minetest.register_node("default:stair_lava", {
 		drawtype = "nodebox",
 		tiles = "default_lava.png",
 		paramtype = "light",
-		lightsource = 11,
+		lightsource = 14,
 		paramtype2 = "facedir",
 		is_ground_content = true,
 		groups = {snappy=2,choppy=2,oddly_breakable_by_hand=3,flammable=3,wool=1},
@@ -495,6 +495,17 @@ minetest.register_node("default:stair_lava", {
 		},
 	})
 
+	minetest.register_craft({
+		output = 'default:stair_lava 4',
+		recipe = {
+			{"default:bucket_lava", "", ""},
+			{"default:bucket_lava", "default:bucket_lava", ""},
+			{"default:bucket_lava", "default:bucket_lava", "default:bucket_lava"},
+		},
+replacements = {
+		{ "default:bucket_lava", "default:bucket_empty" }
+	}
+	})
 	-- Flipped recipe for the silly minecrafters
 	minetest.register_craft({
 		output = 'default:stair_lava 4',
@@ -505,13 +516,24 @@ minetest.register_node("default:stair_lava", {
 		},
 	})
 
+	minetest.register_craft({
+		output = 'default:stair_lava 4',
+		recipe = {
+			{"", "", "default:bucket_lava"},
+			{"", "default:bucket_lava", "default:bucket_lava"},
+			{"default:bucket_lava", "default:bucket_lava", "default:bucket_lava"},
+		},
+replacements = {
+		{ "default:bucket_lava", "default:bucket_empty" }
+	}
+	})
 	
 minetest.register_node("default:slab_lava", {
 		description = Lava Slab,
 		drawtype = "nodebox",
 		tiles = "default_lava.png",
 		paramtype = "light",
-		lightsource = 11,
+		lightsource = 14,
 		paramtype2 = "facedir",
 		is_ground_content = true,
 		groups = groups,
@@ -599,4 +621,21 @@ minetest.register_node("default:slab_lava", {
 
 			return minetest.item_place(itemstack, placer, pointed_thing, param2)
 		end,
+	})
+
+	minetest.register_craft({
+		output = 'default:slab_lava 6',
+		recipe = {
+			{"default:lava_source", "default:lava_source", "default:lava_source"},
+		},
+	})
+
+	minetest.register_craft({
+		output = 'default:slab_lava 6',
+		recipe = {
+			{"default:bucket_lava", "default:bucket_lava", "default:bucket_lava"},
+		},
+replacements = {
+		{ "default:bucket_lava", "default:bucket_empty" }
+	}
 	})
