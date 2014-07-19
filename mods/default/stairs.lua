@@ -320,8 +320,8 @@ stairs.register_stair_and_slab("obsidian_glass", "default:obsidian_glass",
 stairs.register_stair_and_slab("glass", "default:oglass",
 		{cracky=3,oddly_breakable_by_hand=3},
 		{"default_glass.png"},
-		"OGlass Stair",
-		"OGlass Slab",
+		"Glass Stair",
+		"Glass Slab",
 		default.node_sound_glass_defaults())
 
 stairs.register_stair_and_slab("cloud", "default:cloud",
