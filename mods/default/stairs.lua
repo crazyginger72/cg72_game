@@ -435,7 +435,7 @@ stairs.register_stair_and_slab("wooldark_green", "default:wooldark_green",
 		"Wool Stair",
 		"Wool Slab",
 		default.node_sound_defaults())
---lava stairs and slabs
+--[[lava stairs and slabs
 
 minetest.register_node("default:stair_lava", {
 		description = "Lava Stair",
@@ -503,7 +503,7 @@ minetest.register_node("default:stair_lava", {
 			{"default:bucket_lava", "default:bucket_lava", "default:bucket_lava"},
 		},
 	replacements = {
-			{ "default:bucket_lava", "default:bucket_empty" }
+			{ "default:bucket_lava", "default:bucket_empty" },
 		},
 	})
 	-- Flipped recipe for the silly minecrafters
@@ -524,7 +524,7 @@ minetest.register_node("default:stair_lava", {
 			{"default:bucket_lava", "default:bucket_lava", "default:bucket_lava"},
 		},
 	replacements = {
-			{ "default:bucket_lava", "default:bucket_empty" }
+			{ "default:bucket_lava", "default:bucket_empty" },
 		},
 	})
 	
@@ -636,7 +636,9 @@ minetest.register_node("default:slab_lava", {
 			{"default:bucket_lava", "default:bucket_lava", "default:bucket_lava"},
 		},
 	replacements = {
-			{ "default:bucket_lava", "default:bucket_empty" }
+			{ "default:bucket_lava", "default:bucket_empty" },
 		},
 
 	})
+
+]]--
