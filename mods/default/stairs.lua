@@ -317,6 +317,13 @@ stairs.register_stair_and_slab("obsidian_glass", "default:obsidian_glass",
 		"Obsidian Glass Slab",
 		default.node_sound_glass_defaults())
 
+stairs.register_stair_and_slab("glass", "default:oglass",
+		{cracky=3,oddly_breakable_by_hand=3},
+		{"default_glass.png"},
+		"OGlass Stair",
+		"OGlass Slab",
+		default.node_sound_glass_defaults())
+
 stairs.register_stair_and_slab("cloud", "default:cloud",
 		{not_in_creative_inventory=1},
 		{"default_cloud.png"},
@@ -324,4 +331,115 @@ stairs.register_stair_and_slab("cloud", "default:cloud",
 		"loud Slab",
 		default.node_sound_defaults())
 		
-
+stairs.register_stair_and_slab("woolwhite", "default:woolwhite",
+		{snappy=2,choppy=2,oddly_breakable_by_hand=3,flammable=3,wool=1},
+		{"wool_white.png"},
+		"Wool Stair",
+		"Wool Slab",
+		default.node_sound_defaults())
+		
+stairs.register_stair_and_slab("woolgrey", "default:woolgrey",
+		{snappy=2,choppy=2,oddly_breakable_by_hand=3,flammable=3,wool=1},
+		{"wool_grey.png"},
+		"Wool Stair",
+		"Wool Slab",
+		default.node_sound_defaults())
+		
+stairs.register_stair_and_slab("woolblack", "default:woolblack",
+		{snappy=2,choppy=2,oddly_breakable_by_hand=3,flammable=3,wool=1},
+		{"wool_black.png"},
+		"Wool Stair",
+		"Wool Slab",
+		default.node_sound_defaults())
+		
+stairs.register_stair_and_slab("woolred", "default:woolred",
+		{snappy=2,choppy=2,oddly_breakable_by_hand=3,flammable=3,wool=1},
+		{"wool_red.png"},
+		"Wool Stair",
+		"Wool Slab",
+		default.node_sound_defaults())
+		
+stairs.register_stair_and_slab("woolyellow", "default:woolyellow",
+		{snappy=2,choppy=2,oddly_breakable_by_hand=3,flammable=3,wool=1},
+		{"wool_yellow.png"},
+		"Wool Stair",
+		"Wool Slab",
+		default.node_sound_defaults())
+		
+stairs.register_stair_and_slab("woolgreen", "default:woolgreen",
+		{snappy=2,choppy=2,oddly_breakable_by_hand=3,flammable=3,wool=1},
+		{"wool_green.png"},
+		"Wool Stair",
+		"Wool Slab",
+		default.node_sound_defaults())
+		
+stairs.register_stair_and_slab("woolcyan", "default:woolcyan",
+		{snappy=2,choppy=2,oddly_breakable_by_hand=3,flammable=3,wool=1},
+		{"wool_cyan.png"},
+		"Wool Stair",
+		"Wool Slab",
+		default.node_sound_defaults())
+		
+stairs.register_stair_and_slab("woolblue", "default:woolblue",
+		{snappy=2,choppy=2,oddly_breakable_by_hand=3,flammable=3,wool=1},
+		{"wool_blue.png"},
+		"Wool Stair",
+		"Wool Slab",
+		default.node_sound_defaults())
+		
+stairs.register_stair_and_slab("woolmagenta", "default:woolmagenta",
+		{snappy=2,choppy=2,oddly_breakable_by_hand=3,flammable=3,wool=1},
+		{"wool_magenta.png"},
+		"Wool Stair",
+		"Wool Slab",
+		default.node_sound_defaults())
+		
+stairs.register_stair_and_slab("woolorange", "default:woolorange",
+		{snappy=2,choppy=2,oddly_breakable_by_hand=3,flammable=3,wool=1},
+		{"wool_orange.png"},
+		"Wool Stair",
+		"Wool Slab",
+		default.node_sound_defaults())
+		
+stairs.register_stair_and_slab("woolviolet", "default:woolviolet",
+		{snappy=2,choppy=2,oddly_breakable_by_hand=3,flammable=3,wool=1},
+		{"wool_violet.png"},
+		"Wool Stair",
+		"Wool Slab",
+		default.node_sound_defaults())	
+	
+stairs.register_stair_and_slab("woolbrown", "default:woolbrown",
+		{snappy=2,choppy=2,oddly_breakable_by_hand=3,flammable=3,wool=1},
+		{"wool_brown.png"},
+		"Wool Stair",
+		"Wool Slab",
+		default.node_sound_defaults())
+		
+stairs.register_stair_and_slab("woolpink", "default:woolpink",
+		{snappy=2,choppy=2,oddly_breakable_by_hand=3,flammable=3,wool=1},
+		{"wool_pink.png"},
+		"Wool Stair",
+		"Wool Slab",
+		default.node_sound_defaults())
+				
+stairs.register_stair_and_slab("wooldark_grey", "default:wooldark_grey",
+		{snappy=2,choppy=2,oddly_breakable_by_hand=3,flammable=3,wool=1},
+		{"wool_dark_grey.png"},
+		"Wool Stair",
+		"Wool Slab",
+		default.node_sound_defaults())
+		
+stairs.register_stair_and_slab("wooldark_green", "default:wooldark_green",
+		{snappy=2,choppy=2,oddly_breakable_by_hand=3,flammable=3,wool=1},
+		{"wool_dark_green.png"},
+		"Wool Stair",
+		"Wool Slab",
+		default.node_sound_defaults())
+	
+stairs.register_stair_and_slab("lava", "default:lava_source",
+		{snappy=2,choppy=2,oddly_breakable_by_hand=3,flammable=3,wool=1},
+		{"default_lava.png"},
+		"Lava Stair",
+		"Lava Slab",
+		default.node_sound_defaults())
+	

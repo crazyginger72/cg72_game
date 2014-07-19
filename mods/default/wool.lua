@@ -1,8 +1,8 @@
 -- minetest/wool/init.lua
 
 -- Backwards compatibility with jordach's 16-color wool mod
-minetest.register_alias("wool:dark_blue", "wool:blue")
-minetest.register_alias("wool:gold", "wool:yellow")
+--minetest.register_alias("wool:dark_blue", "wool:blue")
+--minetest.register_alias("wool:gold", "wool:yellow")
 
 local wool = {}
 -- This uses a trick: you can first define the recipes using all of the base
