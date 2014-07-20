@@ -175,9 +175,10 @@ minetest.register_tool("default:pick_admin_with_drops", {
 --------------------------------------------------------
 
 minetest.register_on_punchnode(function(pos, node, puncher)
-	if puncher:get_wielded_item():get_name() == "default:pick_admin"
+	if puncher:get_wielded_item():get_name() == "default:pick_admin" or puncher:get_wielded_item():get_name() == "default:pick_admin_with_drops"
 	and minetest.env: get_node(pos).name ~= "air" then
 		minetest.env:remove_node(pos)
+		minetest.log("action", player:get_player_name().." uses admin-pick at "..minetest.pos_to_string(pos))
 	end
 end)
 
