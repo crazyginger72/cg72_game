@@ -1,6 +1,6 @@
 minetest.register_on_chat_message(function(name, message, playername, player)
 	local cmd = "/spawn"
-	local spanw = minetest.setting_get("spawn")
+	local spawn = minetest.setting_get("spawn")
 	if message:sub(0, #cmd) == cmd then
 		if message == '/spawn' then
 			local player = minetest.env:get_player_by_name(name)
