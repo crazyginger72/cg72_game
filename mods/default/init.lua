@@ -186,8 +186,9 @@ minetest.register_on_punchnode(function(pos, node, puncher)
 	if puncher:get_wielded_item():get_name() == "default:pick_admin" or puncher:get_wielded_item():get_name() == "default:pick_admin_with_drops"
 	and minetest.env: get_node(pos).name ~= "air" then
 		minetest.env:remove_node(pos)
-		minetest.log("action", puncher:get_player_name().." used admin-pick at "..minetest.pos_to_string(pos))
+		minetest.log("action", puncher:get_player_name().." used admin-pick to dig block @"..minetest.pos_to_string(pos))
 	end
 end)
 
+print("spawn is "minetest.setting_get("static_spawnpoint"))
 
