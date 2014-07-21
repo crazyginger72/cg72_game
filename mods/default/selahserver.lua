@@ -1,11 +1,7 @@
 --tps on selah's server
 
-local si = minetest.setting_get("skyisland")
+
 local ph = minetest.setting_get("porthaven")
-local pc = minetest.setting_get("piratescove")
-local at = minetest.setting_get("admintown")
-
-
 
 minetest.register_on_chat_message(function(name, message, playername, player)
 	local cmd = "/porthaven"
@@ -34,6 +30,8 @@ else
 	print("[MOD] /porthaven is set to "..minetest.setting_get("porthaven"))
 end
 
+local pc = minetest.setting_get("piratescove")
+
 minetest.register_on_chat_message(function(name, message, playername, player)
 	local cmd = "/piratescove"
 	--local pc = minetest.setting_get("piratescove")
@@ -61,6 +59,8 @@ else
 	print("[MOD] /piratescove is set to "..minetest.setting_get("piratescove"))
 end
 
+local at = minetest.setting_get("admintown")
+
 minetest.register_on_chat_message(function(name, message, playername, player)
 	local cmd = "/admintown"
 	--local at = minetest.setting_get("admintown")
@@ -87,6 +87,8 @@ if at == nil then
 else
 	print("[MOD] /admintown is set to "..minetest.setting_get("admintown"))
 end
+
+local si = minetest.setting_get("skyisland")
 
 minetest.register_on_chat_message(function(name, message, playername, player)
 	local cmd = "/skyisland"
