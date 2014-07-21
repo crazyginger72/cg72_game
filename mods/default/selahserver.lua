@@ -1,11 +1,11 @@
 --tps on selah's server
 
 
-local ph = minetest.setting_get("porthaven")
+
 
 minetest.register_on_chat_message(function(name, message, playername, player)
 	local cmd = "/porthaven"
-	--local ph = minetest.setting_get("porthaven")
+	local ph = minetest.setting_get("porthaven")
 	if message:sub(0, #cmd) == cmd then
 
 		if ph == nil then
@@ -23,18 +23,18 @@ minetest.register_on_chat_message(function(name, message, playername, player)
 end)
 
 
-if ph == nil then
+if minetest.setting_get("porthaven") == nil then
 	minetest.log("action", "[ERROR] /porthaven not set!!!!!!!!!!!")			
 	return
 else
 	print("[MOD] /porthaven is set to "..minetest.setting_get("porthaven"))
 end
 
-local pc = minetest.setting_get("piratescove")
+
 
 minetest.register_on_chat_message(function(name, message, playername, player)
 	local cmd = "/piratescove"
-	--local pc = minetest.setting_get("piratescove")
+	local pc = minetest.setting_get("piratescove")
 	if message:sub(0, #cmd) == cmd then
 
 		if pc == nil then
@@ -52,18 +52,18 @@ minetest.register_on_chat_message(function(name, message, playername, player)
 end)
 
 
-if pc == nil then
+if minetest.setting_get("piratescove") == nil then
 	minetest.log("action", "[ERROR] /piratescove not set!!!!!!!!!!!")			
 	return
 else
 	print("[MOD] /piratescove is set to "..minetest.setting_get("piratescove"))
 end
 
-local at = minetest.setting_get("admintown")
+
 
 minetest.register_on_chat_message(function(name, message, playername, player)
 	local cmd = "/admintown"
-	--local at = minetest.setting_get("admintown")
+	local at = minetest.setting_get("admintown")
 	if message:sub(0, #cmd) == cmd then
 
 		if at == nil then
@@ -81,18 +81,18 @@ minetest.register_on_chat_message(function(name, message, playername, player)
 end)
 
 
-if at == nil then
+if minetest.setting_get("admintown") == nil then
 	minetest.log("action", "[ERROR] /admintown not set!!!!!!!!!!!")			
 	return
 else
 	print("[MOD] /admintown is set to "..minetest.setting_get("admintown"))
 end
 
-local si = minetest.setting_get("skyisland")
+
 
 minetest.register_on_chat_message(function(name, message, playername, player)
 	local cmd = "/skyisland"
-	--local si = minetest.setting_get("skyisland")
+	local si = minetest.setting_get("skyisland")
 	if message:sub(0, #cmd) == cmd then
 
 		if si == nil then
@@ -110,7 +110,7 @@ minetest.register_on_chat_message(function(name, message, playername, player)
 end)
 
 
-if si == nil then
+if minetest.setting_get("skyisland") == nil then
 	minetest.log("action", "[ERROR] /askyisland not set!!!!!!!!!!!")			
 	return
 else
