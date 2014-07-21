@@ -20,7 +20,7 @@ minetest.register_on_chat_message(function(name, message, playername, player)
 end)
 
 
-print("[MOD] /porthaven is set to "..minetest.setting_get("ph"))
+print("[MOD] /porthaven is set to "..ph))
 
 minetest.register_on_chat_message(function(name, message, playername, player)
 	local cmd = "/piratescove"
@@ -42,7 +42,7 @@ minetest.register_on_chat_message(function(name, message, playername, player)
 end)
 
 
-print("[MOD] /admintown is set to "..minetest.setting_get("pc"))
+print("[MOD] /admintown is set to "..pc))
 
 minetest.register_on_chat_message(function(name, message, playername, player)
 	local cmd = "/admintown"
@@ -64,4 +64,4 @@ minetest.register_on_chat_message(function(name, message, playername, player)
 end)
 
 
-print("[MOD] /admintown is set to "..minetest.setting_get("at"))
+print("[MOD] /admintown is set to "..at))
