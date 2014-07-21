@@ -12,4 +12,4 @@ minetest.register_on_chat_message(function(name, message, playername, player)
 end)
 
 
-print("/spawn is set to "..spawn)
+print("/spawn is set to "..minetest.setting_get("spawn"))
