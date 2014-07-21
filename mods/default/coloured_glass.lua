@@ -27,17 +27,17 @@ for _, row in ipairs(coloured_glass.dyes) do
 	local name = row[1]
 	local desc = row[2]
 	local craft_color_group = row[3]
-	-- Node Definition
+
 	minetest.register_node("default:coloured_glass"..name, {
 		description = desc.." coloured glass",
 		tiles = {"default_glass_"..name..".png"},
-		--use_texture_alpha = true,
+		use_texture_alpha = true,
 		groups = {cracky=3,oddly_breakable_by_hand=3},
-		sounds = sounds = default.node_sound_glass_defaults(),
+		sounds = default.node_sound_glass_defaults(),
 	})
 
 	if craft_color_group then
-		-- Crafting from dye and glass
+
 		minetest.register_craft({
 			type = "shapeless",
 			output = 'default:coloured_glass'..name,
