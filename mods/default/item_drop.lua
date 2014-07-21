@@ -9,7 +9,7 @@ local function iprint(...)
     for i, v in ipairs(thingies) do
         thingies[i] = tostring(v)
     end
-    print("[item_drop] "..table.concat(thingies, " "),)
+    print("item_drop loaded")
 end
 
 local movers = {}
