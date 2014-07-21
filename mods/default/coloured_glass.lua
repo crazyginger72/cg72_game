@@ -2,9 +2,9 @@
 
 
 
-local coloured glass = {}
+local coloured_glass = {}
 
-coloured glass.dyes = {
+coloured_glass.dyes = {
 	{"white",      "White",      nil},
 	{"grey",       "Grey",       "basecolor_grey"},
 	{"black",      "Black",      "basecolor_black"},
