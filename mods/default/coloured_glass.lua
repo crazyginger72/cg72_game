@@ -23,7 +23,7 @@ coloured_glass.dyes = {
 	{"dark_blue", "Dark Blue", "unicolor_dark_blue"},
 }
 
-for _, row in ipairs(coloured glass.dyes) do
+for _, row in ipairs(coloured_glass.dyes) do
 	local name = row[1]
 	local desc = row[2]
 	local craft_color_group = row[3]
