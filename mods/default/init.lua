@@ -190,5 +190,4 @@ minetest.register_on_punchnode(function(pos, node, puncher)
 	end
 end)
 
-print("spawn is "..minetest.setting_get("static_spawnpoint"))
 
