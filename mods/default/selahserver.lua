@@ -42,7 +42,7 @@ minetest.register_on_chat_message(function(name, message, playername, player)
 end)
 
 
-print("[MOD] /admintown is set to "..minetest.setting_get("piratescove"))
+print("[MOD] /porthaven is set to "..minetest.setting_get("piratescove"))
 
 minetest.register_on_chat_message(function(name, message, playername, player)
 	local cmd = "/admintown"
@@ -65,3 +65,25 @@ end)
 
 
 print("[MOD] /admintown is set to "..minetest.setting_get("admintown"))
+
+minetest.register_on_chat_message(function(name, message, playername, player)
+	local cmd = "/skyisland"
+	local si = minetest.setting_get("skyisland")
+	if message:sub(0, #cmd) == cmd then
+
+		if si == nil then
+			minetest.log("action", "[ERROR] skyisland not set!!!!!!!!!!!")			
+			return
+		else
+			if message == '/skyisland' then
+				local player = minetest.env:get_player_by_name(name)
+				minetest.chat_send_player(player:get_player_name(), "Teleporting to The Sky Island...")
+				player:setpos(minetest.string_to_pos(si))
+				return true
+			end
+		end
+	end
+end)
+
+
+print("[MOD] /askyisland is set to "..minetest.setting_get("skyisland"))

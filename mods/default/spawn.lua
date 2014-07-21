@@ -1,3 +1,6 @@
+--------- Add the line >> spawn = <cords here as x y z>  to your .conf :D----------
+-----------------------------------------------------------------------------------
+
 minetest.register_on_chat_message(function(name, message, playername, player)
 	local cmd = "/spawn"
 	local spawn = minetest.setting_get("spawn")
