@@ -55,7 +55,7 @@ dofile(minetest.get_modpath("default").."/plastic_box.lua")
 dofile(minetest.get_modpath("default").."/plastic.lua")
 --dofile(minetest.get_modpath("default").."/compass.lua")
 dofile(minetest.get_modpath("default").."/markers.lua")
-
+dofile(minetest.get_modpath("default").."/coloured_glass.lua")
 
 
 ----------------------------------------------------------
