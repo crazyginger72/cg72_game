@@ -3,7 +3,7 @@ minetest.register_on_chat_message(function(name, message, playername, player)
 	local spawn = minetest.setting_get("spawn")
 	if message:sub(0, #cmd) == cmd then
 
-		if swawn == nil then
+		if spawn == nil then
 			minetest.log("action", "[ERROR] spawn not set!!!!!!!!!!!")			
 			return
 		else
