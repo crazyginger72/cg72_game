@@ -4,7 +4,7 @@
 
 
 
-minetest.register_node("defalut:disco_ball", {
+minetest.register_node("default:disco_ball", {
 	description = "Disco Ball",
 	drawtype = "nodebox",
 	tiles = {
