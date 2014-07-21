@@ -31,6 +31,7 @@ for _, row in ipairs(coloured_glass.dyes) do
 	minetest.register_node("default:coloured_glass"..name, {
 		description = desc.." coloured glass",
 		drawtype = "glasslike",
+		sunlight_propagates = true,
 		tiles = {"default_glass_"..name..".png"},
 		use_texture_alpha = true,
 		groups = {cracky=3,oddly_breakable_by_hand=3},

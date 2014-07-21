@@ -56,6 +56,14 @@ dofile(minetest.get_modpath("default").."/plastic.lua")
 --dofile(minetest.get_modpath("default").."/compass.lua")
 dofile(minetest.get_modpath("default").."/markers.lua")
 dofile(minetest.get_modpath("default").."/coloured_glass.lua")
+dofile(minetest.get_modpath("default").."/disco_ball.lua")
+dofile(minetest.get_modpath("default").."/disco_floor.lua")
+dofile(minetest.get_modpath("default").."/glasses.lua")
+dofile(minetest.get_modpath("default").."/rum.lua")
+
+
+
+
 
 
 ----------------------------------------------------------
