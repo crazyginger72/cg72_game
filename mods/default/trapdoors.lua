@@ -30,7 +30,7 @@ minetest.register_node("default:trapdoor", {
 	description = "Trapdoor",
 	inventory_image = "door_trapdoor.png",
 	drawtype = "nodebox",
-	tiles = {"door_trapdoor.png", "door_trapdoor.png",  "door_trapdoor_side.png",  "door_trapdoor_side.png", "door_trapdoor_side.png", "door_trapdoor_side.png"},
+	tiles = {"door_trapdoor.png", "door_trapdoor.png",  "door_trapdoor.png",  "door_trapdoor.png", "door_trapdoor.png", "door_trapdoor.png"},
 	paramtype = "light",
 	paramtype2 = "facedir",
 	groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=2,door=1},
@@ -54,7 +54,7 @@ minetest.register_node("default:trapdoor", {
 
 minetest.register_node("default:trapdoor_open", {
 	drawtype = "nodebox",
-	tiles = {"door_trapdoor_side.png", "door_trapdoor_side.png",  "door_trapdoor_side.png",  "door_trapdoor_side.png", "door_trapdoor.png", "door_trapdoor.png"},
+	tiles = {"door_trapdoor.png", "door_trapdoor.png",  "door_trapdoor.png",  "door_trapdoor.png", "door_trapdoor.png", "door_trapdoor.png"},
 	paramtype = "light",
 	paramtype2 = "facedir",
 	pointable = true,
