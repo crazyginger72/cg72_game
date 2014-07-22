@@ -1,60 +1,220 @@
-minetest.register_node("default:bed_foot", {
-	description = "Bed (foot region)",
-	--drawtype = "nodebox",
-	tiles = {"cottages_beds_bed_top_bottom.png", "default_wood.png",  "cottages_beds_bed_side.png",  "cottages_beds_bed_side.png",  "cottages_beds_bed_side.png",  "cottages_beds_bed_side.png"},
-	paramtype = "light",
-	paramtype2 = "facedir",
-	groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=3},
-	sounds = default.node_sound_wood_defaults(),
-	--[[node_box = {
-		type = "fixed",
-		fixed = {
-					-- bed
-					{-0.5, 0.0, -0.5, 0.5, 0.3, 0.5},
-					
-					-- stützen
-					--{-0.5, -0.5, -0.5, -0.4, 0.5, -0.4},
-				--	{  0.4,-0.5, -0.5, 0.5,  0.5, -0.4},
-                               
-                                        -- Querstrebe
-					--{-0.4,  0.3, -0.5, 0.4, 0.5, -0.4}
-				}
-	},]]--
-	--selection_box = {
-	--	type = "fixed",
-		--fixed = {
-				--	{-0.5, -0.5, -0.5, 0.5, 0.3, 0.5},
-			--	}
-	--},
-})
+local player_in_bed = 0
 
--- the bed is split up in two parts to avoid destruction of blocks on placement
-minetest.register_node("default:bed_head", {
-	description = "Bed (head region)",
-	drawtype = "nodebox",
-	tiles = {"cottages_beds_bed_top_top.png", "default_wood.png",  "cottages_beds_bed_side_top_r.png",  "cottages_beds_bed_side_top_l.png",  "default_wood.png",  "cottages_beds_bed_side.png"},
+local beds_list = {
+	{ "Red Bed", "red"},
+	{ "Orange Bed", "orange"},	
+	{ "Yellow Bed", "yellow"},
+	{ "Green Bed", "green"},
+	{ "Blue Bed", "blue"},
+	{ "Violet Bed", "violet"},
+	{ "Black Bed", "black"},
+	{ "Grey Bed", "grey"},
+	{ "White Bed", "white"},
+}
+
+for i in ipairs(beds_list) do
+	local beddesc = beds_list[i][1]
+	local colour = beds_list[i][2]
+
+	minetest.register_node("default:bed_bottom_"..colour, {
+		description = beddesc,
+		drawtype = "nodebox",
+		tiles = {"beds_bed_top_bottom_"..colour..".png", "default_wood.png",  "beds_bed_side_"..colour..".png",  "beds_bed_side_"..colour..".png",  "beds_bed_side_"..colour..".png",  "beds_bed_side_"..colour..".png"},
+		paramtype = "light",
+		paramtype2 = "facedir",
+		stack_max = 1,
+		groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=3},
+		sounds = default.node_sound_wood_defaults(),
+		node_box = {
+			type = "fixed",
+			fixed = {
+						-- bed
+						{-0.5, 0.0, -0.5, 0.5, 0.3125, 0.5},
+						
+						-- legs
+						{-0.5, -0.5, -0.5, -0.4, 0.0, -0.4},
+						{0.4, 0.0, -0.4, 0.5, -0.5, -0.5},
+					}
+		},
+		selection_box = {
+			type = "fixed",
+			fixed = {
+						{-0.5, -0.5, -0.5, 0.5, 0.3125, 1.5},
+					}
+		},
+
+		after_place_node = function(pos, placer, itemstack)
+			local node = minetest.env:get_node(pos)
+			local p = {x=pos.x, y=pos.y, z=pos.z}
+			local param2 = node.param2
+			node.name = "default:bed_top_"..colour
+			if param2 == 0 then
+				pos.z = pos.z+1
+			elseif param2 == 1 then
+				pos.x = pos.x+1
+			elseif param2 == 2 then
+				pos.z = pos.z-1
+			elseif param2 == 3 then
+				pos.x = pos.x-1
+			end
+			if minetest.registered_nodes[minetest.env:get_node(pos).name].buildable_to  then
+				minetest.env:set_node(pos, node)
+			else
+				minetest.env:remove_node(p)
+				return true
+			end
+		end,
+			
+		on_destruct = function(pos)
+			local node = minetest.env:get_node(pos)
+			local param2 = node.param2
+			if param2 == 0 then
+				pos.z = pos.z+1
+			elseif param2 == 1 then
+				pos.x = pos.x+1
+			elseif param2 == 2 then
+				pos.z = pos.z-1
+			elseif param2 == 3 then
+				pos.x = pos.x-1
+			end
+			if( minetest.env:get_node({x=pos.x, y=pos.y, z=pos.z}).name == "default:bed_top_"..colour ) then
+				if( minetest.env:get_node({x=pos.x, y=pos.y, z=pos.z}).param2 == param2 ) then
+					minetest.env:remove_node(pos)
+				end	
+			end
+		end,
+		
+		on_rightclick = function(pos, node, clicker)
+			if not clicker:is_player() then
+				return
+			end
+			local meta = minetest.env:get_meta(pos)
+			local param2 = node.param2
+			if param2 == 0 then
+				pos.z = pos.z+1
+			elseif param2 == 1 then
+				pos.x = pos.x+1
+			elseif param2 == 2 then
+				pos.z = pos.z-1
+			elseif param2 == 3 then
+				pos.x = pos.x-1
+			end
+			if clicker:get_player_name() == meta:get_string("player") then
+				if param2 == 0 then
+					pos.x = pos.x-1
+				elseif param2 == 1 then
+					pos.z = pos.z+1
+				elseif param2 == 2 then
+					pos.x = pos.x+1
+				elseif param2 == 3 then
+					pos.z = pos.z-1
+				end
+				pos.y = pos.y-0.5
+				clicker:set_physics_override(1, 1, 1)
+				clicker:setpos(pos)
+				meta:set_string("player", "")
+				player_in_bed = player_in_bed-1
+			elseif meta:get_string("player") == "" then
+				pos.y = pos.y-1
+				clicker:set_physics_override(0, 0, 0)
+				clicker:setpos(pos)
+				if param2 == 0 then
+					clicker:set_look_yaw(math.pi)
+				elseif param2 == 1 then
+					clicker:set_look_yaw(0.5*math.pi)
+				elseif param2 == 2 then
+					clicker:set_look_yaw(0)
+				elseif param2 == 3 then
+					clicker:set_look_yaw(1.5*math.pi)
+				end
+				
+				meta:set_string("player", clicker:get_player_name())
+				player_in_bed = player_in_bed+1
+			end
+		end
+	})
+	
+	minetest.register_node("default:bed_top_"..colour, {
+		drawtype = "nodebox",
+		tiles = {"beds_bed_top_top_"..colour..".png", "default_wood.png",  "beds_bed_side_top_r_"..colour..".png",  "beds_bed_side_top_l_"..colour..".png",  "beds_bed_top_front.png",  "beds_bed_side_"..colour..".png"},
+		paramtype = "light",
+		paramtype2 = "facedir",
+		groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=3},
+		sounds = default.node_sound_wood_defaults(),
+		node_box = {
+			type = "fixed",
+			fixed = {
+						-- bed
+						{-0.5, 0.0, -0.5, 0.5, 0.3125, 0.5},
+						{-0.4375, 0.3125, 0.1, 0.4375, 0.4375, 0.5},
+						
+						-- legs
+						{-0.4, 0.0, 0.4, -0.5, -0.5, 0.5},
+						{0.5, -0.5, 0.5, 0.4, 0.0, 0.4},
+					}
+		},
+		selection_box = {
+			type = "fixed",
+			fixed = {
+						{0, 0, 0, 0, 0, 0},
+					}
+		},
+	})
+	
+	minetest.register_alias("bed_"..colour, "default:bed_bottom_"..colour)
+	
+	minetest.register_craft({
+		output = "default:bed_"..colour,
+		recipe = {
+			{"wool:"..colour, "wool:"..colour, "wool:white", },
+			{"default:stick", "", "default:stick", }
+		}
+	})
+	
+	minetest.register_craft({
+		output = "default:bed_"..colour,
+		recipe = {
+			{"wool:white", "wool:"..colour, "wool:"..colour, },
+			{"default:stick", "", "default:stick", }
+		}
+	})
+	
+end
+
+
+
+minetest.register_node("default:bed_king", {
+	description = "King size bed",
+	tiles = {"bed_t.png","bed_bt.png","bed_s.png","bed_s.png","bed_bt.png","bed_s.png"},
+	inventory_image = "bed_king.png",
+	weild_image = "bed_king.png",
 	paramtype = "light",
 	paramtype2 = "facedir",
-	groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=3},
-	sounds = default.node_sound_wood_defaults(),
+	walkable = true,
+	is_ground_content = true,
+	groups = {crumbly=3},
+	sounds = default.node_sound_defaults(),
+	drawtype = "nodebox",
 	node_box = {
 		type = "fixed",
 		fixed = {
-					-- bed
-					{-0.5, 0.0, -0.5, 0.5, 0.3, 0.5},
-					
-					-- stützen
-					{-0.5,-0.5, 0.4, -0.4, 0.5, 0.5},
-					{ 0.4,-0.5, 0.4,  0.5, 0.5, 0.5},
-
-                                        -- Querstrebe
-					{-0.4,  0.3,  0.4, 0.4, 0.5,  0.5}
-				}
-	},
+			{-1.5, -0.125, -0.5, 1.5, 0.3125, 1.5}, -- NodeBox1
+			{-1.5, 0.3125, 1.49999, 1.5, 0.75, 1.5}, -- NodeBox2
+			{1.3125, -0.5, -0.5, 1.5, -0.125, -0.3125}, -- NodeBox3
+			{-1.5, -0.5, -0.5, -1.3125, -0.125, -0.3125}, -- NodeBox4
+			{-1.5, -0.5, 1.3125, -1.3125, -0.125, 1.5}, -- NodeBox5
+			{1.3125, -0.5, 1.3125, 1.5, -0.125, 1.5}, -- NodeBox6
+			},
+		},
 	selection_box = {
 		type = "fixed",
 		fixed = {
-					{-0.5, -0.5, -0.5, 0.5, 0.3, 0.5},
-				}
-	},
+			{-1.5, -0.125, -0.5, 1.5, 0.3125, 1.5}, -- NodeBox1
+			{-1.5, 0.3125, 1.49999, 1.5, 0.75, 1.5}, -- NodeBox2
+			{1.3125, -0.5, -0.5, 1.5, -0.125, -0.3125}, -- NodeBox3
+			{-1.5, -0.5, -0.5, -1.3125, -0.125, -0.3125}, -- NodeBox4
+			{-1.5, -0.5, 1.3125, -1.3125, -0.125, 1.5}, -- NodeBox5
+			{1.3125, -0.5, 1.3125, 1.5, -0.125, 1.5}, -- NodeBox6
+			},
+		},
 })
