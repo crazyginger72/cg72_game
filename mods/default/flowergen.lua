@@ -41,19 +41,19 @@ minetest.register_on_generated(function(minp, maxp, seed)
 								flower = "default:tulip"
 							elseif flower_choice >= 26 and flower_choice <= 32 then
 								flower = "default:rose_bush"
-							elseif flower_choice >= 33 and flower_choice <= 36 then
+							elseif flower_choice >= 33 and flower_choice <= 34 then
 								flower = "default:dandelion_yellow"
 							elseif flower_choice >= 37 and flower_choice <= 52 then
 								flower = "default:dandelion_white"
 							elseif flower_choice >= 53 and flower_choice <= 78 then
 								flower = "default:geranium"
-							elseif flower_choice >= 79 and flower_choice <= 89 then
+							elseif flower_choice >= 79 and flower_choice <= 94 then
 								flower = "default:viola"
-							elseif flower_choice >= 90 and flower_choice <= 100 then
+							elseif flower_choice >= 95 and flower_choice <= 106 then
 								flower = "default:dasie"
-							elseif flower_choice >= 101 and flower_choice <= 105 then
+							elseif flower_choice >= 107 and flower_choice <= 108 then
 								flower = "default:clover"
-							elseif flower_choice >= 106 and flower_choice <= 110 then
+							elseif flower_choice >= 109 and flower_choice <= 110 then
 								flower = "default:clover_purple"
 							end
 							minetest.set_node(p, {name=flower})
