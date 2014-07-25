@@ -37,23 +37,23 @@ minetest.register_on_generated(function(minp, maxp, seed)
 						if nn == "default:dirt_with_grass" then
 							local flower_choice = pr:next(1, 110) - pr:next(-5,5)
 							local flower
-							if flower_choice >= 1 and flower_choice <= 25 then
+							if flower_choice >= 1 and flower_choice <= 13 then
 								flower = "default:tulip"
-							elseif flower_choice >= 26 and flower_choice <= 32 then
+							elseif flower_choice >= 14 and flower_choice <= 23 then
 								flower = "default:rose_bush"
-							elseif flower_choice >= 33 and flower_choice <= 36 then
+							elseif flower_choice >= 24 and flower_choice <= 26 then
 								flower = "default:dandelion_yellow"
-							elseif flower_choice >= 37 and flower_choice <= 52 then
+							elseif flower_choice >= 27 and flower_choice <= 32 then
 								flower = "default:dandelion_white"
-							elseif flower_choice >= 53 and flower_choice <= 78 then
+							elseif flower_choice >= 32 and flower_choice <= 37 then
 								flower = "default:geranium"
-							elseif flower_choice >= 79 and flower_choice <= 94 then
+							elseif flower_choice >= 38 and flower_choice <= 43 then
 								flower = "default:viola"
-							elseif flower_choice >= 95 and flower_choice <= 106 then
+							elseif flower_choice >= 44 and flower_choice <= 50 then
 								flower = "default:dasie"
 							elseif flower_choice >= 107 and flower_choice <= 108 then
 								flower = "default:clover"
-							elseif flower_choice >= 109 then
+							elseif flower_choice >= 109 and flower_choice <= 110 then
 								flower = "default:clover_purple"
 							end
 							if flower == nil then  --by the odd chance minetest takes a shit on this number it won't crash now!
