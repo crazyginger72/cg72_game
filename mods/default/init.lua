@@ -50,7 +50,7 @@ dofile(minetest.get_modpath("default").."/doors.lua")
 dofile(minetest.get_modpath("default").."/worldedit.lua")
 dofile(minetest.get_modpath("default").."/farming.lua")
 dofile(minetest.get_modpath("default").."/unified_inventory.lua")
---dofile(minetest.get_modpath("default").."/item_drop.lua") --i have no fucking idea why it just stoped working one day!!!
+dofile(minetest.get_modpath("default").."/item_drop.lua") --updated to item_tweak code
 dofile(minetest.get_modpath("default").."/plastic_box.lua")
 dofile(minetest.get_modpath("default").."/plastic.lua")
 --dofile(minetest.get_modpath("default").."/compass.lua") --not compatablie with my game 100% yet
