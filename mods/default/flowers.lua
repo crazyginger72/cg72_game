@@ -699,7 +699,7 @@ minetest.register_node("default:sunflower_sprout", {
 	walkable = false,
 	buildable_to = false,
 	drop = { items = { { items = {''}, }, }, },
-	groups = {flammable=2,flora=1,snappy=1,choppy=1,oddly_breakable_by_hand=1},
+	groups = {flammable=1,flora=1,snappy=3,choppy=3,oddly_breakable_by_hand=3},
 	sounds = default.node_sound_leaves_defaults(),
 	selection_box = {
 		type = "fixed",
