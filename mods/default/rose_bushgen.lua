@@ -38,7 +38,6 @@ minetest.register_on_generated(function(minp, maxp, seed)
 							local rose_chance = pr:next(1, 5)
 							if rose_chance == 1 then
 								minetest.set_node(p, {name="defautl:rose_bush"})
-						end
 							else --added due to minetest kicking it out as nill very rarely
 								print("no rose_bush grew!") 
 							end
