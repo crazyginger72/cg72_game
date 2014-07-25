@@ -1,4 +1,4 @@
-local rosebush = minetest.get_setting("spawn_rose_bushes")
+local rosebush = minetest.setting_get("spawn_rose_bushes")
 if rosebush == nil or rosebush == true then
 
 minetest.register_on_generated(function(minp, maxp, seed)
