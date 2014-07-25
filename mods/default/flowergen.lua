@@ -66,7 +66,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 			-- Determine flowers amount from perlin noise
 			local grass_amount = math.floor(perlin1:get2d({x=x0, y=z0}) ^ 3 * 6)
 			-- Find random positions for flowers based on this random
-			local pr = PseudoRandom(seed+456)
+			local pr = PseudoRandom(seed+348)
 			for i=0,grass_amount do
 				local x = pr:next(x0, x1)
 				local z = pr:next(z0, z1)
@@ -118,7 +118,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 			-- Determine flowers amount from perlin noise
 			local grass_amount = math.floor(perlin1:get2d({x=x0, y=z0}) ^ 3 * 11)
 			-- Find random positions for flowers based on this random
-			local pr = PseudoRandom(seed+456)
+			local pr = PseudoRandom(seed+841)
 			for i=0,grass_amount do
 				local x = pr:next(x0, x1)
 				local z = pr:next(z0, z1)
@@ -170,7 +170,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 			-- Determine flowers amount from perlin noise
 			local grass_amount = math.floor(perlin1:get2d({x=x0, y=z0}) ^ 3 * 9)
 			-- Find random positions for flowers based on this random
-			local pr = PseudoRandom(seed+456)
+			local pr = PseudoRandom(seed+32)
 			for i=0,grass_amount do
 				local x = pr:next(x0, x1)
 				local z = pr:next(z0, z1)
@@ -222,7 +222,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 			-- Determine flowers amount from perlin noise
 			local grass_amount = math.floor(perlin1:get2d({x=x0, y=z0}) ^ 3 * 6)
 			-- Find random positions for flowers based on this random
-			local pr = PseudoRandom(seed+456)
+			local pr = PseudoRandom(seed+914)
 			for i=0,grass_amount do
 				local x = pr:next(x0, x1)
 				local z = pr:next(z0, z1)
