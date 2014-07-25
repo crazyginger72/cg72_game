@@ -35,7 +35,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 						minetest.registered_nodes[nn].buildable_to then
 						nn = minetest.get_node({x=x,y=ground_y,z=z}).name
 						if nn == "default:dirt_with_grass" then
-							local flower_choice = pr:next(1, 5)
+							local flower_choice = pr:next(1, 2)
 							local flower
 							if flower_choice == 1 then
 								minetest.set_node(p, {name="default:tulip"})
@@ -87,7 +87,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 						minetest.registered_nodes[nn].buildable_to then
 						nn = minetest.get_node({x=x,y=ground_y,z=z}).name
 						if nn == "default:dirt_with_grass" then
-							local flower_choice = pr:next(1, 3)
+							local flower_choice = pr:next(1, 2)
 							local flower
 							if flower_choice == 1 then
 								minetest.set_node(p, {name="default:viola"})
@@ -116,7 +116,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 			local x1 = minp.x + math.floor((divx+1)*divlen)
 			local z1 = minp.z + math.floor((divz+1)*divlen)
 			-- Determine flowers amount from perlin noise
-			local grass_amount = math.floor(perlin1:get2d({x=x0, y=z0}) ^ 3 * 11)
+			local grass_amount = math.floor(perlin1:get2d({x=x0, y=z0}) ^ 3 * 8)
 			-- Find random positions for flowers based on this random
 			local pr = PseudoRandom(seed+841)
 			for i=0,grass_amount do
@@ -191,7 +191,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 						minetest.registered_nodes[nn].buildable_to then
 						nn = minetest.get_node({x=x,y=ground_y,z=z}).name
 						if nn == "default:dirt_with_grass" then
-							local flower_choice = pr:next(1, 3)
+							local flower_choice = pr:next(1, 2)
 							local flower
 							if flower_choice == 1 then
 								minetest.set_node(p, {name="default:geranium"})
