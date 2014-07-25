@@ -37,9 +37,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 						if nn == "default:dirt_with_grass" then
 							local rose_chance = pr:next(1, 10)
 							if rose_chance == 1 then
-								minetest.set_node(p, {name="default:rose_bush"})
-							else 
-								print("no rose_bush grew!") 
+								minetest.set_node(p, {name="default:rose_bush"}) 
 							end
 						end
 					end
