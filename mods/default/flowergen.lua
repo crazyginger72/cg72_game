@@ -57,9 +57,9 @@ minetest.register_on_generated(function(minp, maxp, seed)
 								flower = "default:clover_purple"
 							end
 							if flower == nil then  --by the odd chance minetest takes a shit on this number it won't crash now!
+								print("no flower grew, flower_choice ="..flower_choice),
 								return
 							end
-							--print("flower grew, flower_choice ="..flower_choice)
 							minetest.set_node(p, {name=flower})
 						end
 					end
