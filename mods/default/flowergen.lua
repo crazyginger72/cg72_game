@@ -41,7 +41,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 								flower = "default:tulip"
 							elseif flower_choice >= 26 and flower_choice <= 32 then
 								flower = "default:rose_bush"
-							elseif flower_choice >= 33 and flower_choice <= 34 then
+							elseif flower_choice >= 33 and flower_choice <= 36 then
 								flower = "default:dandelion_yellow"
 							elseif flower_choice >= 37 and flower_choice <= 52 then
 								flower = "default:dandelion_white"
@@ -56,7 +56,9 @@ minetest.register_on_generated(function(minp, maxp, seed)
 							elseif flower_choice >= 109 then
 								flower = "default:clover_purple"
 							end
-
+							if flower = nil then  --by the odd chance minetest takes a shit on this number it won't crash now!
+								return
+							end
 							print("flower grew, flower_choice ="..flower_choice)
 							minetest.set_node(p, {name=flower})
 						end
