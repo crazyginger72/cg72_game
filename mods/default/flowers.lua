@@ -197,8 +197,8 @@ minetest.register_node("default:rose_bush", {
 			{ items = {'default:rose'}, rarity = 20,},
 			{ items = {'default:rose'}, rarity = 20,},
 			{ items = {'default:rose 2'}, },
-		},
-	}
+				},
+			},
 	walkable = false,
 	buildable_to = true,
 	is_ground_content = true,
@@ -207,7 +207,7 @@ minetest.register_node("default:rose_bush", {
 	selection_box = {
 		type = "fixed",
 		fixed = {-0.5, -0.5, -0.5, 0.5, -2.5/16, 0.5},
-	},
+					},
 })
 
 minetest.register_craft({
