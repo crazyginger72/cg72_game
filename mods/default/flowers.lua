@@ -415,7 +415,7 @@ minetest.register_craft({
 	},
 })
 
-inetest.register_node("default:clover", {
+minetest.register_node("default:clover", {
 	description = "Clover",
 	drawtype = "nodebox",
 	tiles = {'clover_top.png', 'default_grass.png', 'clover_side.png',},
@@ -481,7 +481,7 @@ inetest.register_node("default:clover", {
 	},
 })
 
-inetest.register_node("default:clover_purple", {
+minetest.register_node("default:clover_purple", {
 	description = "Purple Clover",
 	drawtype = "nodebox",
 	tiles = {'clover_purple_top.png', 'default_grass.png', 'clover_purple_side.png',},
