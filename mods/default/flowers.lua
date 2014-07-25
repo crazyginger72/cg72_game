@@ -11,7 +11,7 @@ minetest.register_alias("default:flower_geranium", "default:geranium")
 minetest.register_alias("default:flower_rose", "default:rose")
 minetest.register_alias("default:flower_tulip", "default:tulip")
 minetest.register_alias("default:flower_viola", "default:viola")
-
+--
 minetest.register_node("default:dasie", {
 	description = "White Dasie",
 	drawtype = "plantlike",
@@ -29,7 +29,7 @@ minetest.register_node("default:dasie", {
 		fixed = { -0.15, -0.5, -0.15, 0.15, 0.2, 0.15 },
 	},
 })
-
+--
 minetest.register_node("default:dandelion_white", {
 	description = "White Dandelion",
 	drawtype = "plantlike",
@@ -47,7 +47,7 @@ minetest.register_node("default:dandelion_white", {
 		fixed = { -0.15, -0.5, -0.15, 0.15, 0.2, 0.15 },
 	},
 })
-
+--
 minetest.register_node("default:dandelion_yellow", {
 	description = "Yellow Dandelion",
 	drawtype = "plantlike",
@@ -65,7 +65,7 @@ minetest.register_node("default:dandelion_yellow", {
 		fixed = { -0.15, -0.5, -0.15, 0.15, 0.2, 0.15 },
 	},
 })
-
+--
 minetest.register_node("default:geranium", {
 	description = "Blue Geranium",
 	drawtype = "plantlike",
@@ -83,7 +83,7 @@ minetest.register_node("default:geranium", {
 		fixed = { -0.15, -0.5, -0.15, 0.15, 0.2, 0.15 },
 	},
 })
-
+----
 minetest.register_node("default:rose", {
 	description = "Rose",
 	drawtype = "plantlike",
@@ -101,7 +101,7 @@ minetest.register_node("default:rose", {
 		fixed = { -0.15, -0.5, -0.15, 0.15, 0.2, 0.15 },
 	},
 })
-
+--
 minetest.register_node("default:tulip", {
 	description = "Tulip",
 	drawtype = "plantlike",
@@ -119,7 +119,7 @@ minetest.register_node("default:tulip", {
 		fixed = { -0.15, -0.5, -0.15, 0.15, 0.2, 0.15 },
 	},
 })
-
+--
 minetest.register_node("default:viola", {
 	description = "Viola",
 	drawtype = "plantlike",
