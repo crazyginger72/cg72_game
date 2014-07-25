@@ -638,7 +638,8 @@ minetest.register_craftitem("default:sunflower_seed", {
 	description = "Sunflower Seed",
 	inventory_image = "sunflower_seed.png",
 	on_use = minetest.item_eat(1),
-	on_place = 	local pt = pointed_thing
+	on_place = function plantsunflower()
+		local pt = pointed_thing
 		-- check if pointing at a node
 		if not pt then
 			return
@@ -679,6 +680,7 @@ minetest.register_craftitem("default:sunflower_seed", {
 			itemstack:take_item()
 		end
 		return itemstack
+	end
 	end,
 	sounds = default.node_sound_leaves_defaults(),
 })
