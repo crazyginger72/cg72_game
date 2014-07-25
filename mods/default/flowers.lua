@@ -192,6 +192,7 @@ minetest.register_node("default:rose_bush", {
 	wield_image = "gardening_rosebush.png",
 	tiles = {"gardening_rosebush.png"},
 	paramtype = "light",
+	drop = 'default:rose 3'
 	walkable = false,
 	buildable_to = true,
 	is_ground_content = true,
