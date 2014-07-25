@@ -634,54 +634,57 @@ minetest.register_node("default:sunflower_head", {
 	},
 })
 
+local function place_seed(itemstack, placer, pointed_thing, plantname)
+	local pt = pointed_thing
+	-- check if pointing at a node
+	if not pt then
+		return
+	end
+	if pt.type ~= "node" then
+		return
+	end
+	
+	local under = minetest.get_node(pt.under)
+	local above = minetest.get_node(pt.above)
+	
+	-- return if any of the nodes is not registered
+	if not minetest.registered_nodes[under.name] then
+		return
+	end
+	if not minetest.registered_nodes[above.name] then
+		return
+	end
+	
+	-- check if pointing at the top of the node
+	if pt.above.y ~= pt.under.y+1 then
+		return
+	end
+	
+	-- check if you can replace the node above the pointed node
+	if not minetest.registered_nodes[above.name].buildable_to then
+		return
+	end
+	
+	-- check if pointing at soil
+	if minetest.get_item_group(under.name, "soil") <= 1 then
+		return
+	end
+	
+	-- add the node and remove 1 item from the itemstack
+	minetest.add_node(pt.above, {name=plantname})
+	if not minetest.setting_getbool("creative_mode") then
+		itemstack:take_item()
+	end
+	return itemstack
+end
+
 minetest.register_craftitem("default:sunflower_seed", {
 	description = "Sunflower Seed",
 	inventory_image = "sunflower_seed.png",
 	on_use = minetest.item_eat(1),
-	on_place = function plantsunflower()
-		local pt = pointed_thing
-		-- check if pointing at a node
-		if not pt then
-			return
-		end
-		if pt.type ~= "node" then
-			return
-		end
-	
-		local under = minetest.get_node(pt.under)
-		local above = minetest.get_node(pt.above)
-	
-		-- return if any of the nodes is not registered
-		if not minetest.registered_nodes[under.name] then
-			return
-		end
-		if not minetest.registered_nodes[above.name] then
-			return
-		end
-	
-		-- check if pointing at the top of the node
-		if pt.above.y ~= pt.under.y+1 then
-			return
-		end
-		
-		-- check if you can replace the node above the pointed node
-		if not minetest.registered_nodes[above.name].buildable_to then
-			return
-		end
-		
-		-- check if pointing at soil
-		if minetest.get_item_group(under.name, "soil") <= 1 then
-			return
-		end
-		
-		-- add the node and remove 1 item from the itemstack
-		minetest.add_node(pt.above, {name=plantname})
-		if not minetest.setting_getbool("creative_mode") then
-			itemstack:take_item()
-		end
-		return itemstack
-	end
-	end,
+	on_place = function(itemstack, placer, pointed_thing)
+			return place_seed(itemstack, placer, pointed_thing, "default:sunflower_sprout")
+		end,
 	sounds = default.node_sound_leaves_defaults(),
 })
 
