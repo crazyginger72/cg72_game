@@ -1,3 +1,7 @@
+
+minetest.register_alias("homedecor:plastic_sheeting", "default:plastic_sheeting")
+minetest.register_alias("homedecor:plastic_base", "default:plastic_base")
+
 minetest.register_craftitem("default:plastic_sheeting", {
         description = "Plastic sheet",
         inventory_image = "homedecor_plastic_sheeting.png",

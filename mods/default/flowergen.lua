@@ -35,20 +35,26 @@ minetest.register_on_generated(function(minp, maxp, seed)
 						minetest.registered_nodes[nn].buildable_to then
 						nn = minetest.get_node({x=x,y=ground_y,z=z}).name
 						if nn == "default:dirt_with_grass" then
-							local flower_choice = pr:next(1, 6)
+							local flower_choice = pr:next(1, 110)
 							local flower
-							if flower_choice == 1 then
+							if flower_choice >= 1 and flower_choice <= 25 then
 								flower = "default:tulip"
-							elseif flower_choice == 2 then
-								flower = "default:rose"
-							elseif flower_choice == 3 then
+							elseif flower_choice >= 26 and flower_choice <= 32 then
+								flower = "default:rose_bush"
+							elseif flower_choice >= 33 and flower_choice <= 36 then
 								flower = "default:dandelion_yellow"
-							elseif flower_choice == 4 then
+							elseif flower_choice >= 37 and flower_choice <= 52 then
 								flower = "default:dandelion_white"
-							elseif flower_choice == 5 then
+							elseif flower_choice >= 53 and flower_choice <= 78 then
 								flower = "default:geranium"
-							elseif flower_choice == 6 then
+							elseif flower_choice >= 79 and flower_choice <= 89 then
 								flower = "default:viola"
+							elseif flower_choice >= 90 and flower_choice <= 100 then
+								flower = "default:dasie"
+							elseif flower_choice >= 101 and flower_choice <= 105 then
+								flower = "default:clover"
+							elseif flower_choice >= 106 and flower_choice <= 110 then
+								flower = "default:clover_purple"
 							end
 							minetest.set_node(p, {name=flower})
 						end
