@@ -644,26 +644,6 @@ minetest.register_craftitem("default:sunflower_seed", {
 	sounds = default.node_sound_leaves_defaults(),
 })
 
-minetest.register_node("default:sunflower_sprout", {
-	description = "Sunflower Sprout",
-	drawtype = "plantlike",
-	tiles = { "sunflower_sprout.png" },
-	inventory_image = "sunflower_sprout.png",
-	wield_image = "sunflower_sprout.png",
-	sunlight_propagates = true,
-	paramtype = "light",
-	walkable = false,
-	buildable_to = false,
-	drop = { items = { { items = {''}, }, }, },
-	groups = {flammable=2,flora=1,snappy=1,choppy=1,oddly_breakable_by_hand=1},
-	sounds = default.node_sound_leaves_defaults(),
-	selection_box = {
-		type = "fixed",
-		fixed = { -0.15, -0.5, -0.15, 0.15, 0.2, 0.15 },
-	},
-})
-
-
 local function plant_seed(itemstack, placer, pointed_thing, plantname)
 	local pt = pointed_thing
 	-- check if pointing at a node
@@ -707,6 +687,28 @@ local function plant_seed(itemstack, placer, pointed_thing, plantname)
 	end
 	return itemstack
 end
+
+minetest.register_node("default:sunflower_sprout", {
+	description = "Sunflower Sprout",
+	drawtype = "plantlike",
+	tiles = { "sunflower_sprout.png" },
+	inventory_image = "sunflower_sprout.png",
+	wield_image = "sunflower_sprout.png",
+	sunlight_propagates = true,
+	paramtype = "light",
+	walkable = false,
+	buildable_to = false,
+	drop = { items = { { items = {''}, }, }, },
+	groups = {flammable=2,flora=1,snappy=1,choppy=1,oddly_breakable_by_hand=1},
+	sounds = default.node_sound_leaves_defaults(),
+	selection_box = {
+		type = "fixed",
+		fixed = { -0.15, -0.5, -0.15, 0.15, 0.2, 0.15 },
+	},
+})
+
+
+
 
 
 
