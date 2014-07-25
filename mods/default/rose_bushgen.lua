@@ -1,3 +1,6 @@
+local rosebush = minetest.get_setting("spawn_rose_bushes")
+if rosebush == nill or rosebush == true then
+
 minetest.register_on_generated(function(minp, maxp, seed)
 	if maxp.y >= 2 and minp.y <= 0 then
 		-- Generate rose bushes
@@ -48,7 +51,9 @@ minetest.register_on_generated(function(minp, maxp, seed)
 	end
 end)
 
-
+else
+	return
+end
 
 
 -- :D

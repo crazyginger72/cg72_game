@@ -35,25 +35,11 @@ minetest.register_on_generated(function(minp, maxp, seed)
 						minetest.registered_nodes[nn].buildable_to then
 						nn = minetest.get_node({x=x,y=ground_y,z=z}).name
 						if nn == "default:dirt_with_grass" then
-							local flower_choice = pr:next(1, 9)
+							local flower_choice = pr:next(1, 5)
 							local flower
-							if flower_choice >= 1 and flower_choice <= 2 then
-								flower = "default:tulip"
-							elseif flower_choice == 3 then
-								flower = "default:dandelion_yellow"
-							elseif flower_choice == 4 then
-								flower = "default:dandelion_white"
-							elseif flower_choice == 5 then
-								flower = "default:geranium"
-							elseif flower_choice >= 6 and flower_choice <= 7 then
-								flower = "default:viola"
-							elseif flower_choice >= 8 and flower_choice <= 9 then
-								flower = "default:dasie"
-							else --added due to minetest kicking it out as nill very rarely
-								print("WTF!!!   no flower grew? flower_choice = "..flower_choice) 
-								flower = "default:dasie_cluster"
+							if flower_choice == 1 then
+								minetest.set_node(p, {name="default:tulip"})
 							end
-							minetest.set_node(p, {name=flower})
 						end
 					end
 				end
