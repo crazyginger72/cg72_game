@@ -53,8 +53,8 @@ minetest.register_on_generated(function(minp, maxp, seed)
 								flower = "default:dasie"
 							elseif flower_choice == 15 then
 								flower = "default:clover_purple"
-							else
-								print("WTF!!!   no flower grew? "..flower_choice)
+							else --added due to minetest kicking it out as nill very rarely
+								print("WTF!!!   no flower grew? flower_choice was "..flower_choice) 
 								flower = "default:dasie_cluster"
 							end
 							minetest.set_node(p, {name=flower})
