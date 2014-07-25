@@ -430,7 +430,7 @@ minetest.register_node("default:clover", {
 	paramtype = "light",
 	buildable_to = true,
 	walkable = true,
-	sounds = default.node_sound_dirt_defaults(),
+	sounds = default.node_sound_leaves_defaults(),
 	groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,crumbly=3},
 	drawtype = "nodebox",
 	node_box = {
@@ -472,7 +472,7 @@ minetest.register_node("default:clover_purple", {
 	paramtype = "light",
 	buildable_to = true,
 	walkable = true,
-	sounds = default.node_sound_dirt_defaults(),
+	sounds = default.node_sound_leaves_defaults(),
 	groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,crumbly=3},
 	drawtype = "nodebox",
 	node_box = {
@@ -506,3 +506,219 @@ minetest.register_node("default:clover_purple", {
 		},
 	},
 })
+
+minetest.register_node("default:sunflower_b", {
+	description = "Sunflower",
+	drawtype = "nodebox",
+	tiles = {'sunflower_stalk.png',},
+	paramtype = "light",
+	walkable = true,
+	sounds = default.node_sound_leaves_defaults(),
+	groups = {snappy=2,choppy=1,oddly_breakable_by_hand=3,not_in_creative_inventory=1},
+	drop = { items = { { items = {'default:dye_green'}, }, }, },
+	drawtype = "nodebox",
+	node_box = {
+		type = "fixed",
+		fixed = {
+				{0, -0.5, 0.125, 0.0625, 0.5, 0.1875},
+		}
+	},
+	selection_box = {
+		type = "fixed",
+		fixed = {
+				{0, -0.5, 0.125, 0.0625, 0.5, 0.1875},
+		},
+	},
+})
+
+minetest.register_node("default:sunflower_m", {
+	description = "Sunflower",
+	drawtype = "nodebox",
+	tiles = {'sunflower_stalk.png',},
+	paramtype = "light",
+	walkable = true,
+	sounds = default.node_sound_leaves_defaults(),
+	groups = {snappy=2,choppy=1,oddly_breakable_by_hand=3,not_in_creative_inventory=1},
+	drop = { items = { { items = {'default:dye_green'}, }, }, },
+	drawtype = "nodebox",
+	node_box = {
+		type = "fixed",
+		fixed = {
+				{0, -0.5, 0.125, 0.0625, 0.5, 0.1875}, -- NodeBox1
+				{0.0625, 0.13964, 0.137614, 0.309309, 0.166667, 0.167644}, -- NodeBox2
+				{0.1875, 0.125, 0.125, 0.5, 0.1875, 0.1875}, -- NodeBox3
+				{0.213213, 0.125, 0.0625, 0.477477, 0.1875, 0.25}, -- NodeBox4
+				{0.207207, -0.375, 0.0625, 0.495495, -0.3125, 0.25}, -- NodeBox5
+				{0.1875, -0.375, 0.125, 0.5, -0.3125, 0.1875}, -- NodeBox6
+				{0.0625, -0.355856, 0.146623, 0.1875, -0.331832, 0.167644}, -- NodeBox7
+				{-0.4375, -0.25, 0.125, -0.125, -0.1875, 0.1875}, -- NodeBox8
+				{-0.405405, -0.25, 0.0625, -0.147147, -0.1875, 0.25}, -- NodeBox9
+				{-0.315315, -0.234, 0.142236, 0.0330331, -0.21, 0.166284}, -- NodeBox10
+				{-0.4375, 0.375, 0.125, -0.125, 0.4375, 0.1875}, -- NodeBox11
+				{-0.405405, 0.375, 0.0625, -0.141141, 0.4375, 0.25}, -- NodeBox12
+				{-0.351351, 0.396, 0.136224, 0.0330331, 0.426, 0.166284}, -- NodeBox13
+		}
+	},
+	selection_box = {
+		type = "fixed",
+		fixed = {
+				{0, -0.5, 0.125, 0.0625, 0.5, 0.1875}, -- NodeBox1
+				{0.0625, 0.13964, 0.137614, 0.309309, 0.166667, 0.167644}, -- NodeBox2
+				{0.1875, 0.125, 0.125, 0.5, 0.1875, 0.1875}, -- NodeBox3
+				{0.213213, 0.125, 0.0625, 0.477477, 0.1875, 0.25}, -- NodeBox4
+				{0.207207, -0.375, 0.0625, 0.495495, -0.3125, 0.25}, -- NodeBox5
+				{0.1875, -0.375, 0.125, 0.5, -0.3125, 0.1875}, -- NodeBox6
+				{0.0625, -0.355856, 0.146623, 0.1875, -0.331832, 0.167644}, -- NodeBox7
+				{-0.4375, -0.25, 0.125, -0.125, -0.1875, 0.1875}, -- NodeBox8
+				{-0.405405, -0.25, 0.0625, -0.147147, -0.1875, 0.25}, -- NodeBox9
+				{-0.315315, -0.234, 0.142236, 0.0330331, -0.21, 0.166284}, -- NodeBox10
+				{-0.4375, 0.375, 0.125, -0.125, 0.4375, 0.1875}, -- NodeBox11
+				{-0.405405, 0.375, 0.0625, -0.141141, 0.4375, 0.25}, -- NodeBox12
+				{-0.351351, 0.396, 0.136224, 0.0330331, 0.426, 0.166284}, -- NodeBox13
+		},
+	},
+})
+
+minetest.register_node("default:sunflower_head", {
+	description = "Sunflower",
+	drawtype = "nodebox",
+	tiles = {'sunflower_t.png','sunflower_bt.png','sunflower_l.png','sunflower_r.png','sunflower_b.png','sunflower_f.png',},
+	paramtype = "light",
+	walkable = true,
+	sounds = default.node_sound_leaves_defaults(),
+	groups = {snappy=2,choppy=1,oddly_breakable_by_hand=3,not_in_creative_inventory=1},
+	drop = {
+		items = {
+			{ items = {'default:sunflower_seed 10'}, rarity = 50,},
+			{ items = {'default:sunflower_seed 2'}, rarity = 4,},
+			{ items = {'default:sunflower_seed 4'}, rarity = 10,},
+			{ items = {'default:sunflower_seed 5'}, },
+		},
+	},
+	drawtype = "nodebox",
+	node_box = {
+		type = "fixed",
+		fixed = {
+				{0, -0.5, 0.125, 0.0625, 0.0625, 0.1875}, -- NodeBox1
+				{0.207207, -0.375, 0.0625, 0.495495, -0.3125, 0.25}, -- NodeBox5
+				{0.1875, -0.375, 0.125, 0.5, -0.3125, 0.1875}, -- NodeBox6
+				{0.0625, -0.355856, 0.146623, 0.1875, -0.331832, 0.167644}, -- NodeBox7
+				{-0.4375, -0.25, 0.125, -0.125, -0.1875, 0.1875}, -- NodeBox8
+				{-0.405405, -0.25, 0.0625, -0.147147, -0.1875, 0.25}, -- NodeBox9
+				{-0.315315, -0.234, 0.142236, 0.0330331, -0.21, 0.166284}, -- NodeBox10
+				{-0.0625, 0, 0.0625, 0.125, 0.3125, 0.125}, -- NodeBox17
+				{-0.125, 0.0625, 0.0625, 0.1875, 0.25, 0.125}, -- NodeBox18
+				{-0.0625, -0.1875, 0.0941392, 0.125, 0.5, 0.112176}, -- NodeBox19
+				{-0.3125, 0.0625, 0.0895653, 0.375, 0.25, 0.110587}, -- NodeBox20
+				{-0.1875, -0.125, 0.0955714, 0.25, 0.4375, 0.110587}, -- NodeBox21
+				{-0.25, -0.0625, 0.0925684, 0.3125, 0.375, 0.110587}, -- NodeBox22
+		}
+	},
+	selection_box = {
+		type = "fixed",
+		fixed = {
+				{0, -0.5, 0.125, 0.0625, 0.0625, 0.1875}, -- NodeBox1
+				{0.207207, -0.375, 0.0625, 0.495495, -0.3125, 0.25}, -- NodeBox5
+				{0.1875, -0.375, 0.125, 0.5, -0.3125, 0.1875}, -- NodeBox6
+				{0.0625, -0.355856, 0.146623, 0.1875, -0.331832, 0.167644}, -- NodeBox7
+				{-0.4375, -0.25, 0.125, -0.125, -0.1875, 0.1875}, -- NodeBox8
+				{-0.405405, -0.25, 0.0625, -0.147147, -0.1875, 0.25}, -- NodeBox9
+				{-0.315315, -0.234, 0.142236, 0.0330331, -0.21, 0.166284}, -- NodeBox10
+				{-0.0625, 0, 0.0625, 0.125, 0.3125, 0.125}, -- NodeBox17
+				{-0.125, 0.0625, 0.0625, 0.1875, 0.25, 0.125}, -- NodeBox18
+				{-0.0625, -0.1875, 0.0941392, 0.125, 0.5, 0.112176}, -- NodeBox19
+				{-0.3125, 0.0625, 0.0895653, 0.375, 0.25, 0.110587}, -- NodeBox20
+				{-0.1875, -0.125, 0.0955714, 0.25, 0.4375, 0.110587}, -- NodeBox21
+				{-0.25, -0.0625, 0.0925684, 0.3125, 0.375, 0.110587}, -- NodeBox22
+		},
+	},
+})
+
+minetest.register_craftitem("default:sunflower_seed", {
+	description = "Sunflower Seed",
+	inventory_image = "sunflower_seed.png",
+	on_use = minetest.item_eat(1),
+	on_place = function(itemstack, placer, pointed_thing)
+		return plant_seed(itemstack, placer, pointed_thing, "default:sunflower_sprout")
+	end,
+	sounds = default.node_sound_leaves_defaults(),
+})
+
+minetest.register_node("default:sunflower_sprout", {
+	description = "Sunflower Sprout",
+	drawtype = "plantlike",
+	tiles = { "sunflower_sprout.png" },
+	inventory_image = "sunflower_sprout.png",
+	wield_image = "sunflower_sprout.png",
+	sunlight_propagates = true,
+	paramtype = "light",
+	walkable = false,
+	buildable_to = false,
+	drop = { items = { { items = {''}, }, }, },
+	groups = {flammable=2,flora=1,snappy=1,choppy=1,oddly_breakable_by_hand=1},
+	sounds = default.node_sound_leaves_defaults(),
+	selection_box = {
+		type = "fixed",
+		fixed = { -0.15, -0.5, -0.15, 0.15, 0.2, 0.15 },
+	},
+})
+
+
+local function plant_seed(itemstack, placer, pointed_thing, plantname)
+	local pt = pointed_thing
+	-- check if pointing at a node
+	if not pt then
+		return
+	end
+	if pt.type ~= "node" then
+		return
+	end
+	
+	local under = minetest.get_node(pt.under)
+	local above = minetest.get_node(pt.above)
+	
+	-- return if any of the nodes is not registered
+	if not minetest.registered_nodes[under.name] then
+		return
+	end
+	if not minetest.registered_nodes[above.name] then
+		return
+	end
+	
+	-- check if pointing at the top of the node
+	if pt.above.y ~= pt.under.y+1 then
+		return
+	end
+	
+	-- check if you can replace the node above the pointed node
+	if not minetest.registered_nodes[above.name].buildable_to then
+		return
+	end
+	
+	-- check if pointing at soil
+	if minetest.get_item_group(under.name, "soil") <= 1 then
+		return
+	end
+	
+	-- add the node and remove 1 item from the itemstack
+	minetest.add_node(pt.above, {name=plantname})
+	if not minetest.setting_getbool("creative_mode") then
+		itemstack:take_item()
+	end
+	return itemstack
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
