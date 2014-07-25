@@ -494,7 +494,7 @@ minetest.register_node("default:clover_purple", {
 	selection_box = {
 		type = "fixed",
 		fixed = {
-				{-0.5, -0.5, -0.5, 0.5, -0.3.25, 0.5},
+				{-0.5, -0.5, -0.5, 0.5, -0.3125, 0.5},
 		},
 	},
 })
