@@ -672,7 +672,6 @@ local function place_seed(itemstack, placer, pointed_thing, plantname)
 	
 	-- add the node and remove 1 item from the itemstack
 	minetest.add_node(pt.above, {name=plantname})
-	print("seed planted"..pt.above)
 	if not minetest.setting_getbool("creative_mode") then
 		itemstack:take_item()
 	end
