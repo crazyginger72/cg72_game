@@ -194,15 +194,11 @@ minetest.register_node("default:rose_bush", {
 	paramtype = "light",
 	drop = {
 		items = {
-			{ items = {'default:rose'},
-			rarity = 20,
-			},
-			{ items = {'default:rose'},
-			rarity = 20,
-			},
-			{ items = {'default:rose 2'},
-			},
-		}
+			{ items = {'default:rose'}, rarity = 20,},
+			{ items = {'default:rose'}, rarity = 20,},
+			{ items = {'default:rose 2'}, },
+		},
+	}
 	walkable = false,
 	buildable_to = true,
 	is_ground_content = true,
