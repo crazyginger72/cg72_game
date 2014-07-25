@@ -53,8 +53,10 @@ minetest.register_on_generated(function(minp, maxp, seed)
 								flower = "default:dasie"
 							elseif flower_choice >= 140 and flower_choice <= 142 then
 								flower = "default:clover"
-							elseif flower_choice >= 143 then
+							elseif flower_choice >= 143 and flower_choice <= 145 then
 								flower = "default:clover_purple"
+							else
+								print("WTF!!!   no flower grew? "..flower_choice)
 							end
 							minetest.set_node(p, {name=flower})
 						end
