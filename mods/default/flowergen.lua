@@ -1,7 +1,7 @@
 minetest.register_on_generated(function(minp, maxp, seed)
 	if maxp.y >= 2 and minp.y <= 0 then
 		-- Generate flowers
-		local perlin1 = minetest.get_perlin(436, 3, 0.6, 100)
+		local perlin1 = minetest.get_perlin(336, 3, 0.6, 100)
 		-- Assume X and Z lengths are equal
 		local divlen = 16
 		local divs = (maxp.x-minp.x)/divlen+1;
@@ -105,7 +105,7 @@ end)
 minetest.register_on_generated(function(minp, maxp, seed)
 	if maxp.y >= 2 and minp.y <= 0 then
 		-- Generate flowers
-		local perlin1 = minetest.get_perlin(476, 3, 0.6, 100)
+		local perlin1 = minetest.get_perlin(400, 3, 0.6, 100)
 		-- Assume X and Z lengths are equal
 		local divlen = 16
 		local divs = (maxp.x-minp.x)/divlen+1;
@@ -209,7 +209,7 @@ end)
 minetest.register_on_generated(function(minp, maxp, seed)
 	if maxp.y >= 2 and minp.y <= 0 then
 		-- Generate flowers
-		local perlin1 = minetest.get_perlin(416, 3, 0.6, 100)
+		local perlin1 = minetest.get_perlin(555, 3, 0.6, 100)
 		-- Assume X and Z lengths are equal
 		local divlen = 16
 		local divs = (maxp.x-minp.x)/divlen+1;
