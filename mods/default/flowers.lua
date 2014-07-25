@@ -194,8 +194,9 @@ minetest.register_node("default:rose_bush", {
 	paramtype = "light",
 	drop = {
 		items = {
-			{ items = {'default:rose'}, rarity = 20,},
-			{ items = {'default:rose'}, rarity = 20,},
+			{ items = {'default:rose 10'}, rarity = 50,},
+			{ items = {'default:rose'}, rarity = 4,},
+			{ items = {'default:rose'}, rarity = 10,},
 			{ items = {'default:rose 2'}, },
 				},
 			},
