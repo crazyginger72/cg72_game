@@ -57,7 +57,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 								flower = "default:clover_purple"
 							end
 
-							print("flower ["..flower"] grew at "..p", flower_choice ="..flower_choice)
+							print("flower grew, flower_choice ="..flower_choice)
 							minetest.set_node(p, {name=flower})
 						end
 					end
