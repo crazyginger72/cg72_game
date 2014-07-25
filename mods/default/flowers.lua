@@ -666,7 +666,7 @@ local function place_seed(itemstack, placer, pointed_thing, plantname)
 	end
 	
 	-- check if pointing at soil
-	if minetest.get_item_group(under.name, "soil") >= 1 then
+	if not minetest.get_item_group(under.name, "soil") == 1 then
 		return
 	end
 	
