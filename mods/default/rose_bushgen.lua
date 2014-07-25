@@ -15,7 +15,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 			local x1 = minp.x + math.floor((divx+1)*divlen)
 			local z1 = minp.z + math.floor((divz+1)*divlen)
 			-- Determine rose bush amount from perlin noise
-			local grass_amount = math.floor(perlin1:get2d({x=x0, y=z0}) ^ 3 * 5)
+			local grass_amount = math.floor(perlin1:get2d({x=x0, y=z0}) ^ 3 * 1)
 			-- Find random positions for rose bushes
 			local pr = PseudoRandom(seed+851)
 			for i=0,grass_amount do
