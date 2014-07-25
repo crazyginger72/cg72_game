@@ -35,30 +35,26 @@ minetest.register_on_generated(function(minp, maxp, seed)
 						minetest.registered_nodes[nn].buildable_to then
 						nn = minetest.get_node({x=x,y=ground_y,z=z}).name
 						if nn == "default:dirt_with_grass" then
-							local flower_choice = pr:next(1, 110) - pr:next(-5,5)
+							local flower_choice = pr:next(1, 138) - pr:next(-5,5)
 							local flower
-							if flower_choice >= 1 and flower_choice <= 13 then
+							if flower_choice >= 1 and flower_choice <= 20 then
 								flower = "default:tulip"
-							elseif flower_choice >= 14 and flower_choice <= 23 then
+							elseif flower_choice >= 21 and flower_choice <= 23 then
 								flower = "default:rose_bush"
-							elseif flower_choice >= 24 and flower_choice <= 26 then
+							elseif flower_choice >= 24 and flower_choice <= 39 then
 								flower = "default:dandelion_yellow"
-							elseif flower_choice >= 27 and flower_choice <= 32 then
+							elseif flower_choice >= 40 and flower_choice <= 55 then
 								flower = "default:dandelion_white"
-							elseif flower_choice >= 32 and flower_choice <= 37 then
+							elseif flower_choice >= 56 and flower_choice <= 67 then
 								flower = "default:geranium"
-							elseif flower_choice >= 38 and flower_choice <= 43 then
+							elseif flower_choice >= 68 and flower_choice <= 88 then
 								flower = "default:viola"
-							elseif flower_choice >= 44 and flower_choice <= 50 then
+							elseif flower_choice >= 89 and flower_choice <= 139 then
 								flower = "default:dasie"
-							elseif flower_choice >= 107 and flower_choice <= 108 then
+							elseif flower_choice >= 140 and flower_choice <= 142 then
 								flower = "default:clover"
-							elseif flower_choice >= 109 and flower_choice <= 110 then
+							elseif flower_choice >= 143 then
 								flower = "default:clover_purple"
-							end
-							if flower == nil then  --by the odd chance minetest takes a shit on this number it won't crash now!
-								print("no flower grew, flower_choice ="..flower_choice)
-								return
 							end
 							minetest.set_node(p, {name=flower})
 						end
