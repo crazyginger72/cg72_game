@@ -4,7 +4,7 @@ if rosebush == nil or rosebush == true then
 minetest.register_on_generated(function(minp, maxp, seed)
 	if maxp.y >= 2 and minp.y <= 0 then
 		-- Generate rose bushes
-		local perlin1 = minetest.get_perlin(872, 2, 0.5, 101)
+		local perlin1 = minetest.get_perlin(200, 2, 0.5, 101)
 		-- Assume X and Z lengths are equal
 		local divlen = 16
 		local divs = (maxp.x-minp.x)/divlen+1;
