@@ -706,7 +706,9 @@ minetest.register_node("default:sunflower_sprout", {
 })
 
 minetest.register_abm({
-	interval = 80,
+	nodenames = {"default:sunflower_sprout"},
+	neighbors = {"group:soil"},
+	interval = 90,
 	chance = 2,
 	action = function(pos, node)
 	local pos1 = {x=pos.x, y=pos.y+1, z=pos.z}
