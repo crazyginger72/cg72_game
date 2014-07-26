@@ -105,6 +105,14 @@ minetest.register_on_joinplayer(function(player)
                         visual_size = {x=1, y=1},
                 })
                 minetest.chat_send_player(plname, "Your skin has been set selah :D")
+        elseif plname == "ChubbaBubba" then
+                player:set_properties({
+                        visual = "mesh",
+                        mesh = "character.x",
+                        textures = {"charactercb.png"},
+                        visual_size = {x=1, y=1},
+                })
+                minetest.chat_send_player(plname, "Your skin has been set darcie :D")
         else
                 if gender.players[plname] == "m" then
                         player:set_properties({
