@@ -89,26 +89,43 @@ minetest.register_on_joinplayer(function(player)
         local plname = player:get_player_name()
         --default.player_set_model(player, "character.x")
         --player:set_local_animation({x=0, y=79}, {x=168, y=187}, {x=189, y=198}, {x=200, y=219}, 30)
-       
-        if gender.players[plname] == "m" then
+        if plname == "crazyginger72" then
                 player:set_properties({
                         visual = "mesh",
                         mesh = "character.x",
-                        textures = {"characterm.png"},
+                        textures = {"charactercg.png"},
                         visual_size = {x=1, y=1},
                 })
-                minetest.chat_send_player(plname, "Your gender is set to boy, to change type /gender ")
-        elseif gender.players[plname] == "f" then
+                minetest.chat_send_player(plname, "Your skin has been set ginger :D")
+        elseif plname == "shadowzone" then
                 player:set_properties({
                         visual = "mesh",
                         mesh = "character.x",
-                        textures = {"characterf.png"},
+                        textures = {"charactersz.png"},
                         visual_size = {x=1, y=1},
                 })
-                minetest.chat_send_player(plname, "Your gender is set to girl, to change type /gender ")
+                minetest.chat_send_player(plname, "Your skin has been set selah :D")
         else
-                minetest.chat_send_player(plname, "Please set your gender via /boy or /girl, thank you. You can also ignore this message and use the default male model. This message will be shown again when you rejoin.")
-                minetest.show_formspec(plname, gender.formname, gender.formspec)
+                if gender.players[plname] == "m" then
+                        player:set_properties({
+                                visual = "mesh",
+                                mesh = "character.x",
+                                textures = {"characterm.png"},
+                                visual_size = {x=1, y=1},
+                        })
+                        minetest.chat_send_player(plname, "Your gender is set to boy, to change type /gender ")
+                elseif gender.players[plname] == "f" then
+                        player:set_properties({
+                                visual = "mesh",
+                                mesh = "character.x",
+                                textures = {"characterf.png"},
+                                visual_size = {x=1, y=1},
+                        })
+                        minetest.chat_send_player(plname, "Your gender is set to girl, to change type /gender ")
+                else
+                        minetest.chat_send_player(plname, "Please set your gender via /boy or /girl, thank you. You can also ignore this message and use the default male model. This message will be shown again when you rejoin.")
+                        minetest.show_formspec(plname, gender.formname, gender.formspec)
+                end
         end
 end)
  
