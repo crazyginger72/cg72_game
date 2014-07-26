@@ -1337,10 +1337,11 @@ minetest.register_node("default:apple", {
 	after_place_node = function(pos, placer, itemstack)
 		pos1 = {x=pos.x, y=pos.y-1, z=pos.z}
 		if placer:is_player() then
-			minetest.set_node(pos, {name="default:sapling"})
-			print("apple @"..minetest.pos_to_string(pos))
-		else
-			minetest.set_node(pos, {name="default:apple", param2=1})
+			if minetest.get_node(pos1).name == "default:dirt" or minetest.get_node(pos1).name == "default:dirt_with_grass"
+				minetest.set_node(pos, {name="default:sapling"}))
+			else
+				minetest.set_node(pos, {name="default:apple", param2=1})
+			end
 		end
 	end,
 })
