@@ -713,7 +713,7 @@ minetest.register_abm({
 	action = function(pos, node)
 	local pos1 = {x=pos.x, y=pos.y+1, z=pos.z}
 	local pos2 = {x=pos.x, y=pos.y+2, z=pos.z}	
-	local pos3 = {x=pos.x, y=pos.y+3, z=pos.z}
+	local pos3 = {x=pos.x, y=pos.y+2, z=pos.z}
 		if minetest.get_node_light(pos1) < 12 then
 			return
 		end
