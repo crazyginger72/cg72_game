@@ -718,9 +718,9 @@ minetest.register_abm({
 		end
 		pos2 = {x=pos.x, y=pos.y+1, z=pos.z}
 		if minetest.get_node(pos1).name == "air" and minetest.get_node(pos2).name == "air" then
-			minetest.add_node(pos, "default:sunflower_b")
-			minetest.add_nade(pos1, "default:sunflower_m")
-			minetest.add_node(pos2, "default:sunflower_head")
+			minetest.add_node(pos, {name ="default:sunflower_b"})
+			minetest.add_nade(pos1, {name ="default:sunflower_m"})
+			minetest.add_node(pos2, {name ="default:sunflower_head"})
 		end
 	end
 })
