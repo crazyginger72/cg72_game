@@ -1317,6 +1317,24 @@ minetest.register_node("default:sapling", {
 	sounds = default.node_sound_leaves_defaults(),
 })
 
+minetest.register_node("default:sapling_apple", {
+	description = "Sapling",
+	drawtype = "plantlike",
+	visual_scale = 1.0,
+	tiles = {"default_sapling.png"},
+	inventory_image = "default_sapling.png",
+	wield_image = "default_sapling.png",
+	paramtype = "light",
+	walkable = false,
+	is_ground_content = true,
+	selection_box = {
+		type = "fixed",
+		fixed = {-0.3, -0.5, -0.3, 0.3, 0.35, 0.3}
+	},
+	groups = {snappy=2,dig_immediate=3,flammable=2,attached_node=1},
+	sounds = default.node_sound_leaves_defaults(),
+})
+
 minetest.register_node("default:apple", {
 	description = "Apple",
 	drawtype = "plantlike",
@@ -1338,7 +1356,7 @@ minetest.register_node("default:apple", {
 		pos1 = {x=pos.x, y=pos.y-1, z=pos.z}
 		if placer:is_player() then
 			if minetest.get_node(pos1).name == "default:dirt" or minetest.get_node(pos1).name == "default:dirt_with_grass" then
-				minetest.set_node(pos, {name="default:sapling"})
+				minetest.set_node(pos, {name="default:sapling_apple"})
 			else
 				minetest.set_node(pos, {name="default:apple", param2=1})
 			end
