@@ -448,6 +448,27 @@ minetest.register_node("default:leaves", {
 	sounds = default.node_sound_leaves_defaults(),
 })
 
+minetest.register_node("default:leaves_apple", {
+	description = "Leaves",
+	drawtype = "allfaces_optional",
+	visual_scale = 1.3,
+	tiles = {"default_leaves.png"},
+	paramtype = "light",
+	waving = 1,
+	is_ground_content = false,
+	groups = {snappy=3, leafdecay=3, flammable=2, leaves=1 ,not_in_creative_inventory=1},
+	drop = {
+		items = {
+			{
+				-- player will get leaves only if he get no saplings,
+				-- this is because max_items is 1
+				items = {'default:leaves'},
+			}
+		}
+	},
+	sounds = default.node_sound_leaves_defaults(),
+})
+
 minetest.register_node("default:cactus", {
 	description = "Cactus",
 	tiles = {"default_cactus_top.png", "default_cactus_top.png", "default_cactus_side.png"},
@@ -1331,7 +1352,7 @@ minetest.register_node("default:sapling_apple", {
 		type = "fixed",
 		fixed = {-0.3, -0.5, -0.3, 0.3, 0.35, 0.3}
 	},
-	groups = {snappy=2,dig_immediate=3,flammable=2,attached_node=1},
+	groups = {snappy=2,dig_immediate=3,flammable=2,attached_node=1,not_in_creative_inventory=1},
 	sounds = default.node_sound_leaves_defaults(),
 })
 

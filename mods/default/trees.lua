@@ -1,6 +1,7 @@
 local c_air = minetest.get_content_id("air")
 local c_ignore = minetest.get_content_id("ignore")
 local c_tree = minetest.get_content_id("default:tree")
+local c_aleaves = minetest.get_content_id("default:leaves_apple")
 local c_leaves = minetest.get_content_id("default:leaves")
 local c_apple = minetest.get_content_id("default:apple")
 
@@ -64,6 +65,8 @@ function default.grow_tree(data, a, pos, is_apple_tree, seed)
                                 if leaves_buffer[leaves_a:index(xi, yi, zi)] then
                                         if is_apple_tree == true and pr:next(1, 40) <=  15 then
                                                 data[vi] = c_apple
+                                        elseif is_apple_tree ==true then
+                                                data[vi] = c_aleaves
                                         else
                                                 data[vi] = c_leaves
                                         end
