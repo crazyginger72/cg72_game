@@ -514,7 +514,7 @@ minetest.register_node("default:sunflower_b", {
 	paramtype = "light",
 	walkable = true,
 	sounds = default.node_sound_leaves_defaults(),
-	groups = {snappy=2,choppy=1,oddly_breakable_by_hand=3,not_in_creative_inventory=1},
+	groups = {snappy=2,choppy=1,plant=1,oddly_breakable_by_hand=3,not_in_creative_inventory=1},
 	drop = { items = { { items = {'default:dye_green'}, }, }, },
 	drawtype = "nodebox",
 	node_box = {
@@ -692,14 +692,12 @@ minetest.register_node("default:sunflower_sprout", {
 	description = "Sunflower Sprout",
 	drawtype = "plantlike",
 	tiles = { "sunflower_sprout.png" },
-	inventory_image = "sunflower_sprout.png",
-	wield_image = "sunflower_sprout.png",
 	sunlight_propagates = true,
 	paramtype = "light",
 	walkable = false,
 	buildable_to = false,
 	drop = { items = { { items = {''}, }, }, },
-	groups = {flammable=1,flora=1,snappy=3,choppy=3,oddly_breakable_by_hand=3},
+	groups = {flammable=1,flora=1,plant=1,snappy=3,choppy=3,oddly_breakable_by_hand=3,not_in_creative_inventory=1},
 	sounds = default.node_sound_leaves_defaults(),
 	selection_box = {
 		type = "fixed",
@@ -707,8 +705,23 @@ minetest.register_node("default:sunflower_sprout", {
 	},
 })
 
-
-
+minetest.register_abm({
+	interval = 80,
+	chance = 2,
+	action = function(pos, node)
+	local pos1 = {x=pos.x, y=pos.y+1, z=pos.z}
+	local pos2 = {x=pos.x, y=pos.y+2, z=pos.z}	
+		if minetest.get_node_light(pos1) < 12 then
+			return
+		end
+		pos2 = {x=pos.x, y=pos.y+1, z=pos.z}
+		if minetest.get_node(pos1).name == "air" and minetest.get_node(pos2).name == "air" then
+			minetest.add_node(pos, "default:sunflower_b")
+			minetest.add_nade(pos1, "default:sunflower_m")
+			minetest.add_node(pos2, "default:sunflower_head")
+		end
+	end
+})
 
 
 
