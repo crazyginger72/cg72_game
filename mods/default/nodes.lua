@@ -1365,6 +1365,7 @@ minetest.register_node("default:apple", {
 	paramtype = "light",
 	sunlight_propagates = true,
 	walkable = false,
+	drop = { items = { { items = {'default:sapling'}, }, }, },
 	is_ground_content = true,
 	selection_box = {
 		type = "fixed",

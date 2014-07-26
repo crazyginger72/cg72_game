@@ -28,7 +28,9 @@ function default.grow_tree(data, a, pos, is_apple_tree, seed)
         y = y+th-1 -- (x, y, z) is now last piece of trunk
         local leaves_a = VoxelArea:new{MinEdge={x=-2, y=-3, z=-2}, MaxEdge={x=2, y=2, z=2}}
         local leaves_buffer = {}
-        
+        if th <= 6 then
+                leaves_a = VoxelArea:new{MinEdge={x=-2, y=-2, z=-2}, MaxEdge={x=2, y=2, z=2}}
+        end
         -- Force leaves near the trunk
         local d = 1
         for xi = -d, d do
