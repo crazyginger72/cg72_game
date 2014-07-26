@@ -1335,8 +1335,12 @@ minetest.register_node("default:apple", {
 	on_use = minetest.item_eat(1),
 	sounds = default.node_sound_leaves_defaults(),
 	after_place_node = function(pos, placer, itemstack)
-		if placer:is_player() then
-			minetest.set_node(pos, {name="default:sapling", param2=1})
+		pos1 = {x=pos.x, y=pos.y-1, z=pos.z}
+		if minetest.get_item_group(pos1, "soil") == 1 then
+			minetest.set_node(pos, {name="default:sapling"})
+		end
+		if placer:is_player() and minetest.get_item_group(pos1, "soil") == nil then
+			minetest.set_node(pos, {name="default:apple", param2=1})
 		end
 	end,
 })
