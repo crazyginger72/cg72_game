@@ -715,16 +715,14 @@ minetest.register_abm({
 	chance = 3,
 	action = function(pos, node)
 	local pos1 = {x=pos.x, y=pos.y+1, z=pos.z}
-	local pos2 = {x=pos.x, y=pos.y+2, z=pos.z}	
-	local pos3 = {x=pos.x, y=pos.y+2, z=pos.z}
+	local pos2 = {x=pos.x, y=pos.y+2, z=pos.z}
 		if minetest.get_node_light(pos1) < 12 then
 			return
 		end
-		pos2 = {x=pos.x, y=pos.y+1, z=pos.z}
 		if minetest.get_node(pos1).name == "air" and minetest.get_node(pos2).name == "air" then
 			minetest.add_node(pos, {name ="default:sunflower_b"})
-			minetest.add_node(pos2, {name ="default:sunflower_m"})
-			minetest.add_node(pos3, {name ="default:sunflower_head"})
+			minetest.add_node(pos1, {name ="default:sunflower_m"})
+			minetest.add_node(pos2, {name ="default:sunflower_head"})
 		end
 	end
 })
