@@ -63,7 +63,8 @@ for i in ipairs(beds_list) do
 			end
 		end,
 			
-		on_destruct = function(pos)
+		--on_destruct = function(pos)
+		after_dig_node = function(pos)
 			local node = minetest.get_node(pos)
 			local param2 = node.param2
 			if param2 == 0 then
@@ -135,7 +136,7 @@ minetest.register_node("default:bed_bottom_bunk_"..colour, {
 						{-0.5, -0.5, -0.5, 0.5, 0.3125, 1.5},
 					}
 		},	
-		on_destruct = function(pos)
+		after_dig_node = function(pos)
 			local node = minetest.get_node(pos)
 			local param2 = node.param2
 			if param2 == 0 then
