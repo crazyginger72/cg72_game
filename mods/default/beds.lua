@@ -43,7 +43,7 @@ for i in ipairs(beds_list) do
 		},
 
 		after_place_node = function(pos, placer, itemstack)
-			local node = minetest.env:get_node(pos)
+			local node = minetest.get_node(pos)
 			local p = {x=pos.x, y=pos.y, z=pos.z}
 			local param2 = node.param2
 			node.name = "default:bed_top_"..colour
@@ -57,20 +57,17 @@ for i in ipairs(beds_list) do
 				pos.x = pos.x-1
 			end
 			pos2 = {x=pos.x, y=pos.y-1, z=pos.z}
-			if minetest.registered_nodes[minetest.env:get_node(pos).name].buildable_to  then
-				if minetest.get_item_group(pos2, "bed") >= 0 then
-					minetest.env:set_node(pos, {name ="default:bed_top_bunk_"..colour})
-				else
-					minetest.env:set_node(pos, node)
-			end
+			if minetest.registered_nodes[minetest.get_node(pos).name].buildable_to  then
 			else
-				minetest.env:remove_node(p)
+				minetest.set_node(pos, node)
+			else
+				minetest.remove_node(p)
 				return true
 			end
 		end,
 			
 		on_destruct = function(pos)
-			local node = minetest.env:get_node(pos)
+			local node = minetest.get_node(pos)
 			local param2 = node.param2
 			if param2 == 0 then
 				pos.z = pos.z+1
@@ -81,9 +78,9 @@ for i in ipairs(beds_list) do
 			elseif param2 == 3 then
 				pos.x = pos.x-1
 			end
-			if( minetest.env:get_node({x=pos.x, y=pos.y, z=pos.z}).name == "default:bed_top_"..colour ) then
-				if( minetest.env:get_node({x=pos.x, y=pos.y, z=pos.z}).param2 == param2 ) then
-					minetest.env:remove_node(pos)
+			if( minetest.get_node({x=pos.x, y=pos.y, z=pos.z}).name == "default:bed_top_"..colour ) then
+				if( minetest.get_node({x=pos.x, y=pos.y, z=pos.z}).param2 == param2 ) then
+					minetest.remove_node(pos)
 				end	
 			end
 		end,
@@ -140,32 +137,9 @@ minetest.register_node("default:bed_bottom_bunk_"..colour, {
 			fixed = {
 						{-0.5, -0.5, -0.5, 0.5, 0.3125, 1.5},
 					}
-		},
-
-		after_place_node = function(pos, placer, itemstack)
-			local node = minetest.env:get_node(pos)
-			local p = {x=pos.x, y=pos.y, z=pos.z}
-			local param2 = node.param2
-			node.name = "default:bed_top_bunk"..colour
-			if param2 == 0 then
-				pos.z = pos.z+1
-			elseif param2 == 1 then
-				pos.x = pos.x+1
-			elseif param2 == 2 then
-				pos.z = pos.z-1
-			elseif param2 == 3 then
-				pos.x = pos.x-1
-			end
-			if minetest.registered_nodes[minetest.env:get_node(pos).name].buildable_to  then
-				minetest.env:set_node(pos, node)
-			else
-				minetest.env:remove_node(p)
-				return true
-			end
-		end,
-			
+		},	
 		on_destruct = function(pos)
-			local node = minetest.env:get_node(pos)
+			local node = minetest.get_node(pos)
 			local param2 = node.param2
 			if param2 == 0 then
 				pos.z = pos.z+1
@@ -176,9 +150,9 @@ minetest.register_node("default:bed_bottom_bunk_"..colour, {
 			elseif param2 == 3 then
 				pos.x = pos.x-1
 			end
-			if( minetest.env:get_node({x=pos.x, y=pos.y, z=pos.z}).name == "default:bed_top_bunk_"..colour ) then
-				if( minetest.env:get_node({x=pos.x, y=pos.y, z=pos.z}).param2 == param2 ) then
-					minetest.env:remove_node(pos)
+			if( minetest.get_node({x=pos.x, y=pos.y, z=pos.z}).name == "default:bed_top_bunk_"..colour ) then
+				if( minetest.get_node({x=pos.x, y=pos.y, z=pos.z}).param2 == param2 ) then
+					minetest.remove_node(pos)
 				end	
 			end
 		end,
@@ -299,21 +273,25 @@ minetest.register_node("default:bed_king", {
 })
 
 minetest.register_abm({
-	nodenames = {"default:sunflower_sprout"},
-	neighbors = {"group:soil"},
-	interval = 90,
-	chance = 3,
+	nodenames = {"default:bed_bottom_"..colour},
+	interval = 1,
+	chance = 1,
 	action = function(pos, node)
-	local pos1 = {x=pos.x, y=pos.y+1, z=pos.z}
-	local pos2 = {x=pos.x, y=pos.y+2, z=pos.z}
-		if minetest.get_node_light(pos1) < 12 then
-			return
-		end
-		if minetest.get_node(pos1).name == "air" and minetest.get_node(pos2).name == "air" then
-			minetest.add_node(pos, {name ="default:sunflower_b"})
-			minetest.add_node(pos1, {name ="default:sunflower_m"})
-			minetest.add_node(pos2, {name ="default:sunflower_head"})
-		end
+	local under = {x=pos.x, y=pos.y-1, z=pos.z}
+	local param2 = node.param2
+	if param2 == 0 then
+		topunder.z = pos.z+1
+	elseif param2 == 1 then
+		topunder.x = pos.x+1
+	elseif param2 == 2 then
+		top.z = pos.z-1
+	elseif param2 == 3 then
+		topunder.x = pos.x-1
+	end
+	local topunder = {x=topunder.x, y=topunder.y-1, z=topunder.z}
+	if minetest.get_item_group(under, "bed") == 1 then
+		minetest.swap_node(under, {name ="default:bed_bottom_bunk_"..colour})
+		minetest.swap_node(topunder, {name ="default:bed_top_bunk_"..colour})
 	end
 })
 
