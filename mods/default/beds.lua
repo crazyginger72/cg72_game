@@ -22,7 +22,6 @@ for i in ipairs(beds_list) do
 		tiles = {"beds_bed_top_bottom_"..colour..".png", "default_wood.png",  "beds_bed_side_"..colour..".png",  "beds_bed_side_"..colour..".png",  "beds_bed_side_"..colour..".png",  "beds_bed_side_"..colour..".png"},
 		paramtype = "light",
 		paramtype2 = "facedir",
-		stack_max = 1,
 		groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=3,bed=1},
 		sounds = default.node_sound_wood_defaults(),
 		node_box = {
@@ -113,7 +112,6 @@ for i in ipairs(beds_list) do
 	})
 	
 minetest.register_node("default:bed_bottom_bunk"..colour, {
-		description = beddesc,
 		drawtype = "nodebox",
 		tiles = {"beds_bed_top_bunk_bottom_"..colour..".png", "default_wood.png",  "beds_bed_side_"..colour.."_r.png",  "beds_bed_side_"..colour.."_l.png",  "beds_bed_side_"..colour.."_top.png",  "beds_bed_side_"..colour.."_top.png"},
 		paramtype = "light",
