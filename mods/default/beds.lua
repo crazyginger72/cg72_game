@@ -63,8 +63,7 @@ for i in ipairs(beds_list) do
 			end
 		end,
 			
-		--on_destruct = function(pos)
-		after_dig_node = function(pos)
+		on_destruct = function(pos)
 			local node = minetest.get_node(pos)
 			local param2 = node.param2
 			if param2 == 0 then
@@ -136,7 +135,7 @@ minetest.register_node("default:bed_bottom_bunk_"..colour, {
 						{-0.5, -0.5, -0.5, 0.5, 0.3125, 1.5},
 					}
 		},	
-		after_dig_node = function(pos)
+		on_destruct = function(pos)
 			local node = minetest.get_node(pos)
 			local param2 = node.param2
 			if param2 == 0 then
@@ -277,23 +276,11 @@ minetest.register_abm({
 		local over = {x=pos.x, y=pos.y+1, z=pos.z}
 		local here = minetest.get_node(over)
 		local p2 = here.param2
+		local facedir = minetest.facedir_to_dir(node.param2)
+		local toppos = {x=pos.x+facedir.x, y=pos.y, z=pos.z+facedir.z}
 		if minetest.get_item_group(here.name, "bed") > 0 then
 			minetest.set_node(pos, {name ="default:bed_bottom_bunk_"..colour, param2=p2})
-		end
-	end
-})
-
-minetest.register_abm({	
-	nodenames = {"default:bed_top_"..colour},
-	neighbors = {"group:bed"},
-	interval = 1,
-	chance = 1,
-	action = function(pos, node)
-		local over = {x=pos.x, y=pos.y+1, z=pos.z}
-		local here = minetest.get_node(over)
-		local p2 = here.param2
-		if minetest.get_item_group(here.name, "bed") > 0 then
-			minetest.set_node(pos, {name ="default:bed_top_bunk_"..colour, param2 = p2})
+			minetest.set_node(toppos, {name ="default:bed_top_bunk_"..colour, param2=p2})
 		end
 	end
 })
@@ -308,33 +295,14 @@ minetest.register_abm({
 		local node_o = minetest.get_node(over)
 		local here = minetest.get_node(pos)
 		local p2 = here.param2
+		local facedir = minetest.facedir_to_dir(node.param2)
+		local toppos = {x=pos.x+facedir.x, y=pos.y, z=pos.z+facedir.z}
 		if minetest.get_item_group(node_o.name, "bed") < 1 then
 			minetest.set_node(pos, {name ="default:bed_bottom_"..colour, param2 = p2})
+			minetest.set_node(toppos, {name ="default:bed_top_"..colour, param2 = p2})
 		end
 	end
 })
-
-minetest.register_abm({	
-	nodenames = {"default:bed_top_bunk_"..colour},
-	neighbors = {"group:bed"},
-	interval = 1,
-	chance = 1,
-	action = function(pos, node)
-		local over = {x=pos.x, y=pos.y+1, z=pos.z}
-		local node_o = minetest.get_node(over)
-		local here = minetest.get_node(pos)
-		local p2 = here.param2
-		if minetest.get_item_group(node_o.name, "bed") < 1 then
-			minetest.set_node(pos, {name ="default:bed_top_"..colour, param2 = p2})
-		end
-	end
-})
-
-
-
-
-
-
 
 
 end
