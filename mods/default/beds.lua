@@ -295,7 +295,33 @@ minetest.register_abm({
 	end
 })
 
+minetest.register_abm({	
+	nodenames = {"default:bed_bottom_bunk_"..colour},
+	neighbors = {"group:bed"},
+	interval = 1,
+	chance = 1,
+	action = function(pos, node)
+		local over = {x=pos.x, y=pos.y+1, z=pos.z}
+		local node = minetest.get_node(over)
+		if minetest.get_item_group(node.name, "bed") < 1 then
+			minetest.swap_node(pos, {name ="default:bed_bottom_"..colour})
+		end
+	end
+})
 
+minetest.register_abm({	
+	nodenames = {"default:bed_top_bunk_"..colour},
+	neighbors = {"group:bed"},
+	interval = 1,
+	chance = 1,
+	action = function(pos, node)
+		local over = {x=pos.x, y=pos.y+1, z=pos.z}
+		local node = minetest.get_node(over)
+		if minetest.get_item_group(node.name, "bed") < 1 then
+			minetest.swap_node(pos, {name ="default:bed_top_"..colour})
+		end
+	end
+})
 
 
 
