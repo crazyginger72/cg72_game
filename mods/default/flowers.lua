@@ -372,7 +372,7 @@ minetest.register_node("default:tulip_cluster", {
 	drawtype = "plantlike",
 	visual_scale = 1.1,
 	inventory_image = "gardening_tulip_shrub.png",
-	wield_image = "gardening_tulip_shhrub.png",
+	wield_image = "gardening_tulip_shrub.png",
 	tiles = {"gardening_tulip_shrub.png"},
 	paramtype = "light",
 	walkable = false,
