@@ -200,8 +200,6 @@ minetest.register_node("default:bed_bottom_bunk_"..colour, {
 			{"default:stick", "", "default:stick", }
 		}
 	})
-	
-end
 
 --[[minetest.register_node("default:bed_king_bottom_"..colour, {
 		description = beddesc,
@@ -269,21 +267,7 @@ minetest.register_node("default:bed_king", {
 		},
 })
 
-minetest.register_abm({
-	local colour_list = {
-		{ "red"},
-		{ "orange"},	
-		{ "yellow"},
-		{ "green"},
-		{ "blue"},
-		{ "violet"},
-		{ "black"},
-		{ "grey"},
-		{ "white"},}
-
-	for i in ipairs(beds_list) do
-		local colour = colour_list[i][1]
-		
+minetest.register_abm({	
 	nodenames = {"default:bed_bottom_"..colour},
 	interval = 1,
 	chance = 1,
@@ -305,7 +289,6 @@ minetest.register_abm({
 			minetest.swap_node(topunder, {name ="default:bed_top_bunk_"..colour})
 		end
 	end
-end
 })
 
 
@@ -318,6 +301,6 @@ end
 
 
 
-
+end
 --local p2 = minetest.get_node(pos).param2
 --minetest.swap_node(pos, {name=replace, param2=p2})
