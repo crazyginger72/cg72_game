@@ -58,7 +58,6 @@ for i in ipairs(beds_list) do
 			end
 			pos2 = {x=pos.x, y=pos.y-1, z=pos.z}
 			if minetest.registered_nodes[minetest.get_node(pos).name].buildable_to  then
-			else
 				minetest.set_node(pos, node)
 			else
 				minetest.remove_node(p)
