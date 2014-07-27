@@ -274,7 +274,7 @@ minetest.register_abm({
 	chance = 1,
 	action = function(pos, node)
 		local over = {x=pos.x, y=pos.y+1, z=pos.z}
-		local node = minetest.get_node(over)
+		--local node = minetest.get_node(over)
 		local p2 = node.param2
 		if minetest.get_item_group(node.name, "bed") > 0 then
 			minetest.set_node(pos, {name ="default:bed_bottom_bunk_"..colour, param2=p2})
@@ -289,7 +289,7 @@ minetest.register_abm({
 	chance = 1,
 	action = function(pos, node)
 		local over = {x=pos.x, y=pos.y+1, z=pos.z}
-		local node = minetest.get_node(over)
+		--local node = minetest.get_node(over)
 		local p2 = node.param2
 		if minetest.get_item_group(node.name, "bed") > 0 then
 			minetest.set_node(pos, {name ="default:bed_top_bunk_"..colour, param2 = p2})
@@ -305,10 +305,10 @@ minetest.register_abm({
 	action = function(pos, node)
 		local over = {x=pos.x, y=pos.y+1, z=pos.z}
 		local node_o = minetest.get_node(over)
-		local node = minetest.get_node(pos)
+		--local node = minetest.get_node(pos)
 		local p2 = node.param2
 		if minetest.get_item_group(node_o.name, "bed") < 1 then
-			minetest.swap_node(pos, {name ="default:bed_bottom_"..colour})--, param2 = p2})
+			minetest.set_node(pos, {name ="default:bed_bottom_"..colour, param2 = p2})
 		end
 	end
 })
@@ -321,10 +321,10 @@ minetest.register_abm({
 	action = function(pos, node)
 		local over = {x=pos.x, y=pos.y+1, z=pos.z}
 		local node_o = minetest.get_node(over)
-		local node = minetest.get_node(pos)
+		--local node = minetest.get_node(pos)
 		local p2 = node.param2
 		if minetest.get_item_group(node_o.name, "bed") < 1 then
-			minetest.swap_node(pos, {name ="default:bed_top_"..colour})--, param2 = p2})
+			minetest.set_node(pos, {name ="default:bed_top_"..colour}), param2 = p2})
 		end
 	end
 })
