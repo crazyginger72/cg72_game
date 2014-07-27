@@ -56,9 +56,9 @@ for i in ipairs(beds_list) do
 			elseif param2 == 3 then
 				pos.x = pos.x-1
 			end
-			local pos2 = {x=pos.x, y=pos.y-1, z=pos.z}
+			pos2 = {x=pos.x, y=pos.y-1, z=pos.z}
 			if minetest.registered_nodes[minetest.env:get_node(pos).name].buildable_to  then
-				if minetest.get_item_group(pos2, "bed") == 1 then
+				if minetest.get_item_group(pos2, "bed") =>= 0 then
 					minetest.env:set_node(pos, {name ="default:bed_top_bunk_"..colour})
 				else
 					minetest.env:set_node(pos, node)
