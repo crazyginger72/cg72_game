@@ -270,11 +270,6 @@ minetest.register_node("default:bed_king", {
 })
 
 minetest.register_abm({
-	nodenames = {"default:bed_bottom_"..colour},
-	interval = 1,
-	chance = 1,
-	action = function(pos, node)
-
 	local colour_list = {
 		{ "red"},
 		{ "orange"},	
@@ -288,6 +283,11 @@ minetest.register_abm({
 
 	for i in ipairs(beds_list) do
 		local colour = colour_list[i][1]
+		
+	nodenames = {"default:bed_bottom_"..colour},
+	interval = 1,
+	chance = 1,
+	action = function(pos, node)
 		local under = {x=pos.x, y=pos.y-1, z=pos.z}
 		local param2 = node.param2
 		if param2 == 0 then
