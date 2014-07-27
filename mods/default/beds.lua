@@ -85,7 +85,7 @@ for i in ipairs(beds_list) do
 	
 	minetest.register_node("default:bed_top_"..colour, {
 		drawtype = "nodebox",
-		tiles = {"beds_bed_top_top_"..colour..".png", "default_junglewood.png",  "beds_bed_side_top_r_"..colour..".png",  "beds_bed_side_top_l_"..colour..".png",  "beds_bed_top_front.png",  "beds_bed_side_"..colour..".png"},
+		tiles = {"beds_bed_top_top_"..colour..".png", "default_wood.png",  "beds_bed_side_top_r_"..colour..".png",  "beds_bed_side_top_l_"..colour..".png",  "beds_bed_top_front.png",  "beds_bed_side_"..colour..".png"},
 		paramtype = "light",
 		paramtype2 = "facedir",
 		groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=3,bed=1},
@@ -157,7 +157,7 @@ minetest.register_node("default:bed_bottom_bunk_"..colour, {
 	
 	minetest.register_node("default:bed_top_bunk_"..colour, {
 		drawtype = "nodebox",
-		tiles = {"beds_bed_top_bunk_top_"..colour..".png", "default_junglewood.png",  "beds_bed_side_top_bunk_r_"..colour..".png",  "beds_bed_side_top_bunk_l_"..colour..".png",  "beds_bed_top_bunk_front.png",  "beds_bed_side_"..colour.."_top.png"},
+		tiles = {"beds_bed_top_bunk_top_"..colour..".png", "default_wood.png",  "beds_bed_side_top_bunk_r_"..colour..".png",  "beds_bed_side_top_bunk_l_"..colour..".png",  "beds_bed_top_bunk_front.png",  "beds_bed_side_"..colour.."_top.png"},
 		paramtype = "light",
 		paramtype2 = "facedir",
 		groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=3,bed=1},
@@ -272,26 +272,24 @@ minetest.register_abm({
 	interval = 1,
 	chance = 1,
 	action = function(pos, node)
-		local node = minetest.get_node(pos)
 		local over = {x=pos.x, y=pos.y+1, z=pos.z}
-		local top = {x=pos.x, y=pos.y, z=pos.z}
-		local param2 = node.param2
-		if param2 == 0 then
-			top = {x=pos.x, y=pos.y, z=pos.z+1}
-		elseif param2 == 1 then
-			top = {x=pos.x+1, y=pos.y, z=pos.z}
-		elseif param2 == 2 then
-			top = {x=pos.x, y=pos.y, z=pos.z-1}
-		elseif param2 == 3 then
-			top = {x=pos.x-1, y=pos.y, z=pos.z}
-		end
 		if minetest.get_item_group(over, "bed") == 1 then
 			minetest.swap_node(pos, {name ="default:bed_bottom_bunk_"..colour})
-			minetest.swap_node(top, {name ="default:bed_top_bunk_"..colour})
 		end
 	end
 })
 
+minetest.register_abm({	
+	nodenames = {"default:bed_top_"..colour},
+	interval = 1,
+	chance = 1,
+	action = function(pos, node)
+		local over = {x=pos.x, y=pos.y+1, z=pos.z}
+		if minetest.get_item_group(over, "bed") == 1 then
+			minetest.swap_node(pos, {name ="default:bed_top_bunk_"..colour})
+		end
+	end
+})
 
 
 
