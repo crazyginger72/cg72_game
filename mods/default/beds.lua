@@ -1,5 +1,3 @@
-local player_in_bed = 0
-
 local beds_list = {
 	{ "Red Bed", "red"},
 	{ "Orange Bed", "orange"},	
@@ -276,6 +274,20 @@ minetest.register_abm({
 	interval = 1,
 	chance = 1,
 	action = function(pos, node)
+
+	local colour_list = {
+		{ "red"},
+		{ "orange"},	
+		{ "yellow"},
+		{ "green"},
+		{ "blue"},
+		{ "violet"},
+		{ "black"},
+		{ "grey"},
+		{ "white"},}
+
+	for i in ipairs(beds_list) do
+		local colour = colour_list[i][1]
 		local under = {x=pos.x, y=pos.y-1, z=pos.z}
 		local param2 = node.param2
 		if param2 == 0 then
@@ -293,6 +305,7 @@ minetest.register_abm({
 			minetest.swap_node(topunder, {name ="default:bed_top_bunk_"..colour})
 		end
 	end
+end
 })
 
 
