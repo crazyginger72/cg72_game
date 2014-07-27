@@ -115,7 +115,7 @@ for i in ipairs(beds_list) do
 minetest.register_node("default:bed_bottom_bunk"..colour, {
 		description = beddesc,
 		drawtype = "nodebox",
-		tiles = {"beds_bed_top_bunk_bottom_"..colour..".png", "default_wood.png",  "beds_bed_side_"..colour.."_r.png",  "beds_bed_side_"..colour.."_l.png",  "beds_bed_side_"..colour..".png",  "beds_bed_side_"..colour..".png"},
+		tiles = {"beds_bed_top_bunk_bottom_"..colour..".png", "default_wood.png",  "beds_bed_side_"..colour.."_r.png",  "beds_bed_side_"..colour.."_l.png",  "beds_bed_side_"..colour.."_top.png",  "beds_bed_side_"..colour.."_top.png"},
 		paramtype = "light",
 		paramtype2 = "facedir",
 		groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=3,bed=1},
@@ -183,7 +183,7 @@ minetest.register_node("default:bed_bottom_bunk"..colour, {
 	
 	minetest.register_node("default:bed_top_bunk"..colour, {
 		drawtype = "nodebox",
-		tiles = {"beds_bed_top_bunk_top_"..colour..".png", "default_junglewood.png",  "beds_bed_side_top_bunk_r_"..colour..".png",  "beds_bed_side_top_bunk_l_"..colour..".png",  "beds_bed_top_front.png",  "beds_bed_side_"..colour..".png"},
+		tiles = {"beds_bed_top_bunk_top_"..colour..".png", "default_junglewood.png",  "beds_bed_side_top_bunk_r_"..colour..".png",  "beds_bed_side_top_bunk_l_"..colour..".png",  "beds_bed_top_bunk_front.png",  "beds_bed_side_"..colour.."_top.png"},
 		paramtype = "light",
 		paramtype2 = "facedir",
 		groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=3,bed=1},
