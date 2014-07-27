@@ -273,6 +273,7 @@ minetest.register_abm({
 	chance = 1,
 	action = function(pos, node)
 		local over = {x=pos.x, y=pos.y+1, z=pos.z}
+		local top = pos
 		local param2 = node.param2
 		if param2 == 0 then
 			top.z = pos.z+1
