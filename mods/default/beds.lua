@@ -277,7 +277,7 @@ minetest.register_abm({
 		local node = minetest.get_node(over)
 		local p2 = node.param2
 		if minetest.get_item_group(node.name, "bed") > 0 then
-			minetest.swap_node(pos, {name ="default:bed_bottom_bunk_"..colour}, param2 = p2)
+			minetest.set_node(pos, {name ="default:bed_bottom_bunk_"..colour}, param2=p2)
 		end
 	end
 })
@@ -292,7 +292,7 @@ minetest.register_abm({
 		local node = minetest.get_node(over)
 		local p2 = node.param2
 		if minetest.get_item_group(node.name, "bed") > 0 then
-			minetest.swap_node(pos, {name ="default:bed_top_bunk_"..colour}, param2 = p2)
+			minetest.set_node(pos, {name ="default:bed_top_bunk_"..colour}, param2 = p2)
 		end
 	end
 })
@@ -307,7 +307,7 @@ minetest.register_abm({
 		local node = minetest.get_node(over)
 		local p2 = node.param2
 		if minetest.get_item_group(node.name, "bed") < 1 then
-			minetest.swap_node(pos, {name ="default:bed_bottom_"..colour}, param2 = p2)
+			minetest.set_node(pos, {name ="default:bed_bottom_"..colour}, param2 = p2)
 		end
 	end
 })
@@ -322,7 +322,7 @@ minetest.register_abm({
 		local node = minetest.get_node(over)
 		local p2 = node.param2
 		if minetest.get_item_group(node.name, "bed") < 1 then
-			minetest.swap_node(pos, {name ="default:bed_top_"..colour}, param2 = p2)
+			minetest.set_node(pos, {name ="default:bed_top_"..colour}, param2 = p2)
 		end
 	end
 })
