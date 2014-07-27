@@ -328,5 +328,5 @@ minetest.register_abm({
 
 
 
-local p2 = minetest.get_node(pos).param2
-minetest.swap_node(pos, {name=replace, param2=p2})
+--local p2 = minetest.get_node(pos).param2
+--minetest.swap_node(pos, {name=replace, param2=p2})
