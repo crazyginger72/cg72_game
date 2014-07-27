@@ -272,21 +272,20 @@ minetest.register_abm({
 	interval = 1,
 	chance = 1,
 	action = function(pos, node)
-		local under = {x=pos.x, y=pos.y-1, z=pos.z}
-		local topunder = {x=pos.x, y=pos.y-1, z=pos.z}
+		local over = {x=pos.x, y=pos.y-1, z=pos.z}
 		local param2 = node.param2
 		if param2 == 0 then
-			topunder.z = pos.z+1
+			top.z = pos.z+1
 		elseif param2 == 1 then
-			topunder.x = pos.x+1
+			top.x = pos.x+1
 		elseif param2 == 2 then
 			top.z = pos.z-1
 		elseif param2 == 3 then
-			topunder.x = pos.x-1
+			top.x = pos.x-1
 		end
-		if minetest.get_item_group(under, "bed") == 1 then
-			minetest.swap_node(under, {name ="default:bed_bottom_bunk_"..colour})
-			minetest.swap_node(topunder, {name ="default:bed_top_bunk_"..colour})
+		if minetest.get_item_group(over, "bed") == 1 then
+			minetest.swap_node(pos, {name ="default:bed_bottom_bunk_"..colour})
+			minetest.swap_node(top, {name ="default:bed_top_bunk_"..colour})
 		end
 	end
 })
