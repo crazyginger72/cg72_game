@@ -285,7 +285,7 @@ minetest.register_abm({
 	chance = 1,
 	action = function(pos, node)
 		local over = {x=pos.x, y=pos.y+1, z=pos.z}
-		if minetest.get_item_group(over, "bed") == 1 then
+		if minetest.get_item_group(over.name, "bed") == 1 then
 			minetest.swap_node(pos, {name ="default:bed_top_bunk_black"})
 		end
 	end
