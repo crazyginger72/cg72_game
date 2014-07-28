@@ -61,7 +61,7 @@ end
 
 local d_glass_list = {
 	{"glass", {"default_glass.png", "connected_textures_glass_stripes.png"}},
-	{"obsidian_glass", {"default_obsidian_glass.png", "connected_textures_invisible.png"}}
+	{"obsidian_glass", {"default_obsidian_glass.png", "connected_textures_invisible.png"}},
 	{"coloured_glass"..name, {"coloured_glass"..name..".png", "connected_textures_invisible.png"}}
 }
 
