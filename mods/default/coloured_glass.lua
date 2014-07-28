@@ -97,5 +97,3 @@ minetest.register_node(":default:ice", {
 	groups = {cracky=3},
 	sounds = default.node_sound_glass_defaults(),
 })
-
-print(string.format("[connected_textures] loaded after ca. %.2fs", os.clock() - load_time_start))
