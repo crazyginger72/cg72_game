@@ -80,4 +80,3 @@ minetest.register_node(":default:ice", {
 	sounds = default.node_sound_glass_defaults(),
 })
 
-:)
