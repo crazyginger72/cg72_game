@@ -69,24 +69,6 @@ for _,i in ipairs(d_glass_list) do
 	connect_glass("default:"..i[1], i[2])
 end
 end
-----------------------------------------------------
--------------moreblocks glass support---------------
-if minetest.get_modpath("moreblocks") then
-
-	local m_glass_list = {
-		{"iron_glass", {"moreblocks_iron_glass.png", "connected_textures_iron_glass_stripes.png"}},
-		{"coal_glass", {"moreblocks_coal_glass.png", "connected_textures_coal_glass_stripes.png"}},
-		{"clean_glass", {"moreblocks_clean_glass.png", "connected_textures_invisible.png"}},
-		{"trap_glass", {"moreblocks_trap_glass.png", "connected_textures_glass_stripes.png"}},
-		{"super_glow_glass", {"moreblocks_super_glow_glass.png", "connected_textures_glow_glass_stripes.png"}},
-	}
-
-	for _,i in ipairs(m_glass_list) do
-		connect_glass("moreblocks:"..i[1], i[2])
-	end
-
-end
-
 
 minetest.register_node(":default:ice", {
 	description = "Ice",
