@@ -30,7 +30,7 @@ for _, row in ipairs(coloured_glass.dyes) do
 
 	minetest.register_node("default:coloured_glass"..name, {
 		description = desc.." coloured glass",
-		drawtype = "glasslike",
+		drawtype = "glasslike_framed",
 		paramtype = "light",
 		light_source = 1,
 		sunlight_propagates = true,
