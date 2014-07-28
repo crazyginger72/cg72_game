@@ -79,3 +79,5 @@ minetest.register_node(":default:ice", {
 	groups = {cracky=3},
 	sounds = default.node_sound_glass_defaults(),
 })
+
+:)
