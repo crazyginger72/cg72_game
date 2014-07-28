@@ -62,7 +62,7 @@ end
 local d_glass_list = {
 	{"glass", {"default_glass.png", "connected_textures_glass_stripes.png"}},
 	{"obsidian_glass", {"default_obsidian_glass.png", "connected_textures_invisible.png"}},
-	{"coloured_glass"..name, {"default_glass"..name..".png", "glass"..name..".png"}}
+	{"coloured_glass"..name, {"default_glass_"..name..".png", "glass_"..name..".png"}}
 }
 
 for _,i in ipairs(d_glass_list) do
