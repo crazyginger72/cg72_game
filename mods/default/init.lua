@@ -61,7 +61,7 @@ dofile(minetest.get_modpath("default").."/glasses.lua")
 dofile(minetest.get_modpath("default").."/rum.lua")
 dofile(minetest.get_modpath("default").."/spawn.lua")
 dofile(minetest.get_modpath("default").."/selahserver.lua")
-
+dofile(minetest.get_modpath("default").."/death_msg.lua")
 
 
 ----------------------------------------------------------

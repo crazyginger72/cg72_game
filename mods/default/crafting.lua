@@ -797,20 +797,26 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-	output = "default:bed_foot",
+	output = "default:shrubbery 3",
 	recipe = {
-		{"wool:white",    "", "", },
-		{"default:wood",  "", "", },
-		{"default:stick", "", "", }
+		{ "group:leaves", "group:leaves", "group:leaves" },
+		{ "group:leaves", "group:leaves", "group:leaves" },
+		{ "group:stick", "group:stick", "group:stick" }
 	}
 })
 
 minetest.register_craft({
-	output = "default:bed_head",
+	type = "shapeless",
+	output = "default:shrubbery_large",
 	recipe = {
-		{"", "",              "wool:white", },
-		{"", "default:stick", "default:wood", },
-		{"", "",              "default:stick", }
+		"default:shrubbery"
 	}
 })
 
+minetest.register_craft({
+	type = "shapeless",
+	output = "default:shrubbery",
+	recipe = {
+		"default:shrubbery_large"
+	}
+})

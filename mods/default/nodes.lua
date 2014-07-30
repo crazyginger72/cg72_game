@@ -1576,3 +1576,108 @@ minetest.register_node("default:acaciasapling", {
 	groups = {snappy=2,dig_immediate=3,flammable=2,attached_node=1},
 	sounds = default.node_sound_leaves_defaults(),
 })
+
+minetest.register_node("default:shrubbery_large", {
+	description = "Shrubbery",
+	drawtype = "allfaces_optional",
+	tiles = {"gloopblocks_shrubbery_top.png"},
+	paramtype = "light",
+	is_ground_content = false,
+	groups = {snappy=3, flammable=2},
+	sounds = default.node_sound_leaves_defaults(),
+})
+
+minetest.register_node("default:shrubbery", {
+	description = "Shrubbery",
+	drawtype = "nodebox",
+	tiles = {
+		"gloopblocks_shrubbery_top.png",
+		"gloopblocks_shrubbery_bottom.png",
+		"gloopblocks_shrubbery_sides.png"
+	},
+	paramtype = "light",
+	is_ground_content = false,
+	groups = {snappy=3, flammable=2},
+	sounds = default.node_sound_leaves_defaults(),
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.312500,-0.500000,0.250000,-0.187500,-0.437500,0.375000}, --NodeBox 1
+			{0.187500,-0.500000,-0.125000,0.312500,-0.437500,0.000000}, --NodeBox 2
+			{0.000000,-0.500000,-0.312500,0.125000,-0.437500,-0.187500}, --NodeBox 3
+			{-0.375000,-0.500000,-0.062500,-0.250000,-0.437500,0.062500}, --NodeBox 4
+			{0.000000,-0.500000,-0.250000,0.125000,-0.437500,-0.125000}, --NodeBox 5
+			{0.187500,-0.437500,-0.187500,0.375000,-0.375000,0.062500}, --NodeBox 6
+			{-0.062500,-0.437500,0.125000,0.187500,-0.375000,0.375000}, --NodeBox 7
+			{-0.062500,-0.437500,-0.375000,0.187500,-0.375000,-0.062500}, --NodeBox 8
+			{-0.375000,-0.437500,0.187500,-0.125000,-0.375000,0.431179}, --NodeBox 9
+			{-0.437500,-0.437500,-0.125000,-0.187500,-0.375000,0.125000}, --NodeBox 10
+			{-0.437500,-0.375000,-0.437500,0.439966,-0.312500,0.420887}, --NodeBox 11
+			{-0.500000,-0.312500,-0.500000,0.500000,0.500000,0.500000}, --NodeBox 12
+			{0.000000,-0.500000,0.187500,0.125000,-0.437500,0.312500}, --NodeBox 13
+		}
+	}
+})
+
+minetest.register_node("default:obsidian_cooled", {
+	description = "Obsidian",
+	tiles = {"default_obsidian.png"},
+	is_ground_content = true,
+	sounds = default.node_sound_stone_defaults(),
+	groups = {cracky=1, level=2, not_in_creative_inventory=1},
+	drop = "default:obsidian",
+	after_place_node = function(pos, placer, itemstack, pointed_thing)
+		minetest.add_node(pos, {name = "default:obsidian"})
+	end
+})
+
+minetest.register_node("default:basalt", {
+	description = "Basalt",
+	tiles = {"gloopblocks_basalt.png"},
+	groups = {cracky=2},
+	sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_node("default:basalt_cooled", {
+	description = "Basalt",
+	tiles = {"gloopblocks_basalt.png"},
+	groups = {cracky=2, not_in_creative_inventory=1},
+	sounds = default.node_sound_stone_defaults(),
+	drop = "default:basalt",
+	after_place_node = function(pos, placer, itemstack, pointed_thing)
+		minetest.add_node(pos, {name = "default:basalt"})
+	end
+})
+
+minetest.register_node("default:pumice", {
+	description = "Pumice",
+	tiles = {"gloopblocks_pumice.png"},
+	groups = {cracky=3},
+	sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_node("default:pumice_cooled", {
+	description = "Pumice",
+	tiles = {"gloopblocks_pumice.png"},
+	groups = {cracky=3, not_in_creative_inventory=1},
+	sounds = default.node_sound_stone_defaults(),
+	drop = "default:pumice",
+	after_place_node = function(pos, placer, itemstack, pointed_thing)
+		minetest.add_node(pos, {name = "default:pumice"})
+	end
+})
+
+minetest.register_node("default:stone_brick_mossy", {
+        description = "Mossy Stone Brick",
+        tiles = {"gloopblocks_stone_brick_mossy.png"},
+        groups = {cracky=3, stone=1},
+        sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_node("default:stone_mossy", {
+        description = "Mossy Stone",
+        tiles = {"gloopblocks_stone_mossy.png"},
+        groups = {cracky=3, stone=1},
+        sounds = default.node_sound_stone_defaults(),
+	drop = "default:mossycobble"
+})

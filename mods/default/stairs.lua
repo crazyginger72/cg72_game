@@ -435,6 +435,24 @@ stairs.register_stair_and_slab("wooldark_green", "default:wooldark_green",
 		"Wool Stair",
 		"Wool Slab",
 		default.node_sound_defaults())
+
+stairs.register_stair_and_slab("pumice", "default:pumice",
+		{cracky=3},
+		{"gloopblocks_pumice.png"},
+		"Pumice Stair",
+		"pumice Slab",
+		default.node_sound_defaults())
+
+stairs.register_stair_and_slab("basalt", "default:basalt",
+		{cracky=2},
+		{"gloopblocks_basalt.png"},
+		"Basalt Stair",
+		"Basalt Slab",
+		default.node_sound_defaults())
+
+
+
+
 --[[lava stairs and slabs
 
 minetest.register_node("default:stair_lava", {
