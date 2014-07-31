@@ -431,7 +431,7 @@ minetest.register_node("default:clover", {
 	buildable_to = true,
 	walkable = true,
 	sounds = default.node_sound_leaves_defaults(),
-	groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,crumbly=3},
+	groups = {snappy=1,choppy=2,flammable=3,oddly_breakable_by_hand=2,crumbly=3},
 	drawtype = "nodebox",
 	node_box = {
 		type = "fixed",
@@ -473,7 +473,7 @@ minetest.register_node("default:clover_purple", {
 	buildable_to = true,
 	walkable = true,
 	sounds = default.node_sound_leaves_defaults(),
-	groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,crumbly=3},
+	groups = {snappy=1,choppy=2,flammable=3,oddly_breakable_by_hand=2,crumbly=3},
 	drawtype = "nodebox",
 	node_box = {
 		type = "fixed",
@@ -514,7 +514,7 @@ minetest.register_node("default:sunflower_b", {
 	paramtype = "light",
 	walkable = true,
 	sounds = default.node_sound_leaves_defaults(),
-	groups = {snappy=2,choppy=1,plant=1,oddly_breakable_by_hand=3,not_in_creative_inventory=1},
+	groups = {snappy=2,choppy=1,flammable=3,plant=1,oddly_breakable_by_hand=3,not_in_creative_inventory=1},
 	drop = { items = { { items = {'default:dye_green'}, }, }, },
 	drawtype = "nodebox",
 	node_box = {
@@ -538,7 +538,7 @@ minetest.register_node("default:sunflower_m", {
 	paramtype = "light",
 	walkable = true,
 	sounds = default.node_sound_leaves_defaults(),
-	groups = {snappy=2,choppy=1,oddly_breakable_by_hand=3,not_in_creative_inventory=1},
+	groups = {snappy=2,choppy=1,flammable=3,oddly_breakable_by_hand=3,not_in_creative_inventory=1},
 	drop = { items = { { items = {'default:dye_green'}, }, }, },
 	drawtype = "nodebox",
 	node_box = {
@@ -586,7 +586,7 @@ minetest.register_node("default:sunflower_head", {
 	paramtype = "light",
 	walkable = true,
 	sounds = default.node_sound_leaves_defaults(),
-	groups = {snappy=2,choppy=1,oddly_breakable_by_hand=3,not_in_creative_inventory=1},
+	groups = {snappy=2,choppy=1,flammable=3,oddly_breakable_by_hand=3,not_in_creative_inventory=1},
 	drop = {
 		items = {
 			{ items = {'default:sunflower_seed 10'}, rarity = 50,},

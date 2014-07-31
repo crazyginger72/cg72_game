@@ -1,6 +1,6 @@
 local c_air = minetest.get_content_id("air")
 local c_ignore = minetest.get_content_id("ignore")
-local c_tree = minetest.get_content_id("default:tree")
+local c_tree = minetest.get_content_id("default:tree_gen")
 local c_aleaves = minetest.get_content_id("default:leaves_apple")
 local c_leaves = minetest.get_content_id("default:leaves")
 local c_apple = minetest.get_content_id("default:apple")
@@ -80,7 +80,7 @@ function default.grow_tree(data, a, pos, is_apple_tree, seed)
         end
 end
 
-local c_jungletree = minetest.get_content_id("default:jungletree")
+local c_jungletree = minetest.get_content_id("default:jungletree_gen")
 local c_jungleleaves = minetest.get_content_id("default:jungleleaves")
 
 function default.grow_jungletree(data, a, pos, seed)
@@ -160,7 +160,7 @@ function default.grow_jungletree(data, a, pos, seed)
 end
 
 function default.grow_acaciatree(data, a, pos, seed) --watershed_acaciatree(x, y, z, area, data)
-	local c_wsactree = minetest.get_content_id("default:acaciatree")
+	local c_wsactree = minetest.get_content_id("default:acaciatree_gen")
 	local c_wsactree2 = minetest.get_content_id("default:acaciatree_t")
 	local c_wsacleaf = minetest.get_content_id("default:acacialeaves")
 	local xa = pos.x

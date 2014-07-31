@@ -554,3 +554,37 @@ minetest.register_abm({
 	end
 })
 
+minetest.register_abm({
+	nodenames = {"group:treedecay"},
+	neighbors = {"air", "group:liquid"},
+	interval = 2,
+	chance = 20,
+
+	action = function(p0, node, _, _)
+		local p1 = {x=p1.x, y=p1.y-1, z=p1.z}
+		local node_p1 = minetest.get_node(p1)
+		local do_preserve = false
+		local n0 = minetest.get_node(p0)
+		local d = minetest.registered_nodes[node.name].groups.treedecay
+		if not d or d == 0 then
+			return
+		end
+		if not minetest.get_item_group(node_p1.name, "soil") < 1 or minetest.get_item_group(node_p1.name, "sand") then
+			itemstacks = minetest.get_node_drops(n0.name)
+			for _, itemname in ipairs(itemstacks) do
+				if minetest.get_item_group(n0.name, "treedecay_drop") ~= 0 or
+						itemname ~= n0.name then
+					local p_drop = {
+						x = p0.x - 0.5 + math.random(),
+						y = p0.y - 0.5 + math.random(),
+						z = p0.z - 0.5 + math.random(),
+					}
+					minetest.add_item(p_drop, itemname)
+				end
+			end
+			minetest.remove_node(p0)
+			nodeupdate(p0)
+		end
+	end
+})
+
