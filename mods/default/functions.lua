@@ -568,7 +568,7 @@ minetest.register_abm({
 		if not d or d == 0 then
 			return
 		end
-		if minetest.get_item_group(node_p1.name, "soil") < 1 or minetest.get_item_group(node_p1.name, "sand") < 1 or minetest.get_item_group(node_p1.name, "tree") < 1 then
+		if not node_p1 == "default:dirt" or node_p1 == "default:dirt_with_grass" or node_p1 == "default:dirt_with_snow" or node_p1 == "default:sand" or node_p1 == "default:desert_sand"then
 			minetest.remove_node(p0)
 			nodeupdate(p0)
 		end
