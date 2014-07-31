@@ -48,7 +48,7 @@ for _, row in ipairs(coloured_glass.dyes) do
 			recipe = {'group:dye,'..craft_color_group, 'default:glass'},
 		})
 	end
-
+end
 
 --[[local load_time_start = os.clock()
 local function connect_glass(node, img)
