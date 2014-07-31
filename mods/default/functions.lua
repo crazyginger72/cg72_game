@@ -558,7 +558,7 @@ minetest.register_abm({
 	nodenames = {"group:treedecay"},
 	neighbors = {"air", "group:liquid", "group:leaves"},
 	interval = 3,
-	chance = 100,
+	chance = 30,
 
 	action = function(p0, node, _, _)
 		local p1 = {x=p0.x, y=p0.y-1, z=p0.z}
