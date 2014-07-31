@@ -561,7 +561,7 @@ minetest.register_abm({
 	chance = 20,
 
 	action = function(p0, node, _, _)
-		local p1 = {x=p1.x, y=p1.y-1, z=p1.z}
+		local p1 = {x=p0.x, y=p0.y-1, z=p0.z}
 		local node_p1 = minetest.get_node(p1)
 		local do_preserve = false
 		local n0 = minetest.get_node(p0)
