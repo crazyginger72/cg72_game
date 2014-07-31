@@ -569,7 +569,7 @@ minetest.register_abm({
 		if not d or d == 0 then
 			return
 		end
-		if not minetest.get_item_group(node_p1.name, "soil") or minetest.get_item_group(node_p1.name, "sand") then
+		if not minetest.get_item_group(node_p1.name, "soil") or minetest.get_item_group(node_p1.name, "sand") or minetest.get_item_group(node_p1.name, "tree") then
 			itemstacks = minetest.get_node_drops(n0.name)
 			for _, itemname in ipairs(itemstacks) do
 				if minetest.get_item_group(n0.name, "treedecay_drop") ~= 0 or
