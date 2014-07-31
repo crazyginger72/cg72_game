@@ -557,19 +557,18 @@ minetest.register_abm({
 minetest.register_abm({
 	nodenames = {"group:treedecay"},
 	neighbors = {"air", "group:liquid", "group:leaves"},
-	interval = 2,
-	chance = 20,
+	interval = 1,
+	chance = 3,
 
 	action = function(p0, node, _, _)
 		local p1 = {x=p0.x, y=p0.y-1, z=p0.z}
 		local node_p1 = minetest.get_node(p1)
 		local do_preserve = false
-		local n0 = minetest.get_node(p0)
 		local d = minetest.registered_nodes[node.name].groups.treedecay
 		if not d or d == 0 then
 			return
 		end
-		if not minetest.get_item_group(node_p1.name, "soil") or minetest.get_item_group(node_p1.name, "sand") or minetest.get_item_group(node_p1.name, "tree") then
+		if not minetest.get_item_group(node_p1, "soil") or minetest.get_item_group(node_p1, "sand") or minetest.get_item_group(node_p1, "tree") then
 			minetest.remove_node(p0)
 			nodeupdate(p0)
 		end
