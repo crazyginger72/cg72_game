@@ -825,7 +825,7 @@ minetest.register_node("default:mud_source", {
 	description = "Mud Source",
 	inventory_image = minetest.inventorycube("default_mud.png"),
 	drawtype = "liquid",
-	tiles = "default_mud.png"
+	tiles = "default_mud.png",
 	--[[tiles = {
 		{name="default_mud_source_animated.png", animation={type="vertical_frames", aspect_w=16, aspect_h=16, length=2.0}}
 	},
