@@ -795,12 +795,12 @@ minetest.register_node("default:mud_flowing", {
 		{
 			image="default_mud_flowing_animated.png",
 			backface_culling=false,
-			animation={type="vertical_frames", aspect_w=16, aspect_h=16, length=0.8}
+			animation={type="vertical_frames", aspect_w=16, aspect_h=16, length=3}
 		},
 		{
 			image="default_mud_flowing_animated.png",
 			backface_culling=true,
-			animation={type="vertical_frames", aspect_w=16, aspect_h=16, length=0.8}
+			animation={type="vertical_frames", aspect_w=16, aspect_h=16, length=3}
 		},
 	},
 	alpha = mud_ALPHA,
