@@ -269,13 +269,14 @@ minetest.register_ore({
 	height_min     = -10,
 })
 
+--[[
 minetest.register_ore({
 	ore_type       = "scatter",
 	ore            = "default:mud_source",
 	wherein        = "default:dirt",
 	clust_scarcity = 6*6*6,
-	clust_num_ores = 20,
-	clust_size     = 6,
+	clust_num_ores = 9,
+	clust_size     = 3,
 	height_max     = 1000,
 	height_min     = -100,
 })
@@ -285,11 +286,12 @@ minetest.register_ore({
 	ore            = "default:mud_with_grass_source",
 	wherein        = "default:dirt_with_grass",
 	clust_scarcity = 15*15*15,
-	clust_num_ores = 20,
-	clust_size     = 5,
+	clust_num_ores = 9,
+	clust_size     = 3,
 	height_max     = 1000,
 	height_min     = -100,
 })
+]]--
 
 function default.generate_ore(name, wherein, minp, maxp, seed, chunks_per_volume, chunk_size, ore_per_chunk, height_min, height_max)
 	minetest.log('action', "WARNING: default.generate_ore is deprecated")

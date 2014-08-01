@@ -594,7 +594,10 @@ minetest.register_node("default:mark", {
         end,
 
 	on_rightclick = function(pos, node, clicker)
-
+    local ctrl = clicker:get_player_control()
+    if ctrl.LMB then
+      return
+    end
            minetest.show_formspec( clicker:get_player_name(),
 				   "default:mark",
 				   markers.get_marker_formspec(clicker, pos, nil)
