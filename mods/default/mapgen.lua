@@ -273,9 +273,9 @@ minetest.register_ore({
 	ore_type       = "scatter",
 	ore            = "default:mud_source",
 	wherein        = "default:dirt",
-	clust_scarcity = 20*20*20,
+	clust_scarcity = 6*6*6,
 	clust_num_ores = 8,
-	clust_size     = 20,
+	clust_size     = 4,
 	height_max     = 1000,
 	height_min     = -100,
 })
@@ -284,9 +284,9 @@ minetest.register_ore({
 	ore_type       = "scatter",
 	ore            = "default:mud_with_grass_source",
 	wherein        = "default:dirt_with_grass",
-	clust_scarcity = 40*40*40,
+	clust_scarcity = 15*15*15,
 	clust_num_ores = 5,
-	clust_size     = 20,
+	clust_size     = 3,
 	height_max     = 1000,
 	height_min     = -100,
 })
