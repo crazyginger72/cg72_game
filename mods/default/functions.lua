@@ -230,15 +230,19 @@ minetest.register_abm({
 
 default.cool_lava_source = function(pos)
 	if minetest.find_node_near(pos, 1, "default:water_source")
-	or minetest.find_node_near(pos, 1, "default:water_flowing") then
+	or minetest.find_node_near(pos, 1, "default:water_flowing")
+	or minetest.find_node_near(pos, 1, "default:mud_source")
+	or minetest.find_node_near(pos, 1, "default:mud_flowing") then
 		minetest.set_node(pos, {name="default:obsidian_cooled"})
 	end
 end
 
 default.cool_lava_flowing = function(pos)
-	if minetest.find_node_near(pos, 1, "default:water_source") then
+	if minetest.find_node_near(pos, 1, "default:water_source") 
+	or minetest.find_node_near(pos, 1, "default:mud_source") then
 		minetest.set_node(pos, {name="default:basalt_cooled"})
-	elseif minetest.find_node_near(pos, 1, "default:water_flowing") then
+	elseif minetest.find_node_near(pos, 1, "default:water_flowing")
+	or minetest.find_node_near(pos, 1, "default:mud_flowing") then
 		minetest.set_node(pos, {name="default:pumice_cooled"})
 	end
 end
