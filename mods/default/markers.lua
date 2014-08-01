@@ -591,18 +591,14 @@ minetest.register_node("default:mark", {
 
         after_dig_node = function(pos, oldnode, oldmetadata, digger)
         local ctrl = digger:get_player_control()
-        if not ctrl.RMB then
           return markers.marker_after_dig_node( pos, oldnode, oldmetadata, digger );
-        end
         end,
 
 	on_rightclick = function(pos, node, clicker)
     local ctrl = clicker:get_player_control()
-    if not ctrl.LMB then
-      minetest.show_formspec( clicker:get_player_name(),
-			 "default:mark",
-			markers.get_marker_formspec(clicker, pos, nil)
-    end
+           minetest.show_formspec( clicker:get_player_name(),
+				   "default:mark",
+				   markers.get_marker_formspec(clicker, pos, nil)
 			);
 	end,
 })
