@@ -908,6 +908,7 @@ minetest.register_node("default:mud_with_grass_source", {
 			backface_culling = false,
 		}
 	},]]--
+	drop = { items = { { items = {'default:mud_source'}, }, }, },
 	alpha = 255,
 	paramtype = "light",
 	walkable = false,
