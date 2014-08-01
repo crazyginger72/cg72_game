@@ -591,7 +591,7 @@ minetest.register_node("default:mark", {
 
         after_dig_node = function(pos, oldnode, oldmetadata, digger)
         local ctrl = digger:get_player_control()
-        print(ctrl.." [dig] was ctrl!")
+        print(ctrl.RMB.." [dig] was ctrl.RMB!")
         if ctrl.RMB then
           return
         end
@@ -600,7 +600,7 @@ minetest.register_node("default:mark", {
 
 	on_rightclick = function(pos, node, clicker)
     local ctrl = clicker:get_player_control()
-    print(ctrl.." [right_click] was ctrl!")
+    print(ctrl.LMB.." [right_click] was ctrl.LMB!")
     if ctrl.LMB then
       return
     end
