@@ -849,7 +849,7 @@ minetest.register_node("default:mud_source", {
 	liquid_alternative_flowing = "default:mud_flowing",
 	liquid_alternative_source = "default:mud_source",
 	liquid_viscosity = mud_VISC,
-	-freezemelt = "default:ice",
+	--freezemelt = "default:ice",
 	post_effect_color = {a=200, r=100, g=100, b=200},
 	groups = {mud=3, liquid=2, puts_out_fire=3}--, freezes=1},
 })
