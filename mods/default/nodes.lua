@@ -786,6 +786,74 @@ minetest.register_node("default:lava_source", {
 	groups = {lava=3, liquid=2, hot=3, igniter=1},
 })
 
+minetest.register_node("default:mud_flowing", {
+	description = "Flowing Mud",
+	inventory_image = minetest.inventorycube("default_mud.png"),
+	drawtype = "flowingliquid",
+	tiles = {"default_mud.png"},
+	special_tiles = {
+		{
+			image="default_mud_flowing_animated.png",
+			backface_culling=false,
+			animation={type="vertical_frames", aspect_w=16, aspect_h=16, length=0.8}
+		},
+		{
+			image="default_mud_flowing_animated.png",
+			backface_culling=true,
+			animation={type="vertical_frames", aspect_w=16, aspect_h=16, length=0.8}
+		},
+	},
+	alpha = mud_ALPHA,
+	paramtype = "light",
+	paramtype2 = "flowingliquid",
+	walkable = false,
+	pointable = false,
+	diggable = false,
+	buildable_to = true,
+	drop = "",
+	drowning = 1,
+	liquidtype = "flowing",
+	liquid_alternative_flowing = "default:mud_flowing",
+	liquid_alternative_source = "default:mud_source",
+	liquid_viscosity = mud_VISC,
+	--freezemelt = "default:snow",
+	post_effect_color = {a=200, r=100, g=100, b=200},
+	groups = {mud=3, liquid=2, puts_out_fire=3, not_in_creative_inventory=1},--, freezes=1, melt_around=1},
+})
+
+minetest.register_node("default:mud_source", {
+	description = "Mud Source",
+	inventory_image = minetest.inventorycube("default_mud.png"),
+	drawtype = "liquid",
+	tiles = "default_mud.png"
+	--[[tiles = {
+		{name="default_mud_source_animated.png", animation={type="vertical_frames", aspect_w=16, aspect_h=16, length=2.0}}
+	},
+	special_tiles = {
+		-- New-style mud source material (mostly unused)
+		{
+			name="default_mud_source_animated.png",
+			animation={type="vertical_frames", aspect_w=16, aspect_h=16, length=2.0},
+			backface_culling = false,
+		}
+	},]]--
+	alpha = mud_ALPHA,
+	paramtype = "light",
+	walkable = false,
+	pointable = false,
+	diggable = false,
+	buildable_to = true,
+	drop = "",
+	drowning = 1,
+	liquidtype = "source",
+	liquid_alternative_flowing = "default:mud_flowing",
+	liquid_alternative_source = "default:mud_source",
+	liquid_viscosity = mud_VISC,
+	-freezemelt = "default:ice",
+	post_effect_color = {a=200, r=100, g=100, b=200},
+	groups = {mud=3, liquid=2, puts_out_fire=3}--, freezes=1},
+})
+
 minetest.register_node("default:torch", {
 	description = "Torch",
 	drawtype = "torchlike",
