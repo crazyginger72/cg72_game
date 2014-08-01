@@ -918,7 +918,7 @@ minetest.register_node("default:mud_with_grass_source", {
 	drowning = 1,
 	liquidtype = "source",
 	liquid_renewable = false,
-	liquid_alternative_flowing = "default:mud_flowing",
+	liquid_alternative_flowing = "default:mud_with_grass_flowing",
 	liquid_alternative_source = "default:mud_with_grass_source",
 	liquid_viscosity = mud_VISC,
 	--freezemelt = "default:ice",
