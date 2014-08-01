@@ -823,7 +823,7 @@ minetest.register_node("default:mud_flowing", {
 })
 
 minetest.register_node("default:mud_source", {
-	description = "Mud Source",
+	description = "Mud",
 	inventory_image = minetest.inventorycube("default_mud.png"),
 	drawtype = "liquid",
 	tiles = {"default_mud.png"},
@@ -854,6 +854,40 @@ minetest.register_node("default:mud_source", {
 	--freezemelt = "default:ice",
 	post_effect_color = {a=220, r=50, g=35, b=20},
 	groups = {mud=3, liquid=2, puts_out_fire=3}--, freezes=1},
+})
+
+minetest.register_node("default:mud_with_grass_source", {
+	description = "Mud and Grass",
+	inventory_image = minetest.inventorycube("default_mud_with_grass.png"),
+	drawtype = "liquid",
+	tiles = {"default_mud_with_grass.png", "default_mud.png"},
+	--[[tiles = {
+		{name="default_mud_source_animated.png", animation={type="vertical_frames", aspect_w=16, aspect_h=16, length=2.0}}
+	},
+	special_tiles = {
+		-- New-style mud source material (mostly unused)
+		{
+			name="default_mud_source_animated.png",
+			animation={type="vertical_frames", aspect_w=16, aspect_h=16, length=2.0},
+			backface_culling = false,
+		}
+	},]]--
+	alpha = 255,
+	paramtype = "light",
+	walkable = false,
+	pointable = false,
+	diggable = false,
+	buildable_to = true,
+	drop = "",
+	drowning = 1,
+	liquidtype = "source",
+	liquid_renewable = false,
+	liquid_alternative_flowing = "default:mud_flowing",
+	liquid_alternative_source = "default:mud_with_grass_source",
+	liquid_viscosity = mud_VISC,
+	--freezemelt = "default:ice",
+	post_effect_color = {a=220, r=50, g=35, b=20},
+	groups = {mud=3, liquid=2,}--, freezes=1},
 })
 
 minetest.register_node("default:torch", {
