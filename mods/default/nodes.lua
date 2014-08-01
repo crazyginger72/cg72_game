@@ -539,7 +539,7 @@ minetest.register_node("default:cactus", {
 	tiles = {"default_cactus_top.png", "default_cactus_top.png", "default_cactus_side.png"},
 	paramtype2 = "facedir",
 	is_ground_content = true,
-	groups = {snappy=1,choppy=3,flammable=2},
+	groups = {snappy=1,choppy=3,flammable=2,treedecay=1},
 	sounds = default.node_sound_wood_defaults(),
 	on_place = minetest.rotate_node
 })
@@ -847,7 +847,6 @@ minetest.register_node("default:mud_source", {
 	drop = "",
 	drowning = 1,
 	liquidtype = "source",
-	liquid_renewable = false,
 	liquid_alternative_flowing = "default:mud_flowing",
 	liquid_alternative_source = "default:mud_source",
 	liquid_viscosity = mud_VISC,
@@ -908,7 +907,7 @@ minetest.register_node("default:mud_with_grass_source", {
 			backface_culling = false,
 		}
 	},]]--
-	drop = { items = { { items = {'default:mud_source'}, }, }, },
+	drop = { items = { { items = {'default:mud_source'}, }, }, }, -- for the cheaters out there
 	alpha = 255,
 	paramtype = "light",
 	walkable = false,
@@ -918,7 +917,6 @@ minetest.register_node("default:mud_with_grass_source", {
 	drop = "",
 	drowning = 1,
 	liquidtype = "source",
-	liquid_renewable = false,
 	liquid_alternative_flowing = "default:mud_with_grass_flowing",
 	liquid_alternative_source = "default:mud_with_grass_source",
 	liquid_viscosity = mud_VISC,

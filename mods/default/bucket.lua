@@ -6,6 +6,7 @@ local LIQUID_MAX = 8  --The number of water levels when liquid_finite is enabled
 minetest.register_alias("bucket", "default:bucket_empty")
 minetest.register_alias("bucket_water", "default:bucket_water")
 minetest.register_alias("bucket_lava", "default:bucket_lava")
+minetest.register_alias("bucket_mud", "default:bucket_mud")
 
 minetest.register_craft({
 	output = 'default:bucket_empty 1',
@@ -173,6 +174,22 @@ bucket.register_liquid(
 	"default:bucket_lava",
 	"bucket_lava.png",
 	"Lava Bucket"
+)
+
+bucket.register_liquid(
+	"default:mud_source",
+	"default:mud_flowing",
+	"default:bucket_mud",
+	"bucket_mud.png",
+	"Mud Bucket"
+)
+
+bucket.register_liquid(
+	"default:mud_with_grass_source",
+	"default:mud_with_grass_flowing",
+	"default:bucket_mud",
+	"bucket_mud.png",
+	"Mud Bucket"
 )
 
 minetest.register_craft({

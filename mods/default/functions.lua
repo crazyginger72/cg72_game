@@ -232,24 +232,28 @@ default.cool_lava_source = function(pos)
 	if minetest.find_node_near(pos, 1, "default:water_source")
 	or minetest.find_node_near(pos, 1, "default:water_flowing")
 	or minetest.find_node_near(pos, 1, "default:mud_source")
-	or minetest.find_node_near(pos, 1, "default:mud_flowing") then
+	or minetest.find_node_near(pos, 1, "default:mud_flowing")
+	or minetest.find_node_near(pos, 1, "default:mud_with_grass_source")
+	or minetest.find_node_near(pos, 1, "default:mud_with_grass_flowing") then
 		minetest.set_node(pos, {name="default:obsidian_cooled"})
 	end
 end
 
 default.cool_lava_flowing = function(pos)
 	if minetest.find_node_near(pos, 1, "default:water_source") 
-	or minetest.find_node_near(pos, 1, "default:mud_source") then
+	or minetest.find_node_near(pos, 1, "default:mud_source")
+	or minetest.find_node_near(pos, 1, "default:mud_with_grass_source") then
 		minetest.set_node(pos, {name="default:basalt_cooled"})
 	elseif minetest.find_node_near(pos, 1, "default:water_flowing")
-	or minetest.find_node_near(pos, 1, "default:mud_flowing") then
+	or minetest.find_node_near(pos, 1, "default:mud_flowing") 
+	or minetest.find_node_near(pos, 1, "default:mud_with_grass_flowing") then
 		minetest.set_node(pos, {name="default:pumice_cooled"})
 	end
 end
 
 minetest.register_abm({
 	nodenames = {"default:lava_flowing"},
-	neighbors = {"group:water"},
+	neighbors = {"group:water", "group:mud"},
 	interval = 1,
 	chance = 1,
 	action = function(pos, node, active_object_count, active_object_count_wider)
@@ -259,7 +263,7 @@ minetest.register_abm({
 
 minetest.register_abm({
 	nodenames = {"default:lava_source"},
-	neighbors = {"group:water"},
+	neighbors = {"group:water", "group:mud"},
 	interval = 1,
 	chance = 1,
 	action = function(pos, node, active_object_count, active_object_count_wider)
