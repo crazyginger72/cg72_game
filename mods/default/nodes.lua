@@ -817,7 +817,7 @@ minetest.register_node("default:mud_flowing", {
 	liquid_alternative_source = "default:mud_source",
 	liquid_viscosity = mud_VISC,
 	--freezemelt = "default:snow",
-	post_effect_color = {a=200, r=100, g=100, b=200},
+	post_effect_color = {a=220, r=50, g=35, b=20},
 	groups = {mud=3, liquid=2, puts_out_fire=3, not_in_creative_inventory=1},--, freezes=1, melt_around=1},
 })
 
@@ -825,7 +825,7 @@ minetest.register_node("default:mud_source", {
 	description = "Mud Source",
 	inventory_image = minetest.inventorycube("default_mud.png"),
 	drawtype = "liquid",
-	tiles = "default_mud.png",
+	tiles = {"default_mud.png"},
 	--[[tiles = {
 		{name="default_mud_source_animated.png", animation={type="vertical_frames", aspect_w=16, aspect_h=16, length=2.0}}
 	},
@@ -850,7 +850,7 @@ minetest.register_node("default:mud_source", {
 	liquid_alternative_source = "default:mud_source",
 	liquid_viscosity = mud_VISC,
 	--freezemelt = "default:ice",
-	post_effect_color = {a=200, r=100, g=100, b=200},
+	post_effect_color = {a=220, r=50, g=35, b=20},
 	groups = {mud=3, liquid=2, puts_out_fire=3}--, freezes=1},
 })
 
