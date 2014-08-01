@@ -4,7 +4,7 @@
 -- The API documentation in here was moved into doc/lua_api.txt
 
 mud_ALPHA = 255
-mud_Visc = 7
+mud_VISC = 7
 WATER_ALPHA = 160
 WATER_VISC = 1
 LAVA_VISC = 7
