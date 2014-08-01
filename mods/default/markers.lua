@@ -571,7 +571,7 @@ minetest.register_node("default:mark", {
 	drawtype = "nodebox",
 	paramtype = "light",
 	paramtype2 = "facedir",
-	groups = {snappy=2,choppy=2},--,dig_immediate=3},
+	groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2},--,dig_immediate=3},
 	light_source = 1,
 	node_box = {
 		type = "fixed",
