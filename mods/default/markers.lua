@@ -593,6 +593,7 @@ minetest.register_node("default:mark", {
         local ctrl = digger:get_player_control()
         if not ctrl.RMB then
           return markers.marker_after_dig_node( pos, oldnode, oldmetadata, digger );
+        end
         end,
 
 	on_rightclick = function(pos, node, clicker)
