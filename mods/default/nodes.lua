@@ -856,6 +856,42 @@ minetest.register_node("default:mud_source", {
 	groups = {mud=3, liquid=2, puts_out_fire=3}--, freezes=1},
 })
 
+minetest.register_node("default:mud_with_grass_flowing", {
+	description = "Flowing Grassy Mud",
+	inventory_image = minetest.inventorycube("default_mud_with_grass.png"),
+	drawtype = "flowingliquid",
+	tiles = {"default_mud_with_grass.png"},
+	special_tiles = {
+		{
+			image="default_mud_flowing_animated.png",
+			backface_culling=false,
+			animation={type="vertical_frames", aspect_w=16, aspect_h=16, length=3}
+		},
+		{
+			image="default_mud_flowing_animated.png",
+			backface_culling=true,
+			animation={type="vertical_frames", aspect_w=16, aspect_h=16, length=3}
+		},
+	},
+	alpha = mud_ALPHA,
+	paramtype = "light",
+	paramtype2 = "flowingliquid",
+	walkable = false,
+	pointable = false,
+	diggable = false,
+	buildable_to = true,
+	drop = "",
+	drowning = 1,
+	liquid_range = 8,
+	liquidtype = "flowing",
+	liquid_alternative_flowing = "default:mud_with_grass_flowing",
+	liquid_alternative_source = "default:mud_with_grass_source",
+	liquid_viscosity = mud_VISC,
+	--freezemelt = "default:snow",
+	post_effect_color = {a=220, r=50, g=35, b=20},
+	groups = {mud=3, liquid=2, puts_out_fire=3, not_in_creative_inventory=1},--, freezes=1, melt_around=1},
+})
+
 minetest.register_node("default:mud_with_grass_source", {
 	description = "Mud and Grass",
 	inventory_image = minetest.inventorycube("default_mud_with_grass.png"),
@@ -887,7 +923,7 @@ minetest.register_node("default:mud_with_grass_source", {
 	liquid_viscosity = mud_VISC,
 	--freezemelt = "default:ice",
 	post_effect_color = {a=220, r=50, g=35, b=20},
-	groups = {mud=3, liquid=2,}--, freezes=1},
+	groups = {mud=3, liquid=2,not_in_creative_inventory=1}--, freezes=1},
 })
 
 minetest.register_node("default:torch", {
