@@ -1,4 +1,4 @@
--- Minetest 0.4 mod: default
+-- cg72 0.4.XX mod: default
 -- See README.txt for licensing and other information.
 
 -- The API documentation in here was moved into doc/lua_api.txt
@@ -12,6 +12,8 @@ LIGHT_MAX = 14
 
 -- Definitions made by this mod that other mods can use too
 default = {}
+
+--TODO: put this shit in order ahhh my ocd burns!!!!!!!!
 
 -- Load files
 dofile(minetest.get_modpath("default").."/functions.lua")
@@ -64,6 +66,7 @@ dofile(minetest.get_modpath("default").."/rum.lua")
 dofile(minetest.get_modpath("default").."/spawn.lua")
 dofile(minetest.get_modpath("default").."/selahserver.lua")
 dofile(minetest.get_modpath("default").."/death_msg.lua")
+dofile(minetest.get_modpath("default").."/xban.lua")
 
 
 ----------------------------------------------------------
