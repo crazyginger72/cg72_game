@@ -1046,6 +1046,57 @@ minetest.register_chatcommand("/load", {
 	end,
 })
 
+minetest.register_chatcommand("/load", {
+	params = "<file>",
+	description = "Load nodes from the included schematics with position 1 of the current WorldEdit region as the origin",
+	privs = {worldedit=true},
+	func = function(name, param)
+		local pos1 = worldedit.pos1[name]
+		if pos1 == nil then
+			worldedit.player_notify(name, "no region selected")
+			return
+		end
+
+		if param == "" then
+			worldedit.player_notify(name, "invalid usage: " .. param)
+			return
+		end
+		if not string.find(param, "^[%w \t.,+-_=!@#$%%^&*()%[%]{};'\"]+$") then
+			worldedit.player_notify(name, "invalid file name: " .. param)
+			return
+		end
+
+		--find the file in the world path
+		local testpaths = {
+			minetest.get_modpath(minetest.get_current_modname()) .. "/worldeditfiles/" .. param,
+			minetest.get_modpath(minetest.get_current_modname()) .. "/worldeditfiles/" .. param .. ".we",
+			minetest.get_modpath(minetest.get_current_modname()) .. "/worldeditfiles/" .. param .. ".wem",
+		}
+		local file, err
+		for index, path in ipairs(testpaths) do
+			file, err = io.open(path, "rb")
+			if not err then
+				break
+			end
+		end
+		if err then
+			worldedit.player_notify(name, "could not open file \"" .. param .. "\"")
+			return
+		end
+		local value = file:read("*a")
+		file:close()
+
+		if worldedit.valueversion(value) == 0 then --unknown version
+			worldedit.player_notify(name, "invalid file: file is invalid or created with newer version of WorldEdit")
+			return
+		end
+
+		local count = worldedit.deserialize(pos1, value)
+
+		worldedit.player_notify(name, count .. " nodes loaded")
+	end,
+})
+
 minetest.register_chatcommand("/lua", {
 	params = "<code>",
 	description = "Executes <code> as a Lua chunk in the global namespace",
