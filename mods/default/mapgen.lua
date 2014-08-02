@@ -565,4 +565,5 @@ minetest.register_on_generated(function(minp, maxp, seed)
 		end
 		end
 	end
-end)
+end
+)
