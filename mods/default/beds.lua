@@ -206,7 +206,7 @@ for i in ipairs(beds_list) do
 })
 ]]--
 
-	minetest.register_node("default:bed_king_"..colour), {
+	minetest.register_node("default:bed_king_"..colour, {
 		description = "King size bed",
 		tiles = {"bed_t.png","bed_bt.png","bed_s.png","bed_s.png","bed_bt.png","bed_s.png"},
 		inventory_image = "bed_king.png",
