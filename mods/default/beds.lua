@@ -33,12 +33,6 @@ for i in ipairs(beds_list) do
 						{0.375, 0.0, -0.375, 0.5, -0.5, -0.5},
 					}
 		},
-		selection_box = {
-			type = "fixed",
-			fixed = {
-						{-0.5, -0.5, -0.5, 0.5, 0.3125, 1.5},
-					}
-		},
 
 		after_place_node = function(pos, placer, itemstack)
 			local node = minetest.get_node(pos)
@@ -102,15 +96,9 @@ for i in ipairs(beds_list) do
 						{0.5, -0.5, 0.5, 0.375, 0.0, 0.375},
 					}
 		},
-		selection_box = {
-			type = "fixed",
-			fixed = {
-						{0, 0, 0, 0, 0, 0},
-					}
-		},
 	})
 	
-minetest.register_node("default:bed_bottom_bunk_"..colour, {
+	minetest.register_node("default:bed_bottom_bunk_"..colour, {
 		drawtype = "nodebox",
 		tiles = {"beds_bed_top_bunk_bottom_"..colour..".png", "default_wood.png",  "beds_bed_side_"..colour.."_r.png",  "beds_bed_side_"..colour.."_l.png",  "beds_bed_side_"..colour.."_top.png",  "beds_bed_side_"..colour.."_top.png"},
 		paramtype = "light",
@@ -127,12 +115,6 @@ minetest.register_node("default:bed_bottom_bunk_"..colour, {
 						-- legs
 						{-0.5, -0.5, -0.5, -0.375, 0.5, -0.375},
 						{0.375, -0.5, -0.375, 0.5, 0.5, -0.5},
-					}
-		},
-		selection_box = {
-			type = "fixed",
-			fixed = {
-						{-0.5, -0.5, -0.5, 0.5, 0.3125, 1.5},
 					}
 		},	
 		on_destruct = function(pos)
@@ -175,12 +157,6 @@ minetest.register_node("default:bed_bottom_bunk_"..colour, {
 						{0.5, -0.5, 0.5, 0.375, 0.5, 0.375},
 					}
 		},
-		selection_box = {
-			type = "fixed",
-			fixed = {
-						{0, 0, 0, 0, 0, 0},
-					}
-		},
 	})
 
 	minetest.register_alias("bed_"..colour, "default:bed_bottom_"..colour)
@@ -188,16 +164,15 @@ minetest.register_node("default:bed_bottom_bunk_"..colour, {
 	minetest.register_craft({
 		output = "default:bed_"..colour,
 		recipe = {
-			{"wool:"..colour, "wool:"..colour, "wool:white", },
-			{"default:stick", "", "default:stick", }
+			{"default:wool"..colour, "defalut:wool"..colour, "default:woolwhite", },
+			{"group:stick", "", "group:stick", }
 		}
 	})
 	
 	minetest.register_craft({
-		output = "default:bed_"..colour,
+		output = "default:bed_king_"..colour,
 		recipe = {
-			{"wool:white", "wool:"..colour, "wool:"..colour, },
-			{"default:stick", "", "default:stick", }
+			{"default:bed_"..colour, "default:bed_"..colour, "default:bed_"..colour, },
 		}
 	})
 
@@ -231,80 +206,65 @@ minetest.register_node("default:bed_bottom_bunk_"..colour, {
 })
 ]]--
 
-minetest.register_node("default:bed_king", {
-	description = "King size bed",
-	tiles = {"bed_t.png","bed_bt.png","bed_s.png","bed_s.png","bed_bt.png","bed_s.png"},
-	inventory_image = "bed_king.png",
-	weild_image = "bed_king.png",
-	paramtype = "light",
-	paramtype2 = "facedir",
-	walkable = true,
-	is_ground_content = true,
-	groups = {crumbly=3},
-	sounds = default.node_sound_defaults(),
-	drawtype = "nodebox",
-	node_box = {
-		type = "fixed",
-		fixed = {
-			{-1.5, -0.125, -0.5, 1.5, 0.3125, 1.5}, -- NodeBox1
-			{-1.5, 0.3125, 1.49999, 1.5, 0.75, 1.5}, -- NodeBox2
-			{1.3125, -0.5, -0.5, 1.5, -0.125, -0.3125}, -- NodeBox3
-			{-1.5, -0.5, -0.5, -1.3125, -0.125, -0.3125}, -- NodeBox4
-			{-1.5, -0.5, 1.3125, -1.3125, -0.125, 1.5}, -- NodeBox5
-			{1.3125, -0.5, 1.3125, 1.5, -0.125, 1.5}, -- NodeBox6
+	minetest.register_node("default:bed_king_"..colour), {
+		description = "King size bed",
+		tiles = {"bed_t.png","bed_bt.png","bed_s.png","bed_s.png","bed_bt.png","bed_s.png"},
+		inventory_image = "bed_king.png",
+		weild_image = "bed_king.png",
+		paramtype = "light",
+		paramtype2 = "facedir",
+		walkable = true,
+		is_ground_content = true,
+		groups = {crumbly=3},
+		sounds = default.node_sound_defaults(),
+		drawtype = "nodebox",
+		node_box = {
+			type = "fixed",
+			fixed = {
+				{-1.5, -0.125, -0.5, 1.5, 0.3125, 1.5}, -- NodeBox1
+				{-1.5, 0.3125, 1.49999, 1.5, 0.75, 1.5}, -- NodeBox2
+				{1.3125, -0.5, -0.5, 1.5, -0.125, -0.3125}, -- NodeBox3
+				{-1.5, -0.5, -0.5, -1.3125, -0.125, -0.3125}, -- NodeBox4
+				{-1.5, -0.5, 1.3125, -1.3125, -0.125, 1.5}, -- NodeBox5
+				{1.3125, -0.5, 1.3125, 1.5, -0.125, 1.5}, -- NodeBox6
+				},
 			},
-		},
-	selection_box = {
-		type = "fixed",
-		fixed = {
-			{-1.5, -0.125, -0.5, 1.5, 0.3125, 1.5}, -- NodeBox1
-			{-1.5, 0.3125, 1.49999, 1.5, 0.75, 1.5}, -- NodeBox2
-			{1.3125, -0.5, -0.5, 1.5, -0.125, -0.3125}, -- NodeBox3
-			{-1.5, -0.5, -0.5, -1.3125, -0.125, -0.3125}, -- NodeBox4
-			{-1.5, -0.5, 1.3125, -1.3125, -0.125, 1.5}, -- NodeBox5
-			{1.3125, -0.5, 1.3125, 1.5, -0.125, 1.5}, -- NodeBox6
-			},
-		},
-})
-
-minetest.register_abm({	
-	nodenames = {"default:bed_bottom_"..colour},
-	neighbors = {"group:bed"},
-	interval = 1,
-	chance = 1,
-	action = function(pos, node)
-		local over = {x=pos.x, y=pos.y+1, z=pos.z}
-		local here = minetest.get_node(over)
-		local p2 = here.param2
-		local facedir = minetest.facedir_to_dir(node.param2)
-		local toppos = {x=pos.x+facedir.x, y=pos.y, z=pos.z+facedir.z}
-		if minetest.get_item_group(here.name, "bed") > 0 then
-			minetest.set_node(pos, {name ="default:bed_bottom_bunk_"..colour, param2=p2})
-			minetest.set_node(toppos, {name ="default:bed_top_bunk_"..colour, param2=p2})
+	})
+	
+	minetest.register_abm({	
+		nodenames = {"default:bed_bottom_"..colour},
+		neighbors = {"group:bed"},
+		interval = 1,
+		chance = 1,
+		action = function(pos, node)
+			local over = {x=pos.x, y=pos.y+1, z=pos.z}
+			local here = minetest.get_node(over)
+			local p2 = here.param2
+			local facedir = minetest.facedir_to_dir(node.param2)
+			local toppos = {x=pos.x+facedir.x, y=pos.y, z=pos.z+facedir.z}
+			if minetest.get_item_group(here.name, "bed") > 0 then
+				minetest.set_node(pos, {name ="default:bed_bottom_bunk_"..colour, param2=p2})
+				minetest.set_node(toppos, {name ="default:bed_top_bunk_"..colour, param2=p2})
+			end
 		end
-	end
-})
+	})
 
-minetest.register_abm({	
-	nodenames = {"default:bed_bottom_bunk_"..colour},
-	neighbors = {"group:bed"},
-	interval = 1,
-	chance = 1,
-	action = function(pos, node)
-		local over = {x=pos.x, y=pos.y+1, z=pos.z}
-		local node_o = minetest.get_node(over)
-		local here = minetest.get_node(pos)
-		local p2 = here.param2
-		local facedir = minetest.facedir_to_dir(node.param2)
-		local toppos = {x=pos.x+facedir.x, y=pos.y, z=pos.z+facedir.z}
-		if minetest.get_item_group(node_o.name, "bed") < 1 then
-			minetest.set_node(pos, {name ="default:bed_bottom_"..colour, param2 = p2})
-			minetest.set_node(toppos, {name ="default:bed_top_"..colour, param2 = p2})
+	minetest.register_abm({	
+		nodenames = {"default:bed_bottom_bunk_"..colour},
+		neighbors = {"group:bed"},
+		interval = 1,
+		chance = 1,
+		action = function(pos, node)
+			local over = {x=pos.x, y=pos.y+1, z=pos.z}
+			local node_o = minetest.get_node(over)
+			local here = minetest.get_node(pos)
+			local p2 = here.param2
+			local facedir = minetest.facedir_to_dir(node.param2)
+			local toppos = {x=pos.x+facedir.x, y=pos.y, z=pos.z+facedir.z}
+			if minetest.get_item_group(node_o.name, "bed") < 1 then
+				minetest.set_node(pos, {name ="default:bed_bottom_"..colour, param2 = p2})
+				minetest.set_node(toppos, {name ="default:bed_top_"..colour, param2 = p2})
+			end
 		end
-	end
-})
-
-
+	})
 end
---local p2 = minetest.get_node(pos).param2
---minetest.swap_node(pos, {name=replace, param2=p2})
