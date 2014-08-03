@@ -33,7 +33,7 @@ signs_lib.sign_post_text_pos = {
     {delta = {x = 0.226,  y = 0.15, z = 0     }, yaw = math.pi / 2},
 }
 
-signs_lib.modpath = minetest.get_modpath("signs_lib")
+signs_lib.modpath = minetest.get_modpath("default")
 signs_lib.intllib_modpath = minetest.get_modpath("intllib")
 
 local S
@@ -69,7 +69,7 @@ end
 
 -- CONSTANTS
 
-local MP = minetest.get_modpath("signs_lib")
+local MP = minetest.get_modpath("default")
 
 -- Used by `build_char_db' to locate the file.
 local FONT_FMT = "%s/hdf_%02x.png"
