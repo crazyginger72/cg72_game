@@ -19,7 +19,7 @@ for i in ipairs(tv_list) do
 	local n_box1 = tv_list[i][2]
 	local n_box2 = tv_list[i][3]
 	local n_box3 = tv_list[i][4]
-	minetest.register_node("plasmascreen:tv_stand", {
+	minetest.register_node("default:tv_stand", {
 		description = "Plasma Screen TV Stand",
 		tiles = {"plasmascreen_back.png"},
 		paramtype = "light",
@@ -37,7 +37,7 @@ for i in ipairs(tv_list) do
 		groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2},
 	})
 
-	minetest.register_node("plasmascreen:plasma_tv_"..number, {
+	minetest.register_node("default:plasma_tv_"..number, {
 		description = "Plasma Screen",
 		tiles = {
 			"plasmascreen_back.png",
@@ -62,30 +62,30 @@ for i in ipairs(tv_list) do
 end
 
 minetest.register_craft({
-	output = "plasmascreen:plasma_tv",
+	output = "default:plasma_tv",
 	recipe = {
-		{'group:glass', 'plasmascreen:coal_lump', 'group:glass'},
-		{'plasmascreen:steel_ingot', 'plasmascreen:copper_ingot', 'plasmascreen:steel_ingot'},
+		{'group:glass', 'default:coal_lump', 'group:glass'},
+		{'default:steel_ingot', 'default:copper_ingot', 'default:steel_ingot'},
 		{'group:glass', 'group:glass', 'group:glass'},
 	}
 })
 
 minetest.register_craft({
 	type = "shapeless",
-	output = "plasmascreen:plasma_tv",
+	output = "default:plasma_tv",
 	recipe = {'homedecor:television', 'homedecor:television'},
 })
 
 minetest.register_craft({
-	output = "plasmascreen:stand",
+	output = "default:stand",
 	recipe = {
 		{'', '', ''},
-		{'', 'plasmascreen:steel_ingot', ''},
-		{'group:stick', 'plasmascreen:coal_lump', 'group:stick'},
+		{'', 'default:steel_ingot', ''},
+		{'group:stick', 'default:coal_lump', 'group:stick'},
 	}
 })
 
-minetest.register_node("plasmascreen:plasma_tv", {
+minetest.register_node("default:plasma_tv", {
 	description = "Plasma TV",
 	tiles = {
 		"plasmascreen_back.png",
@@ -120,35 +120,35 @@ after_place_node = function(pos,placer,itemstack)
 		if param2 == 0 then
 			pos.x = pos.x-1
 		if minetest.registered_nodes[minetest.env:get_node(pos).name].buildable_to  then
-		minetest.set_node(pos,{name="plasmascreen:plasma_tv_4", param2=minetest.dir_to_facedir(placer:get_look_dir())})
+		minetest.set_node(pos,{name="default:plasma_tv_4", param2=minetest.dir_to_facedir(placer:get_look_dir())})
 		else
 			minetest.env:remove_node(p)
 			return true
 		end
 			pos.x = pos.x+2
 		if minetest.registered_nodes[minetest.env:get_node(pos).name].buildable_to  then
-		minetest.set_node(pos,{name="plasmascreen:plasma_tv_6", param2=minetest.dir_to_facedir(placer:get_look_dir())})
+		minetest.set_node(pos,{name="default:plasma_tv_6", param2=minetest.dir_to_facedir(placer:get_look_dir())})
 		else
 			minetest.env:remove_node(p)
 			return true
 		end
 			pos.y = pos.y+1
 		if minetest.registered_nodes[minetest.env:get_node(pos).name].buildable_to  then
-		minetest.set_node(pos,{name="plasmascreen:plasma_tv_3", param2=minetest.dir_to_facedir(placer:get_look_dir())})
+		minetest.set_node(pos,{name="default:plasma_tv_3", param2=minetest.dir_to_facedir(placer:get_look_dir())})
 		else
 			minetest.env:remove_node(p)
 			return true
 		end
 			pos.x = pos.x-1
 		if minetest.registered_nodes[minetest.env:get_node(pos).name].buildable_to  then
-		minetest.set_node(pos,{name="plasmascreen:plasma_tv_2", param2=minetest.dir_to_facedir(placer:get_look_dir())})
+		minetest.set_node(pos,{name="default:plasma_tv_2", param2=minetest.dir_to_facedir(placer:get_look_dir())})
 		else
 			minetest.env:remove_node(p)
 			return true
 		end
 			pos.x = pos.x-1
 		if minetest.registered_nodes[minetest.env:get_node(pos).name].buildable_to  then
-		minetest.set_node(pos,{name="plasmascreen:plasma_tv_1", param2=minetest.dir_to_facedir(placer:get_look_dir())})
+		minetest.set_node(pos,{name="default:plasma_tv_1", param2=minetest.dir_to_facedir(placer:get_look_dir())})
 		else
 			minetest.env:remove_node(p)
 			return true
@@ -156,35 +156,35 @@ after_place_node = function(pos,placer,itemstack)
 		elseif param2 == 1 then
 			pos.z = pos.z+1
 		if minetest.registered_nodes[minetest.env:get_node(pos).name].buildable_to  then
-        minetest.set_node(pos,{name="plasmascreen:plasma_tv_4", param2=minetest.dir_to_facedir(placer:get_look_dir())})
+        minetest.set_node(pos,{name="default:plasma_tv_4", param2=minetest.dir_to_facedir(placer:get_look_dir())})
 		else
 			minetest.env:remove_node(p)
 			return true
 		end
 			pos.z = pos.z-2
 		if minetest.registered_nodes[minetest.env:get_node(pos).name].buildable_to  then
-		minetest.set_node(pos,{name="plasmascreen:plasma_tv_6", param2=minetest.dir_to_facedir(placer:get_look_dir())})
+		minetest.set_node(pos,{name="default:plasma_tv_6", param2=minetest.dir_to_facedir(placer:get_look_dir())})
 		else
 			minetest.env:remove_node(p)
 			return true
 		end
 			pos.y = pos.y+1
 		if minetest.registered_nodes[minetest.env:get_node(pos).name].buildable_to  then
-		minetest.set_node(pos,{name="plasmascreen:plasma_tv_3", param2=minetest.dir_to_facedir(placer:get_look_dir())})
+		minetest.set_node(pos,{name="default:plasma_tv_3", param2=minetest.dir_to_facedir(placer:get_look_dir())})
 		else
 			minetest.env:remove_node(p)
 			return true
 		end
 			pos.z = pos.z+1
 		if minetest.registered_nodes[minetest.env:get_node(pos).name].buildable_to  then
-		minetest.set_node(pos,{name="plasmascreen:plasma_tv_2", param2=minetest.dir_to_facedir(placer:get_look_dir())})
+		minetest.set_node(pos,{name="default:plasma_tv_2", param2=minetest.dir_to_facedir(placer:get_look_dir())})
 		else
 			minetest.env:remove_node(p)
 			return true
 		end
 			pos.z = pos.z+1
 		if minetest.registered_nodes[minetest.env:get_node(pos).name].buildable_to  then
-		minetest.set_node(pos,{name="plasmascreen:plasma_tv_1", param2=minetest.dir_to_facedir(placer:get_look_dir())})
+		minetest.set_node(pos,{name="default:plasma_tv_1", param2=minetest.dir_to_facedir(placer:get_look_dir())})
 		else
 			minetest.env:remove_node(p)
 			return true
@@ -192,35 +192,35 @@ after_place_node = function(pos,placer,itemstack)
 		elseif param2 == 2 then
 			pos.x = pos.x+1
 		if minetest.registered_nodes[minetest.env:get_node(pos).name].buildable_to  then
-        minetest.set_node(pos,{name="plasmascreen:plasma_tv_4", param2=minetest.dir_to_facedir(placer:get_look_dir())})
+        minetest.set_node(pos,{name="default:plasma_tv_4", param2=minetest.dir_to_facedir(placer:get_look_dir())})
 		else
 			minetest.env:remove_node(p)
 			return true
 		end
 			pos.x = pos.x-2
 		if minetest.registered_nodes[minetest.env:get_node(pos).name].buildable_to  then
-		minetest.set_node(pos,{name="plasmascreen:plasma_tv_6", param2=minetest.dir_to_facedir(placer:get_look_dir())})
+		minetest.set_node(pos,{name="default:plasma_tv_6", param2=minetest.dir_to_facedir(placer:get_look_dir())})
 		else
 			minetest.env:remove_node(p)
 			return true
 		end
 			pos.y = pos.y+1
 		if minetest.registered_nodes[minetest.env:get_node(pos).name].buildable_to  then
-		minetest.set_node(pos,{name="plasmascreen:plasma_tv_3", param2=minetest.dir_to_facedir(placer:get_look_dir())})
+		minetest.set_node(pos,{name="default:plasma_tv_3", param2=minetest.dir_to_facedir(placer:get_look_dir())})
 		else
 			minetest.env:remove_node(p)
 			return true
 		end
 			pos.x = pos.x+1
 		if minetest.registered_nodes[minetest.env:get_node(pos).name].buildable_to  then
-		minetest.set_node(pos,{name="plasmascreen:plasma_tv_2", param2=minetest.dir_to_facedir(placer:get_look_dir())})
+		minetest.set_node(pos,{name="default:plasma_tv_2", param2=minetest.dir_to_facedir(placer:get_look_dir())})
 		else
 			minetest.env:remove_node(p)
 			return true
 		end
 			pos.x = pos.x+1
 		if minetest.registered_nodes[minetest.env:get_node(pos).name].buildable_to  then
-		minetest.set_node(pos,{name="plasmascreen:plasma_tv_1", param2=minetest.dir_to_facedir(placer:get_look_dir())})
+		minetest.set_node(pos,{name="default:plasma_tv_1", param2=minetest.dir_to_facedir(placer:get_look_dir())})
 		else
 			minetest.env:remove_node(p)
 			return true
@@ -228,35 +228,35 @@ after_place_node = function(pos,placer,itemstack)
 		elseif param2 == 3 then
 			pos.z = pos.z-1
 		if minetest.registered_nodes[minetest.env:get_node(pos).name].buildable_to  then
-        minetest.set_node(pos,{name="plasmascreen:plasma_tv_4", param2=minetest.dir_to_facedir(placer:get_look_dir())})
+        minetest.set_node(pos,{name="default:plasma_tv_4", param2=minetest.dir_to_facedir(placer:get_look_dir())})
 		else
 			minetest.env:remove_node(p)
 			return true
 		end
 			pos.z = pos.z+2
 		if minetest.registered_nodes[minetest.env:get_node(pos).name].buildable_to  then
-		minetest.set_node(pos,{name="plasmascreen:plasma_tv_6", param2=minetest.dir_to_facedir(placer:get_look_dir())})
+		minetest.set_node(pos,{name="default:plasma_tv_6", param2=minetest.dir_to_facedir(placer:get_look_dir())})
 		else
 			minetest.env:remove_node(p)
 			return true
 		end
 			pos.y = pos.y+1
 		if minetest.registered_nodes[minetest.env:get_node(pos).name].buildable_to  then
-		minetest.set_node(pos,{name="plasmascreen:plasma_tv_3", param2=minetest.dir_to_facedir(placer:get_look_dir())})
+		minetest.set_node(pos,{name="default:plasma_tv_3", param2=minetest.dir_to_facedir(placer:get_look_dir())})
 		else
 			minetest.env:remove_node(p)
 			return true
 		end
 			pos.z = pos.z-1
 		if minetest.registered_nodes[minetest.env:get_node(pos).name].buildable_to  then
-		minetest.set_node(pos,{name="plasmascreen:plasma_tv_2", param2=minetest.dir_to_facedir(placer:get_look_dir())})
+		minetest.set_node(pos,{name="default:plasma_tv_2", param2=minetest.dir_to_facedir(placer:get_look_dir())})
 		else
 			minetest.env:remove_node(p)
 			return true
 		end
 			pos.z = pos.z-1
 		if minetest.registered_nodes[minetest.env:get_node(pos).name].buildable_to  then
-		minetest.set_node(pos,{name="plasmascreen:plasma_tv_1", param2=minetest.dir_to_facedir(placer:get_look_dir())})
+		minetest.set_node(pos,{name="default:plasma_tv_1", param2=minetest.dir_to_facedir(placer:get_look_dir())})
 		else
 			minetest.env:remove_node(p)
 			return true
