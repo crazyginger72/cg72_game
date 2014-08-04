@@ -102,7 +102,7 @@ for i in ipairs(sofa_list) do
 	minetest.register_node("default:sofa_corner_"..colour, {
 		description = sofadesc.." Corner",
 		drawtype = "nodebox",
-		tiles = {"lrfurn_sofa_right_top_"..colour..".png", "lrfurn_coffeetable_back.png",  "lrfurn_sofa_right_front_"..colour..".png",  "lrfurn_sofa_back_"..colour..".png",  "lrfurn_sofa_left_side_"..colour..".png",  "lrfurn_sofa_right_side_"..colour..".png"},
+		tiles = {"lrfurn_sofa_right_top_"..colour..".png", "lrfurn_coffeetable_back.png",  "lrfurn_sofa_right_front_"..colour..".png",  "lrfurn_sofa_back_"..colour..".png",  "lrfurn_sofa_back_"..colour..".png",  "lrfurn_sofa_back_"..colour..".png"},
 		paramtype = "light",
 		paramtype2 = "facedir",
 		stack_max = 1,
