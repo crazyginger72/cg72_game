@@ -119,7 +119,7 @@ local FONT_FMT_SIMPLE = "hdf_%02x.png"
 -- Path to the textures.
 local TP = MP.."/textures"
 
-local TEXT_SCALE = {x=1.0, y=0.8}
+local TEXT_SCALE = {x=0.8, y=0.6}
 
 -- Lots of overkill here. KISS advocates, go away, shoo! ;) -- kaeza
 
@@ -153,8 +153,8 @@ local SIGN_WIDTH
 -- Please note that CHARS_PER_LINE is multiplied by the average character
 -- width to get the total width of the canvas, so for proportional fonts,
 -- either more or fewer characters may fit on a line.
-local CHARS_PER_LINE = 27
-local NUMBER_OF_LINES = 5
+local CHARS_PER_LINE = 29
+local NUMBER_OF_LINES = 6
 
 -- This holds the individual character widths.
 -- Indexed by the actual character (e.g. charwidth["A"])
