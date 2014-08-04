@@ -1009,7 +1009,7 @@ default.super_chest_formspec =
 	"list[current_player;main;2,7;8,4;]"
 
 default.chest_formspec = 
-	"size[12,12]"..
+	"size[12,11]"..
 	"list[current_name;main;0,0;8,4;]"..
 	"list[current_player;main;0,5;8,4;]"
 
@@ -1026,7 +1026,7 @@ end
 function default.get_locked_super_chest_formspec(pos)
 	local spos = pos.x .. "," .. pos.y .. "," ..pos.z
 	local formspec =
-		"size[12,12]"..
+		"size[12,11]"..
 		"list[nodemeta:".. spos .. ";main;0,0;12,6;]"..
 		"list[current_player;main;2,7;8,4;]"
 	return formspec
