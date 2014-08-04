@@ -1254,6 +1254,7 @@ minetest.register_node("default:super_chest_locked", {
 	legacy_facedir_simple = true,
 	is_ground_content = false,
 	sounds = default.node_sound_wood_defaults(),
+	selection_box = {type = "fixed", fixed = { { 1.5, 0.5, 0.5, -0.5, -0.5, -0.5}, } },
 	after_place_node = function(pos, placer)
 		local meta = minetest.get_meta(pos)
 		meta:set_string("owner", placer:get_player_name() or "")
