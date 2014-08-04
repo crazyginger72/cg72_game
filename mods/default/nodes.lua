@@ -1172,8 +1172,7 @@ minetest.register_node("default:chest_locked", {
 	after_place_node = function(pos, placer)
 		local meta = minetest.get_meta(pos)
 		meta:set_string("owner", placer:get_player_name() or "")
-		meta:set_string("infotext", "Locked Chest (owned by "..
-				meta:get_string("owner")..")")
+		meta:set_string("infotext", "Locked Chest (owned by "..meta:get_string("owner")..")")
 	end,
 	on_construct = function(pos)
 		local meta = minetest.get_meta(pos)
@@ -1255,12 +1254,6 @@ minetest.register_node("default:super_chest_locked", {
 	is_ground_content = false,
 	sounds = default.node_sound_wood_defaults(),
 	selection_box = {type = "fixed", fixed = { { 1.5, 0.5, 0.5, -0.5, -0.5, -0.5}, } },
-	after_place_node = function(pos, placer)
-		local meta = minetest.get_meta(pos)
-		meta:set_string("owner", placer:get_player_name() or "")
-		meta:set_string("infotext", "Locked Chest (owned by "..
-				meta:get_string("owner")..")")
-	end,
 	on_construct = function(pos)
 		local meta = minetest.get_meta(pos)
 		meta:set_string("infotext", "Locked Chest")
@@ -1329,45 +1322,48 @@ minetest.register_node("default:super_chest_locked", {
 		end
 	end,
 	after_place_node = function(pos, placer, itemstack)
-			local node = minetest.get_node(pos)
-			local p = {x=pos.x, y=pos.y, z=pos.z}
-			local param2 = node.param2
-			node.name = "default:super_chest_b"
-			if param2 == 0 then
-				pos.x = pos.x+1
-			elseif param2 == 1 then
-				pos.z = pos.z-1
-			elseif param2 == 2 then
-				pos.x = pos.x-1
-			elseif param2 == 3 then
-				pos.z = pos.z+1
-			end
-			pos2 = {x=pos.x, y=pos.y-1, z=pos.z}
-			if minetest.registered_nodes[minetest.get_node(pos).name].buildable_to  then
-				minetest.set_node(pos, node)
-			else
-				minetest.remove_node(p)
-				return true
-			end
-		end,
-		on_destruct = function(pos)
-			local node = minetest.get_node(pos)
-			local param2 = node.param2
-			if param2 == 0 then
-				pos.x = pos.x+1
-			elseif param2 == 1 then
-				pos.z = pos.z-1
-			elseif param2 == 2 then
-				pos.x = pos.x-1
-			elseif param2 == 3 then
-				pos.z = pos.z+1
-			end
-			if( minetest.get_node({x=pos.x, y=pos.y, z=pos.z}).name == "default:super_chest_b") then
-				if( minetest.get_node({x=pos.x, y=pos.y, z=pos.z}).param2 == param2 ) then
-					minetest.remove_node(pos)
-				end	
-			end
-		end,
+		local meta = minetest.get_meta(pos)
+		meta:set_string("owner", placer:get_player_name() or "")
+		meta:set_string("infotext", "Locked Chest (owned by "..meta:get_string("owner")..")")
+		local node = minetest.get_node(pos)
+		local p = {x=pos.x, y=pos.y, z=pos.z}
+		local param2 = node.param2
+		node.name = "default:super_chest_b"
+		if param2 == 0 then
+			pos.x = pos.x+1
+		elseif param2 == 1 then
+			pos.z = pos.z-1
+		elseif param2 == 2 then
+			pos.x = pos.x-1
+		elseif param2 == 3 then
+			pos.z = pos.z+1
+		end
+		pos2 = {x=pos.x, y=pos.y-1, z=pos.z}
+		if minetest.registered_nodes[minetest.get_node(pos).name].buildable_to  then
+			minetest.set_node(pos, node)
+		else
+			minetest.remove_node(p)
+			return true
+		end
+	end,
+	on_destruct = function(pos)
+		local node = minetest.get_node(pos)
+		local param2 = node.param2
+		if param2 == 0 then
+			pos.x = pos.x+1
+		elseif param2 == 1 then
+			pos.z = pos.z-1
+		elseif param2 == 2 then
+			pos.x = pos.x-1
+		elseif param2 == 3 then
+			pos.z = pos.z+1
+		end
+		if( minetest.get_node({x=pos.x, y=pos.y, z=pos.z}).name == "default:super_chest_b") then
+			if( minetest.get_node({x=pos.x, y=pos.y, z=pos.z}).param2 == param2 ) then
+				minetest.remove_node(pos)
+			end	
+		end
+	end,
 })
 
 function default.get_furnace_active_formspec(pos, percent)
