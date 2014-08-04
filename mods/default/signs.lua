@@ -20,10 +20,10 @@ signs_lib.wall_sign_model = {
 		fixed = {-0.4375, -0.25, 0.4375, 0.4375, 0.375, 0.5}
 	},
 	textpos = {
-		{delta = {x =  0,     y = 0.07, z =  0.436}, yaw = 0},
-		{delta = {x =  0.436, y = 0.07, z =  0    }, yaw = math.pi / -2},
-		{delta = {x =  0,     y = 0.07, z = -0.436}, yaw = math.pi},
-		{delta = {x = -0.436, y = 0.07, z =  0    }, yaw = math.pi / 2},
+		{delta = {x =  0,     y = 0.05, z =  0.436}, yaw = 0},
+		{delta = {x =  0.436, y = 0.05, z =  0    }, yaw = math.pi / -2},
+		{delta = {x =  0,     y = 0.05, z = -0.436}, yaw = math.pi},
+		{delta = {x = -0.436, y = 0.05, z =  0    }, yaw = math.pi / 2},
 	}
 }
 
@@ -36,10 +36,10 @@ signs_lib.yard_sign_model = {
 		}
 	},
 	textpos = {
-		{delta = {x =  0,      y = 0.07, z = -0.063}, yaw = 0},
-		{delta = {x = -0.063,  y = 0.07, z =  0    }, yaw = math.pi / -2},
-		{delta = {x =  0,      y = 0.07, z =  0.063}, yaw = math.pi},
-		{delta = {x =  0.063,  y = 0.07, z =  0    }, yaw = math.pi / 2},
+		{delta = {x =  0,      y = 0.09, z = -0.063}, yaw = 0},
+		{delta = {x = -0.063,  y = 0.09, z =  0    }, yaw = math.pi / -2},
+		{delta = {x =  0,      y = 0.09, z =  0.063}, yaw = math.pi},
+		{delta = {x =  0.063,  y = 0.09, z =  0    }, yaw = math.pi / 2},
 	}
 }
 
