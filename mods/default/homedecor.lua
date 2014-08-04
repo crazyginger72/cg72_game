@@ -331,12 +331,10 @@ minetest.register_node("default:nightstand", {
         node_box = {
                 type = "fixed",
         fixed = {
-            { -8/16, -8/16, -30/64,  8/16,  8/16,   8/16 }, -- main body
-            { -7/16,  1/16, -32/64,  7/16,  7/16, -29/64 }, -- top drawer face
-            { -7/16, -7/16, -32/64,  7/16, -1/16, -29/64 }, -- bottom drawer face
-
+            { -8/16, -8/16, -30/64,  8/16,  8/16,   8/16 },
+            { -7/16, -8/16, -32/64,  7/16,  8/16,  -29/64 },
         }
-        },
+    },
     groups = { snappy = 3 },
     sounds = default.node_sound_wood_defaults(),
     on_construct = function(pos)
