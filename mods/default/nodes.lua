@@ -1086,7 +1086,7 @@ minetest.register_node("default:super_chest", {
 	legacy_facedir_simple = true,
 	is_ground_content = false,
 	sounds = default.node_sound_wood_defaults(),
-	selection_box = {type = "fixed", fixed = { { 1.55, 0.5, 0.5, 0.5, -0.5, -0.5}, } },
+	selection_box = {type = "fixed", fixed = { { 1.5, 0.5, 0.5, -0.5, -0.5, -0.5}, } },
 	on_construct = function(pos)
 		local meta = minetest.get_meta(pos)
 		meta:set_string("formspec",default.super_chest_formspec)
@@ -1118,16 +1118,12 @@ minetest.register_node("default:super_chest", {
 			node.name = "default:super_chest_b"
 			if param2 == 0 then
 				pos.x = pos.x+1
-				--pos.z = pos.z+1
 			elseif param2 == 1 then
 				pos.z = pos.z-1
-				--pos.x = pos.x+1
 			elseif param2 == 2 then
 				pos.x = pos.x-1
-				--pos.z = pos.z-1
 			elseif param2 == 3 then
 				pos.z = pos.z+1
-				--pos.x = pos.x-1
 			end
 			pos2 = {x=pos.x, y=pos.y-1, z=pos.z}
 			if minetest.registered_nodes[minetest.get_node(pos).name].buildable_to  then
@@ -1135,6 +1131,24 @@ minetest.register_node("default:super_chest", {
 			else
 				minetest.remove_node(p)
 				return true
+			end
+		end,
+		on_destruct = function(pos)
+			local node = minetest.get_node(pos)
+			local param2 = node.param2
+			if param2 == 0 then
+				pos.x = pos.x+1
+			elseif param2 == 1 then
+				pos.z = pos.z-1
+			elseif param2 == 2 then
+				pos.x = pos.x-1
+			elseif param2 == 3 then
+				pos.z = pos.z+1
+			end
+			if( minetest.get_node({x=pos.x, y=pos.y, z=pos.z}).name == "default:super_chest_b") then
+				if( minetest.get_node({x=pos.x, y=pos.y, z=pos.z}).param2 == param2 ) then
+					minetest.remove_node(pos)
+				end	
 			end
 		end,
 })
