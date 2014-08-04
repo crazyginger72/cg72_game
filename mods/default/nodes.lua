@@ -1004,12 +1004,12 @@ minetest.register_node("default:torch", {
 })]]--
 
 default.super_chest_formspec = 
-	"size[12,12]"..
+	"size[12,11]"..
 	"list[current_name;main;0,0;12,6;]"..
 	"list[current_player;main;2,7;8,4;]"
 
 default.chest_formspec = 
-	"size[12,11]"..
+	"size[12,9]"..
 	"list[current_name;main;0,0;8,4;]"..
 	"list[current_player;main;0,5;8,4;]"
 
@@ -1067,15 +1067,26 @@ minetest.register_node("default:chest", {
 	end,
 })
 
+minetest.register_node("default:super_chest_b", {
+	tiles = {"default_chest_top_b.png", "default_chest_top_b.png", "default_chest_side.png",
+		"default_chest_side.png", "default_chest_back_b.png", "default_chest_front_b.png"},
+	paramtype2 = "facedir",
+	pointable = false,
+	groups = {dig_immediate=3},
+	is_ground_content = false,
+	sounds = default.node_sound_wood_defaults(),
+})
+
 minetest.register_node("default:super_chest", {
 	description = "Super Chest",
-	tiles = {"default_chest_top.png", "default_chest_top.png", "default_chest_side.png",
-		"default_chest_side.png", "default_chest_side.png", "default_chest_front.png"},
+	tiles = {"default_chest_top_a.png", "default_chest_top_a.png", "default_chest_side.png",
+		"default_chest_side.png", "default_chest_back_a.png", "default_chest_front_a.png"},
 	paramtype2 = "facedir",
 	groups = {choppy=2,oddly_breakable_by_hand=2},
 	legacy_facedir_simple = true,
 	is_ground_content = false,
 	sounds = default.node_sound_wood_defaults(),
+	selection_box = {type = "fixed", fixed = { { 1.55, 0.5, 0.5, 0.5, -0.5, -0.5}, } },
 	on_construct = function(pos)
 		local meta = minetest.get_meta(pos)
 		meta:set_string("formspec",default.super_chest_formspec)
@@ -1100,6 +1111,32 @@ minetest.register_node("default:super_chest", {
 		minetest.log("action", player:get_player_name()..
 				" takes stuff from chest at "..minetest.pos_to_string(pos))
 	end,
+	after_place_node = function(pos, placer, itemstack)
+			local node = minetest.get_node(pos)
+			local p = {x=pos.x, y=pos.y, z=pos.z}
+			local param2 = node.param2
+			node.name = "default:super_chest_b"
+			if param2 == 0 then
+				pos.x = pos.x+1
+				--pos.z = pos.z+1
+			elseif param2 == 1 then
+				pos.z = pos.z-1
+				--pos.x = pos.x+1
+			elseif param2 == 2 then
+				pos.x = pos.x-1
+				--pos.z = pos.z-1
+			elseif param2 == 3 then
+				pos.z = pos.z+1
+				--pos.x = pos.x-1
+			end
+			pos2 = {x=pos.x, y=pos.y-1, z=pos.z}
+			if minetest.registered_nodes[minetest.get_node(pos).name].buildable_to  then
+				minetest.set_node(pos, node)
+			else
+				minetest.remove_node(p)
+				return true
+			end
+		end,
 })
 
 local function has_locked_chest_privilege(meta, player)
