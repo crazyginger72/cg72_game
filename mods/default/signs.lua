@@ -17,7 +17,7 @@ signs_lib.intllib_modpath = minetest.get_modpath("intllib")
 signs_lib.wall_sign_model = {
 	nodebox = {
 		type = "fixed",
-		fixed = {-0.4375, -0.25, 0.46875, 0.4375, 0.375, 0.5}
+		fixed = {-0.4375, -0.25, 0.4375, 0.4375, 0.4375, 0.5}
 	},
 	textpos = {
 		{delta = {x =  0,     y = 0.07, z =  0.436}, yaw = 0},
@@ -31,7 +31,7 @@ signs_lib.yard_sign_model = {
 	nodebox = {
 		type = "fixed",
 		fixed = {
-				{-0.4375, -0.25, -0.0625, 0.46875, 0.375, 0},
+				{-0.4375, -0.25, -0.0625, 0.4375, 0.4375, 0},
 				{-0.0625, -0.5, -0.0625, 0.0625, -0.1875, 0},
 		}
 	},
