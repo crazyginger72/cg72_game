@@ -196,7 +196,7 @@ minetest.register_node("default:toilet", {
 
 minetest.register_node("default:toilet_open", {
     tiles = {
-        "fdefault_toilet.png",
+        "default_toilet.png",
         "default_marble.png"
     },
     drawtype = "nodebox",
@@ -302,7 +302,6 @@ minetest.register_node("default:dvd_vcr", {
         "homedecor_dvdvcr_back.png",
         "homedecor_dvdvcr_front.png",
     },
-    inventory_image = "homedecor_dvdvcr_inv.png",
     paramtype = "light",
     paramtype2 = "facedir",
     node_box = {

@@ -14,29 +14,30 @@ local tv_list = {
 	{ "6", {-0.5000, -0.3125, 0.4375, 0.5000, 0.5000, 0.5000}, {-0.5000, -0.3125, 0.3750, 0.5000, -0.1250, 0.4375}, {0.3125, -0.3125, 0.5000, 0.5000, 0.5000, 0.3750} },
 }
 
+minetest.register_node("default:tv_stand", {
+	description = "Plasma Screen TV Stand",
+	tiles = {"plasmascreen_back.png"},
+	paramtype = "light",
+	paramtype2 = "facedir",
+	drawtype = "nodebox",
+	node_box = {
+		type = "fixed",
+		fixed = { 
+			{0.5000,-0.5000,0.0625,-0.5000,-0.4375,-0.5000},
+			{-0.1875,-0.5000,-0.3750,0.1875,0.1250,-0.1250},
+			{-0.5000,-0.2500,-0.5000,0.5000,0.5000,-0.3750},
+			{-0.3750,-0.1875,-0.3750,0.3750,0.3125,-0.2500},
+		}
+	},
+	groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2},
+})
+
 for i in ipairs(tv_list) do
 	local number = tv_list[i][1]
 	local n_box1 = tv_list[i][2]
 	local n_box2 = tv_list[i][3]
 	local n_box3 = tv_list[i][4]
-	minetest.register_node("default:tv_stand", {
-		description = "Plasma Screen TV Stand",
-		tiles = {"plasmascreen_back.png"},
-		paramtype = "light",
-		paramtype2 = "facedir",
-		drawtype = "nodebox",
-		node_box = {
-			type = "fixed",
-			fixed = { 
-				{0.5000,-0.5000,0.0625,-0.5000,-0.4375,-0.5000},
-				{-0.1875,-0.5000,-0.3750,0.1875,0.1250,-0.1250},
-				{-0.5000,-0.2500,-0.5000,0.5000,0.5000,-0.3750},
-				{-0.3750,-0.1875,-0.3750,0.3750,0.3125,-0.2500},
-			}
-		},
-		groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2},
-	})
-
+	
 	minetest.register_node("default:plasma_tv_"..number, {
 		description = "Plasma Screen",
 		tiles = {
