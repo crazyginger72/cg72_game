@@ -340,9 +340,9 @@ minetest.register_node("default:nightstand", {
     on_construct = function(pos)
         local meta = minetest.get_meta(pos)
         meta:set_string("formspec",
-                "size[8,7]"..
+                "size[8,12]"..
                 "list[current_name;main;0,0;8,4;]"..
-                "list[current_player;main;0,3;8,4;]")
+                "list[current_player;main;0,4;8,4;]")
         meta:set_string("infotext", "Two-drawer Nightstand")
         local inv = meta:get_inventory()
         inv:set_size("main", 32)
