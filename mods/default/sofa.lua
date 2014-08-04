@@ -103,7 +103,7 @@ for i in ipairs(longsofas_list) do
 		output = "default:sofa_right_"..colour,
 		recipe = {
 			{"default:slab_wool"..colour, "default:wool"..colour, "default:wool"..colour, },
-			{"default:slab_wood"          "default:slab_wood"     "default:slab_wood", },
+			{"default:slab_wood",         "default:slab_wood",    "default:slab_wood", },
 			{"group:stick",               " ",                    "group:stick", }
 		}
 	})
@@ -121,7 +121,7 @@ for i in ipairs(longsofas_list) do
 		output = "default:sofa_left_"..colour,
 		recipe = {
 			{"default:wool"..colour, "default:wool"..colour, "default:slab_wool"..colour, },
-			{"default:slab_wood",    "default:slab_wood"     "default:slab_wood", },
+			{"default:slab_wood",    "default:slab_wood",    "default:slab_wood", },
 			{"group:stick",          " ",                    "group:stick", }
 		}
 	})
