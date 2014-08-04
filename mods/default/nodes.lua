@@ -1004,9 +1004,9 @@ minetest.register_node("default:torch", {
 })]]--
 
 default.super_chest_formspec = 
-	"size[8,9]"..
+	"size[12,12]"..
 	"list[current_name;main;0,0;12,6;]"..
-	"list[current_player;main;0,7;8,4;]"
+	"list[current_player;main;2,7;8,4;]"
 
 default.chest_formspec = 
 	"size[12,12]"..
@@ -1028,7 +1028,7 @@ function default.get_locked_super_chest_formspec(pos)
 	local formspec =
 		"size[12,12]"..
 		"list[nodemeta:".. spos .. ";main;0,0;12,6;]"..
-		"list[current_player;main;0,7;8,4;]"
+		"list[current_player;main;2,7;8,4;]"
 	return formspec
 end
 
@@ -1068,7 +1068,7 @@ minetest.register_node("default:chest", {
 })
 
 minetest.register_node("default:super_chest", {
-	description = "Chest",
+	description = "Super Chest",
 	tiles = {"default_chest_top.png", "default_chest_top.png", "default_chest_side.png",
 		"default_chest_side.png", "default_chest_side.png", "default_chest_front.png"},
 	paramtype2 = "facedir",
@@ -1081,7 +1081,7 @@ minetest.register_node("default:super_chest", {
 		meta:set_string("formspec",default.super_chest_formspec)
 		meta:set_string("infotext", "Chest")
 		local inv = meta:get_inventory()
-		inv:set_size("main", 64)
+		inv:set_size("main", 72)
 	end,
 	can_dig = function(pos,player)
 		local meta = minetest.get_meta(pos);
@@ -1194,7 +1194,7 @@ minetest.register_node("default:chest_locked", {
 })
 
 minetest.register_node("default:super_chest_locked", {
-	description = "Locked Chest",
+	description = "Locked Super Chest",
 	tiles = {"default_chest_top.png", "default_chest_top.png", "default_chest_side.png",
 		"default_chest_side.png", "default_chest_side.png", "default_chest_lock.png"},
 	paramtype2 = "facedir",
@@ -1213,7 +1213,7 @@ minetest.register_node("default:super_chest_locked", {
 		meta:set_string("infotext", "Locked Chest")
 		meta:set_string("owner", "")
 		local inv = meta:get_inventory()
-		inv:set_size("main", 64)
+		inv:set_size("main", 72)
 	end,
 	can_dig = function(pos,player)
 		local meta = minetest.get_meta(pos);
