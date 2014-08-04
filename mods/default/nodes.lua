@@ -1080,7 +1080,7 @@ minetest.register_node("default:super_chest_b", {
 minetest.register_node("default:super_chest", {
 	description = "Super Chest",
 	tiles = {"default_chest_top_a.png", "default_chest_top_a.png", "default_chest_side.png",
-		"default_chest_side.png", "default_chest_back_a.png", "default_chest_front_a.png"},
+		"default_chest_side.png", "default_chest_front_b.png", "default_chest_front_a.png"},
 	paramtype2 = "facedir",
 	groups = {choppy=2,oddly_breakable_by_hand=2},
 	legacy_facedir_simple = true,
@@ -1242,12 +1242,13 @@ minetest.register_node("default:chest_locked", {
 			)
 		end
 	end,
+
 })
 
 minetest.register_node("default:super_chest_locked", {
 	description = "Locked Super Chest",
-	tiles = {"default_chest_top.png", "default_chest_top.png", "default_chest_side.png",
-		"default_chest_side.png", "default_chest_side.png", "default_chest_lock.png"},
+	tiles = {"default_chest_top_a.png", "default_chest_top_a.png", "default_chest_side.png",
+		"default_chest_side.png", "default_chest_front_b.png", "default_chest_front_a.png"},
 	paramtype2 = "facedir",
 	groups = {choppy=2,oddly_breakable_by_hand=2},
 	legacy_facedir_simple = true,
@@ -1326,6 +1327,46 @@ minetest.register_node("default:super_chest_locked", {
 			)
 		end
 	end,
+	after_place_node = function(pos, placer, itemstack)
+			local node = minetest.get_node(pos)
+			local p = {x=pos.x, y=pos.y, z=pos.z}
+			local param2 = node.param2
+			node.name = "default:super_chest_b"
+			if param2 == 0 then
+				pos.x = pos.x+1
+			elseif param2 == 1 then
+				pos.z = pos.z-1
+			elseif param2 == 2 then
+				pos.x = pos.x-1
+			elseif param2 == 3 then
+				pos.z = pos.z+1
+			end
+			pos2 = {x=pos.x, y=pos.y-1, z=pos.z}
+			if minetest.registered_nodes[minetest.get_node(pos).name].buildable_to  then
+				minetest.set_node(pos, node)
+			else
+				minetest.remove_node(p)
+				return true
+			end
+		end,
+		on_destruct = function(pos)
+			local node = minetest.get_node(pos)
+			local param2 = node.param2
+			if param2 == 0 then
+				pos.x = pos.x+1
+			elseif param2 == 1 then
+				pos.z = pos.z-1
+			elseif param2 == 2 then
+				pos.x = pos.x-1
+			elseif param2 == 3 then
+				pos.z = pos.z+1
+			end
+			if( minetest.get_node({x=pos.x, y=pos.y, z=pos.z}).name == "default:super_chest_b") then
+				if( minetest.get_node({x=pos.x, y=pos.y, z=pos.z}).param2 == param2 ) then
+					minetest.remove_node(pos)
+				end	
+			end
+		end,
 })
 
 function default.get_furnace_active_formspec(pos, percent)
