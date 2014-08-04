@@ -11,7 +11,7 @@ local sofa_list = {
 	{ "Magenta Sofa", "magenta"},
 }
 
-for i in ipairs(longsofas_list) do
+for i in ipairs(sofa_list) do
 	local sofadesc = sofa_list[i][1]
 	local colour = sofa_list[i][2]
 
