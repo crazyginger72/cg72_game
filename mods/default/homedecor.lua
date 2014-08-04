@@ -144,9 +144,9 @@ minetest.register_node("default:kitchen_cabinet_half", {
     on_construct = function(pos)
         local meta = minetest.get_meta(pos)
         meta:set_string("formspec",
-            "size[8,8]"..
+            "size[8,7]"..
             "list[current_name;main;0,0;8,2;]"..
-            "list[current_player;main;0,5;8,4;]")
+            "list[current_player;main;0,3;8,4;]")
         meta:set_string("infotext", "Kitchen Cabinet")
         local inv = meta:get_inventory()
         inv:set_size("main", 16)
@@ -340,10 +340,9 @@ minetest.register_node("default:nightstand", {
     on_construct = function(pos)
         local meta = minetest.get_meta(pos)
         meta:set_string("formspec",
-                "size[8,9]"..
-                "list[current_name;main;0,0;8,4;]"..
-                "list[current_player;main;0,6;8,4;]")
-        meta:set_string("infotext", "Two-drawer Nightstand")
+            "size[8,9]"..
+            "list[current_name;main;0,0;8,4;]"..
+            "list[current_player;main;0,5;8,4;]")
         local inv = meta:get_inventory()
         inv:set_size("main", 32)
     end,
