@@ -119,7 +119,7 @@ local FONT_FMT_SIMPLE = "hdf_%02x.png"
 -- Path to the textures.
 local TP = MP.."/textures"
 
-local TEXT_SCALE = {x=0.8, y=0.5}
+local TEXT_SCALE = {x=0., y=0.6}
 
 -- Lots of overkill here. KISS advocates, go away, shoo! ;) -- kaeza
 
@@ -153,7 +153,7 @@ local SIGN_WIDTH
 -- Please note that CHARS_PER_LINE is multiplied by the average character
 -- width to get the total width of the canvas, so for proportional fonts,
 -- either more or fewer characters may fit on a line.
-local CHARS_PER_LINE = 30
+local CHARS_PER_LINE = 27
 local NUMBER_OF_LINES = 6
 
 -- This holds the individual character widths.
@@ -619,7 +619,7 @@ minetest.register_node(":default:sign_wall", {
 	paramtype2 = "facedir",
 	drawtype = "nodebox",
 	node_box = signs_lib.wall_sign_model.nodebox,
-	tiles = {"signs_top.png", "signs_bottom.png", "signs_side.png", "signs_side.png", "signs_back.png", "signs_front.png"},
+	tiles = {"default_junglewood.png", "default_junglewood.png", "default_junglewood.png", "default_junglewood.png", "default_junglewood.png", "default_sign_front.png"},
 	groups = sign_groups,
 
 	on_place = function(itemstack, placer, pointed_thing)
@@ -649,7 +649,7 @@ minetest.register_node(":default:sign_yard", {
 		type = "fixed",
 		fixed = {-0.4375, -0.5, -0.0625, 0.4375, 0.375, 0}
 	},
-    tiles = {"signs_top.png", "signs_bottom.png", "signs_side.png", "signs_side.png", "signs_back.png", "signs_front.png"},
+    tiles = {"default_junglewood.png", "default_junglewood.png", "default_junglewood.png", "default_junglewood.png", "default_junglewood.png", "default_sign_front.png"},
     groups = {choppy=2, dig_immediate=2},
     drop = "default:sign_wall",
 
@@ -677,14 +677,7 @@ minetest.register_node(":default:sign_hanging", {
 		type = "fixed",
 		fixed = {-0.45, -0.275, -0.049, 0.45, 0.5, 0.049}
 	},
-    tiles = {
-		"signs_hanging_top.png",
-		"signs_hanging_bottom.png",
-		"signs_hanging_side.png",
-		"signs_hanging_side.png",
-		"signs_hanging_back.png",
-		"signs_hanging_front.png"
-	},
+    tiles = {"default_junglewood.png", "default_junglewood.png", "default_junglewood.png", "default_junglewood.png", "default_junglewood.png", "default_sign_front.png"},
     groups = {choppy=2, dig_immediate=2},
     drop = "default:sign_wall",
 
@@ -708,14 +701,7 @@ minetest.register_node(":default:sign_post", {
     paramtype2 = "facedir",
     drawtype = "nodebox",
     node_box = signs_lib.sign_post_model.nodebox,
-    tiles = {
-		"signs_post_top.png",
-		"signs_post_bottom.png",
-		"signs_post_side.png",
-		"signs_post_side.png",
-		"signs_post_back.png",
-		"signs_post_front.png",
-	},
+    tiles = {"default_junglewood.png"},
     groups = {choppy=2, dig_immediate=2},
     drop = {
 		max_items = 2,
@@ -724,78 +710,6 @@ minetest.register_node(":default:sign_post", {
 			{ items = { "default:fence_wood" }},
 		},
     },
-})
-
-minetest.register_node(":default:sign_wall_green", {
-	description = S("Sign (green, metal)"),
-	inventory_image = "signs_green_inv.png",
-	wield_image = "signs_green_inv.png",
-	node_placement_prediction = "",
-	paramtype = "light",
-	sunlight_propagates = true,
-	paramtype2 = "facedir",
-	drawtype = "nodebox",
-	node_box = signs_lib.wall_sign_model.nodebox,
-	tiles = {
-		"signs_green_top.png",
-		"signs_green_bottom.png",
-		"signs_green_sides.png",
-		"signs_green_sides.png",
-		"signs_back_metal.png",
-		"signs_green_front.png"
-	},
-	groups = sign_groups,
-	on_place = function(itemstack, placer, pointed_thing)
-		return signs_lib.determine_sign_type(itemstack, placer, pointed_thing)
-	end,
-	on_construct = function(pos)
-		signs_lib.construct_sign(pos)
-	end,
-	on_destruct = function(pos)
-		signs_lib.destruct_sign(pos)
-	end,
-	on_receive_fields = function(pos, formname, fields, sender)
-		signs_lib.receive_fields(pos, formname, fields, sender)
-	end,
-	on_punch = function(pos, node, puncher)
-		signs_lib.update_sign(pos)
-	end,
-})
-
-minetest.register_node(":default:sign_wall_yellow", {
-	description = S("Sign (yellow, metal)"),
-	inventory_image = "signs_yellow_inv.png",
-	wield_image = "signs_yellow_inv.png",
-	node_placement_prediction = "",
-	paramtype = "light",
-	sunlight_propagates = true,
-	paramtype2 = "facedir",
-	drawtype = "nodebox",
-	node_box = signs_lib.wall_sign_model.nodebox,
-	tiles = {
-		"signs_yellow_top.png",
-		"signs_yellow_bottom.png",
-		"signs_yellow_sides.png",
-		"signs_yellow_sides.png",
-		"signs_back_metal.png",
-		"signs_yellow_front.png"
-	},
-	groups = sign_groups,
-	on_place = function(itemstack, placer, pointed_thing)
-		return signs_lib.determine_sign_type(itemstack, placer, pointed_thing)
-	end,
-	on_construct = function(pos)
-		signs_lib.construct_sign(pos)
-	end,
-	on_destruct = function(pos)
-		signs_lib.destruct_sign(pos)
-	end,
-	on_receive_fields = function(pos, formname, fields, sender)
-		signs_lib.receive_fields(pos, formname, fields, sender)
-	end,
-	on_punch = function(pos, node, puncher)
-		signs_lib.update_sign(pos)
-	end,
 })
 
 local signs_text_on_activate
