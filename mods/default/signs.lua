@@ -80,7 +80,7 @@ local FONT_FMT_SIMPLE = "hdf_%02x.png"
 -- Path to the textures.
 local TP = MP.."/textures"
 
-local TEXT_SCALE = {x=0.8, y=0.5}
+local TEXT_SCALE = {x=0.9, y=0.6}
 
 -- Lots of overkill here. KISS advocates, go away, shoo! ;) -- kaeza
 
@@ -114,7 +114,7 @@ local SIGN_WIDTH
 -- Please note that CHARS_PER_LINE is multiplied by the average character
 -- width to get the total width of the canvas, so for proportional fonts,
 -- either more or fewer characters may fit on a line.
-local CHARS_PER_LINE = 30
+local CHARS_PER_LINE = 27
 local NUMBER_OF_LINES = 6
 
 -- This holds the individual character widths.
@@ -578,9 +578,9 @@ minetest.register_node(":default:sign_wall", {
 	tiles = {"default_junglewood.png", "default_junglewood.png", "default_junglewood.png", "default_junglewood.png", "default_junglewood.png", "default_sign_front.png"},
 	groups = sign_groups,
 
-	on_place = function(itemstack, placer, pointed_thing)
-		return signs_lib.determine_sign_type(itemstack, placer, pointed_thing)
-	end,
+	--on_place = function(itemstack, placer, pointed_thing)
+	--	return signs_lib.determine_sign_type(itemstack, placer, pointed_thing)
+	--end,
 	on_construct = function(pos)
 		signs_lib.construct_sign(pos)
 	end,
@@ -613,63 +613,6 @@ minetest.register_entity(":default:text", {
 
 	on_activate = signs_text_on_activate,
 })
-
-minetest.register_node(":default:sign_yard", {
-    paramtype = "light",
-	sunlight_propagates = true,
-    paramtype2 = "facedir",
-    drawtype = "nodebox",
-    node_box = signs_lib.yard_sign_model.nodebox,
-	selection_box = {
-		type = "fixed",
-		fixed = {-0.4375, -0.5, -0.0625, 0.4375, 0.375, 0}
-	},
-    tiles = {"default_junglewood.png", "default_junglewood.png", "default_junglewood.png", "default_junglewood.png", "default_junglewood.png", "default_sign_front.png"},
-    groups = {choppy=2, dig_immediate=2},
-    drop = "default:sign_wall",
-
-    on_construct = function(pos)
-        signs_lib.construct_sign(pos)
-    end,
-    on_destruct = function(pos)
-        signs_lib.destruct_sign(pos)
-    end,
-	on_receive_fields = function(pos, formname, fields, sender)
-		signs_lib.receive_fields(pos, formname, fields, sender)
-	end,
-	on_punch = function(pos, node, puncher)
-		signs_lib.update_sign(pos)
-	end,
-})
-
-minetest.register_node(":default:sign_hanging", {
-    paramtype = "light",
-	sunlight_propagates = true,
-    paramtype2 = "facedir",
-    drawtype = "nodebox",
-    node_box = signs_lib.hanging_sign_model.nodebox,
-    selection_box = {
-		type = "fixed",
-		fixed = {-0.45, -0.275, -0.049, 0.45, 0.5, 0.049}
-	},
-    tiles = {"default_junglewood.png", "default_junglewood.png", "default_junglewood.png", "default_junglewood.png", "default_junglewood.png", "default_sign_front.png"},
-    groups = {choppy=2, dig_immediate=2},
-    drop = "default:sign_wall",
-
-    on_construct = function(pos)
-        signs_lib.construct_sign(pos)
-    end,
-    on_destruct = function(pos)
-        signs_lib.destruct_sign(pos)
-    end,
-	on_receive_fields = function(pos, formname, fields, sender)
-		signs_lib.receive_fields(pos, formname, fields, sender)
-	end,
-	on_punch = function(pos, node, puncher)
-		signs_lib.update_sign(pos)
-	end,
-})
-
 
 -- And the good stuff here! :-)
 
