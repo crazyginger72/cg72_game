@@ -33,7 +33,19 @@ for i in ipairs(beds_list) do
 						{0.375, 0.0, -0.375, 0.5, -0.5, -0.5},
 					}
 		},
-
+		selection_box = {
+			type = "fixed",
+			fixed = {
+						-- bed
+						{-0.5, -0.125, -0.5, 0.5, 0.3125, 1.5},
+						
+						-- legs
+						{-0.5, -0.5, -0.5, -0.375, 0.0, -0.375},
+						{0.375, 0.0, -0.375, 0.5, -0.5, -0.5},
+						{-0.375, 0.0, 0.875, -0.5, -0.5, 1.5},
+						{0.5, -0.5, 1.5, 0.375, 0.0, 0.875},
+					}
+		},
 		after_place_node = function(pos, placer, itemstack)
 			local node = minetest.get_node(pos)
 			local p = {x=pos.x, y=pos.y, z=pos.z}
@@ -82,6 +94,7 @@ for i in ipairs(beds_list) do
 		tiles = {"beds_bed_top_top_"..colour..".png", "default_wood.png",  "beds_bed_side_top_r_"..colour..".png",  "beds_bed_side_top_l_"..colour..".png",  "beds_bed_top_front.png",  "beds_bed_side_"..colour..".png"},
 		paramtype = "light",
 		paramtype2 = "facedir",
+		pointable = false,
 		groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=3,bed=1},
 		sounds = default.node_sound_wood_defaults(),
 		node_box = {
@@ -113,7 +126,7 @@ for i in ipairs(beds_list) do
 		paramtype2 = "facedir",
 		groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=3,bed=1},
 		sounds = default.node_sound_wood_defaults(),
-		drop = { items = { { items = {'default:bed_bottom'..colour}, }, }, },
+		drop = { items = { { items = {'default:bed_bottom_'..colour}, }, }, },
 		node_box = {
 			type = "fixed",
 			fixed = {
@@ -123,6 +136,19 @@ for i in ipairs(beds_list) do
 						-- legs
 						{-0.5, -0.5, -0.5, -0.375, 0.5, -0.375},
 						{0.375, -0.5, -0.375, 0.5, 0.5, -0.5},
+					}
+		},
+		selection_box = {
+			type = "fixed",
+			fixed = {
+						-- bed
+						{-0.5, -0.125, -0.5, 0.5, 0.3125, 1.5},
+						
+						-- legs
+						{-0.5, -0.5, -0.5, -0.375, 0.5, -0.375},
+						{0.375, 0.5, -0.375, 0.5, -0.5, -0.5},
+						{-0.375, 0.5, 0.875, -0.5, -0.5, 1.5},
+						{0.5, -0.5, 1.5, 0.375, 0.5, 0.875},
 					}
 		},	
 		on_destruct = function(pos)
@@ -150,6 +176,7 @@ for i in ipairs(beds_list) do
 		tiles = {"beds_bed_top_bunk_top_"..colour..".png", "default_wood.png",  "beds_bed_side_top_bunk_r_"..colour..".png",  "beds_bed_side_top_bunk_l_"..colour..".png",  "beds_bed_top_bunk_front.png",  "beds_bed_side_"..colour.."_top.png"},
 		paramtype = "light",
 		paramtype2 = "facedir",
+		pointable = false,
 		groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=3,bed=1},
 		sounds = default.node_sound_wood_defaults(),
 		{ items = { { items = {''}, }, }, },
@@ -165,6 +192,14 @@ for i in ipairs(beds_list) do
 						{0.5, -0.5, 0.5, 0.375, 0.5, 0.375},
 					}
 		},
+		on_rightclick = function(pos, node, clicker)
+			if not clicker:is_player() then
+				return
+			end
+			pos.y = pos.y-0.5
+			clicker:setpos(pos)
+			clicker:set_hp(20)
+		end
 	})
 
 	minetest.register_alias("bed_"..colour, "default:bed_bottom_"..colour)
