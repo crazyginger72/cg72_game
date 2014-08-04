@@ -280,14 +280,14 @@ minetest.register_node("default:stereo_on", {
     sunlight_propagates = false,
     paramtype = "light",
     paramtype2 = "facedir",
-    drop = "default:stereo"
+    drop = "default:stereo",
     walkable = true,
     groups = { snappy = 3 },
     sounds = default.node_sound_leaves_defaults(),
     on_rightclick = function ( pos, node, clicker, itemstack) 
     node.name = "default:stereo";
-            minetest.set_node(pos, node);
-            nodeupdate(pos)
+         minetest.set_node(pos, node);
+        nodeupdate(pos)
     end
 })
 
