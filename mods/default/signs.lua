@@ -614,6 +614,63 @@ minetest.register_entity(":default:text", {
 	on_activate = signs_text_on_activate,
 })
 
+minetest.register_node(":default:sign_yard", {
+    paramtype = "light",
+	sunlight_propagates = true,
+    paramtype2 = "facedir",
+    drawtype = "nodebox",
+    node_box = signs_lib.yard_sign_model.nodebox,
+	selection_box = {
+		type = "fixed",
+		fixed = {-0.4375, -0.5, -0.0625, 0.4375, 0.375, 0}
+	},
+    tiles = {"default_junglewood.png", "default_junglewood.png", "default_junglewood.png", "default_junglewood.png", "default_junglewood.png", "default_sign_front.png"},
+    groups = {choppy=2, dig_immediate=2},
+    drop = "default:sign_wall",
+
+    on_construct = function(pos)
+        signs_lib.construct_sign(pos)
+    end,
+    on_destruct = function(pos)
+        signs_lib.destruct_sign(pos)
+    end,
+	on_receive_fields = function(pos, formname, fields, sender)
+		signs_lib.receive_fields(pos, formname, fields, sender)
+	end,
+	on_punch = function(pos, node, puncher)
+		signs_lib.update_sign(pos)
+	end,
+})
+
+minetest.register_node(":default:sign_hanging", {
+    paramtype = "light",
+	sunlight_propagates = true,
+    paramtype2 = "facedir",
+    drawtype = "nodebox",
+    node_box = signs_lib.hanging_sign_model.nodebox,
+    selection_box = {
+		type = "fixed",
+		fixed = {-0.45, -0.275, -0.049, 0.45, 0.5, 0.049}
+	},
+    tiles = {"default_junglewood.png", "default_junglewood.png", "default_junglewood.png", "default_junglewood.png", "default_junglewood.png", "default_sign_front.png"},
+    groups = {choppy=2, dig_immediate=2},
+    drop = "default:sign_wall",
+
+    on_construct = function(pos)
+        signs_lib.construct_sign(pos)
+    end,
+    on_destruct = function(pos)
+        signs_lib.destruct_sign(pos)
+    end,
+	on_receive_fields = function(pos, formname, fields, sender)
+		signs_lib.receive_fields(pos, formname, fields, sender)
+	end,
+	on_punch = function(pos, node, puncher)
+		signs_lib.update_sign(pos)
+	end,
+})
+
+
 -- And the good stuff here! :-)
 
 function signs_lib.register_fence_with_sign(fencename, fencewithsignname)
