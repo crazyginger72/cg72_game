@@ -953,7 +953,8 @@ minetest.register_node("default:torch", {
 	sounds = default.node_sound_defaults(),
 })
 
-minetest.register_node("default:sign_wall", {
+--left incase something breaks with an update
+--[[minetest.register_node("default:sign_wall", {
 	description = "Sign",
 	drawtype = "signlike",
 	tiles = {"default_sign_wall.png"},
@@ -992,7 +993,7 @@ minetest.register_node("default:sign_wall", {
 		meta:set_string("text", fields.text)
 		meta:set_string("infotext", '"'..fields.text..'"')
 	end,
-})
+})]]--
 
 default.chest_formspec = 
 	"size[8,9]"..

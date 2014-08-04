@@ -609,7 +609,7 @@ function signs_lib.receive_fields(pos, formname, fields, sender)
 	end
 end
 
-minetest.register_node(":default:sign_wall", {
+minetest.register_node("default:sign_wall", {
 	description = S("Sign"),
 	inventory_image = "default_sign_wall.png",
 	wield_image = "default_sign_wall.png",
@@ -639,7 +639,7 @@ minetest.register_node(":default:sign_wall", {
 	end,
 })
 
-minetest.register_node(":default:sign_yard", {
+minetest.register_node("default:sign_yard", {
     paramtype = "light",
 	sunlight_propagates = true,
     paramtype2 = "facedir",
@@ -667,7 +667,7 @@ minetest.register_node(":default:sign_yard", {
 	end,
 })
 
-minetest.register_node(":default:sign_hanging", {
+minetest.register_node("default:sign_hanging", {
     paramtype = "light",
 	sunlight_propagates = true,
     paramtype2 = "facedir",
@@ -695,7 +695,7 @@ minetest.register_node(":default:sign_hanging", {
 	end,
 })
 
-minetest.register_node(":default:sign_post", {
+minetest.register_node("default:sign_post", {
     paramtype = "light",
 	sunlight_propagates = true,
     paramtype2 = "facedir",
@@ -707,7 +707,7 @@ minetest.register_node(":default:sign_post", {
 		max_items = 2,
 		items = {
 			{ items = { "default:sign_wall" }},
-			{ items = { "default:fence_wood" }},
+			{ items = { "default:fence_junglewood" }},
 		},
     },
 })
