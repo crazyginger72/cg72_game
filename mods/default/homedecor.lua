@@ -53,22 +53,13 @@ minetest.register_node("default:refrigerator", {
         return inv:is_empty("main")
     end,
     on_metadata_inventory_move = function(pos, from_list, from_index, to_list, to_index, count, player)
-		minetest.log("action", "%s moves stuff in refrigerator at %s":format(
-		    player:get_player_name(),
-		    minetest.pos_to_string(pos)
-		))
+		minetest.log("action", player:get_player_name().." moves stuff in refrigerator at "..minetest.pos_to_string(pos))
     end,
     on_metadata_inventory_put = function(pos, listname, index, stack, player)
-		minetest.log("action", "%s moves stuff to refrigerator at %s":format(
-		    player:get_player_name(),
-		    minetest.pos_to_string(pos)
-		))
+		minetest.log("action", player:get_player_name().." moves stuff to refrigerator at "..minetest.pos_to_string(pos))
     end,
     on_metadata_inventory_take = function(pos, listname, index, stack, player)
-		minetest.log("action", "%s takes stuff from refrigerator at %s":format(
-		    player:get_player_name(),
-		    minetest.pos_to_string(pos)
-		))
+		minetest.log("action", player:get_player_name().." removes stuff from refrigerator at "..minetest.pos_to_string(pos))
     end,
 })
 
@@ -87,7 +78,7 @@ minetest.register_node("default:ceiling_paint", {
 })
 
 minetest.register_node("default:kitchen_cabinet", {
-        description = desc,
+        description = "Kitchen Cabinet",
         tiles = { 'homedecor_kitchen_cabinet_top_granite.png',
                 'homedecor_kitchen_cabinet_bottom.png',
                 'homedecor_kitchen_cabinet_sides.png',
@@ -116,29 +107,20 @@ minetest.register_node("default:kitchen_cabinet", {
             return inv:is_empty("main")
         end,
         on_metadata_inventory_move = function(pos, from_list, from_index, to_list, to_index, count, player)
-            minetest.log("action", "%s moves stuff in kitchen cabinet at %s":format(
-                player:get_player_name(),
-                minetest.pos_to_string(pos)
-            ))
+            minetest.log("action", player:get_player_name().." moves stuff in kitchen cabinet at "..minetest.pos_to_string(pos))
         end,
         on_metadata_inventory_put = function(pos, listname, index, stack, player)
-            minetest.log("action", "%s moves stuff to kitchen cabinet at %s":format(
-                player:get_player_name(),
-                minetest.pos_to_string(pos)
-            ))
+            minetest.log("action", player:get_player_name().." moves stuff to kitchen cabinet at "..minetest.pos_to_string(pos))
         end,
         on_metadata_inventory_take = function(pos, listname, index, stack, player)
-            minetest.log("action", "%s takes stuff from kitchen cabinet at %s":format(
-                player:get_player_name(),
-                minetest.pos_to_string(pos)
-            ))
+            minetest.log("action", player:get_player_name().." removes stuff from kitchen cabinet at "..minetest.pos_to_string(pos))
         end,
     })
 end
 
 minetest.register_node("default:kitchen_cabinet_half", {  
     drawtype="nodebox",
-    description = 'Half-height Kitchen Cabinet (on ceiling)',
+    description = "Top Kitchen Cabinet",
     tiles = { 'homedecor_kitchen_cabinet_sides.png',
             'homedecor_kitchen_cabinet_bottom.png',
             'homedecor_kitchen_cabinet_sides.png',
@@ -175,22 +157,13 @@ minetest.register_node("default:kitchen_cabinet_half", {
         return inv:is_empty("main")
     end,
     on_metadata_inventory_move = function(pos, from_list, from_index, to_list, to_index, count, player)
-        minetest.log("action", "%s moves stuff in kitchen cabinet at %s":format(
-            player:get_player_name(),
-            minetest.pos_to_string(pos)
-        ))
+        minetest.log("action", player:get_player_name().." moves stuff in kitchen cabinet at "..minetest.pos_to_string(pos))
     end,
     on_metadata_inventory_put = function(pos, listname, index, stack, player)
-        minetest.log("action", "%s moves stuff to kitchen cabinet at %s":format(
-            player:get_player_name(),
-            minetest.pos_to_string(pos)
-        ))
+        minetest.log("action", player:get_player_name().." moves stuff to kitchen cabinet at "..minetest.pos_to_string(pos))
     end,
     on_metadata_inventory_take = function(pos, listname, index, stack, player)
-        minetest.log("action", "%s takes stuff from kitchen cabinet at %s":format(
-            player:get_player_name(),
-            minetest.pos_to_string(pos)
-        ))
+        minetest.log("action", player:get_player_name().." removes stuff from kitchen cabinet at "..minetest.pos_to_string(pos))
     end,
 })
 
