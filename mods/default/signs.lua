@@ -695,23 +695,6 @@ minetest.register_node("default:sign_hanging", {
 	end,
 })
 
-minetest.register_node("default:sign_post", {
-    paramtype = "light",
-	sunlight_propagates = true,
-    paramtype2 = "facedir",
-    drawtype = "nodebox",
-    node_box = signs_lib.sign_post_model.nodebox,
-    tiles = {"default_junglewood.png"},
-    groups = {choppy=2, dig_immediate=2},
-    drop = {
-		max_items = 2,
-		items = {
-			{ items = { "default:sign_wall" }},
-			{ items = { "default:fence_junglewood" }},
-		},
-    },
-})
-
 local signs_text_on_activate
 
 signs_text_on_activate = function(self)
