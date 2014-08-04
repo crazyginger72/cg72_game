@@ -6,10 +6,10 @@
 signs_lib = {}
 
 signs_lib.wall_sign_text_pos = {
-    {delta = {x =  0,     y = 0.15, z =  0.399}, yaw = 0},
-    {delta = {x =  0.399, y = 0.15, z =  0    }, yaw = math.pi / -2},
-    {delta = {x =  0,     y = 0.15, z = -0.399}, yaw = math.pi},
-    {delta = {x = -0.399, y = 0.15, z =  0    }, yaw = math.pi / 2},
+    {delta = {x =  0,     y = 0.15, z =  0.450}, yaw = 0},
+    {delta = {x =  0.450, y = 0.15, z =  0    }, yaw = math.pi / -2},
+    {delta = {x =  0,     y = 0.15, z = -0.450}, yaw = math.pi},
+    {delta = {x = -0.450, y = 0.15, z =  0    }, yaw = math.pi / 2},
 }
 
 signs_lib.hanging_sign_text_pos = {
