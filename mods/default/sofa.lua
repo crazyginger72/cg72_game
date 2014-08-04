@@ -159,6 +159,7 @@ for i in ipairs(sofa_list) do
 		output = 'default:sofa_corner_'..colour..' 2',
 		recipe = {
 			{"default:sofa_middle_"..colour, "default:sofa_middle_"..colour,  },
+		}
 	})
 
 end
