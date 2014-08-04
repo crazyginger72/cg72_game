@@ -98,6 +98,35 @@ for i in ipairs(sofa_list) do
 			clicker:set_hp(20)
 		end
 	})
+
+	minetest.register_node("default:sofa_corner_"..colour, {
+		description = sofadesc.." Corner",
+		drawtype = "nodebox",
+		tiles = {"lrfurn_sofa_right_top_"..colour..".png", "lrfurn_coffeetable_back.png",  "lrfurn_sofa_right_front_"..colour..".png",  "lrfurn_sofa_back_"..colour..".png",  "lrfurn_sofa_left_side_"..colour..".png",  "lrfurn_sofa_right_side_"..colour..".png"},
+		paramtype = "light",
+		paramtype2 = "facedir",
+		stack_max = 1,
+		groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=1},
+		sounds = default.node_sound_wood_defaults(),
+		node_box = {
+			type = "fixed",
+			fixed = {
+				{-0.4375, -0.5, -0.4375, -0.375, -0.375, -0.375},
+				{0.375, -0.5, -0.4375, 0.4375, -0.375, -0.375},
+				{-0.5, -0.375, -0.5, 0.5, 0, 0.5},
+				{-0.5, 0, -0.5, -0.3125, 0.5, 0.5},
+				{-0.3125, 0, -0.5, 0.5, 0.5, -0.3125},
+			}
+		},	
+		on_rightclick = function(pos, node, clicker)
+			if not clicker:is_player() then
+				return
+			end
+			pos.y = pos.y-0.5
+			clicker:setpos(pos)
+			clicker:set_hp(20)
+		end
+	})
 	
 	minetest.register_craft({
 		output = "default:sofa_right_"..colour,
@@ -124,6 +153,12 @@ for i in ipairs(sofa_list) do
 			{"default:slab_wood",    "default:slab_wood",    "default:slab_wood", },
 			{"group:stick",          " ",                    "group:stick", }
 		}
+	})
+
+	minetest.register_craft({
+		output = 'default:sofa_corner_'..colour..' 2',
+		recipe = {
+			{"default:sofa_middle_"..colour, "default:sofa_middle_"..colour,  },
 	})
 
 end
