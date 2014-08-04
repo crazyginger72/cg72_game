@@ -629,10 +629,6 @@ minetest.register_node("default:sign_yard", {
     paramtype2 = "facedir",
     drawtype = "nodebox",
     node_box = signs_lib.yard_sign_model.nodebox,
-	selection_box = {
-		type = "fixed",
-		fixed = {-0.4375, -0.5, -0.0625, 0.4375, 0.375, 0}
-	},
     tiles = {"default_junglewood.png", "default_junglewood.png", "default_junglewood.png", "default_junglewood.png", "default_junglewood.png", "default_sign_front.png"},
     groups = {choppy=2, dig_immediate=2},
     drop = "default:sign_wall",
@@ -657,10 +653,6 @@ minetest.register_node("default:sign_hanging", {
     paramtype2 = "facedir",
     drawtype = "nodebox",
     node_box = signs_lib.hanging_sign_model.nodebox,
-    selection_box = {
-		type = "fixed",
-		fixed = {-0.45, -0.325, -0.125, 0.45, 0.5, 0.05}
-	},
     tiles = {"default_junglewood.png", "default_junglewood.png", "default_junglewood.png", "default_junglewood.png", "default_hangingsign_back.png", "default_hangingsign_front.png"},
     groups = {choppy=2, dig_immediate=2},
     drop = "default:sign_wall",
