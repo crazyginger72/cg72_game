@@ -675,7 +675,7 @@ minetest.register_node(":default:sign_hanging", {
     node_box = signs_lib.hanging_sign_model.nodebox,
     selection_box = {
 		type = "fixed",
-		fixed = {-0.45, -0.375, -0.049, 0.45, 0.5, 0}
+		fixed = {-0.45, -0.4, -0.049, 0.45, 0.5, 0}
 	},
     tiles = {"default_junglewood.png", "default_junglewood.png", "default_junglewood.png", "default_junglewood.png", "default_junglewood.png", "default_sign_front.png"},
     groups = {choppy=2, dig_immediate=2},
