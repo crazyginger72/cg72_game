@@ -566,8 +566,8 @@ end
 
 minetest.register_node(":default:sign_wall", {
 	description = S("Sign"),
-	inventory_image = "default_sign_wall.png",
-	wield_image = "default_sign_wall.png",
+	--inventory_image = "default_sign_wall.png",
+	--wield_image = "default_sign_wall.png",
 	node_placement_prediction = "",
 	paramtype = "light",
 	sunlight_propagates = true,
@@ -575,7 +575,7 @@ minetest.register_node(":default:sign_wall", {
 	drawtype = "nodebox",
 	node_box = {type = "fixed", fixed = {-0.45, -0.15, 0.4, 0.45, 0.45, 0.498}},
 	selection_box = {type = "fixed", fixed = {-0.45, -0.15, 0.4, 0.45, 0.45, 0.498}},
-	tiles = {"signs_top.png", "signs_bottom.png", "signs_side.png", "signs_side.png", "signs_back.png", "signs_front.png"},
+	tiles = {"default_wood.png"},
 	groups = sign_groups,
 
 	on_place = function(itemstack, placer, pointed_thing)
