@@ -78,45 +78,45 @@ minetest.register_node("default:ceiling_paint", {
 })
 
 minetest.register_node("default:kitchen_cabinet", {
-        description = "Kitchen Cabinet",
-        tiles = { 'homedecor_kitchen_cabinet_top_granite.png',
-                'homedecor_kitchen_cabinet_bottom.png',
-                'homedecor_kitchen_cabinet_sides.png',
-                'homedecor_kitchen_cabinet_sides.png',
-                'homedecor_kitchen_cabinet_sides.png',
-                'homedecor_kitchen_cabinet_front.png'},
-        sunlight_propagates = false,
-        paramtype = "light",
-        paramtype2 = "facedir",
-        walkable = true,
-        groups = { snappy = 3 },
-        sounds = default.node_sound_wood_defaults(),
-        on_construct = function(pos)
-            local meta = minetest.get_meta(pos)
-            meta:set_string("formspec",
-                    "size[8,8]"..
-                    "list[current_name;main;0,0;8,3;]"..
-                    "list[current_player;main;0,4;8,4;]")
-            meta:set_string("infotext", "Kitchen Cabinet")
-            local inv = meta:get_inventory()
-            inv:set_size("main", 24)
-        end,
-        can_dig = function(pos,player)
-            local meta = minetest.get_meta(pos);
-            local inv = meta:get_inventory()
-            return inv:is_empty("main")
-        end,
-        on_metadata_inventory_move = function(pos, from_list, from_index, to_list, to_index, count, player)
-            minetest.log("action", player:get_player_name().." moves stuff in kitchen cabinet at "..minetest.pos_to_string(pos))
-        end,
-        on_metadata_inventory_put = function(pos, listname, index, stack, player)
-            minetest.log("action", player:get_player_name().." moves stuff to kitchen cabinet at "..minetest.pos_to_string(pos))
-        end,
-        on_metadata_inventory_take = function(pos, listname, index, stack, player)
-            minetest.log("action", player:get_player_name().." removes stuff from kitchen cabinet at "..minetest.pos_to_string(pos))
-        end,
-    })
-end
+    description = "Kitchen Cabinet",
+    tiles = { 'homedecor_kitchen_cabinet_top_granite.png',
+            'homedecor_kitchen_cabinet_bottom.png',
+            'homedecor_kitchen_cabinet_sides.png',
+            'homedecor_kitchen_cabinet_sides.png',
+            'homedecor_kitchen_cabinet_sides.png',
+            'homedecor_kitchen_cabinet_front.png'},
+    sunlight_propagates = false,
+    paramtype = "light",
+    paramtype2 = "facedir",
+    walkable = true,
+    groups = { snappy = 3 },
+    sounds = default.node_sound_wood_defaults(),
+    on_construct = function(pos)
+        local meta = minetest.get_meta(pos)
+        meta:set_string("formspec",
+            "size[8,8]"..
+            "list[current_name;main;0,0;8,3;]"..
+            "list[current_player;main;0,4;8,4;]")
+        meta:set_string("infotext", "Kitchen Cabinet")
+        local inv = meta:get_inventory()
+        inv:set_size("main", 24)
+    end,
+    can_dig = function(pos,player)
+        local meta = minetest.get_meta(pos);
+        local inv = meta:get_inventory()
+        return inv:is_empty("main")
+    end,
+    on_metadata_inventory_move = function(pos, from_list, from_index, to_list, to_index, count, player)
+        minetest.log("action", player:get_player_name().." moves stuff in kitchen cabinet at "..minetest.pos_to_string(pos))
+    end,
+    on_metadata_inventory_put = function(pos, listname, index, stack, player)
+        minetest.log("action", player:get_player_name().." moves stuff to kitchen cabinet at "..minetest.pos_to_string(pos))
+    end,
+    on_metadata_inventory_take = function(pos, listname, index, stack, player)
+        minetest.log("action", player:get_player_name().." removes stuff from kitchen cabinet at "..minetest.pos_to_string(pos))
+    end,
+})
+
 
 minetest.register_node("default:kitchen_cabinet_half", {  
     drawtype="nodebox",
