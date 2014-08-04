@@ -1068,7 +1068,7 @@ minetest.register_node("default:chest", {
 })
 
 minetest.register_node("default:super_chest_b", {
-	tiles = {"default_chest_top_b.png", "default_chest_top_a.png", "default_chest_side.png",
+	tiles = {"default_chest_top_b.png", "default_chest_top_b.png", "default_chest_side.png",
 		"default_chest_side.png", "default_chest_back_b.png", "default_chest_front_b.png"},
 	paramtype2 = "facedir",
 	pointable = false,
@@ -1079,7 +1079,7 @@ minetest.register_node("default:super_chest_b", {
 
 minetest.register_node("default:super_chest", {
 	description = "Super Chest",
-	tiles = {"default_chest_top_a.png", "default_chest_top_b.png", "default_chest_side.png",
+	tiles = {"default_chest_top_a.png", "default_chest_top_a.png", "default_chest_side.png",
 		"default_chest_side.png", "default_chest_front_b.png", "default_chest_front_a.png"},
 	paramtype2 = "facedir",
 	groups = {choppy=2,oddly_breakable_by_hand=2},
@@ -1247,7 +1247,7 @@ minetest.register_node("default:chest_locked", {
 
 minetest.register_node("default:super_chest_locked", {
 	description = "Locked Super Chest",
-	tiles = {"default_chest_top_a.png", "default_chest_top_b.png", "default_chest_side.png",
+	tiles = {"default_chest_top_a.png", "default_chest_top_a.png", "default_chest_side.png",
 		"default_chest_side.png", "default_chest_front_b.png", "default_chest_front_a.png"},
 	paramtype2 = "facedir",
 	groups = {choppy=2,oddly_breakable_by_hand=2},

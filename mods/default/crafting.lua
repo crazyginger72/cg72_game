@@ -297,6 +297,20 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
+	output = 'default:super_chest',
+	recipe = {
+		{'default:chest', 'default:steel_ingot', 'default:chest'},
+	}
+})
+
+minetest.register_craft({
+	output = 'default:super_chest_locked',
+	recipe = {
+		{'default:chest_locked', 'default:steel_ingot', 'default:chest_locked'},
+	}
+})
+
+minetest.register_craft({
 	output = 'default:furnace',
 	recipe = {
 		{'group:stone', 'group:stone', 'group:stone'},
