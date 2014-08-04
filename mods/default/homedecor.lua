@@ -341,11 +341,11 @@ minetest.register_node("default:nightstand", {
         local meta = minetest.get_meta(pos)
         meta:set_string("formspec",
                 "size[8,7]"..
-                "list[current_name;main;0,0;8,2;]"..
+                "list[current_name;main;0,0;8,4;]"..
                 "list[current_player;main;0,3;8,4;]")
         meta:set_string("infotext", "Two-drawer Nightstand")
         local inv = meta:get_inventory()
-        inv:set_size("main", 16)
+        inv:set_size("main", 32)
     end,
     can_dig = function(pos,player)
         local meta = minetest.get_meta(pos);
