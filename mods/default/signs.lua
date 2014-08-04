@@ -154,7 +154,7 @@ local SIGN_WIDTH
 -- width to get the total width of the canvas, so for proportional fonts,
 -- either more or fewer characters may fit on a line.
 local CHARS_PER_LINE = 27
-local NUMBER_OF_LINES = 6
+local NUMBER_OF_LINES = 5
 
 -- This holds the individual character widths.
 -- Indexed by the actual character (e.g. charwidth["A"])
@@ -619,7 +619,7 @@ minetest.register_node("default:sign_wall", {
 	paramtype2 = "facedir",
 	drawtype = "nodebox",
 	node_box = signs_lib.wall_sign_model.nodebox,
-	tiles = {"default_junglewood.png", "default_junglewood.png", "default_junglewood.png", "default_junglewood.png", "default_junglewood.png", "default_sign_front.jpeg"},
+	tiles = {"default_junglewood.png", "default_junglewood.png", "default_junglewood.png", "default_junglewood.png", "default_junglewood.png", "default_sign_front.png"},
 	groups = sign_groups,
 
 	on_place = function(itemstack, placer, pointed_thing)
@@ -649,7 +649,7 @@ minetest.register_node("default:sign_yard", {
 		type = "fixed",
 		fixed = {-0.4375, -0.5, -0.0625, 0.4375, 0.375, 0}
 	},
-    tiles = {"default_junglewood.png", "default_junglewood.png", "default_junglewood.png", "default_junglewood.png", "default_junglewood.png", "default_sign_front.jpeg"},
+    tiles = {"default_junglewood.png", "default_junglewood.png", "default_junglewood.png", "default_junglewood.png", "default_junglewood.png", "default_sign_front.png"},
     groups = {choppy=2, dig_immediate=2},
     drop = "default:sign_wall",
 
