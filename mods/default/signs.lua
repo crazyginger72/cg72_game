@@ -575,7 +575,7 @@ minetest.register_node(":default:sign_wall", {
 	drawtype = "nodebox",
 	node_box = {type = "fixed", fixed = {-0.45, -0.15, 0.4, 0.45, 0.45, 0.498}},
 	selection_box = {type = "fixed", fixed = {-0.45, -0.15, 0.4, 0.45, 0.45, 0.498}},
-	tiles = {"default_wood.png"},
+	tiles = {"default_junglewood.png", "default_junglewood.png", "default_junglewood.png", "default_junglewood.png", "default_junglewood.png", "default_sign_front.png"},
 	groups = sign_groups,
 
 	on_place = function(itemstack, placer, pointed_thing)
