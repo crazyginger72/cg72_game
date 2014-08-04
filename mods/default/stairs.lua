@@ -12,7 +12,7 @@ function stairs.register_stair(subname, recipeitem, groups, images, description,
 		paramtype = "light",
 		paramtype2 = "facedir",
 		is_ground_content = true,
-		groups = {stair=1,groups},
+		groups = groups,
 		sounds = sounds,
 		node_box = {
 			type = "fixed",
@@ -88,7 +88,7 @@ function stairs.register_slab(subname, recipeitem, groups, images, description, 
 		paramtype = "light",
 		paramtype2 = "facedir",
 		is_ground_content = true,
-		groups = {slab=1,groups},
+		groups = groups,
 		sounds = sounds,
 		node_box = {
 			type = "fixed",
@@ -213,238 +213,238 @@ function stairs.register_stair_and_slab(subname, recipeitem, groups, images, des
 end
 
 stairs.register_stair_and_slab("wood", "default:wood",
-		snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3
+		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 		{"default_wood.png"},
 		"Wooden Stair",
 		"Wooden Slab",
 		default.node_sound_wood_defaults())
 
 stairs.register_stair_and_slab("stone", "default:stone",
-		cracky=3
+		{cracky=3},
 		{"default_stone.png"},
 		"Stone Stair",
 		"Stone Slab",
 		default.node_sound_stone_defaults())
 
 stairs.register_stair_and_slab("desertstone", "default:desertstone",
-		cracky=3
+		{cracky=3},
 		{"default_desert_stone.png"},
 		"Desert Stone Stair",
 		"Desert Stone Slab",
 		default.node_sound_stone_defaults())
 
 stairs.register_stair_and_slab("desertstonebrick", "default:desertstonebrick",
-		cracky=3
+		{cracky=3},
 		{"default_desert_stone_brick.png"},
 		"Desert Stone Brick Stair",
 		"Desert Stone Brick Slab",
 		default.node_sound_stone_defaults())
 
 stairs.register_stair_and_slab("cobble", "default:cobble",
-		cracky=3
+		{cracky=3},
 		{"default_cobble.png"},
 		"Cobble Stair",
 		"Cobble Slab",
 		default.node_sound_stone_defaults())
 
 stairs.register_stair_and_slab("brick", "default:brick",
-		cracky=3
+		{cracky=3},
 		{"default_brick.png"},
 		"Brick Stair",
 		"Brick Slab",
 		default.node_sound_stone_defaults())
 
 stairs.register_stair_and_slab("sandstone", "default:sandstone",
-		crumbly=2,cracky=2
+		{crumbly=2,cracky=2},
 		{"default_sandstone.png"},
 		"Sandstone Stair",
 		"Sandstone Slab",
 		default.node_sound_stone_defaults())
 
 stairs.register_stair_and_slab("sandstonebrick", "default:sandstonebrick",
-		crumbly=2,cracky=2
+		{crumbly=2,cracky=2},
 		{"default_sandstone_brick.png"},
 		"Sandstone Brick Stair",
 		"Sandstone Brick Slab",
 		default.node_sound_stone_defaults())
 
 stairs.register_stair_and_slab("junglewood", "default:junglewood",
-		snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3
+		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 		{"default_junglewood.png"},
 		"Junglewood Stair",
 		"Junglewood Slab",
 		default.node_sound_wood_defaults())
 
 stairs.register_stair_and_slab("acaciawood", "default:acaciawood",
-		snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3
+		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 		{"default_acaciawood.png"},
 		"Acaciawood Stair",
 		"Acaciawood Slab",
 		default.node_sound_wood_defaults())
 
 stairs.register_stair_and_slab("cactus", "default:cactus",
-		snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3
+		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 		{"default_cactus_top.png","default_cactus_top.png","default_cactus_side.png"},
 		"Cactus Stair",
 		"Cactus Slab",
 		default.node_sound_wood_defaults())
 
 stairs.register_stair_and_slab("stonebrick", "default:stonebrick",
-		cracky=3
+		{cracky=3},
 		{"default_stone_brick.png"},
 		"Stone Brick Stair",
 		"Stone Brick Slab",
 		default.node_sound_stone_defaults())
 
 stairs.register_stair_and_slab("asphalt", "default:asphalt",
-		cracky=3
+		{cracky=3},
 		{"default_asphalt.png"},
 		"Asphalt Stair",
 		"Asphalt Slab",
 		default.node_sound_stone_defaults())
 
 stairs.register_stair_and_slab("concrete", "default:concrete",
-		cracky=3
+		{cracky=3},
 		{"default_concrete.png"},
 		"Concrete Stair",
 		"Concrete Slab",
 		default.node_sound_stone_defaults())
 
 stairs.register_stair_and_slab("obsidian_glass", "default:obsidian_glass",
-		cracky=3,oddly_breakable_by_hand=3
+		{cracky=3,oddly_breakable_by_hand=3},
 		{"default_obsidian_glass.png"},
 		"Obsidian Glass Stair",
 		"Obsidian Glass Slab",
 		default.node_sound_glass_defaults())
 
 stairs.register_stair_and_slab("glass", "default:oglass",
-		cracky=3,oddly_breakable_by_hand=3
+		{cracky=3,oddly_breakable_by_hand=3},
 		{"default_glass.png"},
 		"Glass Stair",
 		"Glass Slab",
 		default.node_sound_glass_defaults())
 
 stairs.register_stair_and_slab("cloud", "default:cloud",
-		not_in_creative_inventory=1
+		{not_in_creative_inventory=1},
 		{"default_cloud.png"},
 		"loud Stair",
 		"loud Slab",
 		default.node_sound_defaults())
 		
 stairs.register_stair_and_slab("woolwhite", "default:woolwhite",
-		snappy=2,choppy=2,oddly_breakable_by_hand=3,flammable=3,wool=1
+		{snappy=2,choppy=2,oddly_breakable_by_hand=3,flammable=3,wool=1},
 		{"wool_white.png"},
 		"Wool Stair",
 		"Wool Slab",
 		default.node_sound_defaults())
 		
 stairs.register_stair_and_slab("woolgrey", "default:woolgrey",
-		snappy=2,choppy=2,oddly_breakable_by_hand=3,flammable=3,wool=1
+		{snappy=2,choppy=2,oddly_breakable_by_hand=3,flammable=3,wool=1},
 		{"wool_grey.png"},
 		"Wool Stair",
 		"Wool Slab",
 		default.node_sound_defaults())
 		
 stairs.register_stair_and_slab("woolblack", "default:woolblack",
-		snappy=2,choppy=2,oddly_breakable_by_hand=3,flammable=3,wool=1
+		{snappy=2,choppy=2,oddly_breakable_by_hand=3,flammable=3,wool=1},
 		{"wool_black.png"},
 		"Wool Stair",
 		"Wool Slab",
 		default.node_sound_defaults())
 		
 stairs.register_stair_and_slab("woolred", "default:woolred",
-		snappy=2,choppy=2,oddly_breakable_by_hand=3,flammable=3,wool=1
+		{snappy=2,choppy=2,oddly_breakable_by_hand=3,flammable=3,wool=1},
 		{"wool_red.png"},
 		"Wool Stair",
 		"Wool Slab",
 		default.node_sound_defaults())
 		
 stairs.register_stair_and_slab("woolyellow", "default:woolyellow",
-		snappy=2,choppy=2,oddly_breakable_by_hand=3,flammable=3,wool=1
+		{snappy=2,choppy=2,oddly_breakable_by_hand=3,flammable=3,wool=1},
 		{"wool_yellow.png"},
 		"Wool Stair",
 		"Wool Slab",
 		default.node_sound_defaults())
 		
 stairs.register_stair_and_slab("woolgreen", "default:woolgreen",
-		snappy=2,choppy=2,oddly_breakable_by_hand=3,flammable=3,wool=1
+		{snappy=2,choppy=2,oddly_breakable_by_hand=3,flammable=3,wool=1},
 		{"wool_green.png"},
 		"Wool Stair",
 		"Wool Slab",
 		default.node_sound_defaults())
 		
 stairs.register_stair_and_slab("woolcyan", "default:woolcyan",
-		snappy=2,choppy=2,oddly_breakable_by_hand=3,flammable=3,wool=1
+		{snappy=2,choppy=2,oddly_breakable_by_hand=3,flammable=3,wool=1},
 		{"wool_cyan.png"},
 		"Wool Stair",
 		"Wool Slab",
 		default.node_sound_defaults())
 		
 stairs.register_stair_and_slab("woolblue", "default:woolblue",
-		snappy=2,choppy=2,oddly_breakable_by_hand=3,flammable=3,wool=1
+		{snappy=2,choppy=2,oddly_breakable_by_hand=3,flammable=3,wool=1},
 		{"wool_blue.png"},
 		"Wool Stair",
 		"Wool Slab",
 		default.node_sound_defaults())
 		
 stairs.register_stair_and_slab("woolmagenta", "default:woolmagenta",
-		snappy=2,choppy=2,oddly_breakable_by_hand=3,flammable=3,wool=1
+		{snappy=2,choppy=2,oddly_breakable_by_hand=3,flammable=3,wool=1},
 		{"wool_magenta.png"},
 		"Wool Stair",
 		"Wool Slab",
 		default.node_sound_defaults())
 		
 stairs.register_stair_and_slab("woolorange", "default:woolorange",
-		snappy=2,choppy=2,oddly_breakable_by_hand=3,flammable=3,wool=1
+		{snappy=2,choppy=2,oddly_breakable_by_hand=3,flammable=3,wool=1},
 		{"wool_orange.png"},
 		"Wool Stair",
 		"Wool Slab",
 		default.node_sound_defaults())
 		
 stairs.register_stair_and_slab("woolviolet", "default:woolviolet",
-		snappy=2,choppy=2,oddly_breakable_by_hand=3,flammable=3,wool=1
+		{snappy=2,choppy=2,oddly_breakable_by_hand=3,flammable=3,wool=1},
 		{"wool_violet.png"},
 		"Wool Stair",
 		"Wool Slab",
 		default.node_sound_defaults())	
 	
 stairs.register_stair_and_slab("woolbrown", "default:woolbrown",
-		snappy=2,choppy=2,oddly_breakable_by_hand=3,flammable=3,wool=1
+		{snappy=2,choppy=2,oddly_breakable_by_hand=3,flammable=3,wool=1},
 		{"wool_brown.png"},
 		"Wool Stair",
 		"Wool Slab",
 		default.node_sound_defaults())
 		
 stairs.register_stair_and_slab("woolpink", "default:woolpink",
-		snappy=2,choppy=2,oddly_breakable_by_hand=3,flammable=3,wool=1
+		{snappy=2,choppy=2,oddly_breakable_by_hand=3,flammable=3,wool=1},
 		{"wool_pink.png"},
 		"Wool Stair",
 		"Wool Slab",
 		default.node_sound_defaults())
 				
 stairs.register_stair_and_slab("wooldark_grey", "default:wooldark_grey",
-		snappy=2,choppy=2,oddly_breakable_by_hand=3,flammable=3,wool=1
+		{snappy=2,choppy=2,oddly_breakable_by_hand=3,flammable=3,wool=1},
 		{"wool_dark_grey.png"},
 		"Wool Stair",
 		"Wool Slab",
 		default.node_sound_defaults())
 		
 stairs.register_stair_and_slab("wooldark_green", "default:wooldark_green",
-		snappy=2,choppy=2,oddly_breakable_by_hand=3,flammable=3,wool=1
+		{snappy=2,choppy=2,oddly_breakable_by_hand=3,flammable=3,wool=1},
 		{"wool_dark_green.png"},
 		"Wool Stair",
 		"Wool Slab",
 		default.node_sound_defaults())
 
 stairs.register_stair_and_slab("pumice", "default:pumice",
-		cracky=3
+		{cracky=3},
 		{"gloopblocks_pumice.png"},
 		"Pumice Stair",
 		"pumice Slab",
 		default.node_sound_defaults())
 
 stairs.register_stair_and_slab("basalt", "default:basalt",
-		cracky=2
+		{cracky=2},
 		{"gloopblocks_basalt.png"},
 		"Basalt Stair",
 		"Basalt Slab",
