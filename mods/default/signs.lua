@@ -119,7 +119,7 @@ local FONT_FMT_SIMPLE = "hdf_%02x.png"
 -- Path to the textures.
 local TP = MP.."/textures"
 
-local TEXT_SCALE = {x=0., y=0.6}
+local TEXT_SCALE = {x=0.9, y=0.6}
 
 -- Lots of overkill here. KISS advocates, go away, shoo! ;) -- kaeza
 
