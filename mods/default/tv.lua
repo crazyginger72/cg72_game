@@ -64,24 +64,18 @@ end
 minetest.register_craft({
 	output = "default:plasma_tv",
 	recipe = {
-		{'group:glass', 'default:coal_lump', 'group:glass'},
-		{'default:steel_ingot', 'default:copper_ingot', 'default:steel_ingot'},
-		{'group:glass', 'group:glass', 'group:glass'},
+		{'group:glass',         'default:dye_black',             'group:glass'},
+		{'default:steel_ingot', 'default:mese_crystal_fragment', 'default:steel_ingot'},
+		{'group:glass',         'group:glass',                   'group:glass'},
 	}
 })
 
 minetest.register_craft({
-	type = "shapeless",
-	output = "default:plasma_tv",
-	recipe = {'homedecor:television', 'homedecor:television'},
-})
-
-minetest.register_craft({
-	output = "default:stand",
+	output = "default:tv_stand",
 	recipe = {
-		{'', '', ''},
-		{'', 'default:steel_ingot', ''},
-		{'group:stick', 'default:coal_lump', 'group:stick'},
+		{'',                         '',                         ''},
+		{'default:plastic_sheeting', 'default:plastic_sheeting', 'default:dye_black'},
+		{'default:steel_ingot',      'default:steel_ingot',      ''},
 	}
 })
 
