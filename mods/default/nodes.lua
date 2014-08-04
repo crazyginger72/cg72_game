@@ -1320,14 +1320,14 @@ minetest.register_node("default:furnace_active", {
 })
 
 minetest.register_node("default:oven", {
-	description = "Furnace",
+	description = "Oven",
 	tiles = {
 		"homedecor_oven_top.png",
 		"default_coal_block.png",
 		"homedecor_oven_side.png",
 		"homedecor_oven_side.png",
 		"homedecor_oven_side.png",
-		"homedecor_oven_front",
+		"homedecor_oven_front.png",
 	},
 	paramtype2 = "facedir",
 	groups = {cracky=2},
@@ -1395,14 +1395,14 @@ minetest.register_node("default:oven", {
 })
 
 minetest.register_node("default:oven_active", {
-	description = "Furnace",
+	description = "Oven",
 	tiles = {
 		"homedecor_oven_top.png",
 		"default_coal_block.png",
 		"homedecor_oven_side.png",
 		"homedecor_oven_side.png",
 		"homedecor_oven_side.png",
-		"homedecor_oven_front_active",
+		"homedecor_oven_front_active.png",
 	},
 	paramtype2 = "facedir",
 	light_source = 8,
