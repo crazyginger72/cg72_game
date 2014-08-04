@@ -595,8 +595,6 @@ end
 
 minetest.register_node("default:sign_wall", {
 	description = S("Sign"),
-	inventory_image = "default_sign_wall.png",
-	wield_image = "default_sign_wall.png",
 	node_placement_prediction = "",
 	paramtype = "light",
 	sunlight_propagates = true,
