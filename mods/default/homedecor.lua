@@ -94,12 +94,12 @@ minetest.register_node("default:kitchen_cabinet", {
     on_construct = function(pos)
         local meta = minetest.get_meta(pos)
         meta:set_string("formspec",
-            "size[8,8]"..
-            "list[current_name;main;0,0;8,3;]"..
-            "list[current_player;main;0,4;8,4;]")
+            "size[8,9]"..
+            "list[current_name;main;0,0;8,4;]"..
+            "list[current_player;main;0,5;8,4;]")
         meta:set_string("infotext", "Kitchen Cabinet")
         local inv = meta:get_inventory()
-        inv:set_size("main", 24)
+        inv:set_size("main", 32)
     end,
     can_dig = function(pos,player)
         local meta = minetest.get_meta(pos);
@@ -144,12 +144,12 @@ minetest.register_node("default:kitchen_cabinet_half", {
     on_construct = function(pos)
         local meta = minetest.get_meta(pos)
         meta:set_string("formspec",
-            "size[8,7]"..
-            "list[current_name;main;0,0;8,4;]"..
-            "list[current_player;main;0,6;8,4;]")
+            "size[8,8]"..
+            "list[current_name;main;0,0;8,2;]"..
+            "list[current_player;main;0,5;8,4;]")
         meta:set_string("infotext", "Kitchen Cabinet")
         local inv = meta:get_inventory()
-        inv:set_size("main", 8*4)
+        inv:set_size("main", 16)
     end,
     can_dig = function(pos,player)
         local meta = minetest.get_meta(pos);
@@ -340,9 +340,9 @@ minetest.register_node("default:nightstand", {
     on_construct = function(pos)
         local meta = minetest.get_meta(pos)
         meta:set_string("formspec",
-                "size[8,12]"..
+                "size[8,9]"..
                 "list[current_name;main;0,0;8,4;]"..
-                "list[current_player;main;0,4;8,4;]")
+                "list[current_player;main;0,6;8,4;]")
         meta:set_string("infotext", "Two-drawer Nightstand")
         local inv = meta:get_inventory()
         inv:set_size("main", 32)
