@@ -1041,6 +1041,11 @@ minetest.register_node("default:chest", {
 	legacy_facedir_simple = true,
 	is_ground_content = false,
 	sounds = default.node_sound_wood_defaults(),
+	after_place_node = function(pos, placer)
+		local meta = minetest.get_meta(pos)
+		meta:set_string("owner", placer:get_player_name() or "")
+		meta:set_string("infotext", "Chest (owned by "..meta:get_string("owner")..")")
+	end,
 	on_construct = function(pos)
 		local meta = minetest.get_meta(pos)
 		meta:set_string("formspec",default.chest_formspec)
@@ -1111,7 +1116,10 @@ minetest.register_node("default:super_chest", {
 		minetest.log("action", player:get_player_name()..
 				" takes stuff from chest at "..minetest.pos_to_string(pos))
 	end,
-	after_place_node = function(pos, placer, itemstack)
+	after_place_node = function(pos, placer)
+		local meta = minetest.get_meta(pos)
+		meta:set_string("owner", placer:get_player_name() or "")
+		meta:set_string("infotext", "Chest (owned by "..meta:get_string("owner")..")")
 			local node = minetest.get_node(pos)
 			local p = {x=pos.x, y=pos.y, z=pos.z}
 			local param2 = node.param2

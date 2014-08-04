@@ -96,6 +96,14 @@ for i in ipairs(beds_list) do
 						{0.5, -0.5, 0.5, 0.375, 0.0, 0.375},
 					}
 		},
+		on_rightclick = function(pos, node, clicker)
+			if not clicker:is_player() then
+				return
+			end
+			pos.y = pos.y-0.5
+			clicker:setpos(pos)
+			clicker:set_hp(20)
+		end
 	})
 	
 	minetest.register_node("default:bed_bottom_bunk_"..colour, {
@@ -229,6 +237,26 @@ for i in ipairs(beds_list) do
 				{1.3125, -0.5, 1.3125, 1.5, -0.125, 1.5}, -- NodeBox6
 				},
 			},
+		on_rightclick = function(pos, node, clicker)
+		local node = minetest.get_node(pos)
+			local param2 = node.param2
+			node.name = "default:bed_top_"..colour
+			if param2 == 0 then
+				pos.z = pos.z+1
+			elseif param2 == 1 then
+				pos.x = pos.x+1
+			elseif param2 == 2 then
+				pos.z = pos.z-1
+			elseif param2 == 3 then
+				pos.x = pos.x-1
+			end
+			if not clicker:is_player() then
+				return
+			end
+			pos.y = pos.y-0.5
+			clicker:setpos(pos)
+			clicker:set_hp(20)
+		end
 	})
 	
 	minetest.register_abm({	
