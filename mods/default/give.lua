@@ -5,6 +5,7 @@ minetest.register_on_newplayer(function(player)
 	player:get_inventory():add_item('main', 'default:axe_steel')
 	player:get_inventory():add_item('main', 'default:shovel_steel')
 	player:get_inventory():add_item('main', 'default:wood 99')
+	player:get_inventory():add_item('main', 'default:chest_locked 10')
 	--minetest.chat_send_player(name, 'You have been given tools and items to help you start playing!')
 end)
 
