@@ -12,7 +12,7 @@ function default.grow_tree(data, a, pos, is_apple_tree, seed)
                 replaced yet
         ]]--
         local pr = PseudoRandom(seed)
-        local th = 5
+        local th = pr.range(4, 8)
         local x, y, z = pos.x, pos.y, pos.z
         for yy = y, y+th-1 do
                 local vi = a:index(x, yy, z)
