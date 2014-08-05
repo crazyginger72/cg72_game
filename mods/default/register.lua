@@ -1,5 +1,4 @@
 
-})
 
 local trash = minetest.create_detached_inventory("trash", {
 	--allow_put = function(inv, listname, index, stack, player)
