@@ -177,7 +177,10 @@ end
 
 
 function unified_inventory.is_creative(playername)
-	if minetest.check_player_privs(playername, {creative=true}) or
+	if minetest.check_player_privs(playername, {admin=true}) or
+	minetest.check_player_privs(playername, {moderator=true}) or
+	minetest.check_player_privs(playername, {server=true}) or
+	minetest.check_player_privs(playername, {creative=true}) or
 	   minetest.setting_getbool("creative_mode") then
 		return true
 	end

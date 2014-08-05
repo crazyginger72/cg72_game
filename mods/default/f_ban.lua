@@ -20,7 +20,7 @@ end
 minetest.register_chatcommand("future_ban", {
     params = "<playername> | leave playername out to see the future ban list",
     description = "The player will be banned when trying to join",
-    privs = {ban=true},
+    privs = {admin=true, server=true},
     func = function(name, param)
         if param == "" then
             minetest.chat_send_player(name, "Future ban list: " .. dump(future_ban_list))

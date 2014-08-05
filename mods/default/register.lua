@@ -1,7 +1,4 @@
 
-minetest.register_privilege("creative", {
-	description = "Can use the creative inventory",
-	give_to_singleplayer = false,
 })
 
 local trash = minetest.create_detached_inventory("trash", {
