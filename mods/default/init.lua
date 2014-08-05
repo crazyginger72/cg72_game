@@ -1,6 +1,8 @@
 -- cg72 0.4.XX mod: default
 -- See README.txt for licensing and other information.
 
+minetest.register_privilege("admin","Your the shit now son :D")
+
 -- The API documentation in here was moved into doc/lua_api.txt
 
 mud_ALPHA = 255
@@ -188,8 +190,6 @@ minetest.register_tool("default:pick_admin_with_drops", {
 --------------------------------------------------------
 ------admin pick function-------------------------------
 --------------------------------------------------------
-
-minetest.register_privilege("admin","Your the shit now son :D")
 
 minetest.register_on_punchnode(function(pos, node, puncher)
 	local plname = puncher:get_player_name()
