@@ -600,7 +600,7 @@ minetest.register_abm({
 	end
 })
 
-gdefault_register_mossy_conversion({
+default_register_mossy_conversion({
 		{ "default:cobble", 						"default:mossycobble" },
 		{ "default:stonebrick", 					"gloopblocks:stone_brick_mossy" },
 		{ "default:stone", 							"gloopblocks:stone_mossy" },
