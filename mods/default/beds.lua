@@ -87,6 +87,25 @@ for i in ipairs(beds_list) do
 				end	
 			end
 		end,
+		on_rightclick = function(pos, node, clicker)
+		local node = minetest.get_node(pos)
+			local param2 = node.param2
+			if param2 == 0 then
+				pos.z = pos.z+0.5
+			elseif param2 == 1 then
+				pos.x = pos.x+0.5
+			elseif param2 == 2 then
+				pos.z = pos.z-.05
+			elseif param2 == 3 then
+				pos.x = pos.x-0.5
+			end
+			if not clicker:is_player() then
+				return
+			end
+			pos.y = pos.y-0.5
+			clicker:setpos(pos)
+			clicker:set_hp(20)
+		end
 	})
 	
 	minetest.register_node("default:bed_top_"..colour, {
@@ -109,14 +128,6 @@ for i in ipairs(beds_list) do
 						{0.5, -0.5, 0.5, 0.375, 0.0, 0.375},
 					}
 		},
-		on_rightclick = function(pos, node, clicker)
-			if not clicker:is_player() then
-				return
-			end
-			pos.y = pos.y-0.5
-			clicker:setpos(pos)
-			clicker:set_hp(20)
-		end
 	})
 	
 	minetest.register_node("default:bed_bottom_bunk_"..colour, {
@@ -169,6 +180,25 @@ for i in ipairs(beds_list) do
 				end	
 			end
 		end,
+		on_rightclick = function(pos, node, clicker)
+		local node = minetest.get_node(pos)
+			local param2 = node.param2
+			if param2 == 0 then
+				pos.z = pos.z+0.5
+			elseif param2 == 1 then
+				pos.x = pos.x+0.5
+			elseif param2 == 2 then
+				pos.z = pos.z-.05
+			elseif param2 == 3 then
+				pos.x = pos.x-0.5
+			end
+			if not clicker:is_player() then
+				return
+			end
+			pos.y = pos.y-0.5
+			clicker:setpos(pos)
+			clicker:set_hp(20)
+		end
 	})
 	
 	minetest.register_node("default:bed_top_bunk_"..colour, {
@@ -192,14 +222,6 @@ for i in ipairs(beds_list) do
 						{0.5, -0.5, 0.5, 0.375, 0.5, 0.375},
 					}
 		},
-		on_rightclick = function(pos, node, clicker)
-			if not clicker:is_player() then
-				return
-			end
-			pos.y = pos.y-0.5
-			clicker:setpos(pos)
-			clicker:set_hp(20)
-		end
 	})
 
 	minetest.register_alias("bed_"..colour, "default:bed_bottom_"..colour)
