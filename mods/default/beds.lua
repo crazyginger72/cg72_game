@@ -42,8 +42,8 @@ for i in ipairs(beds_list) do
 						-- legs
 						{-0.5, -0.5, -0.5, -0.375, 0.0, -0.375},
 						{0.375, 0.0, -0.375, 0.5, -0.5, -0.5},
-						{-0.375, 0.0, 0.875, -0.5, -0.5, 1.5},
-						{0.5, -0.5, 1.5, 0.375, 0.0, 0.875},
+						{-0.375, 0.0, 1.375, -0.5, -0.5, 1.5},
+						{0.5, -0.5, 1.5, 0.375, 0.0, 1.375},
 					}
 		},
 		after_place_node = function(pos, placer, itemstack)
@@ -121,7 +121,7 @@ for i in ipairs(beds_list) do
 	
 	minetest.register_node("default:bed_bottom_bunk_"..colour, {
 		drawtype = "nodebox",
-		tiles = {"beds_bed_top_bunk_bottom_"..colour..".png", "default_wood.png",  "beds_bed_side_"..colour.."_r.png",  "beds_bed_side_"..colour.."_l.png",  "beds_bed_side_"..colour.."_top.png",  "beds_bed_side_"..colour.."_top.png"},
+		tiles = {"beds_bed_top_bottom_"..colour..".png", "default_wood.png",  "beds_bed_side_"..colour.."_r.png",  "beds_bed_side_"..colour.."_l.png",  "beds_bed_side_"..colour.."_top.png",  "beds_bed_side_"..colour.."_top.png"},
 		paramtype = "light",
 		paramtype2 = "facedir",
 		groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=3,bed=1},
@@ -147,8 +147,8 @@ for i in ipairs(beds_list) do
 						-- legs
 						{-0.5, -0.5, -0.5, -0.375, 0.5, -0.375},
 						{0.375, 0.5, -0.375, 0.5, -0.5, -0.5},
-						{-0.375, 0.5, 0.875, -0.5, -0.5, 1.5},
-						{0.5, -0.5, 1.5, 0.375, 0.5, 0.875},
+						{-0.375, 0.5, 1.375, -0.5, -0.5, 1.5},
+						{0.5, -0.5, 1.5, 0.375, 0.5, 1.375},
 					}
 		},	
 		on_destruct = function(pos)
@@ -173,7 +173,7 @@ for i in ipairs(beds_list) do
 	
 	minetest.register_node("default:bed_top_bunk_"..colour, {
 		drawtype = "nodebox",
-		tiles = {"beds_bed_top_bunk_top_"..colour..".png", "default_wood.png",  "beds_bed_side_top_bunk_r_"..colour..".png",  "beds_bed_side_top_bunk_l_"..colour..".png",  "beds_bed_top_bunk_front.png",  "beds_bed_side_"..colour.."_top.png"},
+		tiles = {"beds_bed_top_top_"..colour..".png", "default_wood.png",  "beds_bed_side_top_bunk_r_"..colour..".png",  "beds_bed_side_top_bunk_l_"..colour..".png",  "beds_bed_top_bunk_front.png",  "beds_bed_side_"..colour.."_top.png"},
 		paramtype = "light",
 		paramtype2 = "facedir",
 		pointable = false,
