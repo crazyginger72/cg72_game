@@ -610,8 +610,8 @@ function default_register_mossy_conversion(mossyobjects)
 	for i in ipairs(mossyobjects) do
 		minetest.register_abm({
 			nodenames = { mossyobjects[i][1] },
-			neighbors = {"default:water_source", "default:water_flowing"
-						 "default:mud_source", "default:mud_flowing"
+			neighbors = {"default:water_source", "default:water_flowing",
+						 "default:mud_source", "default:mud_flowing",
 						 "default:mud_with_grass_source", "default:mud_with_grass_flowing"},
 			interval = 120,
 			chance = 50,
