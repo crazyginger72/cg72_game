@@ -600,27 +600,26 @@ minetest.register_abm({
 	end
 })
 
-default_register_mossy_conversion({
-		{ "default:cobble", 						"default:mossycobble" },
-		{ "default:stonebrick", 					"gloopblocks:stone_brick_mossy" },
-		{ "default:stone", 							"gloopblocks:stone_mossy" },
-	})
+local mossyobjects = {
+	{ "default:cobble", 	"default:mossycobble" },
+	{ "default:stonebrick", "default:stone_brick_mossy" },
+	{ "default:stone", 		"default:stone_mossy" },
+}
 
-function default_register_mossy_conversion(mossyobjects)
-	for i in ipairs(mossyobjects) do
-		minetest.register_abm({
-			nodenames = { mossyobjects[i][1] },
-			neighbors = {"default:water_source", "default:water_flowing",
-						 "default:mud_source", "default:mud_flowing",
-						 "default:mud_with_grass_source", "default:mud_with_grass_flowing"},
-			interval = 120,
-			chance = 50,
-			action = function(pos, node)
-				if minetest.find_node_near(pos, 2, "air") then
-					local fdir = node.param2
-					minetest.add_node(pos, {name = mossyobjects[i][2], param2 = fdir})
-				end
-			end,
-		})
-	end
+
+for i in ipairs(mossyobjects) do
+	minetest.register_abm({
+		nodenames = { mossyobjects[i][1] },
+		neighbors = {"default:water_source",          "default:water_flowing",
+					 "default:mud_source",            "default:mud_flowing",
+					 "default:mud_with_grass_source", "default:mud_with_grass_flowing"},
+		interval = 120,
+		chance = 50,
+		action = function(pos, node)
+			if minetest.find_node_near(pos, 2, "air") then
+				local fdir = node.param2
+				minetest.add_node(pos, {name = mossyobjects[i][2], param2 = fdir})
+			end
+		end,
+	})
 end
