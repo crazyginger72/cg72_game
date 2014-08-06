@@ -87,7 +87,7 @@ for i in ipairs(beds_list) do
 				end	
 			end
 		end,
-		on_rightclick = function(pos, node, clicker)
+		on_leftclick = function(pos, node, clicker)
 		local node = minetest.get_node(pos)
 			local param2 = node.param2
 			if param2 == 0 then
@@ -180,7 +180,7 @@ for i in ipairs(beds_list) do
 				end	
 			end
 		end,
-		on_rightclick = function(pos, node, clicker)
+		on_leftclick = function(pos, node, clicker)
 		local node = minetest.get_node(pos)
 			local param2 = node.param2
 			if param2 == 0 then
@@ -294,7 +294,7 @@ for i in ipairs(beds_list) do
 				{1.3125, -0.5, 1.3125, 1.5, -0.125, 1.5}, -- NodeBox6
 				},
 			},
-		on_rightclick = function(pos, node, clicker)
+		on_leftclick = function(pos, node, clicker)
 		local node = minetest.get_node(pos)
 			local param2 = node.param2
 			node.name = "default:bed_top_"..colour
