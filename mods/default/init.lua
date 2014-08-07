@@ -157,18 +157,18 @@ minetest.register_tool("default:pick_admin", {
 		full_punch_interval = 0,
 		max_drop_level=3,
 		groupcaps= {
-			unbreakable={times={[1]=0, [2]=0, [3]=0}, uses=0, maxlevel=3},
-			fleshy = {times={[1]=0, [2]=0, [3]=0}, uses=0, maxlevel=3},
-			choppy={times={[1]=0, [2]=0, [3]=0}, uses=0, maxlevel=3},
-			bendy={times={[1]=0, [2]=0, [3]=0}, uses=0, maxlevel=3},
-			cracky={times={[1]=0, [2]=0, [3]=0}, uses=0, maxlevel=3},
-			crumbly={times={[1]=0, [2]=0, [3]=0}, uses=0, maxlevel=3},
-			snappy={times={[1]=0, [2]=0, [3]=0}, uses=0, maxlevel=3},
+			unbreakable={uses=0, maxlevel=3},
+			fleshy = {uses=0, maxlevel=3},
+			choppy={uses=0, maxlevel=3},
+			bendy={uses=0, maxlevel=3},
+			cracky={uses=0, maxlevel=3},
+			crumbly={uses=0, maxlevel=3},
+			snappy={uses=0, maxlevel=3},
 		}
 	},
 })
 
-minetest.register_tool("default:pick_admin_with_drops", {
+--[[minetest.register_tool("default:pick_admin_with_drops", {
 	description = "Admin Pickaxe With Drops",
 	inventory_image = "maptools_adminpick.png",
 	groups = {not_in_creative_inventory=1},
@@ -185,7 +185,7 @@ minetest.register_tool("default:pick_admin_with_drops", {
 			snappy={times={[1]=0, [2]=0, [3]=0}, uses=0, maxlevel=3},
 		}
 	},
-})
+})]]
 
 --------------------------------------------------------
 ------admin pick function-------------------------------
@@ -194,11 +194,6 @@ minetest.register_tool("default:pick_admin_with_drops", {
 minetest.register_on_punchnode(function(pos, node, puncher)
 	local plname = puncher:get_player_name()
     local privs = minetest.get_player_privs(plname)
-    --[[if not privs.admin then
-        minetest.chat_send_player(plname, "Your not an admin!!!!!")
-        minetest.log("action", puncher:get_player_name().." tried to use admin pick @"..minetest.pos_to_string(pos))
-    	return
-    end]]
 
 	if puncher:get_wielded_item():get_name() == "default:pick_admin" or puncher:get_wielded_item():get_name() == "default:pick_admin_with_drops"
 	and minetest.env: get_node(pos).name ~= "air" then
