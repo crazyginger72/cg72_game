@@ -1079,8 +1079,10 @@ minetest.register_node("default:chest", {
 				" moves stuff to chest at "..minetest.pos_to_string(pos))
 	end,
     on_metadata_inventory_take = function(pos, listname, index, stack, player)
-		minetest.log("action", player:get_player_name()..
-				" takes stuff from chest at "..minetest.pos_to_string(pos).."owned by "..meta:get_string("owner"))
+    if meta:get_string("owner") ~= nil then
+		minetest.log("action", player:get_player_name().." takes stuff from chest at "..minetest.pos_to_string(pos).."owned by "..meta:get_string("owner"))
+	else
+		minetest.log("action", player:get_player_name().." takes stuff from chest at "..minetest.pos_to_string(pos))
 	end,
 })
 
@@ -1174,10 +1176,11 @@ minetest.register_node("default:super_chest", {
 })
 
 local function has_locked_chest_privilege(meta, player)
-	if player:get_player_name() ~= meta:get_string("owner") then
-		return false
+	local privs = minetest.get_player_privs(player)
+	if player:get_player_name() == meta:get_string("owner") or privs.server then
+		return true
 	end
-	return true
+	return false
 end
 
 minetest.register_node("default:chest_locked", {
@@ -1336,7 +1339,7 @@ minetest.register_node("default:super_chest_locked", {
 		if has_locked_chest_privilege(meta, clicker) then
 			minetest.show_formspec(
 				clicker:get_player_name(),
-				"default:chest_locked",
+				"default:super_chest_locked",
 				default.get_locked_super_chest_formspec(pos)
 			)
 		end
