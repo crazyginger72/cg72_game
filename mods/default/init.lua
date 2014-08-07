@@ -201,7 +201,8 @@ minetest.register_on_punchnode(function(pos, node, puncher)
 			minetest.env:remove_node(pos)
 			minetest.log("action", puncher:get_player_name().." used admin-pick to dig block @"..minetest.pos_to_string(pos))
 		elseif puncher:get_wielded_item():get_name() == "default:pick_admin" and not privs.admin then
-			minetest.env:set_node(pos, node)
+			local node_name = minetest.env:get_node(pos).name
+			minetest.env:set_node(pos, node_name)
 
 
 
@@ -210,8 +211,8 @@ minetest.register_on_punchnode(function(pos, node, puncher)
 		elseif puncher:get_wielded_item():get_name() == "default:pick_admin_with_drops" and privs.admin then
 			minetest.log("action", puncher:get_player_name().." used admin-pick to dig block @"..minetest.pos_to_string(pos))
 		elseif puncher:get_wielded_item():get_name() == "default:pick_admin_with_drops" and not privs.admin then
-			--local node = minetest.env:get_node(pos).name
-			minetest.env:set_node(pos, node)
+			local node_name = minetest.env:get_node(pos).name
+			minetest.env:set_node(pos, node_name)
 
 
 			minetest.chat_send_player(plname, "Your not an admin!!!!!")
