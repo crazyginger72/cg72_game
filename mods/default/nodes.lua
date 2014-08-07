@@ -389,6 +389,18 @@ minetest.register_node("default:acaciatree_gen", {
 	},
 })
 
+minetest.register_node("default:acaciatree_t_gen", {
+	description = "Acacia Tree",
+	tiles = {"default_acaciatree.png"},
+	paramtype2 = "facedir",
+	is_ground_content = false,
+	groups = {tree=1,choppy=2,oddly_breakable_by_hand=1,flammable=2,not_in_creative_inventory=1,treedecay=3},
+	sounds = default.node_sound_wood_defaults(),
+	on_place = minetest.rotate_node,
+	paramtype = "light",
+	drop = 'default:acaciatree',
+})
+
 minetest.register_node("default:acaciawood", {
 	description = "Acaciawood Planks",
 	tiles = {"default_acaciawood.png"},

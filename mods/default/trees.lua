@@ -161,7 +161,7 @@ end
 
 function default.grow_acaciatree(data, a, pos, seed) --watershed_acaciatree(x, y, z, area, data)
 	local c_wsactree = minetest.get_content_id("default:acaciatree_gen")
-	local c_wsactree2 = minetest.get_content_id("default:acaciatree_t")
+	local c_wsactree2 = minetest.get_content_id("default:acaciatree_t_gen")
 	local c_wsacleaf = minetest.get_content_id("default:acacialeaves")
 	local xa = pos.x
 	local ya = pos.y

@@ -593,7 +593,8 @@ function signs_lib.receive_fields(pos, formname, fields, sender)
 	end
 end
 
-minetest.register_alias("default:sign_wall", "sings:sign_wall")
+
+minetest.register_alias("sings:sign_wall","default:sign_wall")
 
 minetest.register_node("default:sign_wall", {
 	description = S("Sign"),
@@ -623,7 +624,7 @@ minetest.register_node("default:sign_wall", {
 	end,
 })
 
-minetest.register_alias("default:sign_yard", "signs:sign_yard")
+minetest.register_alias("signs:sign_yard", "default:sign_yard")
 
 minetest.register_node("default:sign_yard", {
     paramtype = "light",
@@ -649,7 +650,7 @@ minetest.register_node("default:sign_yard", {
 	end,
 })
 
-minetest.register_alias("default:sign_hanging", "signs:sign_hanging")
+minetest.register_alias("signs:sign_hanging", "default:sign_hanging")
 
 minetest.register_node("default:sign_hanging", {
     paramtype = "light",
@@ -686,7 +687,7 @@ signs_text_on_activate = function(self)
 	end
 end
 
-minetest.register_alias("default:text", "signs:text")
+minetest.register_alias("signs:text", "default:text")
 
 minetest.register_entity(":default:text", {
     collisionbox = { 0, 0, 0, 0, 0, 0 },
