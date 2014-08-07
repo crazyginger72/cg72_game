@@ -48,7 +48,7 @@ for i in ipairs(beds_list) do
 		},
 		after_place_node = function(pos, placer, itemstack)
 			local node = minetest.get_node(pos)
-			local p = {x=pos.x, y=pos.y, z=pos.z}
+			local pos2 = {x=pos.x, y=pos.y-1, z=pos.z}
 			local param2 = node.param2
 			node.name = "default:bed_top_"..colour
 			if param2 == 0 then
@@ -60,9 +60,20 @@ for i in ipairs(beds_list) do
 			elseif param2 == 3 then
 				pos.x = pos.x-1
 			end
-			pos2 = {x=pos.x, y=pos.y-1, z=pos.z}
+			local pos3 = {x=pos.x, y=pos.y-1, z=pos.z}
+			local node2 = minetest.get_node(pos2)
+			local node3 = minetest.get_node(pos3)
 			if minetest.registered_nodes[minetest.get_node(pos).name].buildable_to  then
-				minetest.set_node(pos, node)
+				if minetest.get_item_group(node2.name, "bed") > 0 then
+					if not minetest.get_item_group(node3.name, "bed") < 1 then
+						minetest.set_node(pos, node)
+					else
+						minetest.remove_node(p)
+						return true
+					end
+				else
+					minetest.set_node(pos, node)
+				end
 			else
 				minetest.remove_node(p)
 				return true
