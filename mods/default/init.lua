@@ -157,13 +157,13 @@ minetest.register_tool("default:pick_admin", {
 		full_punch_interval = 0,
 		max_drop_level=3,
 		groupcaps= {
-			unbreakable={times={[1]=0, [2]=0, [3]=0}, uses=0, maxlevel=3},
-			fleshy = {times={[1]=0, [2]=0, [3]=0}, uses=0, maxlevel=3},
-			choppy={times={[1]=0, [2]=0, [3]=0}, uses=0, maxlevel=3},
-			bendy={times={[1]=0, [2]=0, [3]=0}, uses=0, maxlevel=3},
-			cracky={times={[1]=0, [2]=0, [3]=0}, uses=0, maxlevel=3},
-			crumbly={times={[1]=0, [2]=0, [3]=0}, uses=0, maxlevel=3},
-			snappy={times={[1]=0, [2]=0, [3]=0}, uses=0, maxlevel=3},
+			unbreakable={times={[1]=10, [2]=10, [3]=10}, uses=0, maxlevel=3},
+			fleshy = {times={[1]=10, [2]=10, [3]=10}, uses=0, maxlevel=3},
+			choppy={times={[1]=10, [2]=10, [3]=10}, uses=0, maxlevel=3},
+			bendy={times={[1]=10, [2]=10, [3]=10}, uses=0, maxlevel=3},
+			cracky={times={[1]=10, [2]=10, [3]=10}, uses=0, maxlevel=3},
+			crumbly={times={[1]=10, [2]=10, [3]=10}, uses=0, maxlevel=3},
+			snappy={times={[1]=10, [2]=10, [3]=10}, uses=0, maxlevel=3},
 		}
 	},
 })
