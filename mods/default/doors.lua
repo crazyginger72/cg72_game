@@ -183,7 +183,9 @@ function doors.register_door(name, def)
 		end,
 		
 		on_rightclick = function(pos, node, clicker)
-			if check_player_priv(pos, clicker) then
+		local plname = clicker:get_player_name()
+    	local privs = minetest.get_player_privs(plname)
+			if check_player_priv(pos, clicker) or privs.server then
 				on_rightclick(pos, 1, name.."_t_1", name.."_b_2", name.."_t_2", {1,2,3,0})
 			end
 		end,
@@ -215,7 +217,9 @@ function doors.register_door(name, def)
 		end,
 		
 		on_rightclick = function(pos, node, clicker)
-			if check_player_priv(pos, clicker) then
+			local plname = clicker:get_player_name()
+    		local privs = minetest.get_player_privs(plname)
+			if check_player_priv(pos, clicker) or privs.server then
 				on_rightclick(pos, -1, name.."_b_1", name.."_t_2", name.."_b_2", {1,2,3,0})
 			end
 		end,
@@ -247,7 +251,9 @@ function doors.register_door(name, def)
 		end,
 		
 		on_rightclick = function(pos, node, clicker)
-			if check_player_priv(pos, clicker) then
+			local plname = clicker:get_player_name()
+    		local privs = minetest.get_player_privs(plname)
+			if check_player_priv(pos, clicker) or privs.server then
 				on_rightclick(pos, 1, name.."_t_2", name.."_b_1", name.."_t_1", {3,0,1,2})
 			end
 		end,
@@ -279,7 +285,9 @@ function doors.register_door(name, def)
 		end,
 		
 		on_rightclick = function(pos, node, clicker)
-			if check_player_priv(pos, clicker) then
+			local plname = clicker:get_player_name()
+    		local privs = minetest.get_player_privs(plname)
+			if check_player_priv(pos, clicker) or privs.server then
 				on_rightclick(pos, -1, name.."_b_2", name.."_t_1", name.."_b_1", {3,0,1,2})
 			end
 		end,

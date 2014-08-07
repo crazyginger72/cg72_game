@@ -642,7 +642,7 @@ minetest.register_node("default:ladder", {
 	wield_image = "default_ladder.png",
 	paramtype = "light",
 	paramtype2 = "wallmounted",
-	walkable = false,
+	walkable = true,
 	climbable = true,
 	is_ground_content = false,
 	selection_box = {
