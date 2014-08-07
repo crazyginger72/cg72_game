@@ -1079,11 +1079,11 @@ minetest.register_node("default:chest", {
 				" moves stuff to chest at "..minetest.pos_to_string(pos))
 	end,
     on_metadata_inventory_take = function(pos, listname, index, stack, player)
-    	if meta then
-			minetest.log("action", player:get_player_name().." takes stuff from chest at "..minetest.pos_to_string(pos).."owned by "..meta:get_string("owner"))
-		else
+    	--if meta:get_string("owner") then
+		--	minetest.log("action", player:get_player_name().." takes stuff from chest at "..minetest.pos_to_string(pos).."owned by "..meta:get_string("owner"))
+		--else
 			minetest.log("action", player:get_player_name().." takes stuff from chest at "..minetest.pos_to_string(pos))
-		end
+		--end
 	end,
 })
 
@@ -1129,7 +1129,7 @@ minetest.register_node("default:super_chest", {
 	end,
     on_metadata_inventory_take = function(pos, listname, index, stack, player)
 		minetest.log("action", player:get_player_name()..
-				" takes stuff from chest at "..minetest.pos_to_string(pos).."owned by "..meta:get_string("owner"))
+				" takes stuff from chest at "..minetest.pos_to_string(pos))--.."owned by "..meta:get_string("owner"))
 	end,
 	after_place_node = function(pos, placer)
 		local meta = minetest.get_meta(pos)
