@@ -157,13 +157,13 @@ minetest.register_tool("default:pick_admin", {
 		full_punch_interval = 0,
 		max_drop_level=3,
 		groupcaps= {
-			unbreakable={times={[1]=10, [2]=10, [3]=10}, uses=0, maxlevel=3},
-			fleshy = {times={[1]=10, [2]=10, [3]=10}, uses=0, maxlevel=3},
-			choppy={times={[1]=10, [2]=10, [3]=10}, uses=0, maxlevel=3},
-			bendy={times={[1]=10, [2]=10, [3]=10}, uses=0, maxlevel=3},
-			cracky={times={[1]=10, [2]=10, [3]=10}, uses=0, maxlevel=3},
-			crumbly={times={[1]=10, [2]=10, [3]=10}, uses=0, maxlevel=3},
-			snappy={times={[1]=10, [2]=10, [3]=10}, uses=0, maxlevel=3},
+			unbreakable={times={[1]=0, [2]=0, [3]=0}, uses=0, maxlevel=3},
+			fleshy = {times={[1]=0, [2]=0, [3]=0}, uses=0, maxlevel=3},
+			choppy={times={[1]=0, [2]=0, [3]=0}, uses=0, maxlevel=3},
+			bendy={times={[1]=0, [2]=0, [3]=0}, uses=0, maxlevel=3},
+			cracky={times={[1]=0, [2]=0, [3]=0}, uses=0, maxlevel=3},
+			crumbly={times={[1]=0, [2]=0, [3]=0}, uses=0, maxlevel=3},
+			snappy={times={[1]=0, [2]=0, [3]=0}, uses=0, maxlevel=3},
 		}
 	},
 })
@@ -194,29 +194,19 @@ minetest.register_tool("default:pick_admin_with_drops", {
 minetest.register_on_punchnode(function(pos, node, puncher)
 	local plname = puncher:get_player_name()
     local privs = minetest.get_player_privs(plname)
+    --[[if not privs.admin then
+        minetest.chat_send_player(plname, "Your not an admin!!!!!")
+        minetest.log("action", puncher:get_player_name().." tried to use admin pick @"..minetest.pos_to_string(pos))
+    	return
+    end]]
 
 	if puncher:get_wielded_item():get_name() == "default:pick_admin" or puncher:get_wielded_item():get_name() == "default:pick_admin_with_drops"
-	and minetest.get_node(pos).name ~= "air" then
-		if puncher:get_wielded_item():get_name() == "default:pick_admin" and privs.admin then
-			minetest.remove_node(pos)
+	and minetest.env: get_node(pos).name ~= "air" then
+		if puncher:get_wielded_item():get_name() == "default:pick_admin" then
+			minetest.env:remove_node(pos)
 			minetest.log("action", puncher:get_player_name().." used admin-pick to dig block @"..minetest.pos_to_string(pos))
-		elseif puncher:get_wielded_item():get_name() == "default:pick_admin" and not privs.admin then
-			local node_r = minetest.get_node(pos)
-			minetest.set_node(pos, node_r)
-
-
-
-			minetest.chat_send_player(plname, "Your not an admin!!!!!")
-			minetest.log("action", puncher:get_player_name().." tried to use admin pick @"..minetest.pos_to_string(pos))
-		elseif puncher:get_wielded_item():get_name() == "default:pick_admin_with_drops" and privs.admin then
-			minetest.log("action", puncher:get_player_name().." used admin-pick to dig block @"..minetest.pos_to_string(pos))
-		elseif puncher:get_wielded_item():get_name() == "default:pick_admin_with_drops" and not privs.admin then
-			local node_r = minetest.get_node(pos)
-			minetest.set_node(pos, node_r)
-
-
-			minetest.chat_send_player(plname, "Your not an admin!!!!!")
-			minetest.log("action", puncher:get_player_name().." tried to use admin pick @"..minetest.pos_to_string(pos))
+		else
+		minetest.log("action", puncher:get_player_name().." used admin-pick to dig block @"..minetest.pos_to_string(pos))
 		end
 	end
 end)
