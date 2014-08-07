@@ -593,6 +593,8 @@ function signs_lib.receive_fields(pos, formname, fields, sender)
 	end
 end
 
+minetest.register_alias("default:sign_wall", "sings:sign_wall")
+
 minetest.register_node("default:sign_wall", {
 	description = S("Sign"),
 	node_placement_prediction = "",
@@ -621,6 +623,8 @@ minetest.register_node("default:sign_wall", {
 	end,
 })
 
+minetest.register_alias("default:sign_yard", "signs:sign_yard")
+
 minetest.register_node("default:sign_yard", {
     paramtype = "light",
 	sunlight_propagates = true,
@@ -644,6 +648,8 @@ minetest.register_node("default:sign_yard", {
 		signs_lib.update_sign(pos)
 	end,
 })
+
+minetest.register_alias("default:sign_hanging", "signs:sign_hanging")
 
 minetest.register_node("default:sign_hanging", {
     paramtype = "light",
@@ -679,6 +685,8 @@ signs_text_on_activate = function(self)
 		set_obj_text(self.object, text, new)
 	end
 end
+
+minetest.register_alias("default:text", "signs:text")
 
 minetest.register_entity(":default:text", {
     collisionbox = { 0, 0, 0, 0, 0, 0 },
