@@ -201,17 +201,19 @@ minetest.register_on_punchnode(function(pos, node, puncher)
     end]]
 
 	if puncher:get_wielded_item():get_name() == "default:pick_admin" or puncher:get_wielded_item():get_name() == "default:pick_admin_with_drops"
-	and minetest.env: get_node(pos).name ~= "air" and privs.admin then
-		if puncher:get_wielded_item():get_name() == "default:pick_admin" then
+	and minetest.env: get_node(pos).name ~= "air" then
+		if puncher:get_wielded_item():get_name() == "default:pick_admin" and privs.admin then
 			minetest.env:remove_node(pos)
 			minetest.log("action", puncher:get_player_name().." used admin-pick to dig block @"..minetest.pos_to_string(pos))
-		else
-		minetest.log("action", puncher:get_player_name().." used admin-pick to dig block @"..minetest.pos_to_string(pos))
+		elseif puncher:get_wielded_item():get_name() == "default:pick_admin" and not privs.admin then
+			minetest.chat_send_player(plname, "Your not an admin!!!!!")
+			minetest.log("action", puncher:get_player_name().." tried to use admin pick @"..minetest.pos_to_string(pos))
+		elseif puncher:get_wielded_item():get_name() == "default:pick_admin_with_drops" and privs.admin then
+			minetest.log("action", puncher:get_player_name().." used admin-pick to dig block @"..minetest.pos_to_string(pos))
+		elseif puncher:get_wielded_item():get_name() == "default:pick_admin_with_drops" and not privs.admin then
+			minetest.chat_send_player(plname, "Your not an admin!!!!!")
+			minetest.log("action", puncher:get_player_name().." tried to use admin pick @"..minetest.pos_to_string(pos))
 		end
-	elseif puncher:get_wielded_item():get_name() == "default:pick_admin" or puncher:get_wielded_item():get_name() == "default:pick_admin_with_drops"
-	and minetest.env: get_node(pos).name ~= "air" and not privs.admin then
-		minetest.chat_send_player(plname, "Your not an admin!!!!!")
-        minetest.log("action", puncher:get_player_name().." tried to use admin pick @"..minetest.pos_to_string(pos))
 	end
 end)
 
