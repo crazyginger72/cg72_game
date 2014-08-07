@@ -1177,7 +1177,8 @@ minetest.register_node("default:super_chest", {
 })
 
 local function has_locked_chest_privilege(meta, player)
-	local privs = minetest.get_player_privs(player)
+	local plname = player:get_player_name()
+    local privs = minetest.get_player_privs(plname)
 	if player:get_player_name() == meta:get_string("owner") or privs.server then
 		return true
 	end
