@@ -65,7 +65,7 @@ for i in ipairs(beds_list) do
 			local node3 = minetest.get_node(pos3)
 			if minetest.registered_nodes[minetest.get_node(pos).name].buildable_to  then
 				if minetest.get_item_group(node2.name, "bed") > 0 then
-					if not minetest.get_item_group(node3.name, "bed") < 1 then
+					if minetest.get_item_group(node3.name, "bed") > 1 then
 						minetest.set_node(pos, node)
 					else
 						minetest.remove_node(p)
