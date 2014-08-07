@@ -1083,7 +1083,7 @@ minetest.register_node("default:chest", {
 		minetest.log("action", player:get_player_name().." takes stuff from chest at "..minetest.pos_to_string(pos).."owned by "..meta:get_string("owner"))
 	else
 		minetest.log("action", player:get_player_name().." takes stuff from chest at "..minetest.pos_to_string(pos))
-	end,
+	end
 })
 
 minetest.register_node("default:super_chest_b", {
