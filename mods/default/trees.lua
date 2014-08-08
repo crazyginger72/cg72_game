@@ -213,11 +213,12 @@ function default.grow_acaciatree(data, a, pos, seed) --watershed_acaciatree(x, y
 		elseif j <= -1  then 
 			local vit = a:index(xa, ya + j , za)
 			data[vit] = c_wsactree2
-                elseif j >=0 and j <= 3 + th then
-                        local vit = a:index(xa, ya + j , za)
+                elseif j >= 3 and j <= 3 + th then
+                        local vit = a:index(xa, ya + j +th , za)
                         data[vit] = c_wsactree
                 else
-                        return
+                        local vit = a:index(xa, ya + j , za)
+                        data[vit] = c_wsactree2
 		end
 	end
 end
