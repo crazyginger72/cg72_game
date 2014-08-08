@@ -179,7 +179,7 @@ function default.grow_acaciatree(data, a, pos, seed) --watershed_acaciatree(x, y
                                 end
                         end
                         end
-		if j == 6 + th then
+		elseif j == 6 + th then
 			for i = -5, 5 do
 			for k = -5, 5 do
                                 if i == 5 and k == 5 then return end
