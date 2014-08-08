@@ -219,5 +219,3 @@ minetest.register_on_punchnode(function(pos, node, puncher)
 		end
 	end
 end)
-
---   :D
