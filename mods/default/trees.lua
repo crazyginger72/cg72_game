@@ -167,16 +167,27 @@ function default.grow_acaciatree(data, a, pos, seed) --watershed_acaciatree(x, y
 	local ya = pos.y
 	local za = pos.z
 
-	for j = -1, 6 do
+	for j = -1, 7 do
                 local pr = PseudoRandom(seed)
                 local th = pr:next(0, 2)
+                if j == 7 + th then
+                        for i = -3, 3 do 
+                        for k = -3, 3 do
+                                if math.random(7) ~= 7 then
+                                        local vil = a:index(xa + i, ya + j +th, za + k)
+                                        data[vil] = c_wsacleaf
+                                end
+                        end
+                        end
 		if j == 6 + th then
 			for i = -5, 5 do
 			for k = -5, 5 do
-				if math.random(7) ~= 2 then
-					local vil = a:index(xa + i, ya + j +th, za + k)
-					data[vil] = c_wsacleaf
-				end
+                                if i == 5,-5 and k == 5,-5 then return end
+				    if math.random(7) ~= 2 then
+				    	local vil = a:index(xa + i, ya + j +th, za + k)
+				    	data[vil] = c_wsacleaf
+				    end
+                                end
 			end
 			end
 		elseif j == 5 +th then
