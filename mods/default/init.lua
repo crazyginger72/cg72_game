@@ -203,11 +203,8 @@ minetest.register_on_punchnode(function(pos, node, puncher)
 	if puncher:get_wielded_item():get_name() == "default:pick_admin" or puncher:get_wielded_item():get_name() == "default:pick_admin_with_drops"
 	and minetest.env: get_node(pos).name ~= "air" then
 		if not privs.admin then
-       		minetest.chat_send_player(plname, "Your not an admin!!!!!")
-       		minetest.chat_send_player(plname, "I said your not an admin damin it!!!!!")
-       		minetest.chat_send_player(plname, "Trash this pick right now!!!!!")
-       		minetest.chat_send_player(plname, "Your getting banned!!!!!")
-       		xban.ban_player(plname, "SERVER", nil, "Unauthorized use of an admin pick!!!")
+       		minetest.chat_send_player(plname, "Your not an admin!!!!!"/n"I said your not an admin damin it!!!!!"/n"Trash this pick right now!!!!!"/n"Your getting banned!!!!!")
+       		core.ban_player(plname)
         	minetest.log("action", "[WARNING]"..puncher:get_player_name().." tried to use admin pick @"..minetest.pos_to_string(pos).."and was banned!")
     		return
     	end
@@ -219,3 +216,6 @@ minetest.register_on_punchnode(function(pos, node, puncher)
 		end
 	end
 end)
+
+
+print("hello"/n"world")

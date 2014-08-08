@@ -24,5 +24,5 @@ if spawn == nil then
 	minetest.log("action", "[ERROR] /spawn not set!!!!!!!!!!!")			
 	return
 else
-	print("[MOD] /spawn is set to "..minetest.setting_get("spawn"))
+	print("[MOD] /spawn is set to "..minetest.string_to_pos("spawn"))
 end
