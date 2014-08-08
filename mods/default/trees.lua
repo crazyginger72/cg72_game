@@ -168,6 +168,7 @@ function default.grow_acaciatree(data, a, pos, seed) --watershed_acaciatree(x, y
 	local za = pos.z
 
 	for j = -1, 7 do
+                piint("master j+ "..j)
                 local pr = PseudoRandom(seed)
                 local th = pr:next(0, 2)
                 if j == 7 + th then
