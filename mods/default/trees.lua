@@ -173,15 +173,18 @@ function default.grow_acaciatree(data, a, pos, seed) --watershed_acaciatree(x, y
                 if j == 7 + th then
                         for i = -3, 3 do 
                         for k = -3, 3 do
+                        print("top, j= "..j..", th= "..th)
                                 if math.random(7) ~= 7 then
                                         local vil = a:index(xa + i, ya + j +th, za + k)
                                         data[vil] = c_wsacleaf
+                                        print("top for leaves, j= "..j..", th= "..th)
                                 end
                         end
                         end
 		elseif j == 6 + th then
 			for i = -5, 5 do
 			for k = -5, 5 do
+                        print("j= "..j..", th= "..th)
                                 if i == 5 and k == 5 then return end
                                 if i == 5 and k == -5 then return end
                                 if i == -5 and k == 5 then return end
@@ -189,6 +192,7 @@ function default.grow_acaciatree(data, a, pos, seed) --watershed_acaciatree(x, y
 				if math.random(7) ~= 2 then
 				 	local vil = a:index(xa + i, ya + j +th, za + k)
 					data[vil] = c_wsacleaf
+                                        print("for leaves, j= "..j..", th= "..th)
 				end
 			end
 			end
