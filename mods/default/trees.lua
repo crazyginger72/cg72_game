@@ -167,18 +167,18 @@ function default.grow_acaciatree(data, a, pos, seed) --watershed_acaciatree(x, y
 	local ya = pos.y
 	local za = pos.z
 
-	for j = -3, 9 do
+	for j = -3, 7 do
                 print("master j+ "..j)
                 local pr = PseudoRandom(seed)
                 local th = pr:next(0, 2)
-                if j > 7 + th then return end
+                --if j > 7 + th then return end
                 if j == 7 + th then
                         for i = -3, 3 do 
                         for k = -3, 3 do
                         print("top, j= "..j..", th= "..th)
                                 if math.random(7) ~= 7 then
-                                        local vil = a:index(xa + i, ya + j +th, za + k)
-                                        data[vil] = c_wsacleaf
+                                        local vil2 = a:index(xa + i, ya + j +th, za + k)
+                                        data[vil2] = c_wsacleaf
                                         print("top for leaves, j= "..j..", th= "..th)
                                 end
                         end
@@ -187,12 +187,13 @@ function default.grow_acaciatree(data, a, pos, seed) --watershed_acaciatree(x, y
 			for i = -5, 5 do
 			for k = -5, 5 do
                         print("j= "..j..", th= "..th)
-                                if math.abs(i) + math.abs(k) == 10 then return end
-				if math.random(7) ~= 2 then
-				 	local vil = a:index(xa + i, ya + j +th, za + k)
-					data[vil] = c_wsacleaf
-                                        print("for leaves, j= "..j..", th= "..th)
-				end
+                                if math.abs(i) + math.abs(k) ~= 10 then 
+				    if math.random(7) ~= 2 then
+				     	local vil = a:index(xa + i, ya + j +th, za + k)
+				    	data[vil] = c_wsacleaf
+                                                print("for leaves, j= "..j..", th= "..th)
+                                        end
+                                end
 			end
 			end
 		elseif j == 5 +th then
