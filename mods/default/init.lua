@@ -194,17 +194,20 @@ minetest.register_tool("default:pick_admin_with_drops", {
 minetest.register_on_punchnode(function(pos, node, puncher)
 	local plname = puncher:get_player_name()
     local privs = minetest.get_player_privs(plname)
-    if not privs.admin then
+    --[[if not privs.admin then
         minetest.chat_send_player(plname, "Your not an admin!!!!!")
         minetest.log("action", puncher:get_player_name().." tried to use admin pick @"..minetest.pos_to_string(pos))
     	return
-    end
+    end]]
 
 	if puncher:get_wielded_item():get_name() == "default:pick_admin" or puncher:get_wielded_item():get_name() == "default:pick_admin_with_drops"
 	and minetest.env: get_node(pos).name ~= "air" then
 		if not privs.admin then
-       		minetest.chat_send_player(plname, "Your not an admin!!!!!\nI said your not an admin damin it!!!!!\nTrash this pick right now!!!!!\nYour getting banned!!!!!")
-       		core.ban_player(plname)
+       		minetest.chat_send_player(plname, "Your not an admin!!!!!")
+       		minetest.chat_send_player(plname, "I said your not an admin damin it!!!!!")
+       		minetest.chat_send_player(plname, "Trash this pick right now!!!!!")
+       		minetest.chat_send_player(plname, "Your getting banned!!!!!")
+       		xban.ban_player(plname, "SERVER", nil, "Unauthorized use of an admin pick!!!")
         	minetest.log("action", "[WARNING]"..puncher:get_player_name().." tried to use admin pick @"..minetest.pos_to_string(pos).."and was banned!")
     		return
     	end
@@ -218,4 +221,3 @@ minetest.register_on_punchnode(function(pos, node, puncher)
 end)
 
 
-print("hello\nworld")
