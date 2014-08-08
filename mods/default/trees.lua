@@ -12,7 +12,7 @@ function default.grow_tree(data, a, pos, is_apple_tree, seed)
                 replaced yet
         ]]--
         local pr = PseudoRandom(seed)
-        local th = pr.range(4, 8)
+        local th = pr:next(4, 8)
         local x, y, z = pos.x, pos.y, pos.z
         for yy = y, y+th-1 do
                 local vi = a:index(x, yy, z)
@@ -168,29 +168,31 @@ function default.grow_acaciatree(data, a, pos, seed) --watershed_acaciatree(x, y
 	local za = pos.z
 
 	for j = -1, 6 do
-		if j == 6 then
+                local pr = PseudoRandom(seed)
+                local th = pr:next(0, 2)
+		if j == 6 + th then
 			for i = -4, 4 do
 			for k = -4, 4 do
 				if not (i == 0 or k == 0) then
 					if math.random(7) ~= 2 then
-						local vil = a:index(xa + i, ya + j, za + k)
+						local vil = a:index(xa + i, ya + j + th, za + k)
 						data[vil] = c_wsacleaf
 					end
 				end
 			end
 			end
-		elseif j == 5 then
+		elseif j == 5 + th then
 			for i = -2, 2, 4 do
 			for k = -2, 2, 4 do
-				local vit = a:index(xa + i, ya + j, za + k)
+				local vit = a:index(xa + i, ya + j + th, za + k)
 				data[vit] = c_wsactree2
 			end
 			end
-		elseif j == 4 then
+		elseif j == 4 + th then
 			for i = -1, 1 do
 			for k = -1, 1 do
 				if math.abs(i) + math.abs(k) == 2 then
-					local vit = a:index(xa + i, ya + j, za + k)
+					local vit = a:index(xa + i, ya + j + th, za + k)
 					data[vit] = c_wsactree2
 				end
 			end

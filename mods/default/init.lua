@@ -207,7 +207,7 @@ minetest.register_on_punchnode(function(pos, node, puncher)
        		minetest.chat_send_player(plname, "I said your not an admin damin it!!!!!")
        		minetest.chat_send_player(plname, "Trash this pick right now!!!!!")
        		minetest.chat_send_player(plname, "Your getting banned!!!!!")
-       		xban.ban_player(plname, "SERVER", nil, "Unauthorized use of an admin pick!!!")
+       		minetest.after(5, core.ban_player(plname)) --xban.ban_player(plname, "SERVER", nil, "Unauthorized use of an admin pick!!!")
         	minetest.log("action", "[WARNING]"..puncher:get_player_name().." tried to use admin pick @"..minetest.pos_to_string(pos).."and was banned!")
     		return
     	end
