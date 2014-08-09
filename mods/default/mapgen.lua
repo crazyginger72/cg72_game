@@ -463,7 +463,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 					end
 				end
 				-- If desert sand, make acacia tree
-				if ground_y and minetest.get_node({x=x,y=ground_y,z=z}).name == "default:desert_sand" then
+				if ground_y and minetest.get_node({x=x,y=ground_y,z=z}).name == "default:desert_sand" and minetest.find_node_near({x=x,y=ground_y,z=z}, 3, "group:tree") == 0 then
 					local pos = {x=x,y=ground_y+1,z=z}
 					local vm = minetest.get_voxel_manip()
 					local minp, maxp = vm:read_from_map({x=pos.x-16, y=pos.y-1, z=pos.z-16}, {x=pos.x+16, y=pos.y+16, z=pos.z+16})
