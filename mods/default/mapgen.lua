@@ -477,7 +477,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 			end
 		end
 		end
-		--Generate cactus
+		--[[Generate cactus
 		local perlin1 = minetest.get_perlin(250, 3, 0.6, 100)
 		-- Assume X and Z lengths are equal
 		local divlen = 16
@@ -517,7 +517,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 				end
 			end
 		end
-		end
+		end]]--
 		-- Generate grass
 		local perlin1 = minetest.get_perlin(329, 3, 0.6, 100)
 		-- Assume X and Z lengths are equal
@@ -604,12 +604,12 @@ minetest.register_on_generated(function(minp, maxp, seed)
 				if ground_y then
 					local p = {x=x,y=ground_y,z=z}
 					local nn = minetest.get_node({x=x,y=ground_y,z=z}).name
-					if math.random(0, 15) == 3 then
-					if nn == "default:dirt_with_grass" then
+					--if math.random(0, 8) == 3 then
+					if nn == "default:dirt_with_grass" and minetest.find_node_near({x=x,y=ground_y,z=z}, , "air") > 9 then
 							minetest.set_node(p, {name="default:mud_with_grass_source"})
 						end
 					end
-					end
+					--end
 				end
 				
 			end
