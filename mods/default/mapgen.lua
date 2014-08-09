@@ -436,8 +436,49 @@ minetest.register_on_generated(function(minp, maxp, seed)
 			end
 		end
 		end
-		-- Generate cactuses
-		local perlin1 = minetest.get_perlin(230, 3, 0.6, 100)
+		-- Generate acacia trees
+		local perlin1 = minetest.get_perlin(230, 2, 0.5, 120)
+		-- Assume X and Z lengths are equal
+		local divlen = 16
+		local divs = (maxp.x-minp.x)/divlen+1;
+		for divx=0,divs-1 do
+		for divz=0,divs-1 do
+			local x0 = minp.x + math.floor((divx+0)*divlen)
+			local z0 = minp.z + math.floor((divz+0)*divlen)
+			local x1 = minp.x + math.floor((divx+1)*divlen)
+			local z1 = minp.z + math.floor((divz+1)*divlen)
+			-- Determine acacia trees amount from perlin noise
+			local tree_amount = math.floor(perlin1:get2d({x=x0, y=z0}) * 6)
+			-- Find random positions for acacia tree based on this random
+			local pr = PseudoRandom(seed+1)
+			for i=0,tree_amount do
+				local x = pr:next(x0, x1)
+				local z = pr:next(z0, z1)
+				-- Find ground level (0...15)
+				local ground_y = nil
+				for y=30,0,-5 do
+					if minetest.get_node({x=x,y=y,z=z}).name ~= "air" then
+						ground_y = y
+						break
+					end
+				end
+				-- If desert sand, make acacia tree
+				if ground_y and minetest.get_node({x=x,y=ground_y,z=z}).name == "default:desert_sand" then
+					local pos = {x=x,y=ground_y+1,z=z}
+					local vm = minetest.get_voxel_manip()
+					local minp, maxp = vm:read_from_map({x=pos.x-16, y=pos.y-1, z=pos.z-16}, {x=pos.x+16, y=pos.y+16, z=pos.z+16})
+					local a = VoxelArea:new{MinEdge=minp, MaxEdge=maxp}
+					local data = vm:get_data()
+					default.grow_acaciatree(data, a, pos, math.random(1,100000))
+					vm:set_data(data)
+					vm:write_to_map(data)
+					vm:update_map()
+				end
+			end
+		end
+		end
+		--Generate cactus
+		local perlin1 = minetest.get_perlin(30, 3, 0.6, 100)
 		-- Assume X and Z lengths are equal
 		local divlen = 16
 		local divs = (maxp.x-minp.x)/divlen+1;
@@ -469,7 +510,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 					local minp, maxp = vm:read_from_map({x=pos.x-16, y=pos.y-1, z=pos.z-16}, {x=pos.x+16, y=pos.y+16, z=pos.z+16})
 					local a = VoxelArea:new{MinEdge=minp, MaxEdge=maxp}
 					local data = vm:get_data()
-					default.grow_acaciatree(data, a, pos, math.random(1,100000))
+					default.make_cactus(pos, pr:next(4, 7))
 					vm:set_data(data)
 					vm:write_to_map(data)
 					vm:update_map()
@@ -533,7 +574,7 @@ end)
 
 minetest.register_on_generated(function(minp, maxp, seed)
 	if maxp.y >= 2 and minp.y <= 0 then
-		-- Generate flowers
+		-- Generate mud
 		local perlin1 = minetest.get_perlin(1272, 4, 0.8, 150)
 		-- Assume X and Z lengths are equal
 		local divlen = 16
@@ -544,9 +585,9 @@ minetest.register_on_generated(function(minp, maxp, seed)
 			local z0 = minp.z + math.floor((divz+0)*divlen)
 			local x1 = minp.x + math.floor((divx+1)*divlen)
 			local z1 = minp.z + math.floor((divz+1)*divlen)
-			-- Determine flowers amount from perlin noise
+			-- Determine mud amount from perlin noise
 			local grass_amount = math.floor(perlin1:get2d({x=x0, y=z0}))
-			-- Find random positions for flowers based on this random
+			-- Find random positions for mud based on this random
 			local pr = PseudoRandom(seed+19)
 			for i=0,grass_amount do
 				local x = pr:next(x0, x1)
