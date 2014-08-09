@@ -354,7 +354,7 @@ function default.make_cactus(pos, size)
 		local nn = minetest.get_node(p).name
 		if minetest.registered_nodes[nn] and
 			minetest.registered_nodes[nn].buildable_to then
-			minetest.set_node(p, {name="default:cactus"})
+			minetest.set_node(p, {name="default:cactus_gen"})
 		else
 			return
 		end

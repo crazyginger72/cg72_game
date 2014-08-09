@@ -554,12 +554,12 @@ minetest.register_node("default:leaves_apple", {
 	sounds = default.node_sound_leaves_defaults(),
 })
 
-minetest.register_node("default:cactus", {
+minetest.register_node("default:cactus_gen", {
 	description = "Cactus",
 	tiles = {"default_cactus_top.png", "default_cactus_top.png", "default_cactus_side.png"},
 	paramtype2 = "facedir",
 	is_ground_content = true,
-	groups = {snappy=1,choppy=3,flammable=2,treedecay=1},
+	groups = {snappy=1,choppy=3,flammable=2,treedecay=1, tree=1},
 	sounds = default.node_sound_wood_defaults(),
 	on_place = minetest.rotate_node
 })
