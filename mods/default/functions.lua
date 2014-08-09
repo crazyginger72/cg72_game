@@ -219,7 +219,7 @@ minetest.register_abm({
 		default.grow_acaciatree(data, a, pos, math.random(1,100000))
 		vm:set_data(data)
 		vm:write_to_map(data)
-		vm:update_map()
+		vm:update_ma(p)
 	end
 })
 

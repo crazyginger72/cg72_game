@@ -185,7 +185,6 @@ function default.grow_acaciatree(data, a, pos, seed) --watershed_acaciatree(x, y
 		elseif j == 6 + th then
 			for i = -5, 5 do
 			for k = -5, 5 do
-                        print("j= "..j..", th= "..th)
                                 if math.abs(i) + math.abs(k) ~= 10 and math.abs(i) + math.abs(k) ~= 9 then 
 				    if math.random(15) ~= 2 then
 				     	local vil = a:index(xa + i, ya + j +th, za + k)
