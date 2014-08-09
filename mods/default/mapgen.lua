@@ -586,7 +586,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 			local x1 = minp.x + math.floor((divx+1)*divlen)
 			local z1 = minp.z + math.floor((divz+1)*divlen)
 			-- Determine mud amount from perlin noise
-			local grass_amount = math.floor(perlin1:get2d({x=x0, y=z0})/100)
+			local grass_amount = math.floor(perlin1:get2d({x=x0, y=z0}))
 			-- Find random positions for mud based on this random
 			local pr = PseudoRandom(seed+19)
 			for i=0,grass_amount do
@@ -604,9 +604,11 @@ minetest.register_on_generated(function(minp, maxp, seed)
 				if ground_y then
 					local p = {x=x,y=ground_y,z=z}
 					local nn = minetest.get_node({x=x,y=ground_y,z=z}).name
+					if math.random(0, 15) == 3 then
 					if nn == "default:dirt_with_grass" then
 							minetest.set_node(p, {name="default:mud_with_grass_source"})
 						end
+					end
 					end
 				end
 				
