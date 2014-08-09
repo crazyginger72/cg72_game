@@ -464,7 +464,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 				end
 				-- If desert sand, make cactus
 				if ground_y and minetest.get_node({x=x,y=ground_y,z=z}).name == "default:desert_sand" then
-					default.make_cactus({x=x,y=ground_y+1,z=z}, pr:next(3, 4))
+					local pos = {x=x,y=ground_y+1,z=z}
 					local vm = minetest.get_voxel_manip()
 					local minp, maxp = vm:read_from_map({x=pos.x-16, y=pos.y-1, z=pos.z-16}, {x=pos.x+16, y=pos.y+16, z=pos.z+16})
 					local a = VoxelArea:new{MinEdge=minp, MaxEdge=maxp}
