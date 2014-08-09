@@ -434,7 +434,7 @@ minetest.register_node("default:acacialeaves", {
 			{
 				-- player will get sapling with 1/20 chance
 				items = {'default:acaciasapling'},
-				rarity = 20,
+				rarity = 45,
 			},
 			{
 				-- player will get leaves only if he get no saplings,
