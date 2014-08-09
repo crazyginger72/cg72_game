@@ -605,7 +605,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 					local p = {x=x,y=ground_y,z=z}
 					local nn = minetest.get_node({x=x,y=ground_y,z=z}).name
 					--if math.random(0, 8) == 3 then
-					if nn == "default:dirt_with_grass" and minetest.find_node_near({x=x,y=ground_y,z=z}, , "air") > 9 then
+					if nn == "default:dirt_with_grass" and minetest.find_node_near({x=x,y=ground_y,z=z}, 1, "air") > 9 then
 							minetest.set_node(p, {name="default:mud_with_grass_source"})
 						end
 					end
