@@ -195,11 +195,15 @@ function default.grow_acaciatree(data, a, pos, seed) --watershed_acaciatree(x, y
 			end
 			end
 		elseif j == 5 +th then
-			for i = -5, 5 do
-			for k = -5, 5 do
+			for i = -6, 6 do
+			for k = -6, 6 do
                         for i2 = -2, 2, 4 do
                         for k2 = -2, 2, 4 do
-                                if math.abs(i) == 5 and math.abs(i) + math.abs(k) ~= 10 and math.abs(i) + math.abs(k) ~= 9 or math.abs(k) == 5 and math.abs(i) + math.abs(k) ~= 10 and math.abs(i) + math.abs(k) ~= 9 then 
+                                if math.abs(i) == 6 and math.abs(i) + math.abs(k) ~= 12 and math.abs(i) + math.abs(k) ~= 11 
+                                or math.abs(k) == 6 and math.abs(i) + math.abs(k) ~= 12 and math.abs(i) + math.abs(k) ~= 11 
+                                or math.abs(i) == 5 and math.abs(k) == 5
+                                or math.abs(i) == 5 and math.abs(k) == 4
+                                or math.abs(i) == 4 and math.abs(k) == 5 then
                                         if math.random(15) ~= 2 then
                                                 local vil = a:index(xa + i, ya + j +th, za + k)
                                                 data[vil] = c_wsacleaf
