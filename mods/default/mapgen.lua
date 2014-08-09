@@ -472,7 +472,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 					default.grow_acaciatree(data, a, pos, math.random(1,100000))
 					vm:set_data(data)
 					vm:write_to_map(data)
-					vm:update_ma(p)
+					vm:update_map()
 				end
 			end
 		end
