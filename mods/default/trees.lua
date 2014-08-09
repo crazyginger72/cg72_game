@@ -201,10 +201,10 @@ function default.grow_acaciatree(data, a, pos, seed) --watershed_acaciatree(x, y
 		elseif j == 5 +th then
 			for i = -6, 6 do
 			for k = -6, 6 do
-                        for i2 = -2, 2, 4, -3, 3, 6 do
-                        for k2 = -2, 2, 4, -3, 3, 6 do
-                       -- for i3 = -3, 3, 6 do
-                       -- for k3 = -3, 3, 6,do
+                        for i2 = -2, 2, 4 do
+                        for k2 = -2, 2, 4 do
+                        for i3 = -3, 3, 6 do
+                        for k3 = -3, 3, 6 do
                                 if math.abs(i) == 6 and math.abs(i) + math.abs(k) ~= 12 and math.abs(i) + math.abs(k) ~= 11 
                                 or math.abs(k) == 6 and math.abs(i) + math.abs(k) ~= 12 and math.abs(i) + math.abs(k) ~= 11 
                                 or math.abs(i) == 5 and math.abs(k) == 5
@@ -219,16 +219,16 @@ function default.grow_acaciatree(data, a, pos, seed) --watershed_acaciatree(x, y
                                 if data[vit] == c_air or data[vit] == c_ignore or data[vit] == c_acleaf then
                                         data[vit] = c_actree2
                                 end
-                                --local vit2 = a:index(xa + i3, ya + j + th, za + k3)
-                                --if data[vit2] == c_air or data[vit2] == c_ignore or data[vit2] == c_acleaf then
-                                --        data[vit2] = c_actree2
-                                --end
+                                local vit2 = a:index(xa + i3, ya + j + th, za + k3)
+                                if data[vit2] == c_air or data[vit2] == c_ignore or data[vit2] == c_acleaf then
+                                        data[vit2] = c_actree2
+                                end
 			end
 			end
                         end
                         end
-                        --end
-                       -- end
+                        end
+                        end
 		elseif j == 4 + th then
 			for i = -1, 1 do
 			for k = -1, 1 do
