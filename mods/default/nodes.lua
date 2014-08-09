@@ -318,7 +318,7 @@ minetest.register_node("default:acaciatree_t", {
 	tiles = {"default_acaciatree.png"},
 	paramtype2 = "facedir",
 	is_ground_content = false,
-	groups = {tree=1,choppy=2,oddly_breakable_by_hand=1,flammable=2,not_in_creative_inventory=1},
+	groups = {tree=1,choppy=2,oddly_breakable_by_hand=1,flammable=2,leafdecay=1},
 	sounds = default.node_sound_wood_defaults(),
 	on_place = minetest.rotate_node,
 	paramtype = "light",
@@ -386,18 +386,6 @@ minetest.register_node("default:acaciatree_gen", {
 		type = "fixed",
 		fixed = cylbox,
 	},
-})
-
-minetest.register_node("default:acaciatree_t_gen", {
-	description = "Acacia Tree",
-	tiles = {"default_acaciatree.png"},
-	paramtype2 = "facedir",
-	is_ground_content = false,
-	groups = {tree=1,choppy=2,oddly_breakable_by_hand=1,flammable=2,not_in_creative_inventory=1,treedecay=1},
-	sounds = default.node_sound_wood_defaults(),
-	on_place = minetest.rotate_node,
-	paramtype = "light",
-	drop = 'default:acaciatree',
 })
 
 minetest.register_node("default:acaciawood", {
