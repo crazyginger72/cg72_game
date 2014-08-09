@@ -204,7 +204,7 @@ function default.grow_acaciatree(data, a, pos, seed) --watershed_acaciatree(x, y
                                 or math.abs(i) == 5 and math.abs(k) == 5
                                 or math.abs(i) == 5 and math.abs(k) == 4
                                 or math.abs(i) == 4 and math.abs(k) == 5 then
-                                        if math.random(7) ~= 2 then
+                                        if math.random(4) ~= 2 then
                                                 local vil = a:index(xa + i, ya + j +th, za + k)
                                                 data[vil] = c_wsacleaf
                                         end
