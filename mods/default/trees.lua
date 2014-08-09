@@ -216,8 +216,8 @@ function default.grow_acaciatree(data, a, pos, seed) --watershed_acaciatree(x, y
 			local vit = a:index(xa, ya + j , za)
 			data[vit] = c_wsactree2
                 else
-                        for t = 0-th, th do 
-                                local vit = a:index(xa, ya + j + th , za)
+                        for t = 0, th do 
+                                local vit = a:index(xa, ya + j + t , za)
                                 data[vit] = c_wsactree
                         end
 		end
