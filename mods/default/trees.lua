@@ -162,6 +162,7 @@ end
 function default.grow_acaciatree(data, a, pos, seed) --watershed_acaciatree(x, y, z, area, data)
 	local c_actree = minetest.get_content_id("default:acaciatree_gen")
 	local c_actree2 = minetest.get_content_id("default:acaciatree_t_gen")
+        local c_actree2 = minetest.get_content_id("default:acaciatree_t")
 	local c_acleaf = minetest.get_content_id("default:acacialeaves")
 	local xa = pos.x
 	local ya = pos.y
@@ -233,7 +234,7 @@ function default.grow_acaciatree(data, a, pos, seed) --watershed_acaciatree(x, y
 			end
 		elseif j <= -1  then 
 			local vit = a:index(xa, ya + j , za)
-                        data[vit] = c_actree2
+                        data[vit] = c_actree3
                 else
                         for t = 0, th do 
                                 local vit = a:index(xa, ya + j + t , za)
