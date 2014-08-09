@@ -160,9 +160,9 @@ function default.grow_jungletree(data, a, pos, seed)
 end
 
 function default.grow_acaciatree(data, a, pos, seed) --watershed_acaciatree(x, y, z, area, data)
-	local c_wsactree = minetest.get_content_id("default:acaciatree_gen")
-	local c_wsactree2 = minetest.get_content_id("default:acaciatree_t_gen")
-	local c_wsacleaf = minetest.get_content_id("default:acacialeaves")
+	local c_actree = minetest.get_content_id("default:acaciatree_gen")
+	local c_actree2 = minetest.get_content_id("default:acaciatree_t_gen")
+	local c_acleaf = minetest.get_content_id("default:acacialeaves")
 	local xa = pos.x
 	local ya = pos.y
 	local za = pos.z
@@ -176,8 +176,10 @@ function default.grow_acaciatree(data, a, pos, seed) --watershed_acaciatree(x, y
                         for k = -3, 3 do
                                 if math.abs(i) + math.abs(k) ~= 6 then
                                         if math.random(15) ~= 11 then
-                                               local vil2 = a:index(xa + i, ya + j + th, za + k)
-                                               data[vil2] = c_wsacleaf
+                                                local vil = a:index(xa + i, ya + j + th, za + k)
+                                                if data[vil] == c_air or data[vil] == c_ignore then
+                                                        data[vil] = c_acleaf
+                                                end
                                         end
                                 end
                         end
@@ -186,9 +188,11 @@ function default.grow_acaciatree(data, a, pos, seed) --watershed_acaciatree(x, y
 			for i = -5, 5 do
 			for k = -5, 5 do
                                 if math.abs(i) + math.abs(k) ~= 10 and math.abs(i) + math.abs(k) ~= 9 then 
-				    if math.random(15) ~= 2 then
-				     	local vil = a:index(xa + i, ya + j +th, za + k)
-				    	data[vil] = c_wsacleaf
+                                        if math.random(15) ~= 2 then
+                                                local vil = a:index(xa + i, ya + j +th, za + k)
+                                                if data[vil] == c_air or data[vil] == c_ignore then
+                                                        data[vil] = c_acleaf
+                                                end
                                         end
                                 end
 			end
@@ -204,10 +208,14 @@ function default.grow_acaciatree(data, a, pos, seed) --watershed_acaciatree(x, y
                                 or math.abs(i) == 5 and math.abs(k) == 4
                                 or math.abs(i) == 4 and math.abs(k) == 5 then
                                         local vil = a:index(xa + i, ya + j +th, za + k)
-                                        data[vil] = c_wsacleaf
+                                        if data[vil] == c_air or data[vil] == c_ignore then
+                                                data[vil] = c_acleaf
+                                        end
                                 end
 				local vit = a:index(xa + i2, ya + j + th, za + k2)
-				data[vit] = c_wsactree2
+                                if data[vit] == c_air or data[vit] == c_ignore or data[vit] == c_acleaf then
+                                        data[vit] = c_actree2
+                                end
 			end
 			end
                         end
@@ -217,17 +225,21 @@ function default.grow_acaciatree(data, a, pos, seed) --watershed_acaciatree(x, y
 			for k = -1, 1 do
 				if math.abs(i) + math.abs(k) == 2 then
 					local vit = a:index(xa + i, ya + j + th, za + k)
-					data[vit] = c_wsactree2
+					if data[vit] == c_air or data[vit] == c_ignore or data[vit] == c_acleaf then
+                                                data[vit] = c_actree2
+                                        end
 				end
 			end
 			end
 		elseif j <= -1  then 
 			local vit = a:index(xa, ya + j , za)
-			data[vit] = c_wsactree2
+                        data[vit] = c_actree2
                 else
                         for t = 0, th do 
                                 local vit = a:index(xa, ya + j + t , za)
-                                data[vit] = c_wsactree
+                                if data[vit] == c_air or data[vit] == c_ignore or data[vit] == c_acleaf then
+                                        data[vit] = c_actree
+                                end
                         end
 		end
 	end
