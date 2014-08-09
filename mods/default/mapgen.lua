@@ -607,7 +607,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 				
 					if nn == "default:dirt_with_grass" then
 						for a = -1,1 do
-						for a2 = 12, 1 do
+						for a2 = -1, 1 do
 							if minetest.get_node({x=x+a,y=ground_y,z=z+a2}).name == "air" and math.abs(a) + math.abs(a2) ~= 2 then
 								minetest.set_node(p, {name="default:mud_with_grass_source"})
 							end
