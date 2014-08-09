@@ -237,7 +237,7 @@ function default.grow_acaciatree(data, a, pos, seed) --watershed_acaciatree(x, y
                 else
                         for t = 0, th do 
                                 local vit = a:index(xa, ya + j + t , za)
-                                if data[vit] == c_air or data[vit] == c_ignore or data[vit] == c_acleaf then
+                                if data[vit] == c_air or data[vit] == c_ignore or data[vit] == c_acleaf or data[vit] == "default:acaciasapling" then
                                         data[vit] = c_actree
                                 end
                         end
