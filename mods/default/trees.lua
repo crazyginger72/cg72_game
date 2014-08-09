@@ -251,5 +251,8 @@ function default.grow_acaciatree(data, a, pos, seed) --watershed_acaciatree(x, y
                         end
 		end
 	end
+        vm:set_data(data)
+        vm:write_to_map(data)
+        vm:update_map()
 end
 
