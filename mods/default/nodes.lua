@@ -404,7 +404,7 @@ minetest.register_node("default:acaciatree_t_gen", {
 minetest.register_node("default:acaciawood", {
 	description = "Acaciawood Planks",
 	tiles = {"default_acaciawood.png"},
-	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
+	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1, leafdecay=4},
 	sounds = default.node_sound_wood_defaults(),
 })
 

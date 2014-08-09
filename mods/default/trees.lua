@@ -168,18 +168,17 @@ function default.grow_acaciatree(data, a, pos, seed) --watershed_acaciatree(x, y
 	local za = pos.z
 
 	for j = -3, 9 do
-                print("master j+ "..j)
                 local pr = PseudoRandom(seed)
                 local th = pr:next(0, 2)
                 if j > 7 + th then return end
                 if j == 7 + th then
                         for i = -3, 3 do 
                         for k = -3, 3 do
-                        print("top, j= "..j..", th= "..th)
-                                if math.random(15) ~= 11 then
-                                        local vil2 = a:index(xa + i, ya + j + th, za + k)
-                                        data[vil2] = c_wsacleaf
-                                        print("top for leaves, j= "..j..", th= "..th)
+                                if math.abs(i) + math.abs(k) ~= 6 then
+                                        if math.random(15) ~= 11 then
+                                               local vil2 = a:index(xa + i, ya + j + th, za + k)
+                                               data[vil2] = c_wsacleaf
+                                        end
                                 end
                         end
                         end
@@ -191,22 +190,32 @@ function default.grow_acaciatree(data, a, pos, seed) --watershed_acaciatree(x, y
 				    if math.random(15) ~= 2 then
 				     	local vil = a:index(xa + i, ya + j +th, za + k)
 				    	data[vil] = c_wsacleaf
-                                                print("for leaves, j= "..j..", th= "..th)
                                         end
                                 end
 			end
 			end
 		elseif j == 5 +th then
-			for i = -2, 2, 4 do
-			for k = -2, 2, 4 do
-				local vit = a:index(xa + i, ya + j + th, za + k)
+			for i = -5, 5 do
+			for k = -5, 5 do
+                        for i2 = -2, 2 do --4
+                        for k2 = -2, 2 do --4
+                                if math.abs(i) == 5 or math.abs(k) == 5 and math.abs(i) + math.abs(k) ~= 10 and math.abs(i) + math.abs(k) ~= 9 then 
+                                        if math.random(15) ~= 2 then
+                                                local vil = a:index(xa + i, ya + j +th, za + k)
+                                                data[vil] = c_wsacleaf
+                                        end
+                                
+                                end
+				local vit = a:index(xa + i2, ya + j + th, za + k2)
 				data[vit] = c_wsactree2
 			end
 			end
+                        end
+                        end
 		elseif j == 4 + th then
 			for i = -1, 1 do
 			for k = -1, 1 do
-				if math.abs(i) + math.abs(k) == 2 then
+				if math.abs(i) + math.abs(k) == 2 thenw
 					local vit = a:index(xa + i, ya + j + th, za + k)
 					data[vit] = c_wsactree2
 				end
