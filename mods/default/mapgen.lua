@@ -463,7 +463,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 					end
 				end
 				-- If desert sand, make acacia tree
-				if ground_y and minetest.get_node({x=x,y=ground_y,z=z}).name == "default:desert_sand" and minetest.find_node_near({x=x,y=ground_y,z=z}, 3, "group:tree") == 0 then
+				if ground_y and minetest.get_node({x=x,y=ground_y,z=z}).name == "default:desert_sand" and not minetest.find_node_near({x=x,y=ground_y,z=z}, 3, "group:tree") then
 					local pos = {x=x,y=ground_y+1,z=z}
 					local vm = minetest.get_voxel_manip()
 					local minp, maxp = vm:read_from_map({x=pos.x-16, y=pos.y-1, z=pos.z-16}, {x=pos.x+16, y=pos.y+16, z=pos.z+16})
@@ -478,7 +478,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 		end
 		end
 		--Generate cactus
-		local perlin1 = minetest.get_perlin(30, 3, 0.6, 100)
+		local perlin1 = minetest.get_perlin(210, 3, 0.6, 100)
 		-- Assume X and Z lengths are equal
 		local divlen = 16
 		local divs = (maxp.x-minp.x)/divlen+1;
