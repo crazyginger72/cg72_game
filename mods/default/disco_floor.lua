@@ -31,7 +31,7 @@ minetest.register_node("default:dance_floor", {
 		local x = pos.x
 		local z = pos.z
 		if x % 2 == 0 and z % 2 ~= 0 then 
-			minetest.set_node(pos, "default:dance_floor2")
+			minetest.set_node(pos, {name="default:dance_floor2"})
 		end
 	end
 
