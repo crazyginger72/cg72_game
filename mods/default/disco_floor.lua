@@ -30,7 +30,7 @@ minetest.register_node("default:dance_floor", {
 	after_place_node = function(pos, placer, itemstack)
 		local x = pos.x
 		local z = pos.z
-		if x % 2 == 0 and z % 2 ~= 0 then 
+		if x % 2 == 0 and z % 2 ~= 0 or x % 2 ~= 0 and z % 2 == 0 then 
 			minetest.set_node(pos, {name="default:dance_floor2"})
 		end
 	end
