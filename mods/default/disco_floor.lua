@@ -53,6 +53,7 @@ minetest.register_node("default:dance_floor2", {
 	light_source = 11,
 	walkable = false,
 	buildable_to = true,
+	drop = "default:dance_floor",
 	sounds = default.node_sound_glass_defaults(),
 	groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2},
 	drawtype = "nodebox",
