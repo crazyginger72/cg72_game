@@ -326,8 +326,8 @@ minetest.register_abm({
 	end,
 })
 --
---mushrooms growing
---
+--mushrooms growing :D
+--[[
 
 minetest.register_abm({
     nodenames = {"default:dirt", "default:dirt_with_grass"},
@@ -459,7 +459,7 @@ minetest.register_abm({
 
         end
     end
-})
+})]]--
 
 
 
