@@ -169,7 +169,7 @@ minetest.register_node("default:kitchen_cabinet_half", {
 
 minetest.register_node("default:toilet", {
     description = "Toilet",
-    tiles = { "default_marble.png" },
+    tiles = { "default_toilet2.png" },
     drawtype = "nodebox",
     sunlight_propagates = false,
     paramtype = "light",
@@ -197,7 +197,7 @@ minetest.register_node("default:toilet", {
 minetest.register_node("default:toilet_open", {
     tiles = {
         "default_toilet.png",
-        "default_marble.png"
+        "default_toilet2.png"
     },
     drawtype = "nodebox",
     paramtype = "light",

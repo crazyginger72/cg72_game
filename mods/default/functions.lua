@@ -328,11 +328,11 @@ minetest.register_abm({
 --
 --mushrooms growing
 --
---[[
+
 minetest.register_abm({
     nodenames = {"default:dirt", "default:dirt_with_grass"},
-    interval = 130,
-    chance = 100,
+    interval = 10,
+    chance = 1000,
     action = function(pos, node)
         local destnode = { x = pos.x, y = pos.y+1, z = pos.z}
         local name = minetest.get_node(destnode).name       
@@ -357,8 +357,8 @@ minetest.register_abm({
 
 minetest.register_abm({
     nodenames = {"default:dirt", "default:dirt_with_grass" , "default:sand"},
-    interval = 105,
-    chance = 70,
+    interval = 15,
+    chance = 700,
     action = function(pos, node)
         local destnode = { x = pos.x, y = pos.y+1, z = pos.z}
         local name = minetest.get_node(destnode).name       
@@ -383,8 +383,8 @@ minetest.register_abm({
 
 minetest.register_abm({
     nodenames = {"default:dirt", "default:dirt_with_grass" , "default:sand"},
-    interval = 90,
-    chance = 70,
+    interval = 9,
+    chance = 700,
     action = function(pos, node)
         local destnode = { x = pos.x, y = pos.y+1, z = pos.z}
         local name = minetest.get_node(destnode).name       
@@ -408,8 +408,8 @@ minetest.register_abm({
 
 minetest.register_abm({
     nodenames = {"default:sand"},
-    interval = 3600,
-    chance = 100,
+    interval = 30,
+    chance = 1000,
     action = function(pos, node)
         local name = minetest.get_node(pos).name
         local nodedef = minetest.registered_nodes[name]
@@ -461,7 +461,7 @@ minetest.register_abm({
     end
 })
 
-]]--
+
 
 --
 -- Leafdecay
@@ -567,24 +567,27 @@ minetest.register_abm({
 	interval = 3,
 	chance = 2,
 
-	action = function(p0, node, _, _)
-		local p1 = {x=p0.x, y=p0.y-1, z=p0.z}
-		local n0 = minetest.get_node(p0)
-		local n1 = minetest.get_node(p1)
-		local do_preserve = false
-		local d = minetest.registered_nodes[node.name].groups.treedecay
-		if not d or d == 0 then
+	action = function(pos, node, _, _)
+		local pos1 = {x=pos.x, y=pos.y-1, z=pos.z}
+		local node = minetest.get_node(pos)
+		local node_under = minetest.get_node(pos1)
+		local decay = minetest.registered_nodes[node.name].groups.treedecay
+		if not decay or decay == 0 then
 			return
 		end
-		if  minetest.get_node(p1).name == "default:dirt" or minetest.get_node(p1).name == "default:dirt_with_grass" or 
-			minetest.get_node(p1).name == "default:dirt_with_snow" or minetest.get_node(p1).name == "default:sand" or 
-			minetest.get_node(p1).name == "default:desert_sand" or minetest.get_item_group(n1.name, "tree") ~= 0 then
+		if  minetest.get_node(pos1).name == "default:dirt"           or minetest.get_node(pos1).name == "default:dirt_with_grass" or 
+			minetest.get_node(pos1).name == "default:dirt_with_snow" or minetest.get_node(pos1).name == "default:sand" or 
+			minetest.get_node(pos1).name == "default:tree"           or minetest.get_node(pos1).name == "default:tree_gen" or 
+			minetest.get_node(pos1).name == "default:jungletree"     or minetest.get_node(pos1).name == "default:jungletree_gen" or
+			minetest.get_node(pos1).name == "default:acaciatree"     or minetest.get_node(pos1).name == "default:acaciatree_gen" or
+			minetest.get_node(pos1).name == "default:acaciatree_t"   or 
+			minetest.get_node(pos1).name == "default:desert_sand"    or minetest.get_item_group(node_under.name, "tree") > 0 then
 			return
 		else
-			itemstacks = minetest.get_node_drops(n0.name)
+			itemstacks = minetest.get_node_drops(node.name)
 			for _, itemname in ipairs(itemstacks) do
-				if minetest.get_item_group(n0.name, "treedecay_drop") ~= 0 or
-						itemname ~= n0.name then
+				if minetest.get_item_group(node.name, "treedecay_drop") ~= 0 or
+						itemname ~= node.name then
 					local p_drop = {
 						x = p0.x - 0.5 + math.random(),
 						y = p0.y - 0.5 + math.random(),
@@ -593,16 +596,17 @@ minetest.register_abm({
 					minetest.add_item(p_drop, itemname)
 				end
 			end
-			minetest.remove_node(p0)
-			nodeupdate(p0)
+			minetest.remove_node(pos)
+			nodeupdate(pos)
 		end
 	end
 })
 
 local mossyobjects = {
-	{ "default:cobble", 	"default:mossycobble" },
-	{ "default:stonebrick", "default:stone_brick_mossy" },
-	{ "default:stone", 		"default:stone_mossy" },
+	{ "default:cobble", 	 "default:mossycobble" },
+	{ "default:stonebrick",  "default:stone_brick_mossy" },
+	{ "default:stone", 		 "default:stone_mossy" },
+	{ "default:cobble_road", "default:cobble_road_mossy"},
 }
 
 

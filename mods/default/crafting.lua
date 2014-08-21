@@ -834,3 +834,24 @@ minetest.register_craft({
 		"default:shrubbery_large"
 	}
 })
+
+minetest.register_craft({
+	output = "default:pavement 8",
+	recipe = {
+		{"group:sand",     "default:basalt", "group:sand"},
+		{"default:basalt", "default:cobble", "default:basalt"},
+		{"group:sand",     "default:basalt", "group:sand"},
+	}
+})
+
+minetest.register_craft({
+	type = "shapeless",
+	output = "defalut:cobble_road 5",
+	recipe = {
+		"default:cobble",
+		"default:cobble",
+		"default:cobble",
+		"default:cobble",
+		"default:pavement"
+	}
+})

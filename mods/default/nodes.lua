@@ -256,7 +256,6 @@ minetest.register_node("default:tree", {
 	description = "Tree",
 	tiles = {"default_tree_top.png", "default_tree_top.png", "default_tree.png"},
 	paramtype2 = "facedir",
-	drop = { items = { { items = {'default:tree_b'}, }, }, },
 	is_ground_content = false,
 	groups = {tree=1,choppy=2,oddly_breakable_by_hand=1,flammable=2},
 	sounds = default.node_sound_wood_defaults(),
@@ -2067,7 +2066,6 @@ minetest.register_node("default:apple", {
 	paramtype = "light",
 	sunlight_propagates = true,
 	walkable = false,
-	drop = { items = { { items = {'default:sapling'}, }, }, },
 	is_ground_content = true,
 	selection_box = {
 		type = "fixed",
@@ -2279,6 +2277,7 @@ minetest.register_node("default:acaciasapling", {
 	sounds = default.node_sound_leaves_defaults(),
 })
 
+minetest.register_alias("gloobblocks:shrubbery_large", "default:shrubbery_large")
 minetest.register_node("default:shrubbery_large", {
 	description = "Shrubbery",
 	drawtype = "allfaces_optional",
@@ -2289,6 +2288,7 @@ minetest.register_node("default:shrubbery_large", {
 	sounds = default.node_sound_leaves_defaults(),
 })
 
+minetest.register_alias("gloobblocks:shrubbery", "default:shrubbery")
 minetest.register_node("default:shrubbery", {
 	description = "Shrubbery",
 	drawtype = "nodebox",
@@ -2321,6 +2321,7 @@ minetest.register_node("default:shrubbery", {
 	}
 })
 
+minetest.register_alias("gloobblocks:obsidian_cooled", "default:obsidian_cooled")
 minetest.register_node("default:obsidian_cooled", {
 	description = "Obsidian",
 	tiles = {"default_obsidian.png"},
@@ -2333,6 +2334,7 @@ minetest.register_node("default:obsidian_cooled", {
 	end
 })
 
+minetest.register_alias("gloobblocks:basalt", "default:basalt")
 minetest.register_node("default:basalt", {
 	description = "Basalt",
 	tiles = {"gloopblocks_basalt.png"},
@@ -2340,6 +2342,7 @@ minetest.register_node("default:basalt", {
 	sounds = default.node_sound_stone_defaults(),
 })
 
+minetest.register_alias("gloobblocks:basalt_cooled", "default:basalt_cooled")
 minetest.register_node("default:basalt_cooled", {
 	description = "Basalt",
 	tiles = {"gloopblocks_basalt.png"},
@@ -2351,6 +2354,7 @@ minetest.register_node("default:basalt_cooled", {
 	end
 })
 
+minetest.register_alias("gloobblocks:pumice", "default:pumice")
 minetest.register_node("default:pumice", {
 	description = "Pumice",
 	tiles = {"gloopblocks_pumice.png"},
@@ -2358,6 +2362,7 @@ minetest.register_node("default:pumice", {
 	sounds = default.node_sound_stone_defaults(),
 })
 
+minetest.register_alias("gloobblocks:pumice_cooled", "default:pumicen_cooled")
 minetest.register_node("default:pumice_cooled", {
 	description = "Pumice",
 	tiles = {"gloopblocks_pumice.png"},
@@ -2369,6 +2374,7 @@ minetest.register_node("default:pumice_cooled", {
 	end
 })
 
+minetest.register_alias("gloobblocks:stone_brick_mossy", "default:stone_brick_mossy")
 minetest.register_node("default:stone_brick_mossy", {
         description = "Mossy Stone Brick",
         tiles = {"gloopblocks_stone_brick_mossy.png"},
@@ -2376,10 +2382,37 @@ minetest.register_node("default:stone_brick_mossy", {
         sounds = default.node_sound_stone_defaults(),
 })
 
+minetest.register_alias("gloobblocks:stone_mossy", "default:stone_mossy")
 minetest.register_node("default:stone_mossy", {
         description = "Mossy Stone",
         tiles = {"gloopblocks_stone_mossy.png"},
         groups = {cracky=3, stone=1},
         sounds = default.node_sound_stone_defaults(),
 	drop = "default:mossycobble"
+})
+
+minetest.register_alias("gloopblocks:pavement", "default:pavement")
+minetest.register_node("default:pavement", {
+	description = "Pavement",
+	tiles = {"gloopblocks_pavement.png"},
+	groups = {cracky=3, oddly_breakable_by_hand=3},
+	sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_alias("gloopblocks:cobble_road", "default:cobble_road")
+minetest.register_node("default:cobble_road", {
+        description = "Cobblestone Road Bed",
+        tiles = {"gloopblocks_cobble_road.png"},
+        groups = {cracky=3, stone=1},
+        sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_alias("gloopblocks:cement", "default:concrete")
+
+minetest.register_alias("gloopblocks:cobble_road_mossy", "default:cobble_road_mossy")
+minetest.register_node("default:cobble_road_mossy", {
+        description = "Mossy Cobblestone Road Bed",
+        tiles = {"gloopblocks_cobble_road_mossy.png"},
+        groups = {cracky=3, stone=1},
+        sounds = default.node_sound_stone_defaults(),
 })
