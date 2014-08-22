@@ -204,7 +204,7 @@ minetest.register_tool("default:eraser", {
 					meta:set_string(
 						"formspec", 
 						"size[10,7]"..
-						"field[1,1;8.5,1;text; Edit Text;${text}]"..
+						"textarea[1,1;8.5,3;text; Edit Text;${text}]"..--"field[1,1;8.5,1;text; Edit Text;${text}]"..
 						"field[1,3;4.25,1;signed; Edit Signature;${signed}]"..
 						"button_exit[0.75,5;4.25,1;text,signed;Done]"
 					)

@@ -683,6 +683,7 @@ end
 
 minetest.register_craftitem("default:sunflower_seed", {
 	description = "Sunflower Seed",
+	tiles = {"sunflower_seed.png"},
 	wield_scale = {x=0.5,y=0.5,z=0.5};
 	on_use = minetest.item_eat(1),
 	on_place = function(itemstack, placer, pointed_thing)

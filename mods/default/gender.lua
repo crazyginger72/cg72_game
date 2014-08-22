@@ -49,13 +49,13 @@ gender.load_data()
 minetest.register_on_player_receive_fields(function(player, formname, fields)
         if gender.formname ~= formname then return end
         local plname = player:get_player_name()
-        --default.player_set_model(player, "character.x")
+        --default.player_set_model(player, "character.b3d")
         --player:set_local_animation({x=0, y=79}, {x=168, y=187}, {x=189, y=198}, {x=200, y=219}, 30)
        
         if fields.boy then -- Change skin to boy.
                 player:set_properties({
                         visual = "mesh",
-                        mesh = "character.x",
+                        mesh = "character.b3d",
                         textures = {"characterm.png"},
                         visual_size = {x=1, y=1},
                 })
@@ -66,7 +66,7 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
         elseif fields.girl then -- Change skin to girl.
                 player:set_properties({
                         visual = "mesh",
-                        mesh = "character.x",
+                        mesh = "characterf.b3d",
                         textures = {"characterf.png"},
                         visual_size = {x=1, y=1},
                 })
@@ -87,12 +87,12 @@ minetest.register_chatcommand("gender", {
  
 minetest.register_on_joinplayer(function(player)
         local plname = player:get_player_name()
-        --default.player_set_model(player, "character.x")
+        --default.player_set_model(player, "character.b3d")
         --player:set_local_animation({x=0, y=79}, {x=168, y=187}, {x=189, y=198}, {x=200, y=219}, 30)
         if plname == "crazyginger72" then
                 player:set_properties({
                         visual = "mesh",
-                        mesh = "character.x",
+                        mesh = "characterf.b3d",
                         textures = {"charactercg.png"},
                         visual_size = {x=1, y=1},
                 })
@@ -100,7 +100,7 @@ minetest.register_on_joinplayer(function(player)
         elseif plname == "shadowzone" then
                 player:set_properties({
                         visual = "mesh",
-                        mesh = "character.x",
+                        mesh = "characterf.b3d",
                         textures = {"charactersz.png"},
                         visual_size = {x=1, y=1},
                 })
@@ -108,16 +108,24 @@ minetest.register_on_joinplayer(function(player)
         elseif plname == "ChubbaBubba" then
                 player:set_properties({
                         visual = "mesh",
-                        mesh = "character.x",
+                        mesh = "characterf.b3d",
                         textures = {"charactercb.png"},
                         visual_size = {x=1, y=1},
                 })
                 minetest.chat_send_player(plname, "Your skin has been set darcie :D")
+        elseif plname == "Memow" then
+                player:set_properties({
+                        visual = "mesh",
+                        mesh = "characterf.b3d",
+                        textures = {"characterM.png"},
+                        visual_size = {x=1, y=1},
+                })
+                minetest.chat_send_player(plname, "Your skin has been set sexy kitty girl :D")
         else
                 if gender.players[plname] == "m" then
                         player:set_properties({
                                 visual = "mesh",
-                                mesh = "character.x",
+                                mesh = "character.b3d",
                                 textures = {"characterm.png"},
                                 visual_size = {x=1, y=1},
                         })
@@ -125,7 +133,7 @@ minetest.register_on_joinplayer(function(player)
                 elseif gender.players[plname] == "f" then
                         player:set_properties({
                                 visual = "mesh",
-                                mesh = "character.x",
+                                mesh = "characterf.b3d",
                                 textures = {"characterf.png"},
                                 visual_size = {x=1, y=1},
                         })

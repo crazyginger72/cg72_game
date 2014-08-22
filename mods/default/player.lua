@@ -1,54 +1,3 @@
--- Minetest 0.4 mod: player
--- See README.txt for licensing and other information.
-
---[[
-
-API
----
-
-default.player_register_model(name, def)
-^ Register a new model to be used by players.
-^ <name> is the model filename such as "character.x", "foo.b3d", etc.
-^ See Model Definition below for format of <def>.
-
-default.registered_player_models[name]
-^ See Model Definition below for format.
-
-default.player_set_model(player, model_name)
-^ <player> is a PlayerRef.
-^ <model_name> is a model registered with player_register_model.
-
-default.player_set_animation(player, anim_name [, speed])
-^ <player> is a PlayerRef.
-^ <anim_name> is the name of the animation.
-^ <speed> is in frames per second. If nil, default from the model is used
-
-default.player_set_textures(player, textures)
-^ <player> is a PlayerRef.
-^ <textures> is an array of textures
-^ If <textures> is nil, the default textures from the model def are used
-
-default.player_get_animation(player)
-^ <player> is a PlayerRef.
-^ Returns a table containing fields "model", "textures" and "animation".
-^ Any of the fields of the returned table may be nil.
-
-Model Definition
-----------------
-
-model_def = {
-	animation_speed = 30, -- Default animation speed, in FPS.
-	textures = {"character.png", }, -- Default array of textures.
-	visual_size = {x=1, y=1,}, -- Used to scale the model.
-	animations = {
-		-- <anim_name> = { x=<start_frame>, y=<end_frame>, },
-		foo = { x= 0, y=19, },
-		bar = { x=20, y=39, },
-		-- ...
-	},
-}
-
-]]
 
 -- Player animation blending
 -- Note: This is currently broken due to a bug in Irrlicht, leave at 0
@@ -64,7 +13,7 @@ function default.player_register_model(name, def)
 end
 
 -- Default player appearance
-default.player_register_model("character.x", {
+default.player_register_model("character.b3d", {
 	animation_speed = 30,
 	textures = {"character.png", },
 	animations = {
@@ -140,7 +89,7 @@ end
 
 -- Update appearance when the player joins
 minetest.register_on_joinplayer(function(player)
-	default.player_set_model(player, "character.x")
+	default.player_set_model(player, "character.b3d")
 	player:set_local_animation({x=0, y=79}, {x=168, y=187}, {x=189, y=198}, {x=200, y=219}, 30)
 end)
 
