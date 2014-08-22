@@ -48,7 +48,7 @@ minetest.register_node("default:letter_empty", {
 			meta:set_string("signed", "")
 			meta:set_string("infotext", info..fields.text..'" Unsigned')
 		end
-		if fields.signed ~= "" then
+		if fields.signed ~= "" and fields.text ~= nil then
 			meta:set_string("signed", fields.signed)
 			meta:set_string("infotext", info..fields.text..sign..fields.signed)
 		end
