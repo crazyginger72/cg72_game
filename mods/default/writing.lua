@@ -40,12 +40,14 @@ minetest.register_node("default:letter_empty", {
 		--[[print((sender:get_player_name() or "").." wrote \""..fields.text..
 				"\" to paper at "..minetest.pos_to_string(pos))]]
 		local fdir = minetest.get_node(pos).param2
-		if fields.text ~= "" then
+		if fields.text ~= "" and fields.text ~= nil then
 			minetest.add_node(pos, {name="default:letter_written", param2=fdir})
 		end
-		meta:set_string("text", fields.text)
-		meta:set_string("signed", "")
-		meta:set_string("infotext", info..fields.text..'" Unsigned')
+		if fields.text ~= nil then 
+			meta:set_string("text", fields.text)
+			meta:set_string("signed", "")
+			meta:set_string("infotext", info..fields.text..'" Unsigned')
+		end
 		if fields.signed ~= "" then
 			meta:set_string("signed", fields.signed)
 			meta:set_string("infotext", info..fields.text..sign..fields.signed)
