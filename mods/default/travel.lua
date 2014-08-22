@@ -366,7 +366,7 @@ travelnet.on_receive_fields = function(pos, formname, fields, player)
       travelnet.remove_box( target_pos, nil, oldmetadata, player );
 
    -- do this only on servers where the function exists
-   elseif( player.set_look_yaw ) then
+   else
 
       -- rotate the player so that he/she can walk straight out of the box
       local yaw    = 0;
