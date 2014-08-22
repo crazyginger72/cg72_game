@@ -16,6 +16,9 @@ LIGHT_MAX = 14
 default = {}
 
 -- Load files
+-- must do first
+dofile(minetest.get_modpath("default").."/functions.lua")
+---------------------------------------------------------
 dofile(minetest.get_modpath("default").."/areas.lua")
 dofile(minetest.get_modpath("default").."/b_hammer.lua")
 dofile(minetest.get_modpath("default").."/b_names.lua")
@@ -39,7 +42,6 @@ dofile(minetest.get_modpath("default").."/farming.lua")
 dofile(minetest.get_modpath("default").."/fire.lua")
 dofile(minetest.get_modpath("default").."/flowergen.lua")
 dofile(minetest.get_modpath("default").."/flowers.lua")
-dofile(minetest.get_modpath("default").."/functions.lua")
 dofile(minetest.get_modpath("default").."/gender.lua")
 dofile(minetest.get_modpath("default").."/give.lua")
 dofile(minetest.get_modpath("default").."/glasses.lua")
