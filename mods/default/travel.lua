@@ -181,7 +181,7 @@ travelnet.update_formspec = function( pos, puncher_name )
    meta:set_string( "infotext", "Station '"..tostring( station_name ).."' on net '"..tostring( station_network )..
                                 "' (owned by "..tostring( owner_name )..") ready for usage. Right-click to travel, punch to update.");
 
-   minetest.chat_send_player(puncher_name, "The target list of this box on the travelnet has been updated.");
+   minetest.chat_send_player(puncher_name, "The target list of this box on the net has been updated.");
 end
 
 
@@ -350,20 +350,9 @@ travelnet.on_receive_fields = function(pos, formname, fields, player)
    end
    minetest.chat_send_player(name, "Initiating transfer to station '"..( fields.target or "?").."'.'");
 
-
-
-   if( travelnet.travelnet_sound_enabled ) then
-      minetest.sound_play("128590_7037-lq.mp3", {pos = pos, gain = 1.0, max_hear_distance = 10,})
-   end
-
    -- transport the player to the target location
    local target_pos = travelnet.targets[ owner_name ][ station_network ][ fields.target ].pos;
    player:moveto( target_pos, false);
-
-   if( travelnet.travelnet_sound_enabled ) then
-      minetest.sound_play("travelnet_travel.wav", {pos = target_pos, gain = 1.0, max_hear_distance = 10,})
-   end
-
 
    -- check if the box has at the other end has been removed.
    local node2 = minetest.env:get_node(  target_pos );
@@ -442,7 +431,7 @@ travelnet.can_dig = function( pos, player, description )
    local name          = player:get_player_name();
 
    -- players with that priv can dig regardless of owner
-   if( minetest.check_player_privs(name, {travelnet_remove=true})
+   if( minetest.check_player_privs(name, {admin=true})
        or travelnet.allow_dig( player_name, owner_name, network_name )) then
       return true;
    end
@@ -463,11 +452,11 @@ end
 
 minetest.register_node("default:travelcube", {
     description = "Travel Cube",
-    drawtype = "nodebox",
+    drawtype = "glasslike",
     sunlight_propagates = true,
     paramtype = 'light',
-    paramtype2 = "facedir",
-    tiles = {"default_travel_cube.png"},light_source = 5,
+    tiles = {"default_travel_cube.png"},
+    light_source = 5,
     groups = {cracky=3, oddly_breakable_by_hand=3},
     after_place_node  = function(pos, placer, itemstack)
   local meta = minetest.env:get_meta(pos);
