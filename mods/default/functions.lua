@@ -564,7 +564,7 @@ minetest.register_abm({
 minetest.register_abm({
 	nodenames = {"group:treedecay"},
 	neighbors = {"air", "group:liquid", "group:leaves"},
-	interval = 3,
+	interval = 5,
 	chance = 2,
 
 	action = function(pos, node, _, _)
@@ -572,10 +572,10 @@ minetest.register_abm({
 		local node = minetest.get_node(pos)
 		local node_under = minetest.get_node(pos1)
 		local decay = minetest.registered_nodes[node.name].groups.treedecay
-		local nodes_around = minetest.find_node_near(pos, 4, {"ignore", "group:tree"})
+		local nodes_around = minetest.find_node_near(pos, decay, {"ignore", "group:tree"})
 		if not decay or decay == 0 then
 			return
-		elseif decay == 1 and nodes_around then
+		elseif decay ~= 1 and nodes_around then
 			return
 		else
 		if  minetest.get_node(pos1).name == "default:dirt"           or minetest.get_node(pos1).name == "default:dirt_with_grass" or 

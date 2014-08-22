@@ -1,6 +1,6 @@
 --Configuration values:
 --Use these to customize this mod
-timeout_delay = 30
+timeout_delay = 90
 
 --DO NOT CHANGE:
 
@@ -97,13 +97,13 @@ function tpr_deny(name)
 sender = tpr_list[value_carryover]
 	if tpr_list[value_carryover] ~= nil then
         	tpr_list[value_carryover] = nil
-		minetest.chat_send_player(sender, 'Teleport request denied :C')
+		minetest.chat_send_player(sender, 'Teleport request denied D:')
 
 	end
 sender2 = tphr_list[value_carryover2]
 	if tphr_list[value_carryover2] ~= nil then
         	tphr_list[value_carryover2] = nil
-		minetest.chat_send_player(sender2, 'Teleport request denied :C')
+		minetest.chat_send_player(sender2, 'Teleport request denied D:')
 
 	end
 end
@@ -214,29 +214,13 @@ end
 tpr_list = {}
 tphr_list = {}
 
---Initalize Permissions.
-
-minetest.register_privilege("tpr", {
-    description = "Permission to request teleport to other players.", 
-    give_to_singleplayer = true
-})
-
-minetest.register_privilege("tphr", {
-    description = "Permission to request other players to teleport to you.", 
-    give_to_singleplayer = true
-})
-
-minetest.register_privilege("tpr_admin", {
-    description = "Permission to override teleport to other players. UNFINISHED", 
-    give_to_singleplayer = true
-})
 
 --Initalize Commands.
 
 minetest.register_chatcommand("tpr", {
     description = "Request teleport to another player",
     params = "<playername> | leave playername empty to see help message",
-    privs = {tpr=true},
+    privs = {shout=true},
     func = tpr_send
 
 })
@@ -244,7 +228,7 @@ minetest.register_chatcommand("tpr", {
 minetest.register_chatcommand("tphr", {
     description = "Request teleport to another player",
     params = "<playername> | leave playername empty to see help message",
-    privs = {tphr=true},
+    privs = {shout=true},
     func = tphr_send
 
 })

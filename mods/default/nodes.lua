@@ -317,7 +317,7 @@ minetest.register_node("default:acaciatree_t", {
 	tiles = {"default_acaciatree.png"},
 	paramtype2 = "facedir",
 	is_ground_content = false,
-	groups = {choppy=2,oddly_breakable_by_hand=1,flammable=2,treedecay=1},
+	groups = {choppy=2,oddly_breakable_by_hand=1,flammable=2,treedecay=3},
 	sounds = default.node_sound_wood_defaults(),
 	on_place = minetest.rotate_node,
 	paramtype = "light",
@@ -329,7 +329,7 @@ minetest.register_node("default:tree_gen", {
 	tiles = {"default_tree_top.png", "default_tree_top.png", "default_tree.png"},
 	paramtype2 = "facedir",
 	is_ground_content = false,
-	groups = {tree=1,choppy=2,oddly_breakable_by_hand=1,flammable=2,treedecay=3,not_in_creative_inventory=1},
+	groups = {tree=1,choppy=2,oddly_breakable_by_hand=1,flammable=2,treedecay=1,not_in_creative_inventory=1},
 	sounds = default.node_sound_wood_defaults(),
 	on_place = minetest.rotate_node,
 	drop = 'default:tree',
@@ -350,7 +350,7 @@ minetest.register_node("default:jungletree_gen", {
 	tiles = {"default_jungletree_top.png", "default_jungletree_top.png", "default_jungletree.png"},
 	paramtype2 = "facedir",
 	is_ground_content = false,
-	groups = {tree=1,choppy=2,oddly_breakable_by_hand=1,flammable=2,treedecay=3,not_in_creative_inventory=1},
+	groups = {tree=1,choppy=2,oddly_breakable_by_hand=1,flammable=2,treedecay=1,not_in_creative_inventory=1},
 	sounds = default.node_sound_wood_defaults(),
 	on_place = minetest.rotate_node,
 	drop = 'default:jungletree',
@@ -371,7 +371,7 @@ minetest.register_node("default:acaciatree_gen", {
 	tiles = {"default_acaciatree_top.png", "default_acaciatree_top.png", "default_acaciatree.png"},
 	paramtype2 = "facedir",
 	is_ground_content = false,
-	groups = {tree=1,choppy=2,oddly_breakable_by_hand=1,flammable=2,treedecay=3,not_in_creative_inventory=1},
+	groups = {tree=1,choppy=2,oddly_breakable_by_hand=1,flammable=2,treedecay=1,not_in_creative_inventory=1},
 	sounds = default.node_sound_wood_defaults(),
 	on_place = minetest.rotate_node,
 	drop = 'default:acaciatree',
@@ -437,7 +437,7 @@ minetest.register_node("default:jungleleaves", {
 	paramtype = "light",
 	waving = 1,
 	is_ground_content = false,
-	groups = {snappy=3, leafdecay=3, flammable=2, leaves=1},
+	groups = {snappy=3, leafdecay=5, flammable=2, leaves=1},
 	drop = {
 		max_items = 1,
 		items = {
@@ -594,7 +594,7 @@ minetest.register_node("default:glass", {
 	paramtype = "light",
 	sunlight_propagates = true,
 	is_ground_content = false,
-	groups = {cracky=3,oddly_breakable_by_hand=3},
+	groups = {cracky=3,oddly_breakable_by_hand=3,glass=1},
 	sounds = default.node_sound_glass_defaults(),
 })
 
@@ -1989,7 +1989,7 @@ minetest.register_node("default:obsidian_glass", {
 	is_ground_content = false,
 	sunlight_propagates = true,
 	sounds = default.node_sound_glass_defaults(),
-	groups = {cracky=3,oddly_breakable_by_hand=3},
+	groups = {cracky=3,oddly_breakable_by_hand=3,glass=1},
 })
 
 minetest.register_node("default:obsidian", {
@@ -2415,4 +2415,12 @@ minetest.register_node("default:cobble_road_mossy", {
         tiles = {"gloopblocks_cobble_road_mossy.png"},
         groups = {cracky=3, stone=1},
         sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_node("default:basalt_brick", {
+  description = "Basalt Brick",
+	tiles = {"default_basalt_brick.png"},
+	is_ground_content = true,
+	groups = {cracky=3},
+	sounds = default.node_sound_stone_defaults()
 })

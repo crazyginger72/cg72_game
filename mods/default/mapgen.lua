@@ -239,10 +239,10 @@ minetest.register_ore({
 		ore_param2     = 128,
 		wherein        = "default:stone",
 		clust_scarcity = 25*25*25,
-		clust_num_ores = 8,
-		clust_size     = 3,
+		clust_num_ores = 12,
+		clust_size     = 9,
 		height_min     = -10000,
-		height_max     = -10,
+		height_max     = 10,
 	})
 
 	minetest.register_ore({

@@ -457,7 +457,12 @@ stairs.register_stair_and_slab("marble", "default:marble",
 		"Marble Slab",
 		default.node_sound_stone_defaults())
 
-
+stairs.register_stair_and_slab("basalt_brick", "default:basalt_brick",
+		{cracky=2},
+		{"default_basalt_brick.png"},
+		"Basalt Brick Stair",
+		"Basalt Brick Slab",
+		default.node_sound_stone_defaults())
 
 
 

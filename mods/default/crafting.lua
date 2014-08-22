@@ -852,3 +852,33 @@ minetest.register_craft({
 		{"default:cobble", "",                 "default:cobble"},
 	}
 })
+
+minetest.register_craft({
+	output = "default:eraser",
+	recipe = {
+		{"group:leaves", "group:leaves", "group:leaves"},
+		{"group:leaves", "group:leaves", "group:leaves"},
+		{"group:leaves", "group:leaves", "group:leaves"},
+	}
+})
+
+minetest.register_craft({
+	output = 'default:basalt_brick 4',
+	recipe = {
+    {'default:basalt','default:basalt'},
+	{'default:basalt','default:basalt'},
+	}
+})
+
+
+
+
+
+
+
+
+
+
+
+
+

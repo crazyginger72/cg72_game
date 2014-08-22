@@ -3,6 +3,51 @@
 
 farming = {}
 
+farming.registered_plants = {}
+
+function farming:add_plant(full_grown, names, interval, chance)
+	minetest.register_abm({
+		nodenames = names,
+		interval = interval,
+		chance = chance,
+		action = function(pos, node)
+			pos.y = pos.y-1
+			if minetest.env:get_node(pos).name ~= "default:soil_wet" then
+				return
+			end
+			pos.y = pos.y+1
+			if not minetest.env:get_node_light(pos) then
+				return
+			end
+			if minetest.env:get_node_light(pos) < 8 then
+				return
+			end
+			local step = nil
+			for i,name in ipairs(names) do
+				if name == node.name then
+					step = i
+					break
+				end
+			end
+			if step == nil then
+				return
+			end
+			local new_node = {name=names[step+1]}
+			if new_node.name == nil then
+				new_node.name = full_grown
+			end
+			minetest.env:set_node(pos, new_node)
+		end
+	})
+
+	table.insert(farming.registered_plants, {
+		full_grown = full_grown,
+		names = names,
+		interval = interval,
+		chance = chance,
+	})
+end
+
 --
 -- Soil
 --
@@ -500,3 +545,93 @@ minetest.register_abm({
 		minetest.set_node(pos, {name="default:cotton_"..height})
 	end
 })
+
+minetest.register_craftitem("default:tomato_seed", {
+	description = "Tomato Seeds",
+	inventory_image = "farming_tomato_seed.png",
+	on_place = function(itemstack, placer, pointed_thing)
+		local above = minetest.env:get_node(pointed_thing.above)
+		if above.name == "air" then
+			above.name = "default:tomato_1"
+			minetest.env:set_node(pointed_thing.above, above)
+			itemstack:take_item(1)
+			return itemstack
+		end
+	end
+})
+
+minetest.register_node("default:tomato_1", {
+	paramtype = "light",
+	walkable = false,
+	drawtype = "plantlike",
+	drop = "",
+	tiles = {"farming_tomato_1.png"},
+	selection_box = {
+		type = "fixed",
+		fixed = {
+			{-0.5, -0.5, -0.5, 0.5, -0.5+5/16, 0.5}
+		},
+	},
+	groups = {snappy=3, flammable=2, not_in_creative_inventory=1,plant=1},
+	sounds = default.node_sound_leaves_defaults(),
+})
+
+minetest.register_node("default:tomato_2", {
+	paramtype = "light",
+	walkable = false,
+	drawtype = "plantlike",
+	drop = "",
+	tiles = {"farming_tomato_2.png"},
+	selection_box = {
+		type = "fixed",
+		fixed = {
+			{-0.5, -0.5, -0.5, 0.5, -0.5+8/16, 0.5}
+		},
+	},
+	groups = {snappy=3, flammable=2, not_in_creative_inventory=1,plant=1},
+	sounds = default.node_sound_leaves_defaults(),
+})
+
+minetest.register_node("default:tomato_3", {
+	paramtype = "light",
+	walkable = false,
+	drawtype = "plantlike",
+	drop = "",
+	tiles = {"farming_tomato_3.png"},
+	selection_box = {
+		type = "fixed",
+		fixed = {
+			{-0.5, -0.5, -0.5, 0.5, -0.5+13/16, 0.5}
+		},
+	},
+	groups = {snappy=3, flammable=2, not_in_creative_inventory=1,plant=1},
+	sounds = default.node_sound_leaves_defaults(),
+})
+
+minetest.register_node("default:tomato", {
+	paramtype = "light",
+	walkable = false,
+	drawtype = "plantlike",
+	tiles = {"farming_tomato_4.png"},
+	drop = {
+		max_items = 6,
+		items = {
+			{ items = {'default:tomato_seed'} },
+			{ items = {'default:tomato_seed'}, rarity = 2},
+			{ items = {'default:tomato_seed'}, rarity = 5},
+			{ items = {'default:tomato_item'} },
+			{ items = {'default:tomato_item'}, rarity = 2 },
+			{ items = {'default:tomato_item'}, rarity = 5 }
+		}
+	},
+	groups = {snappy=3, flammable=2, not_in_creative_inventory=1,plant=1},
+	sounds = default.node_sound_leaves_defaults(),
+})
+
+minetest.register_craftitem("default:tomato_item", {
+	description = "Tomato",
+	inventory_image = "farming_tomato.png",
+	on_use = minetest.item_eat(4),
+})
+
+farming:add_plant("default:tomato", {"default:tomato_1", "default:tomato_2", "default:tomato_3"}, 50, 20)
