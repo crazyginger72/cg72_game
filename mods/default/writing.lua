@@ -27,7 +27,7 @@ minetest.register_node("default:letter_empty", {
 		meta:set_string(
 					"formspec", 
 					"size[10,10]"..
-					"field[1,1;8.5,3;text; Write a Letter;${text}]"..
+					"textarea[1,1;8.5,3;text; Write a Letter;${text}]"..--"field[1,1;8.5,1;text; Edit Text;${text}]".."field[1,1;8.5,3;text; Write a Letter;${text}]"..
 					"field[1,6;4.25,1;signed; Sign Letter (optional);${signed}]"..
 					"button_exit[0.75,8;4.25,1;text,signed;Done]"
 				)
