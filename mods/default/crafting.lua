@@ -845,13 +845,10 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-	type = "shapeless",
 	output = "defalut:cobble_road 5",
 	recipe = {
-		"default:cobble",
-		"default:cobble",
-		"default:cobble",
-		"default:cobble",
-		"default:pavement"
+		{"default:cobble", "",                 "default:cobble"},
+		{"",               "default:pavement", ""},
+		{"default:cobble", "",                 "default:cobble"},
 	}
 })

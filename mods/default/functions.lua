@@ -572,9 +572,12 @@ minetest.register_abm({
 		local node = minetest.get_node(pos)
 		local node_under = minetest.get_node(pos1)
 		local decay = minetest.registered_nodes[node.name].groups.treedecay
+		local nodes_around = minetest.find_node_near(pos, decay, {"ignore", "group:tree"})
 		if not decay or decay == 0 then
 			return
-		end
+		elseif decay == 1 and nodes_around then
+			return
+		else
 		if  minetest.get_node(pos1).name == "default:dirt"           or minetest.get_node(pos1).name == "default:dirt_with_grass" or 
 			minetest.get_node(pos1).name == "default:dirt_with_snow" or minetest.get_node(pos1).name == "default:sand" or 
 			minetest.get_node(pos1).name == "default:tree"           or minetest.get_node(pos1).name == "default:tree_gen" or 
@@ -599,20 +602,24 @@ minetest.register_abm({
 			minetest.remove_node(pos)
 			nodeupdate(pos)
 		end
+		end
 	end
 })
 
 local mossyobjects = {
-	{ "default:cobble", 	 "default:mossycobble" },
-	{ "default:stonebrick",  "default:stone_brick_mossy" },
-	{ "default:stone", 		 "default:stone_mossy" },
-	{ "default:cobble_road", "default:cobble_road_mossy"},
+	{ "cobble", 	 "mossycobble" },
+	{ "stonebrick",  "stone_brick_mossy" },
+	{ "stone", 		 "stone_mossy" },
+	{ "cobble_road", "cobble_road_mossy"},
 }
 
 
 for i in ipairs(mossyobjects) do
+
+minetest.register_alias("gloopblocks:"..mossyobjects[i][2], "default:"..mossyobjects[i][2])
+
 	minetest.register_abm({
-		nodenames = { mossyobjects[i][1] },
+		nodenames = { "default"..mossyobjects[i][1] },
 		neighbors = {"default:water_source",          "default:water_flowing",
 					 "default:mud_source",            "default:mud_flowing",
 					 "default:mud_with_grass_source", "default:mud_with_grass_flowing"},
@@ -621,7 +628,7 @@ for i in ipairs(mossyobjects) do
 		action = function(pos, node)
 			if minetest.find_node_near(pos, 2, "air") then
 				local fdir = node.param2
-				minetest.add_node(pos, {name = mossyobjects[i][2], param2 = fdir})
+				minetest.add_node(pos, {name = "default"..mossyobjects[i][2], param2 = fdir})
 			end
 		end,
 	})

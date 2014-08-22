@@ -239,7 +239,7 @@ for i in ipairs(beds_list) do
 	minetest.register_alias("bed_"..colour, "default:bed_bottom_"..colour)
 	
 	minetest.register_craft({
-		output = "default:bed_"..colour,
+		output = "default:bed_bottom_"..colour,
 		recipe = {
 			{"default:wool"..colour, "defalut:wool"..colour, "default:woolwhite", },
 			{"group:stick", "", "group:stick", }
@@ -249,7 +249,7 @@ for i in ipairs(beds_list) do
 	minetest.register_craft({
 		output = "default:bed_king_"..colour,
 		recipe = {
-			{"default:bed_"..colour, "default:bed_"..colour, "default:bed_"..colour, },
+			{"default:bed_bottom_"..colour, "default:bed_bottom_"..colour, "default:bed_bottom_"..colour, },
 		}
 	})
 
@@ -292,7 +292,7 @@ for i in ipairs(beds_list) do
 		paramtype2 = "facedir",
 		walkable = true,
 		is_ground_content = true,
-		groups = {crumbly=3},
+		groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 		sounds = default.node_sound_defaults(),
 		drawtype = "nodebox",
 		node_box = {

@@ -317,7 +317,7 @@ minetest.register_node("default:acaciatree_t", {
 	tiles = {"default_acaciatree.png"},
 	paramtype2 = "facedir",
 	is_ground_content = false,
-	groups = {tree=1,choppy=2,oddly_breakable_by_hand=1,flammable=2},
+	groups = {tree=1,choppy=2,oddly_breakable_by_hand=1,flammable=2,treedecay=1},
 	sounds = default.node_sound_wood_defaults(),
 	on_place = minetest.rotate_node,
 	paramtype = "light",
@@ -2040,7 +2040,7 @@ minetest.register_node("default:sapling", {
 })
 
 minetest.register_node("default:sapling_apple", {
-	description = "Sapling",
+	description = "Apple Sapling",
 	drawtype = "plantlike",
 	visual_scale = 1.0,
 	tiles = {"default_sapling.png"},
