@@ -455,6 +455,7 @@ minetest.register_node("default:travelcube", {
     drawtype = "glasslike",
     sunlight_propagates = true,
     paramtype = 'light',
+    paramtype2 = "facedir",
     tiles = {"default_travel_cube.png"},
     light_source = 5,
     groups = {cracky=3, oddly_breakable_by_hand=3},
