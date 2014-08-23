@@ -1,0 +1,189 @@
+		   ____________________           
+		  / ____/ ____/__  /__ \          
+		 / /   / / __   / /__/ /          
+		/ /___/ /_/ /  / // __/           
+		\____/\____/  /_//____/
+				      __  __      
+ 		  _____________  ____/ (_) /______
+		 / ___/ ___/ _ \/ __  / / __/ ___/
+		/ /__/ /  /  __/ /_/ / / /_(__  ) 
+		\___/_/   \___/\__,_/_/\__/____/  
+                                 
+------------------------------------------------------------------
+------------------------------------------------------------------
+------ All code and textures may/have been changed by cg72  ------
+----- for use in this game! thanks to every modder for the  ------
+---- origional mod(s) as I love them or it wouldnt be here! ------
+------------------------------------------------------------------
+------------------------------------------------------------------
+
+
+                             MODS:
+==================================================================
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+         All mods by cg72 are
+license: code WTFPL, textures CC-BY-SA 3.0
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  all standard default and included mods 
+      are licensed same as normal
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+------------------------------------------------------------------
+xban: code by kaeza,
+--------------------
+license: BSD 2 Clause License
+Copyright (c) 2013, Diego Martínez
+All rights reserved.
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+* Redistributions of source code must retain the above copyright notice,
+this list of conditions and the following disclaimer.
+* Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.
+
+------------------------------------------------------------------
+markers: code by sokomine
+--------------------
+license: GPLv3
+
+------------------------------------------------------------------
+unified_inventory: code by RealBadAngel
+--------------------
+license: GPLv3+
+
+------------------------------------------------------------------
+areas: code by ShadowNinja
+--------------------
+license: LGPLv2.1+
+
+------------------------------------------------------------------
+ban_hammer: code by Evergreen 
+--------------------
+license: GPL v3
+
+------------------------------------------------------------------
+campfires: code by Doc
+--------------------
+license: WTFPL
+
+------------------------------------------------------------------
+death_messages: code by Evergreen
+--------------------
+license: GLP v3
+
+------------------------------------------------------------------
+nightclub (some items only): code by doyouscetch2
+--------------------
+license: Code: GPL 2.0+, Textures: CC-BY-SA 3.0
+
+------------------------------------------------------------------
+streets ( some items only): code by webdesigner97
+--------------------
+license: CC-BY-SA 3.0
+
+------------------------------------------------------------------
+future_ban: code by cactus_pl
+--------------------
+license: WTFPL
+
+------------------------------------------------------------------
+gender: code and models by jordach
+--------------------
+license:
+
+------------------------------------------------------------------
+homedecor ( some items): code by VanessaE
+--------------------
+license: code LGPL, textures WTFPL
+
+------------------------------------------------------------------
+inbox: code by Aqua
+--------------------
+license: WTFPL
+
+------------------------------------------------------------------
+item_tweaks (item drop from technic): 
+--------------------
+license:
+
+------------------------------------------------------------------
+mtz_flora (some items): code by Zeno
+--------------------
+license: 
+
+------------------------------------------------------------------
+plasticbox: code by cheapie
+--------------------
+license: WTFPL
+
+-------------------------------------------------------------------
+replacer: code by Sokomine
+--------------------
+license: GPL v3
+
+------------------------------------------------------------------
+sethome: code by jordach
+--------------------
+license:
+
+------------------------------------------------------------------
+tpr: code by Traxie21
+--------------------
+license: WTFPL
+
+------------------------------------------------------------------
+plasmascreen: code by qwrwed
+rewrite by cg72
+--------------------
+license: WTFPL
+
+------------------------------------------------------------------
+worldedit: code by sfan5
+--------------------
+license: GNU AGPL 3
+
+------------------------------------------------------------------
+gloopblocks (some items): code by VanessaE
+--------------------
+license: WTFPL
+
+------------------------------------------------------------------
+memorandum: code by Mossmanikin
+--------------------
+license: WTFPL
+
+------------------------------------------------------------------
+beds (decrotive only): code by PilzAdam
+--------------------
+license: WTFPL
+
+------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
