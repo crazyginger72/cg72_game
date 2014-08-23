@@ -15,6 +15,8 @@ function default.grow_tree(data, a, pos, is_apple_tree, seed)
         local th = pr:next(4, 8)
         local x, y, z = pos.x, pos.y, pos.z
         local ln = 11
+        local leaves_buffer = {}
+        local leaves_a = nil
         for yy = y, y+th-1 do
                 local vi = a:index(x, yy, z)
                 if a:contains(x, yy, z) and (data[vi] == c_air or yy == y) then
@@ -23,14 +25,17 @@ function default.grow_tree(data, a, pos, is_apple_tree, seed)
         end
         if is_apple_tree == true then 
                 th = 5
-                ln = 30
+                ln = 100
+                y = y+th-1 -- (x, y, z) is now last piece of trunk
+                leaves_a = VoxelArea:new{MinEdge={x=-3, y=-2, z=-3}, MaxEdge={x=3, y=3, z=3}}
+        else
+              y = y+th-1 -- (x, y, z) is now last piece of trunk
+                leaves_a = VoxelArea:new{MinEdge={x=-2, y=-3, z=-2}, MaxEdge={x=2, y=2, z=2}}
+                if th <= 6 then
+                        leaves_a = VoxelArea:new{MinEdge={x=-2, y=-2, z=-2}, MaxEdge={x=2, y=2, z=2}}
+                end  
         end
-        y = y+th-1 -- (x, y, z) is now last piece of trunk
-        local leaves_a = VoxelArea:new{MinEdge={x=-2, y=-3, z=-2}, MaxEdge={x=2, y=2, z=2}}
-        local leaves_buffer = {}
-        if th <= 6 then
-                leaves_a = VoxelArea:new{MinEdge={x=-2, y=-2, z=-2}, MaxEdge={x=2, y=2, z=2}}
-        end
+
         -- Force leaves near the trunk
         local d = 1
         for xi = -d, d do
