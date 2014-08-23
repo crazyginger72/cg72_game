@@ -10,7 +10,7 @@ function default.grow_tree(data, a, pos, is_apple_tree, seed)
                 NOTE: Tree-placing code is currently duplicated in the engine
                 and in games that have saplings; both are deprecated but not
                 replaced yet
-        ]]--
+        
         local pr = PseudoRandom(seed)
         local hight = pr:next(4, 5)
         for tree_h = 0, hight-1 do  -- add the trunk
@@ -35,9 +35,9 @@ function default.grow_tree(data, a, pos, is_apple_tree, seed)
                 end       
         end
         end
-        end
+        end]]--
 
-        --[[
+        
         local pr = PseudoRandom(seed)
         local th = pr:next(4, 9)
         local x, y, z = pos.x, pos.y, pos.z
@@ -112,7 +112,7 @@ function default.grow_tree(data, a, pos, is_apple_tree, seed)
         end
         end
         end
-end]]--
+end--]]--
 
 local c_jungletree = minetest.get_content_id("default:jungletree_gen")
 local c_jungleleaves = minetest.get_content_id("default:jungleleaves")
