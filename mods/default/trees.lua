@@ -34,7 +34,8 @@ function default.grow_tree(data, a, pos, is_apple_tree, seed)
          end       
     end
     end
-    end--[[
+    end
+end--[[
 
         
         local pr = PseudoRandom(seed)
