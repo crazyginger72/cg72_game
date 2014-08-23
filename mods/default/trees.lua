@@ -15,7 +15,7 @@ function default.grow_tree(data, a, pos, is_apple_tree, seed)
     local hight = pr:next(4, 5)
     for tree_h = 0, hight-1 do  -- add the trunk
             local area_t = a:index(pos.x, pos.y+tree_h, pos.z)  --set area for tree
-            if data[area_t] ~= c_air then    --sets if not air
+            if data[area_t] == c_air then    --sets if air
                 data[area_t] = c_tree    --add tree now
             end
     end
