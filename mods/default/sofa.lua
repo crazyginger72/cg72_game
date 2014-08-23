@@ -132,7 +132,7 @@ for i in ipairs(sofa_list) do
 		recipe = {
 			{"default:slab_wool"..colour, "default:wool"..colour, "default:wool"..colour, },
 			{"default:slab_wood",         "default:slab_wood",    "default:slab_wood", },
-			{"group:stick",               "",                     "group:stick", }
+			{"default:stick",             "",                     "default:stick", }
 		}
 	})
 
@@ -141,8 +141,7 @@ for i in ipairs(sofa_list) do
 		recipe = {
 			{"default:wool"..colour, "default:wool"..colour, "default:wool"..colour, },
 			{"default:slab_wood",    "default:slab_wood",    "default:slab_wood", },
-			{"group:stick",          "",                     "group:stick", }
-		}
+			{"default:stick",        "",                     "default:stick", },
 	})
 
 	minetest.register_craft({
@@ -150,7 +149,7 @@ for i in ipairs(sofa_list) do
 		recipe = {
 			{"default:wool"..colour, "default:wool"..colour, "default:slab_wool"..colour, },
 			{"default:slab_wood",    "default:slab_wood",    "default:slab_wood", },
-			{"group:stick",          "",                     "group:stick", }
+			{"default:stick",        "",                     "default:stick", }
 		} 
 	})
 
