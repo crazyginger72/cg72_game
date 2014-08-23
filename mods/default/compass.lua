@@ -351,7 +351,7 @@ function compassgps.get_confirm_formspec(playername,bkmrkidx)
     then return end
   local bkmrk=textlist_bkmrks[playername][bkmrkidx]
 
-	return "compassgps:confirm_remove", "size[8,2;]"..
+	return "default:confirm_remove", "size[8,2;]"..
     "label[0,0.2;Remove bookmark: "..compassgps.bookmark_name_string(bkmrk).." ?]"..
 		"button[0,0.7;4,1;confirm_remove_yes;Yes]"..
     "button[4,0.7;4,1;confirm_remove_no;No]"
@@ -374,7 +374,7 @@ minetest.register_on_player_receive_fields(function(player,formname,fields)
 	end
 
 	local playername = player:get_player_name();
-	if (playername ~= "" and formname == "compassgps:bookmarks") then
+	if (playername ~= "" and formname == "default:bookmarks") then
     --"bookmark" field is set EVERY time.  I would like to detect someone hitting
     --enter in that field, but the problem is, if someone types something into
     --the bookmark field, and then clicks on a bookmark in the textlist,
@@ -459,7 +459,7 @@ minetest.register_on_player_receive_fields(function(player,formname,fields)
       --bring up settings screen
       minetest.show_formspec(playername, compassgps.get_settings_formspec(playername))
 		end --compassgps formspec
-  elseif (playername ~= "" and formname == "compassgps:settings") then
+  elseif (playername ~= "" and formname == "default:settings") then
     if fields["hud_pos"] then --and fields["hudx"] and fields["hudy"] then
       --minetest.chat_send_all("hud_pos triggered")
       if tonumber(fields["hudx"]) and tonumber(fields["hudy"]) then
@@ -467,16 +467,16 @@ minetest.register_on_player_receive_fields(function(player,formname,fields)
         hud_pos[playername].y=fields["hudy"]
         if tonumber(hud_pos[playername].x)<0 or tonumber(hud_pos[playername].x)>1
            or tonumber(hud_pos[playername].y)<0 or tonumber(hud_pos[playername].y)>1 then
-        minetest.chat_send_player(playername,"compassgps: hud coords out of range, hud will not be displayed.  Change to between 0 and 1 to restore")
+        minetest.chat_send_player(playername,"default: hud coords out of range, hud will not be displayed.  Change to between 0 and 1 to restore")
         --compassgps.write_settings() --no need to save until you quit
         end
       else --not numbers
-        minetest.chat_send_player(playername,"compassgps: hud coords are not numeric.  Change to between 0 and 1")
+        minetest.chat_send_player(playername,"default: hud coords are not numeric.  Change to between 0 and 1")
       end --if x,y valid
       if tonumber(fields["hudcolor"],16) then
         hud_color[playername]=fields["hudcolor"]
       else
-        mintest.chat_send_player(playername,"compassgps: hud color not valid hex number")
+        mintest.chat_send_player(playername,"default: hud color not valid hex number")
       end --if color valid
     elseif fields["compass_type_a"] then
       compass_type[playername]="a"
@@ -485,7 +485,7 @@ minetest.register_on_player_receive_fields(function(player,formname,fields)
     elseif fields["compass_type_c"] then
       compass_type[playername]="c"
     end --if fields["hud_pos"]
-  elseif (playername ~= "" and formname == "compassgps:confirm_remove") then
+  elseif (playername ~= "" and formname == "default:confirm_remove") then
     if fields["confirm_remove_yes"] then
       compassgps.remove_bookmark(playername, textlist_clicked[playername])
   		minetest.show_formspec(playername, compassgps.get_compassgps_formspec(playername))
@@ -680,7 +680,7 @@ function compassgps.verify_bookmark_parms(from_function,player,playername,bkmrki
   end --if not tonumber(bkmrkidx)
   if not textlist_bkmrks[playername][bkmrkidx] then
     print("compassgps."..from_function.." invalid bookmark playername="..playername.." bkmrkid="..bkmrkidx)
-    minetest.chat_send_player(playername,"compassgps:"..from_function.." invalid bookmark")
+    minetest.chat_send_player(playername,"default:"..from_function.." invalid bookmark")
     return false
   end   --if not textlist_bkmrks
   return true --if you got here it is all good
@@ -912,7 +912,7 @@ minetest.register_globalstep(function(dtime)
     --first check to see if the user has a compass, because if they don't
     --there is no reason to waste time calculating bookmarks or spawnpoints.
 		local wielded_item = player:get_wielded_item():get_name()
-		if string.sub(wielded_item, 0, 11) == "compassgps:" then
+		if string.sub(wielded_item, 0, 11) == "default:" then
       --if the player is wielding a compass, change the wielded image
       wielded=true
       stackidx=1
@@ -923,7 +923,7 @@ minetest.register_globalstep(function(dtime)
         --is there a way to only check the activewidth items instead of entire list?
         --problem being that arrays are not sorted in lua
 				for i,stack in ipairs(player:get_inventory():get_list("main")) do
-					if i<=activewidth and string.sub(stack:get_name(), 0, 11) == "compassgps:" then
+					if i<=activewidth and string.sub(stack:get_name(), 0, 11) == "default:" then
             activeinv=stack  --store the stack so we can update it later with new image
             stackidx=i --store the index so we can add image at correct location
             gotacompass=true
@@ -948,11 +948,11 @@ minetest.register_globalstep(function(dtime)
 
       --update compass image to point at target
   		if wielded then
-        player:set_wielded_item("compassgps:"..
+        player:set_wielded_item("default:"..
             compassgps.compass_type_name(playername,compass_image))
       elseif activeinv then
 				--player:get_inventory():remove_item("main", activeinv:get_name())
-        player:get_inventory():set_stack("main",stackidx,"compassgps:"..
+        player:get_inventory():set_stack("main",stackidx,"default:"..
             compassgps.compass_type_name(playername,compass_image))
       end --if wielded elsif activin
 
@@ -1130,7 +1130,7 @@ function compassgps.get_compassgps_formspec(name)
     "checkbox[4.35,2.0;show_admin;Admin;"..view_type_A[name].."]"
   end
 
-	return "compassgps:bookmarks", "size[9,10;]"..
+	return "default:bookmarks", "size[9,10;]"..
 		"field[0,0.2;5,1;bookmark;bookmark:;]"..
     "button[5.5,0;2.25,0.8;settings;Settings]"..
 		"button[0,0.7;2.3,1;new_bookmark;create bookmark]"..
@@ -1153,7 +1153,7 @@ end --get_compassgps_formspec
 function compassgps.get_settings_formspec(name)
 	local player = minetest.get_player_by_name(name)
 
-	return "compassgps:settings", "size[8,4;]"..
+	return "default:settings", "size[8,4;]"..
     "button[1,0.2;2.25,1;hud_pos;Change hud:]"..
     "field[3.6,0.5;1.2,1;hudx;X:("..hud_default_x..");"..hud_pos[name].x.."]"..
     "field[4.8,0.5;1.2,1;hudy;Y:("..hud_default_y..");"..hud_pos[name].y.."]"..
@@ -1180,8 +1180,8 @@ for i=1,12 do
   	end
     ctypename=compassgps.compass_type_name("",(i-1),ctype)
     img="compass_"..ctypename..".png"
-    --print("registering compassgps:"..ctypename.." img="..img)
-  	minetest.register_tool("compassgps:"..ctypename, {
+    --print("registering default:"..ctypename.." img="..img)
+  	minetest.register_tool("default:"..ctypename, {
   		description = "compassgps",
   		inventory_image = img,
   		wield_image = img, --.."^[transformR90"  didn't work
@@ -1197,7 +1197,7 @@ for i=1,12 do
 end --for i,img
 
 minetest.register_craft({
-	output = 'compassgps:1',
+	output = 'default:1',
 	recipe = {
 		{'', 'default:steel_ingot', ''},
 		{'default:steel_ingot', 'default:mese_crystal_fragment', 'default:steel_ingot'},
