@@ -352,7 +352,8 @@ travelnet.on_receive_fields = function(pos, formname, fields, player)
 
    -- transport the player to the target location
    local target_pos = travelnet.targets[ owner_name ][ station_network ][ fields.target ].pos;
-   player:moveto( target_pos, false);
+   local to_pos = { x=target_pos.x, y=target_pos.y+1, z=target_pos.z }
+   player:moveto( to_pos, false);
 
    -- check if the box has at the other end has been removed.
    local node2 = minetest.env:get_node(  target_pos );
