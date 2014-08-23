@@ -154,10 +154,10 @@ function default.grow_jungletree(data, a, pos, seed)
         if pr:next(1, 3) >= 2 then
             local area_r = a:index(pos.x+roots_x, pos.y+1, pos.z+roots_z)
             local area_r2 = a:index(pos.x+roots_x, pos.y, pos.z+roots_z)
-            if a:contains(pos.x+roots_x, pos.y-1, pos.z+roots_z) and data[area_r2] == c_air and data[a:index(pos.x+roots_x, pos.y-1, pos.z+roots_z)] ~= c_air then
+            if a:contains(pos.x+roots_x, pos.y-1, pos.z+roots_z) and data[area_r1] == c_air and data[a:index(pos.x+roots_x, pos.y-1, pos.z+roots_z)] ~= c_air then
+                data[area_r1] = c_jungletree
+            elseif a:contains(pos.x+roots_x, pos.y, pos.z+roots_z) and data[varea_r2] == c_air and data[a:index(pos.x+roots_x, pos.y, pos.z+roots_z)] ~= c_air then
                 data[area_r2] = c_jungletree
-            elseif a:contains(pos.x+roots_x, pos.y, pos.z+roots_z) and data[varea_r] == c_air and data[a:index(pos.x+roots_x, pos.y, pos.z+roots_z)] ~= c_air then
-                data[area_r] = c_jungletree
             end
         end
     end
