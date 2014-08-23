@@ -12,25 +12,38 @@ function default.grow_tree(data, a, pos, is_apple_tree, seed)
                 replaced yet
         ]]--
     local pr = PseudoRandom(seed)
-    local hight = pr:next(4, 5)
-
-    for x_area = -2, 2 do
-    for y_area = -1, 2 do
-    for z_area = -2, 2 do
+    local hight = pr:next(4, 9)
+    if is_apple_tree == true then
+    hight = 5   
+    for x_area = -3, 3 do
+    for y_area = -2, 3 do
+    for z_area = -3, 3 do
         if pr:next(1,30) < 23 then  --randomize leaves
             local area_l = a:index(pos.x+x_area, pos.y+hight+y_area-1, pos.z+z_area)  --sets area for leaves
             if data[area_l] ~= c_air or data[area_l] ~= c_ignore then    --sets if not air or ignore
-                if is_apple_tree == true and pr:next(1, 100) <=  10 then  --randomize apples
+                if pr:next(1, 30) <=  10 then  --randomize apples
                     data[area_l] = c_apple  --add apples now
                 else 
-                    data[area_l] = c_leaves    --add leaves now
+                    data[area_l] = c_aleaves    --add leaves now
                 end
             end
          end       
     end
     end
     end
-
+else
+    for x_area = -2, 2 do
+    for y_area = -1, 2 do
+    for z_area = -2, 2 do
+        if pr:next(1,30) < 23 then  --randomize leaves
+            local area_l = a:index(pos.x+x_area, pos.y+hight+y_area-1, pos.z+z_area)  --sets area for leaves
+            if data[area_l] ~= c_air or data[area_l] ~= c_ignore then    --sets if not air or ignore 
+                data[area_l] = c_leaves    --add leaves now
+            end
+         end       
+    end
+    end
+    end
     for tree_h = 0, hight-1 do  -- add the trunk
         local area_t = a:index(pos.x, pos.y+tree_h, pos.z)  --set area for tree
         if data[area_t] == c_air or data[area_t] == c_leaves or data[area_t] == c_apple then    --sets if air
@@ -127,11 +140,11 @@ function default.grow_jungletree(data, a, pos, seed)
                 replaced yet
         ]]--
     local pr = PseudoRandom(seed)
-    local hight = pr:next(8, 12)
+    local hight = pr:next(11, 23)
 
-    for x_area = -3, 3 do
-    for y_area = -2, 2 do
-    for z_area = -3, 3 do
+    for x_area = -5, 5 do
+    for y_area = -6, 4 do
+    for z_area = -5, 5 do
         if pr:next(1,30) < 23 then  --randomize leaves
             local area_l = a:index(pos.x+x_area, pos.y+hight+y_area-1, pos.z+z_area)  --sets area for leaves
             if data[area_l] ~= c_air or data[area_l] ~= c_ignore then    --sets if not air or ignore
@@ -151,115 +164,17 @@ function default.grow_jungletree(data, a, pos, seed)
 
     for roots_x = -1, 1 do
     for roots_z = -1, 1 do
-        if pr:next(1, 3) >= 2 then
-            --local area_r = a:index(pos.x+roots_x, pos.y, pos.z+roots_z)
-            --local area_r2 = a:index(pos.x+roots_x, pos.y, pos.z+roots_z)
+        if pr:next(1, 3) >= 2 then  --randomize roots
             if a:contains(pos.x+roots_x, pos.y-1, pos.z+roots_z) and data[a:index(pos.x+roots_x, pos.y-1, pos.z+roots_z)] == c_air then
                 data[a:index(pos.x+roots_x, pos.y-1, pos.z+roots_z)] = c_jungletree
             elseif a:contains(pos.x+roots_x, pos.y, pos.z+roots_z) and data[a:index(pos.x+roots_x, pos.y, pos.z+roots_z)] == c_air then
                 data[a:index(pos.x+roots_x, pos.y, pos.z+roots_z)] = c_jungletree
             end
-            --[[if a:contains(pos.x+roots_x, pos.y-1, pos.z+roots_z) and data[area_r1] == c_air and data[a:index(pos.x+roots_x, pos.y-1, pos.z+roots_z)] ~= c_air then
-                data[area_r1] = c_jungletree
-            elseif a:contains(pos.x+roots_x, pos.y, pos.z+roots_z) and data[varea_r2] == c_air and data[a:index(pos.x+roots_x, pos.y, pos.z+roots_z)] ~= c_air then
-                data[area_r2] = c_jungletree
-            end]]--
         end
     end
     end
 
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
---[[
-
-        local pr = PseudoRandom(seed)
-        local x, y, z = pos.x, pos.y, pos.z
-        for xi = -1, 1 do
-        for zi = -1, 1 do
-                if pr:next(1, 3) >= 2 then
-                        local vi1 = a:index(x+xi, y, z+zi)
-                        local vi2 = a:index(x+xi, y-1, z+zi)
-                        if a:contains(x+xi, y-1, z+zi) and data[vi2] == c_air then
-                                data[vi2] = c_jungletree
-                        elseif a:contains(x+xi, y, z+zi) and data[vi1] == c_air then
-                                data[vi1] = c_jungletree
-                        end
-                end
-        end
-        end
-        
-        local th = pr:next(11, 23)
-        for yy = y, y+th-1 do
-                local vi = a:index(x, yy, z)
-                if a:contains(x, yy, z) and (data[vi] == c_air or data[vi] == c_jungleleaves or yy == y) then
-                        data[vi] = c_jungletree
-                end
-        end
-        y = y+th-1 -- (x, y, z) is now last piece of trunk
-        local leaves_a = VoxelArea:new{MinEdge={x=-5, y=-6, z=-5}, MaxEdge={x=5, y=3, z=5}}
-        local leaves_buffer = {}
-        
-        -- Force leaves near the trunk
-        local d = 1
-        for xi = -d, d do
-        for yi = -d, d do
-        for zi = -d, d do
-                leaves_buffer[leaves_a:index(xi, yi, zi)] = true
-        end
-        end
-        end
-        
-        -- Add leaves randomly
-        for iii = 1, 150 do
-                local d = 1
-                local xx = pr:next(leaves_a.MinEdge.x, leaves_a.MaxEdge.x - d)
-                local yy = pr:next(leaves_a.MinEdge.y, leaves_a.MaxEdge.y - d)
-                local zz = pr:next(leaves_a.MinEdge.z, leaves_a.MaxEdge.z - d)
-                
-                for xi = 0, d do
-                for yi = 0, d do
-                for zi = 0, d do
-                        leaves_buffer[leaves_a:index(xx+xi, yy+yi, zz+zi)] = true
-                end
-                end
-                end
-        end
-        
-        -- Add the leaves
-        for xi = leaves_a.MinEdge.x, leaves_a.MaxEdge.x do
-        for yi = leaves_a.MinEdge.y, leaves_a.MaxEdge.y do
-        for zi = leaves_a.MinEdge.z, leaves_a.MaxEdge.z do
-                if a:contains(x+xi, y+yi, z+zi) then
-                        local vi = a:index(x+xi, y+yi, z+zi)
-                        if data[vi] == c_air or data[vi] == c_ignore then
-                                if leaves_buffer[leaves_a:index(xi, yi, zi)] then
-                                        data[vi] = c_jungleleaves
-                                end
-                        end
-                end
-        end
-        end
-        end
-end]]--
 
 function default.grow_acaciatree(data, a, pos, seed) --watershed_acaciatree(x, y, z, area, data)
 	local c_actree = minetest.get_content_id("default:acaciatree_gen")  --trunk
