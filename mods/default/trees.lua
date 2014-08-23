@@ -13,12 +13,7 @@ function default.grow_tree(data, a, pos, is_apple_tree, seed)
         ]]--
     local pr = PseudoRandom(seed)
     local hight = pr:next(4, 5)
-    for tree_h = 0, hight-1 do  -- add the trunk
-            local area_t = a:index(pos.x, pos.y+tree_h, pos.z)  --set area for tree
-            if data[area_t] == c_air then    --sets if air
-                data[area_t] = c_tree    --add tree now
-            end
-    end
+
     for x_area = -2, 2 do
     for y_area = -1, 2 do
     for z_area = -2, 2 do
@@ -35,6 +30,14 @@ function default.grow_tree(data, a, pos, is_apple_tree, seed)
     end
     end
     end
+
+    for tree_h = 0, hight-1 do  -- add the trunk
+        local area_t = a:index(pos.x, pos.y+tree_h, pos.z)  --set area for tree
+        if data[area_t] == c_air or data[area_t] == c_leaves or data[area_t] == c_apple then    --sets if air
+            data[area_t] = c_tree    --add tree now
+        end
+    end
+
 end--[[
 
         
