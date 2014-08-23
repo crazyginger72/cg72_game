@@ -18,7 +18,7 @@ function default.grow_tree(data, a, pos, is_apple_tree, seed)
         for x_area = -3, 3 do
         for y_area = -2, 3 do
         for z_area = -3, 3 do
-            if pr:next(1,30) < 23 then  --randomize leaves
+            if pr:next(1,30) < 23 and math.abs(x_area) + math.abs(z_area) ~= 6 and math.abs(x_area) + math.abs(y_area) ~= 6 and math.abs(z_area) + math.abs(y_area) ~= 6 then  --randomize leaves
                 local area_l = a:index(pos.x+x_area, pos.y+hight+y_area-1, pos.z+z_area)  --sets area for leaves
                 if data[area_l] ~= c_air or data[area_l] ~= c_ignore then    --sets if not air or ignore
                     if pr:next(1, 30) <=  10 then  --randomize apples
