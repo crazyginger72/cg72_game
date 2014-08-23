@@ -19,6 +19,7 @@ default = {}
 -- must do first
 dofile(minetest.get_modpath("default").."/functions.lua")
 dofile(minetest.get_modpath("default").."/player.lua")
+dofile(minetest.get_modpath("default").."/gender.lua")
 ---------------------------------------------------------
 dofile(minetest.get_modpath("default").."/areas.lua")
 dofile(minetest.get_modpath("default").."/b_hammer.lua")
@@ -27,7 +28,7 @@ dofile(minetest.get_modpath("default").."/beds.lua")
 dofile(minetest.get_modpath("default").."/bucket.lua")
 dofile(minetest.get_modpath("default").."/campfire.lua")
 dofile(minetest.get_modpath("default").."/coloured_glass.lua")
---dofile(minetest.get_modpath("default").."/compass.lua") --not compatablie with my game 100% yet
+dofile(minetest.get_modpath("default").."/compass.lua") --not compatablie with my game 100% yet
 dofile(minetest.get_modpath("default").."/crafting.lua")
 dofile(minetest.get_modpath("default").."/craftitems.lua")
 dofile(minetest.get_modpath("default").."/creative.lua")
@@ -43,7 +44,6 @@ dofile(minetest.get_modpath("default").."/farming.lua")
 dofile(minetest.get_modpath("default").."/fire.lua")
 dofile(minetest.get_modpath("default").."/flowergen.lua")
 dofile(minetest.get_modpath("default").."/flowers.lua")
-dofile(minetest.get_modpath("default").."/gender.lua")
 dofile(minetest.get_modpath("default").."/give.lua")
 dofile(minetest.get_modpath("default").."/glasses.lua")
 dofile(minetest.get_modpath("default").."/homedecor.lua")

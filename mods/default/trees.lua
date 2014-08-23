@@ -14,6 +14,7 @@ function default.grow_tree(data, a, pos, is_apple_tree, seed)
         local pr = PseudoRandom(seed)
         local th = pr:next(4, 8)
         local x, y, z = pos.x, pos.y, pos.z
+        local ln = 11
         for yy = y, y+th-1 do
                 local vi = a:index(x, yy, z)
                 if a:contains(x, yy, z) and (data[vi] == c_air or yy == y) then
@@ -22,6 +23,7 @@ function default.grow_tree(data, a, pos, is_apple_tree, seed)
         end
         if is_apple_tree == true then 
                 th = 5
+                ln = 30
         end
         y = y+th-1 -- (x, y, z) is now last piece of trunk
         local leaves_a = VoxelArea:new{MinEdge={x=-2, y=-3, z=-2}, MaxEdge={x=2, y=2, z=2}}
@@ -40,7 +42,7 @@ function default.grow_tree(data, a, pos, is_apple_tree, seed)
         end
         
         -- Add leaves randomly
-        for iii = 1, 10 do
+        for iii = 1, ln do
                 local d = 1
                 local xx = pr:next(leaves_a.MinEdge.x, leaves_a.MaxEdge.x - d)
                 local yy = pr:next(leaves_a.MinEdge.y, leaves_a.MaxEdge.y - d)
@@ -103,10 +105,10 @@ function default.grow_jungletree(data, a, pos, seed)
         end
         end
         
-        local th = pr:next(7, 13)
+        local th = pr:next(11, 23)
         for yy = y, y+th-1 do
                 local vi = a:index(x, yy, z)
-                if a:contains(x, yy, z) and (data[vi] == c_air or yy == y) then
+                if a:contains(x, yy, z) and (data[vi] == c_air or data[vi] == c_jungleleaves or yy == y) then
                         data[vi] = c_jungletree
                 end
         end
