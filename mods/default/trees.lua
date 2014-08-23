@@ -196,9 +196,9 @@ function default.grow_acaciatree(data, a, pos, seed) --watershed_acaciatree(x, y
 			for k = -5, 5 do  --sets size of the layer
                                 if math.abs(i) + math.abs(k) ~= 10 and math.abs(i) + math.abs(k) ~= 9 then  --makes the corners rounded off
                                         if math.random(15) ~= 2 then  --adds leaves at random
-                                                local vil = a:index(xa + i, ya + j +th, za + k)  --set area for leaves
-                                                if data[vil] == c_air or data[vil] == c_ignore then  --set only if air or ignore
-                                                        data[vil] = c_acleaf  --add leaves now
+                                                local vil1 = a:index(xa + i, ya + j +th, za + k)  --set area for leaves
+                                                if data[vil1] == c_air or data[vil1] == c_ignore then  --set only if air or ignore
+                                                        data[vil1] = c_acleaf  --add leaves now
                                                 end
                                         end
                                 end
@@ -216,9 +216,9 @@ function default.grow_acaciatree(data, a, pos, seed) --watershed_acaciatree(x, y
                                 or math.abs(i) == 5 and math.abs(k) == 5  --makes the outer rim of leaves
                                 or math.abs(i) == 5 and math.abs(k) == 4  --makes the outer rim of leaves
                                 or math.abs(i) == 4 and math.abs(k) == 5 then  --makes the outer rim of leaves
-                                        local vil = a:index(xa + i, ya + j +th, za + k)  --set area for leaves
-                                        if data[vil] == c_air or data[vil] == c_ignore then  --set only if air or ignore
-                                                data[vil] = c_acleaf  --add leaves now
+                                        local vil2 = a:index(xa + i, ya + j +th, za + k)  --set area for leaves
+                                        if data[vil2] == c_air or data[vil2] == c_ignore then  --set only if air or ignore
+                                                data[vil2] = c_acleaf  --add leaves now
                                         end
                                 end
 				local vit = a:index(xa + i2, ya + j + th, za + k2)  --sets area for wood
@@ -239,23 +239,23 @@ function default.grow_acaciatree(data, a, pos, seed) --watershed_acaciatree(x, y
 			for i = -1, 1 do  --sets size of the layer
 			for k = -1, 1 do  --sets size of the layer
 				if math.abs(i) + math.abs(k) == 2 then  --makes the patern of wood
-					local vit = a:index(xa + i, ya + j + th, za + k)  --set area for wood
-					if data[vit] == c_air or data[vit] == c_ignore or data[vit] == c_acleaf or data[vit] then --set only if air, leaves or ignore
-                                                data[vit] = c_actree2  --add wood now
+					local vit3 = a:index(xa + i, ya + j + th, za + k)  --set area for wood
+					if data[vit3] == c_air or data[vit3] == c_ignore or data[vit3] == c_acleaf or data[vit3] then --set only if air, leaves or ignore
+                                                data[vit3] = c_actree2  --add wood now
                                         end
 				end
 			end
 			end
 		elseif j <= -1  then  --layer for roots
-			local vit = a:index(xa, ya + j , za)  --set area for wood
-                        if data[vit] ~= c_air then  --sets if not air
-                                data[vit] = c_actree2  --add wood now
+			local vit4 = a:index(xa, ya + j , za)  --set area for wood
+                        if data[vit4] ~= c_air then  --sets if not air
+                                data[vit4] = c_actree2  --add wood now
                         end
                 else
                         for t = 0, th do  --layer for main trunk 
-                                local vit = a:index(xa, ya + j + t , za)  --set area for wood
-                                if data[vit] == c_air or data[vit] == c_ignore or data[vit] == c_acleaf then --set only if air, leaves or ignore
-                                        data[vit] = c_actree  --add wood now
+                                local vit5 = a:index(xa, ya + j + t , za)  --set area for wood
+                                if data[vit5] == c_air or data[vit5] == c_ignore or data[vit5] == c_acleaf then --set only if air, leaves or ignore
+                                        data[vit5] = c_actree  --add wood now
                                 end
                         end
 		end
