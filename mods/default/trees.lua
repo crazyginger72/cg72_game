@@ -14,7 +14,7 @@ function default.grow_tree(data, a, pos, is_apple_tree, seed)
         local pr = PseudoRandom(seed)
         local th = pr:next(4, 8)
         local x, y, z = pos.x, pos.y, pos.z
-        local ln = 11
+        local ln = 20
         local leaves_buffer = {}
         local leaves_a = nil
         for yy = y, y+th-1 do
