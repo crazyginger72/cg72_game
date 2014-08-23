@@ -2277,7 +2277,7 @@ minetest.register_node("default:acaciasapling", {
 	sounds = default.node_sound_leaves_defaults(),
 })
 
-minetest.register_alias("gloobblocks:shrubbery_large", "default:shrubbery_large")
+minetest.register_alias("gloopblocks:shrubbery_large", "default:shrubbery_large")
 minetest.register_node("default:shrubbery_large", {
 	description = "Shrubbery",
 	drawtype = "allfaces_optional",
@@ -2288,7 +2288,7 @@ minetest.register_node("default:shrubbery_large", {
 	sounds = default.node_sound_leaves_defaults(),
 })
 
-minetest.register_alias("gloobblocks:shrubbery", "default:shrubbery")
+minetest.register_alias("gloopblocks:shrubbery", "default:shrubbery")
 minetest.register_node("default:shrubbery", {
 	description = "Shrubbery",
 	drawtype = "nodebox",
@@ -2321,7 +2321,7 @@ minetest.register_node("default:shrubbery", {
 	}
 })
 
-minetest.register_alias("gloobblocks:obsidian_cooled", "default:obsidian_cooled")
+minetest.register_alias("gloopblocks:obsidian_cooled", "default:obsidian_cooled")
 minetest.register_node("default:obsidian_cooled", {
 	description = "Obsidian",
 	tiles = {"default_obsidian.png"},
@@ -2334,7 +2334,7 @@ minetest.register_node("default:obsidian_cooled", {
 	end
 })
 
-minetest.register_alias("gloobblocks:basalt", "default:basalt")
+minetest.register_alias("gloopblocks:basalt", "default:basalt")
 minetest.register_node("default:basalt", {
 	description = "Basalt",
 	tiles = {"gloopblocks_basalt.png"},
@@ -2342,7 +2342,7 @@ minetest.register_node("default:basalt", {
 	sounds = default.node_sound_stone_defaults(),
 })
 
-minetest.register_alias("gloobblocks:basalt_cooled", "default:basalt_cooled")
+minetest.register_alias("gloopblocks:basalt_cooled", "default:basalt_cooled")
 minetest.register_node("default:basalt_cooled", {
 	description = "Basalt",
 	tiles = {"gloopblocks_basalt.png"},
@@ -2354,7 +2354,7 @@ minetest.register_node("default:basalt_cooled", {
 	end
 })
 
-minetest.register_alias("gloobblocks:pumice", "default:pumice")
+minetest.register_alias("glopbblocks:pumice", "default:pumice")
 minetest.register_node("default:pumice", {
 	description = "Pumice",
 	tiles = {"gloopblocks_pumice.png"},
@@ -2362,7 +2362,7 @@ minetest.register_node("default:pumice", {
 	sounds = default.node_sound_stone_defaults(),
 })
 
-minetest.register_alias("gloobblocks:pumice_cooled", "default:pumicen_cooled")
+minetest.register_alias("gloopblocks:pumice_cooled", "default:pumicen_cooled")
 minetest.register_node("default:pumice_cooled", {
 	description = "Pumice",
 	tiles = {"gloopblocks_pumice.png"},
@@ -2374,7 +2374,7 @@ minetest.register_node("default:pumice_cooled", {
 	end
 })
 
-minetest.register_alias("gloobblocks:stone_brick_mossy", "default:stone_brick_mossy")
+minetest.register_alias("gloopblocks:stone_brick_mossy", "default:stone_brick_mossy")
 minetest.register_node("default:stone_brick_mossy", {
         description = "Mossy Stone Brick",
         tiles = {"gloopblocks_stone_brick_mossy.png"},
@@ -2382,7 +2382,7 @@ minetest.register_node("default:stone_brick_mossy", {
         sounds = default.node_sound_stone_defaults(),
 })
 
-minetest.register_alias("gloobblocks:stone_mossy", "default:stone_mossy")
+minetest.register_alias("gloopblocks:stone_mossy", "default:stone_mossy")
 minetest.register_node("default:stone_mossy", {
         description = "Mossy Stone",
         tiles = {"gloopblocks_stone_mossy.png"},
