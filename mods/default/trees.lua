@@ -12,9 +12,9 @@ function default.grow_tree(data, a, pos, is_apple_tree, seed)
                 replaced yet
         ]]--
         local pr = PseudoRandom(seed)
-        local th = pr:next(4, 8)
+        local th = pr:next(4, 9)
         local x, y, z = pos.x, pos.y, pos.z
-        local ln = 20
+        local ln = 30
         local leaves_buffer = {}
         local leaves_a = nil
         for yy = y, y+th-1 do
@@ -31,8 +31,10 @@ function default.grow_tree(data, a, pos, is_apple_tree, seed)
         else
               y = y+th-1 -- (x, y, z) is now last piece of trunk
                 leaves_a = VoxelArea:new{MinEdge={x=-2, y=-3, z=-2}, MaxEdge={x=2, y=2, z=2}}
-                if th <= 6 then
+                if th == 5 then
                         leaves_a = VoxelArea:new{MinEdge={x=-2, y=-2, z=-2}, MaxEdge={x=2, y=2, z=2}}
+                elseif th == 4 then
+                        leaves_a = VoxelArea:new{MinEdge={x=-2, y=-1, z=-2}, MaxEdge={x=2, y=2, z=2}}
                 end  
         end
 
