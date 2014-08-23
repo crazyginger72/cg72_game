@@ -17,7 +17,7 @@ function default.grow_tree(data, a, pos, is_apple_tree, seed)
     for x_area = -2, 2 do
     for y_area = -1, 2 do
     for z_area = -2, 2 do
-        if math.random(1,7) ~= 3 then  --randomize leaves
+        if math.random(1,5) ~= 3 then  --randomize leaves
             local area_l = a:index(pos.x+x_area, pos.y+hight+y_area-1, pos.z+z_area)  --sets area for leaves
             if data[area_l] ~= c_air or data[area_l] ~= c_ignore then    --sets if not air or ignore
                 if is_apple_tree == true and math.random(1, 100) <=  10 then  --randomize apples
