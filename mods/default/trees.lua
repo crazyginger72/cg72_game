@@ -125,7 +125,7 @@ function default.grow_jungletree(data, a, pos, seed)
         end
         
         -- Add leaves randomly
-        for iii = 1, 48 do
+        for iii = 1, 100 do
                 local d = 1
                 local xx = pr:next(leaves_a.MinEdge.x, leaves_a.MaxEdge.x - d)
                 local yy = pr:next(leaves_a.MinEdge.y, leaves_a.MaxEdge.y - d)
