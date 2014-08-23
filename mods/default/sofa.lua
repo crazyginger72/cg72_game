@@ -142,6 +142,7 @@ for i in ipairs(sofa_list) do
 			{"default:wool"..colour, "default:wool"..colour, "default:wool"..colour, },
 			{"default:slab_wood",    "default:slab_wood",    "default:slab_wood", },
 			{"default:stick",        "",                     "default:stick", }
+		}
 	})
 
 	minetest.register_craft({
