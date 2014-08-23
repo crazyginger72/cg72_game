@@ -133,8 +133,8 @@ minetest.register_on_punchnode(on_punchnode)
 
 minetest.register_abm({
 	nodenames = {"default:sapling"},
-	interval = 10,
-	chance = 35,
+	interval = 1,--10,
+	chance = 1,--35,
 	action = function(pos, node)
 		local nu =  minetest.get_node({x=pos.x, y=pos.y-1, z=pos.z}).name
 		local is_soil = minetest.get_item_group(nu, "soil")
