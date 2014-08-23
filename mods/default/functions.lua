@@ -156,8 +156,8 @@ minetest.register_abm({
 
 minetest.register_abm({
 	nodenames = {"default:sapling_apple"},
-	interval = 10,
-	chance = 20,
+	interval = 1,--10,
+	chance = 1,--20,
 	action = function(pos, node)
 		local nu =  minetest.get_node({x=pos.x, y=pos.y-1, z=pos.z}).name
 		local is_soil = minetest.get_item_group(nu, "soil")
