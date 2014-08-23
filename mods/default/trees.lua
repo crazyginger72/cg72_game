@@ -11,6 +11,33 @@ function default.grow_tree(data, a, pos, is_apple_tree, seed)
                 and in games that have saplings; both are deprecated but not
                 replaced yet
         ]]--
+                local pr = PseudoRandom(seed)
+        local hight = pr:next(4, 5)
+        for tree_h 0, hight-1 do  -- add the trunk
+                local area_t = a:index(x=pos.x, y=pos.y+tree_h, z=pos.z)  --set area for tree
+                        if data[area_t] ~= c_air then    --sets if not air
+                                data[area_t] = c_tree    --add tree now
+                        end
+                end
+        end
+        for x_area -2, 2 do
+        for y_area -1, 2 do
+        for z_area -2, 2 do
+                if pr:next(1,10) ~= 3 then  --randomize leaves
+                        local area_l = a:index(x=pos.x+x_area, y=pos.y+tree_h+y_area, z=pos.z+z_area)  --sets area for leaves
+                        if data[area_l] ~= c_air or data[area_l] ~= c_ignore then    --sets if not air or ignore
+                                if is_apple_tree == true and pr:next(1, 100) <=  10 then  --randomize apples
+                                        data[area_l] = c_apple  --add apples now
+                                else 
+                                        data[area_l] = c_leaves    --add leaves now
+                                end
+                        end
+                end       
+        end
+        end
+        end
+
+        --[[
         local pr = PseudoRandom(seed)
         local th = pr:next(4, 9)
         local x, y, z = pos.x, pos.y, pos.z
@@ -85,7 +112,7 @@ function default.grow_tree(data, a, pos, is_apple_tree, seed)
         end
         end
         end
-end
+end]]--
 
 local c_jungletree = minetest.get_content_id("default:jungletree_gen")
 local c_jungleleaves = minetest.get_content_id("default:jungleleaves")

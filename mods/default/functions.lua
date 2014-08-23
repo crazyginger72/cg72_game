@@ -572,7 +572,7 @@ minetest.register_abm({
 		local node = minetest.get_node(pos)
 		local node_under = minetest.get_node(pos1)
 		local decay = minetest.registered_nodes[node.name].groups.treedecay
-		local nodes_around = minetest.find_node_near(pos, decay, {"ignore", "group:trunk"})
+		local nodes_around = minetest.find_node_near(pos, decay, {"group:trunk"})
 		if not decay or decay == 0 then
 			return
 		elseif decay ~= 1 and nodes_around then
