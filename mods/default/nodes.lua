@@ -298,7 +298,7 @@ minetest.register_node("default:acaciatree", {
 	tiles = {"default_acaciatree_top.png", "default_acaciatree_top.png", "default_acaciatree.png"},
 	paramtype2 = "facedir",
 	is_ground_content = false,
-	groups = {tree=1,choppy=2,oddly_breakable_by_hand=1,flammable=2},
+	groups = {tree=1,trunk=1,choppy=2,oddly_breakable_by_hand=1,flammable=2},
 	sounds = default.node_sound_wood_defaults(),
 	on_place = minetest.rotate_node,
 	paramtype = "light",
@@ -317,7 +317,7 @@ minetest.register_node("default:acaciatree_t", {
 	tiles = {"default_acaciatree.png"},
 	paramtype2 = "facedir",
 	is_ground_content = false,
-	groups = {choppy=2,oddly_breakable_by_hand=1,flammable=2,treedecay=3},
+	groups = {tree=1,choppy=2,oddly_breakable_by_hand=1,flammable=2,treedecay=3},
 	sounds = default.node_sound_wood_defaults(),
 	on_place = minetest.rotate_node,
 	paramtype = "light",
@@ -371,7 +371,7 @@ minetest.register_node("default:acaciatree_gen", {
 	tiles = {"default_acaciatree_top.png", "default_acaciatree_top.png", "default_acaciatree.png"},
 	paramtype2 = "facedir",
 	is_ground_content = false,
-	groups = {tree=1,choppy=2,oddly_breakable_by_hand=1,flammable=2,treedecay=1,not_in_creative_inventory=1},
+	groups = {tree=1,trunk=1,choppy=2,oddly_breakable_by_hand=1,flammable=2,treedecay=1,not_in_creative_inventory=1},
 	sounds = default.node_sound_wood_defaults(),
 	on_place = minetest.rotate_node,
 	drop = 'default:acaciatree',
@@ -527,7 +527,7 @@ minetest.register_node("default:leaves_apple", {
 	paramtype = "light",
 	waving = 1,
 	is_ground_content = false,
-	groups = {snappy=3, leafdecay=3, flammable=2, leaves=1 ,not_in_creative_inventory=1},
+	groups = {snappy=3, leafdecay=4, flammable=2, leaves=1 ,not_in_creative_inventory=1},
 	drop = {
 		items = {
 			{
