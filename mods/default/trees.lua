@@ -17,7 +17,7 @@ function default.grow_tree(data, a, pos, is_apple_tree, seed)
     for x_area = -2, 2 do
     for y_area = -1, 2 do
     for z_area = -2, 2 do
-        if math.random(1,30) < 20 then  --randomize leaves
+        if math.random(1,30) < 23 then  --randomize leaves
             local area_l = a:index(pos.x+x_area, pos.y+hight+y_area-1, pos.z+z_area)  --sets area for leaves
             if data[area_l] ~= c_air or data[area_l] ~= c_ignore then    --sets if not air or ignore
                 if is_apple_tree == true and math.random(1, 100) <=  10 then  --randomize apples
@@ -126,6 +126,66 @@ function default.grow_jungletree(data, a, pos, seed)
                 and in games that have saplings; both are deprecated but not
                 replaced yet
         ]]--
+    local pr = PseudoRandom(seed)
+    local hight = pr:next(8, 12)
+
+    for x_area = -3, 3 do
+    for y_area = -2, 2 do
+    for z_area = -3, 3 do
+        if math.random(1,30) < 23 then  --randomize leaves
+            local area_l = a:index(pos.x+x_area, pos.y+hight+y_area-1, pos.z+z_area)  --sets area for leaves
+            if data[area_l] ~= c_air or data[area_l] ~= c_ignore then    --sets if not air or ignore
+                data[area_l] = c_jungleleaves    --add leaves now
+            end
+         end       
+    end
+    end
+    end
+
+    for tree_h = 0, hight-1 do  -- add the trunk
+        local area_t = a:index(pos.x, pos.y+tree_h, pos.z)  --set area for tree
+        if data[area_t] == c_air or data[area_t] == c_jungleleaves then    --sets if air
+            data[area_t] = c_jungletree    --add tree now
+        end
+    end
+
+    for roots_x = -1, 1 do
+    for roots_z = -1, 1 do
+        if math.random(1, 3) >= 2 then
+            local area_r = a:index(pos.x+xi, pos.y, pos.z+zi)
+            local area_r2 = a:index(pos.x+xi, pos.y-1, pos.z+zi)
+            if a:contains(pos.x+xi, pos.y-1, pos.z+zi) and data[area_r2] == c_air then
+                data[area_r2] = c_jungletree
+            elseif a:contains(pos.x+xi, pos.y, pos.z+zi) and data[varea_r] == c_air then
+                data[area_r] = c_jungletree
+            end
+        end
+    end
+    end
+
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--[[
+
         local pr = PseudoRandom(seed)
         local x, y, z = pos.x, pos.y, pos.z
         for xi = -1, 1 do
@@ -194,7 +254,7 @@ function default.grow_jungletree(data, a, pos, seed)
         end
         end
         end
-end
+end]]--
 
 function default.grow_acaciatree(data, a, pos, seed) --watershed_acaciatree(x, y, z, area, data)
 	local c_actree = minetest.get_content_id("default:acaciatree_gen")  --trunk
