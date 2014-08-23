@@ -18,6 +18,7 @@ default = {}
 -- Load files
 -- must do first
 dofile(minetest.get_modpath("default").."/functions.lua")
+dofile(minetest.get_modpath("default").."/player.lua")
 ---------------------------------------------------------
 dofile(minetest.get_modpath("default").."/areas.lua")
 dofile(minetest.get_modpath("default").."/b_hammer.lua")
@@ -55,7 +56,6 @@ dofile(minetest.get_modpath("default").."/misc.lua")
 dofile(minetest.get_modpath("default").."/nodes.lua")
 dofile(minetest.get_modpath("default").."/plastic.lua")
 dofile(minetest.get_modpath("default").."/plastic_box.lua")
-dofile(minetest.get_modpath("default").."/player.lua")
 dofile(minetest.get_modpath("default").."/replacer.lua")
 dofile(minetest.get_modpath("default").."/rum.lua")
 dofile(minetest.get_modpath("default").."/screwdriver.lua")
