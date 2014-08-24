@@ -97,8 +97,6 @@ function default.grow_acaciatree(data, a, pos, seed) --watershed_acaciatree(x, y
 local c_actree = minetest.get_content_id("default:acaciatree_gen") --trunk
 local c_actree2 = minetest.get_content_id("default:acaciatree_t") --limbs
 local c_acleaf = minetest.get_content_id("default:acacialeaves") --leaves
-local t1 = os.clock()
-for trys = 0, 10000 do 
 local xa = pos.x
 local ya = pos.y
 local za = pos.z
@@ -188,9 +186,4 @@ for j = -3, 9 do --j is the y axis level of the tree
             end
         end
     end
-end
-print("10,000 in "..os.clock()-t1)
-
-
-
 end
