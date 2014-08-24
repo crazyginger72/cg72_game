@@ -97,15 +97,11 @@ function default.grow_acaciatree(data, a, pos, seed) --watershed_acaciatree(x, y
 local c_actree = minetest.get_content_id("default:acaciatree_gen") --trunk
 local c_actree2 = minetest.get_content_id("default:acaciatree_t") --limbs
 local c_acleaf = minetest.get_content_id("default:acacialeaves") --leaves
-local t1 = os.clock()
-for try = 0, 10000 do
 local xa = pos.x
 local ya = pos.y
 local za = pos.z
-local th = math.random(0,2)--pr:next(0, 2) --adds 0-2 to the hight of the tree
+local th = math.random(0,2) --adds 0-2 to the hight of the tree
 for j = -3, 9 do --j is the y axis level of the tree
-    local pr = PseudoRandom(seed)
-    
     if j > 7 + th then return end --if y is not in the trees range
         if j == 7 + th then --the top layer of leaves
             for i = -3, 3 do --sets size of the layer
@@ -189,8 +185,4 @@ for j = -3, 9 do --j is the y axis level of the tree
             end
         end
     end
-end
-
-print("time"..os.clock()-t1)
-
 end
