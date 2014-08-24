@@ -11,17 +11,16 @@ function default.grow_tree(data, a, pos, is_apple_tree, seed)
                 and in games that have saplings; both are deprecated but not
                 replaced yet
         ]]--
-    local pr = PseudoRandom(seed)
-    local hight = pr:next(4, 9)
+    local hight = math.random(4, 9)
     if is_apple_tree == true then
         hight = 5   
         for x_area = -3, 3 do
         for y_area = -2, 3 do
         for z_area = -3, 3 do
-            if pr:next(1,30) < 23 and math.abs(x_area) + math.abs(z_area) ~= 6 and math.abs(x_area) + math.abs(y_area) ~= 6 and math.abs(z_area) + math.abs(y_area) ~= 6 then  --randomize leaves
+            if math.random(1,30) < 23 and math.abs(x_area) + math.abs(z_area) ~= 6 and math.abs(x_area) + math.abs(y_area) ~= 6 and math.abs(z_area) + math.abs(y_area) ~= 6 then  --randomize leaves
                 local area_l = a:index(pos.x+x_area, pos.y+hight+y_area-1, pos.z+z_area)  --sets area for leaves
                 if data[area_l] ~= c_air or data[area_l] ~= c_ignore then    --sets if not air or ignore
-                    if pr:next(1, 30) <=  10 then  --randomize apples
+                    if math.random(1, 30) <=  10 then  --randomize apples
                         data[area_l] = c_apple  --add apples now
                     else 
                         data[area_l] = c_aleaves    --add leaves now
@@ -35,7 +34,7 @@ function default.grow_tree(data, a, pos, is_apple_tree, seed)
         for x_area = -2, 2 do
         for y_area = -1, 2 do
         for z_area = -2, 2 do
-            if pr:next(1,30) < 23 then  --randomize leaves
+            if math.random(1,30) < 23 then  --randomize leaves
                 local area_l = a:index(pos.x+x_area, pos.y+hight+y_area-1, pos.z+z_area)  --sets area for leaves
                 if data[area_l] ~= c_air or data[area_l] ~= c_ignore then    --sets if not air or ignore 
                     data[area_l] = c_leaves    --add leaves now
@@ -62,12 +61,11 @@ function default.grow_jungletree(data, a, pos, seed)
                 and in games that have saplings; both are deprecated but not
                 replaced yet
         ]]--
-    local pr = PseudoRandom(seed)
-    local hight = pr:next(11, 23)
+    local hight = math.random(11, 23)
     for x_area = -5, 5 do
     for y_area = -6, 4 do
     for z_area = -5, 5 do
-        if pr:next(1,30) < 23 then  --randomize leaves
+        if math.random(1,30) < 23 then  --randomize leaves
             local area_l = a:index(pos.x+x_area, pos.y+hight+y_area-1, pos.z+z_area)  --sets area for leaves
             if data[area_l] ~= c_air or data[area_l] ~= c_ignore then    --sets if not air or ignore
                 data[area_l] = c_jungleleaves    --add leaves now
@@ -84,7 +82,7 @@ function default.grow_jungletree(data, a, pos, seed)
     end
     for roots_x = -1, 1 do
     for roots_z = -1, 1 do
-        if pr:next(1, 3) >= 2 then  --randomize roots
+        if math.random(1, 3) >= 2 then  --randomize roots
             if a:contains(pos.x+roots_x, pos.y-1, pos.z+roots_z) and data[a:index(pos.x+roots_x, pos.y-1, pos.z+roots_z)] == c_air then
                 data[a:index(pos.x+roots_x, pos.y-1, pos.z+roots_z)] = c_jungletree
             elseif a:contains(pos.x+roots_x, pos.y, pos.z+roots_z) and data[a:index(pos.x+roots_x, pos.y, pos.z+roots_z)] == c_air then
@@ -103,8 +101,7 @@ function default.grow_acaciatree(data, a, pos, seed) --watershed_acaciatree(x, y
 	local ya = pos.y
 	local za = pos.z
 	for j = -3, 9 do  --j is the y axis level of the tree
-                local pr = PseudoRandom(seed)
-                local th = pr:next(0, 2)  --adds 0-2 to the hight of the tree
+                local th = math.random(0, 2)  --adds 0-2 to the hight of the tree
                 if j > 7 + th then return end  --if y is not in the trees range 
                 if j == 7 + th then  --the top layer of leaves
                         for i = -3, 3 do  --sets size of the layer
