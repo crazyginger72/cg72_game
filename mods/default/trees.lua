@@ -97,17 +97,18 @@ function default.grow_acaciatree(data, a, pos, seed) --watershed_acaciatree(x, y
 	local c_actree = minetest.get_content_id("default:acaciatree_gen")  --trunk
 	local c_actree2 = minetest.get_content_id("default:acaciatree_t")  --limbs
 	local c_acleaf = minetest.get_content_id("default:acacialeaves")  --leaves
+    local pr = PseudoRandom(seed)
 	local xa = pos.x
 	local ya = pos.y
 	local za = pos.z
 	for j = -3, 9 do  --j is the y axis level of the tree
-                local th = math.random(0, 2)  --adds 0-2 to the hight of the tree
+                local th = pr:next(0, 2)  --adds 0-2 to the hight of the tree
                 if j > 7 + th then return end  --if y is not in the trees range 
                 if j == 7 + th then  --the top layer of leaves
                         for i = -3, 3 do  --sets size of the layer
                         for k = -3, 3 do  --sets size of the layer
                                 if math.abs(i) + math.abs(k) ~= 6 then --makes the corners rounded off
-                                        if math.random(15) ~= 11 then  --adds leaves at random
+                                        if pr:next(15) ~= 11 then  --adds leaves at random
                                                 local vil = a:index(xa + i, ya + j + th, za + k) --set area for leaves
                                                 if data[vil] == c_air or data[vil] == c_ignore then  --set only if air or ignore
                                                         data[vil] = c_acleaf  --add leaves now
@@ -120,7 +121,7 @@ function default.grow_acaciatree(data, a, pos, seed) --watershed_acaciatree(x, y
 			for i = -5, 5 do  --sets size of the layer
 			for k = -5, 5 do  --sets size of the layer
                                 if math.abs(i) + math.abs(k) ~= 10 and math.abs(i) + math.abs(k) ~= 9 then  --makes the corners rounded off
-                                        if math.random(15) ~= 2 then  --adds leaves at random
+                                        if pr:next(15) ~= 2 then  --adds leaves at random
                                                 local vil1 = a:index(xa + i, ya + j +th, za + k)  --set area for leaves
                                                 if data[vil1] == c_air or data[vil1] == c_ignore then  --set only if air or ignore
                                                         data[vil1] = c_acleaf  --add leaves now
