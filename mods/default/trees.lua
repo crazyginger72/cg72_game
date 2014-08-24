@@ -108,7 +108,7 @@ function default.grow_acaciatree(data, a, pos, seed) --watershed_acaciatree(x, y
                         for i = -3, 3 do  --sets size of the layer
                         for k = -3, 3 do  --sets size of the layer
                                 if math.abs(i) + math.abs(k) ~= 6 then --makes the corners rounded off
-                                        if pr:next(15) ~= 11 then  --adds leaves at random
+                                        if math.random(15) ~= 11 then  --adds leaves at random
                                                 local vil = a:index(xa + i, ya + j + th, za + k) --set area for leaves
                                                 if data[vil] == c_air or data[vil] == c_ignore then  --set only if air or ignore
                                                         data[vil] = c_acleaf  --add leaves now
@@ -121,7 +121,7 @@ function default.grow_acaciatree(data, a, pos, seed) --watershed_acaciatree(x, y
 			for i = -5, 5 do  --sets size of the layer
 			for k = -5, 5 do  --sets size of the layer
                                 if math.abs(i) + math.abs(k) ~= 10 and math.abs(i) + math.abs(k) ~= 9 then  --makes the corners rounded off
-                                        if pr:next(15) ~= 2 then  --adds leaves at random
+                                        if math.random(15) ~= 2 then  --adds leaves at random
                                                 local vil1 = a:index(xa + i, ya + j +th, za + k)  --set area for leaves
                                                 if data[vil1] == c_air or data[vil1] == c_ignore then  --set only if air or ignore
                                                         data[vil1] = c_acleaf  --add leaves now
