@@ -100,9 +100,10 @@ local c_acleaf = minetest.get_content_id("default:acacialeaves") --leaves
 local xa = pos.x
 local ya = pos.y
 local za = pos.z
+local th = math.random(0,2)--pr:next(0, 2) --adds 0-2 to the hight of the tree
 for j = -3, 9 do --j is the y axis level of the tree
     local pr = PseudoRandom(seed)
-    local th = math.random(0,2)--pr:next(0, 2) --adds 0-2 to the hight of the tree
+    
     if j > 7 + th then return end --if y is not in the trees range
         if j == 7 + th then --the top layer of leaves
             for i = -3, 3 do --sets size of the layer
