@@ -1,9 +1,8 @@
-The main game for the Minetest game engine [minetest_game]
+crazyginger72's game for the Minetest game engine [cg72_game]
 ==========================================================
 
-To build the wholeness of the Minetest project, insert this repository as
-  /games/minetest_game
-in the Minetest Engine.
+To use this game mode, insert this repository into Minetest's "games" folder,
+as "games/cg72_game".
 
 The Minetest Engine can be found in:
   https://github.com/minetest/minetest/
