@@ -241,91 +241,9 @@ for i in ipairs(beds_list) do
 	minetest.register_craft({
 		output = "default:bed_bottom_"..colour,
 		recipe = {
-			{"default:wool"..colour, "defalut:wool"..colour, "default:woolwhite", },
+			{"default:wool_"..colour, "defalut:wool_"..colour, "default:woolwhite", },
 			{"group:stick", "", "group:stick", }
 		}
-	})
-	
-	minetest.register_craft({
-		output = "default:bed_king_"..colour,
-		recipe = {
-			{"default:bed_bottom_"..colour, "default:bed_bottom_"..colour, "default:bed_bottom_"..colour, },
-		}
-	})
-
---[[minetest.register_node("default:bed_king_bottom_"..colour, {
-		description = beddesc,
-		drawtype = "nodebox",
-		tiles = {"beds_bed_top_bottom_"..colour..".png", "default_wood.png",  "beds_bed_side_"..colour..".png",  "beds_bed_side_"..colour..".png",  "beds_bed_side_"..colour..".png",  "beds_bed_side_"..colour..".png"},
-		paramtype = "light",
-		paramtype2 = "facedir",
-		stack_max = 1,
-		groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=3},
-		sounds = default.node_sound_wood_defaults(),
-		node_box = {
-			type = "fixed",
-			fixed = {
-						-- bed
-						{-0.5, 0.0, -0.5, 0.5, 0.3125, 0.5},
-						
-						-- legs
-						{-0.5, -0.5, -0.5, -0.375, 0.0, -0.375},
-						{0.375, 0.0, -0.375, 0.5, -0.5, -0.5},
-					}
-		},
-		selection_box = {
-			type = "fixed",
-			fixed = {
-						{-0.5, -0.5, -0.5, 0.5, 0.3125, 1.5},
-					}
-		},
-
-})
-]]--
-
-	minetest.register_node("default:bed_king_"..colour, {
-		description = "King size bed",
-		tiles = {"bed_t.png","bed_bt.png","bed_s.png","bed_s.png","bed_bt.png","bed_s.png"},
-		inventory_image = "bed_king.png",
-		weild_image = "bed_king.png",
-		paramtype = "light",
-		paramtype2 = "facedir",
-		walkable = true,
-		is_ground_content = true,
-		groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=3},
-		sounds = default.node_sound_defaults(),
-		drawtype = "nodebox",
-		node_box = {
-			type = "fixed",
-			fixed = {
-				{-1.5, -0.125, -0.5, 1.5, 0.3125, 1.5}, -- NodeBox1
-				{-1.5, 0.3125, 1.49999, 1.5, 0.75, 1.5}, -- NodeBox2
-				{1.3125, -0.5, -0.5, 1.5, -0.125, -0.3125}, -- NodeBox3
-				{-1.5, -0.5, -0.5, -1.3125, -0.125, -0.3125}, -- NodeBox4
-				{-1.5, -0.5, 1.3125, -1.3125, -0.125, 1.5}, -- NodeBox5
-				{1.3125, -0.5, 1.3125, 1.5, -0.125, 1.5}, -- NodeBox6
-				},
-			},
-		on_leftclick = function(pos, node, clicker)
-		local node = minetest.get_node(pos)
-			local param2 = node.param2
-			node.name = "default:bed_top_"..colour
-			if param2 == 0 then
-				pos.z = pos.z+1
-			elseif param2 == 1 then
-				pos.x = pos.x+1
-			elseif param2 == 2 then
-				pos.z = pos.z-1
-			elseif param2 == 3 then
-				pos.x = pos.x-1
-			end
-			if not clicker:is_player() then
-				return
-			end
-			pos.y = pos.y-0.5
-			clicker:setpos(pos)
-			clicker:set_hp(20)
-		end
 	})
 	
 	minetest.register_abm({	
