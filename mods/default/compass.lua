@@ -789,12 +789,7 @@ minetest.register_chatcommand("find_bookmark", {
 })
 
 
-
-
-
 -- compassgps mod
-
-
 
 
 -- default to 0/0/0
