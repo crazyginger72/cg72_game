@@ -16,7 +16,7 @@ minetest.register_craftitem("default:paper", {
 		local fdir = minetest.dir_to_facedir(placer:get_look_dir())
 		if minetest.get_node(above).name == "air" then
 			if (above.x ~= under.x) or (above.z ~= under.z) then
-				minetest.add_node(above, {name="default:letter_empty", param2=wdir[fdir+1]})
+				minetest.add_node(above, {name="default:letter_empty", param2=fdir[fdir+1]})
 			else
 				minetest.add_node(above, {name="default:letter_empty", param2=fdir})
 			end
